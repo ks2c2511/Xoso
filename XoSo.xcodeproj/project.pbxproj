@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		6A79A9871B46F4920098AB4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9861B46F4920098AB4A /* main.m */; };
 		6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9891B46F4920098AB4A /* AppDelegate.m */; };
-		6A79A98D1B46F4920098AB4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A98C1B46F4920098AB4A /* ViewController.m */; };
-		6A79A9901B46F4920098AB4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A98E1B46F4920098AB4A /* Main.storyboard */; };
 		6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9911B46F4920098AB4A /* Images.xcassets */; };
 		6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9931B46F4920098AB4A /* LaunchScreen.xib */; };
 		6A79A9A11B46F4920098AB4A /* XoSoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9A01B46F4920098AB4A /* XoSoTests.m */; };
+		6A79A9C01B46F9F70098AB4A /* UIImage+DrawColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */; };
+		6A79A9C11B46F9F70098AB4A /* NSMutableAttributedString+htmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B51B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.m */; };
+		6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B71B46F9F60098AB4A /* NSObject+AssociatedObject.m */; };
+		6A79A9C31B46F9F70098AB4A /* NSString+FormatNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B91B46F9F60098AB4A /* NSString+FormatNumber.m */; };
+		6A79A9C41B46F9F70098AB4A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9BB1B46F9F60098AB4A /* NSString+HTML.m */; };
+		6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9BD1B46F9F60098AB4A /* UIColor+AppTheme.m */; };
+		6A79A9C61B46F9F70098AB4A /* UIFont+Traits.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9BF1B46F9F60098AB4A /* UIFont+Traits.m */; };
+		6A79A9CA1B46FA7B0098AB4A /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9C91B46FA7B0098AB4A /* BaseController.m */; };
+		8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +39,30 @@
 		6A79A9861B46F4920098AB4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A79A9881B46F4920098AB4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A79A9891B46F4920098AB4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6A79A98B1B46F4920098AB4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6A79A98C1B46F4920098AB4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6A79A98F1B46F4920098AB4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A79A9911B46F4920098AB4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6A79A9941B46F4920098AB4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6A79A99A1B46F4920098AB4A /* XoSoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XoSoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A79A99F1B46F4920098AB4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A79A9A01B46F4920098AB4A /* XoSoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XoSoTests.m; sourceTree = "<group>"; };
+		6A79A9B21B46F9F60098AB4A /* UIImage+DrawColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DrawColor.h"; sourceTree = "<group>"; };
+		6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DrawColor.m"; sourceTree = "<group>"; };
+		6A79A9B41B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+htmlContent.h"; sourceTree = "<group>"; };
+		6A79A9B51B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+htmlContent.m"; sourceTree = "<group>"; };
+		6A79A9B61B46F9F60098AB4A /* NSObject+AssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObject.h"; sourceTree = "<group>"; };
+		6A79A9B71B46F9F60098AB4A /* NSObject+AssociatedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AssociatedObject.m"; sourceTree = "<group>"; };
+		6A79A9B81B46F9F60098AB4A /* NSString+FormatNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FormatNumber.h"; sourceTree = "<group>"; };
+		6A79A9B91B46F9F60098AB4A /* NSString+FormatNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FormatNumber.m"; sourceTree = "<group>"; };
+		6A79A9BA1B46F9F60098AB4A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		6A79A9BB1B46F9F60098AB4A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		6A79A9BC1B46F9F60098AB4A /* UIColor+AppTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppTheme.h"; sourceTree = "<group>"; };
+		6A79A9BD1B46F9F60098AB4A /* UIColor+AppTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppTheme.m"; sourceTree = "<group>"; };
+		6A79A9BE1B46F9F60098AB4A /* UIFont+Traits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Traits.h"; sourceTree = "<group>"; };
+		6A79A9BF1B46F9F60098AB4A /* UIFont+Traits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Traits.m"; sourceTree = "<group>"; };
+		6A79A9C81B46FA7B0098AB4A /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		6A79A9C91B46FA7B0098AB4A /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.debug.xcconfig"; sourceTree = "<group>"; };
+		8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XoSo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +90,8 @@
 				6A79A9831B46F4920098AB4A /* XoSo */,
 				6A79A99D1B46F4920098AB4A /* XoSoTests */,
 				6A79A9821B46F4920098AB4A /* Products */,
+				AE8FB7F81070979017FA0445 /* Pods */,
+				C8C6127E4DF16C6174A60584 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +107,9 @@
 		6A79A9831B46F4920098AB4A /* XoSo */ = {
 			isa = PBXGroup;
 			children = (
+				6A79A9AA1B46F9A60098AB4A /* Class */,
 				6A79A9881B46F4920098AB4A /* AppDelegate.h */,
 				6A79A9891B46F4920098AB4A /* AppDelegate.m */,
-				6A79A98B1B46F4920098AB4A /* ViewController.h */,
-				6A79A98C1B46F4920098AB4A /* ViewController.m */,
-				6A79A98E1B46F4920098AB4A /* Main.storyboard */,
 				6A79A9911B46F4920098AB4A /* Images.xcassets */,
 				6A79A9931B46F4920098AB4A /* LaunchScreen.xib */,
 				6A79A9841B46F4920098AB4A /* Supporting Files */,
@@ -119,6 +143,110 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A79A9AA1B46F9A60098AB4A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				6A79A9AB1B46F9A60098AB4A /* Category */,
+				6A79A9AC1B46F9A60098AB4A /* Controller */,
+				6A79A9AD1B46F9A60098AB4A /* Custom */,
+				6A79A9AE1B46F9A60098AB4A /* Model */,
+				6A79A9AF1B46F9A60098AB4A /* Store */,
+				6A79A9B01B46F9A60098AB4A /* View */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		6A79A9AB1B46F9A60098AB4A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6A79A9B11B46F9F60098AB4A /* Image */,
+				6A79A9B41B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.h */,
+				6A79A9B51B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.m */,
+				6A79A9B61B46F9F60098AB4A /* NSObject+AssociatedObject.h */,
+				6A79A9B71B46F9F60098AB4A /* NSObject+AssociatedObject.m */,
+				6A79A9B81B46F9F60098AB4A /* NSString+FormatNumber.h */,
+				6A79A9B91B46F9F60098AB4A /* NSString+FormatNumber.m */,
+				6A79A9BA1B46F9F60098AB4A /* NSString+HTML.h */,
+				6A79A9BB1B46F9F60098AB4A /* NSString+HTML.m */,
+				6A79A9BC1B46F9F60098AB4A /* UIColor+AppTheme.h */,
+				6A79A9BD1B46F9F60098AB4A /* UIColor+AppTheme.m */,
+				6A79A9BE1B46F9F60098AB4A /* UIFont+Traits.h */,
+				6A79A9BF1B46F9F60098AB4A /* UIFont+Traits.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6A79A9AC1B46F9A60098AB4A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6A79A9AD1B46F9A60098AB4A /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				6A79A9C71B46FA550098AB4A /* BaseController */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		6A79A9AE1B46F9A60098AB4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A79A9AF1B46F9A60098AB4A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		6A79A9B01B46F9A60098AB4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A79A9B11B46F9F60098AB4A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				6A79A9B21B46F9F60098AB4A /* UIImage+DrawColor.h */,
+				6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		6A79A9C71B46FA550098AB4A /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				6A79A9C81B46FA7B0098AB4A /* BaseController.h */,
+				6A79A9C91B46FA7B0098AB4A /* BaseController.m */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		AE8FB7F81070979017FA0445 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */,
+				D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C8C6127E4DF16C6174A60584 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */;
 			buildPhases = (
+				348FE88E5839301CC33C56D1 /* Check Pods Manifest.lock */,
 				6A79A97D1B46F4920098AB4A /* Sources */,
 				6A79A97E1B46F4920098AB4A /* Frameworks */,
 				6A79A97F1B46F4920098AB4A /* Resources */,
+				846F96FE34408A519548EEB2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A79A9901B46F4920098AB4A /* Main.storyboard in Resources */,
 				6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */,
 				6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */,
 			);
@@ -214,14 +343,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		348FE88E5839301CC33C56D1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		846F96FE34408A519548EEB2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XoSo/Pods-XoSo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6A79A97D1B46F4920098AB4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A79A98D1B46F4920098AB4A /* ViewController.m in Sources */,
+				6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */,
+				6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */,
+				6A79A9C01B46F9F70098AB4A /* UIImage+DrawColor.m in Sources */,
 				6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */,
+				6A79A9C41B46F9F70098AB4A /* NSString+HTML.m in Sources */,
 				6A79A9871B46F4920098AB4A /* main.m in Sources */,
+				6A79A9CA1B46FA7B0098AB4A /* BaseController.m in Sources */,
+				6A79A9C61B46F9F70098AB4A /* UIFont+Traits.m in Sources */,
+				6A79A9C11B46F9F70098AB4A /* NSMutableAttributedString+htmlContent.m in Sources */,
+				6A79A9C31B46F9F70098AB4A /* NSString+FormatNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +413,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6A79A98E1B46F4920098AB4A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A79A98F1B46F4920098AB4A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6A79A9931B46F4920098AB4A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -337,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,9 +508,11 @@
 		};
 		6A79A9A51B46F4920098AB4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XoSo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,9 +520,11 @@
 		};
 		6A79A9A61B46F4920098AB4A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XoSo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +583,7 @@
 				6A79A9A61B46F4920098AB4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A79A9A71B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +592,7 @@
 				6A79A9A91B46F4920098AB4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
