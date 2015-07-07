@@ -7,9 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import <ECSlidingViewController.h>
+#import "UIImage+DrawColor.h"
+#import "UIColor+AppTheme.h"
+#import "ConstantDefine.h"
+#import "HomeController.h"
+#import "MenuController.h"
 
-@interface AppDelegate ()
-
+@interface AppDelegate () <ECSlidingViewControllerDelegate>
+@property (nonatomic, strong) ECSlidingViewController *slidingViewController;
+@property (strong,nonatomic) UINavigationController *navigationController;
+@property (strong,nonatomic) UIScreenEdgePanGestureRecognizer *panScreenGesture;
 @end
 
 @implementation AppDelegate
@@ -18,8 +26,119 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self CustomTheme];
+    [self showMainIsOnApp];
+    [self notificationImplement];
+    
+    [self.window makeKeyAndVisible];
+
+    
     return YES;
 }
+
+-(void)notificationImplement {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowLeftMenu) name:notification_show_left_menu object:nil];
+}
+
+#pragma mark - Show main app when On app
+-(void)showMainIsOnApp {
+    HomeController *home = [HomeController new];
+    MenuController *menu = [MenuController new];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:home];
+    [self.navigationController.view addGestureRecognizer:self.panScreenGesture];
+    
+    self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:self.navigationController];
+    
+    self.slidingViewController.underLeftViewController  = menu;
+    
+    self.slidingViewController.anchorRightPeekAmount  = [UIScreen mainScreen].bounds.size.width - ([UIScreen mainScreen].bounds.size.width/ratioMenuAndMainView);
+    
+    [self.slidingViewController setDelegate:self];
+    
+    [self.window setRootViewController:self.slidingViewController];
+    
+}
+
+-(void)ShowLeftMenu{
+    if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight)
+    {
+        //===========================================================
+        //  Close
+        //===========================================================
+        [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+        }];
+    }
+    else if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered){
+        //===========================================================
+        //  Open
+        //===========================================================
+        [self.slidingViewController anchorTopViewToRightAnimated:YES onComplete:^{
+        }];
+    }
+}
+#pragma mark - custom Navigaton
+- (void)CustomTheme {
+    //===========================================================
+    //  UINavigationBar
+    //===========================================================
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance]
+     setBackgroundImage:[UIImage DrawImageWithSize:CGSizeMake(
+                                                              [UIScreen mainScreen]
+                                                              .bounds.size.width,
+                                                              HeightNavigationBar)
+                                             Color:@[[UIColor appNavigationBarColor]]]
+     forBarMetrics:UIBarMetricsDefault];
+    if ([UINavigationBar
+         instancesRespondToSelector:@selector(setBackIndicatorImage:)]) {  // iOS 7
+        [[UINavigationBar appearance]
+         setBackIndicatorImage:
+         [[UIImage imageNamed:@"navigation_back"]
+          imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        [[UINavigationBar appearance]
+         setBackIndicatorTransitionMaskImage:
+         [[UIImage imageNamed:@"navigation_back"]
+          imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
+        [UIBarButtonItem.appearance
+         setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -120.0)
+         forBarMetrics:UIBarMetricsDefault];
+    }
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSFontAttributeName : [UIFont boldSystemFontOfSize:17.0]
+                                                           }];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSFontAttributeName : [UIFont boldSystemFontOfSize:17.0]
+                                                           } forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSFontAttributeName : [UIFont boldSystemFontOfSize:17.0]
+                                                           } forState:UIControlStateHighlighted];
+    
+    
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    
+   
+}
+
+#pragma mark - panGesture
+
+-(UIScreenEdgePanGestureRecognizer *)panScreenGesture {
+    if (!_panScreenGesture) {
+        _panScreenGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(ShowLeftMenu)];
+        _panScreenGesture.edges = UIRectEdgeLeft;
+        
+    }
+    return _panScreenGesture;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

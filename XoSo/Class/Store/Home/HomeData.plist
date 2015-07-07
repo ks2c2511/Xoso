@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Xem KQXS</string>
+		<key>iconname</key>
+		<string>xem_kqxs.png</string>
+		<key>key</key>
+		<string>xem_kqxs</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Loto online</string>
+		<key>iconname</key>
+		<string>loto_online_icon.png</string>
+		<key>key</key>
+		<string>loto_online</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Kiếm xu</string>
+		<key>iconname</key>
+		<string>kiem_xu_</string>
+		<key>key</key>
+		<string>kiem_xu</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Lịch sử chơi</string>
+		<key>iconname</key>
+		<string>lich_su_choi.png</string>
+		<key>key</key>
+		<string>lich_su_choi</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Tường thuật</string>
+		<key>iconname</key>
+		<string>tuong_thuat.png</string>
+		<key>key</key>
+		<string>tuong_thuat</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Thống kê</string>
+		<key>iconname</key>
+		<string>thong_ke.png</string>
+		<key>key</key>
+		<string>thong_ke</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Soi cầu</string>
+		<key>iconname</key>
+		<string>soi_cau.png</string>
+		<key>key</key>
+		<string>soi_cau</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Cầu vip</string>
+		<key>iconname</key>
+		<string>cau_loto_</string>
+		<key>key</key>
+		<string>cau_vip</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Giải mộng</string>
+		<key>iconname</key>
+		<string>giai_mong_icon.png</string>
+		<key>key</key>
+		<string>giai_mong</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Quay thử</string>
+		<key>iconname</key>
+		<string>quay_thu.png</string>
+		<key>key</key>
+		<string>quay_thu</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Game_đấm bốc</string>
+		<key>iconname</key>
+		<string></string>
+		<key>key</key>
+		<string>game_dam_boc</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Phòng chat</string>
+		<key>iconname</key>
+		<string>phong_chat.png</string>
+		<key>key</key>
+		<string>phong_chat</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Tiện ích</string>
+		<key>iconname</key>
+		<string>tien_ich.png</string>
+		<key>key</key>
+		<string>tien_ich</string>
+	</dict>
+</array>
+</plist>

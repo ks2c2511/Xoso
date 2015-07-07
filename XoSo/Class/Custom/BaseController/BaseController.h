@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MarqueeLabel.h>
+#import "ConstantDefine.h"
 
 @interface BaseController : UIViewController
-
+@property (strong,nonatomic) MarqueeLabel *labelNavigationTitleRun;
+@property (strong, nonatomic) UIBarButtonItem *menuButtonItem;
 @end

@@ -10,6 +10,7 @@ target 'XoSo' do
     pod 'SDWebImage', '~> 3.7.1'
 	pod 'MRProgress/Overlay', '~> 0.8.1'
     pod 'MarqueeLabel', '~> 2.1.1'
+    pod 'THCalendarDatePicker', '~> 1.1.1'
 end
 
 

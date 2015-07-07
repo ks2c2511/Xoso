@@ -10,9 +10,9 @@
 
 @interface UIColor (AppTheme)
 
++(UIColor *)appPurpleColor;
++(UIColor *)appRedBackgroundColor;
 +(UIColor *)appGrayTextColor;
-+(UIColor *)appGraySubTextColor;
-+(UIColor *)appGrayImageBorder;
 +(UIColor *)appNavigationBarColor;
-
++(UIColor *)appOrange;
 @end
