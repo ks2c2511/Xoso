@@ -8,6 +8,7 @@
 
 #import "HomeCollectionCell.h"
 
+
 @implementation HomeCollectionCell
 
 -(id)initWithFrame:(CGRect)frame {

@@ -10,6 +10,8 @@
 #import "ConstantDefine.h"
 #import "NSAttributedString+Icon.h"
 #import "UIColor+AppTheme.h"
+#import "User.h"
+#import <NSManagedObject+GzDatabase.h>
 
 @interface MenuController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_W_Table;
@@ -24,21 +26,29 @@
     [super viewDidLoad];
     self.contraint_W_Table.constant = [[UIScreen mainScreen] bounds].size.width/ratioMenuAndMainView;
     
-    self.labelInfoProfile.attributedText = [self attWithName:@"123456789" Email:@"diachiemail@gmail.com" SurPlus:5000];
+    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            User *use = [objects firstObject];
+            self.labelInfoProfile.attributedText = [self attWithName:use.user_name Email:use.email SurPlus:[use.point integerValue]];
+            
+        }
+    }];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
 -(NSAttributedString *)attWithName:(NSString *)name Email:(NSString *)email SurPlus:(NSInteger)surplus {
     NSMutableAttributedString *muAtt = [NSMutableAttributedString new];
-    NSAttributedString *attName = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"%@\n",name] Font:[UIFont boldSystemFontOfSize:14.0] Color:[UIColor whiteColor]];
+    NSAttributedString *attName = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"%@\n",name] Font:[UIFont boldSystemFontOfSize:12] Color:[UIColor whiteColor]];
     [muAtt appendAttributedString:attName];
     
     if (!(email == nil || [email isEqualToString:@""])) {
-        NSAttributedString *attEmail = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"%@\n",email] Font:[UIFont italicSystemFontOfSize:14.0] Color:[UIColor whiteColor]];
+        NSAttributedString *attEmail = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"%@\n",email] Font:[UIFont italicSystemFontOfSize:12] Color:[UIColor whiteColor]];
         [muAtt appendAttributedString:attEmail];
     }
     
-        NSAttributedString *attSurPlus = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"Số dư %ld xu",(long)surplus] Font:[UIFont italicSystemFontOfSize:14.0] Color:[UIColor whiteColor]];
+        NSAttributedString *attSurPlus = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"Số dư %ld xu",(long)surplus] Font:[UIFont italicSystemFontOfSize:12] Color:[UIColor whiteColor]];
         [muAtt appendAttributedString:attSurPlus];
     
     return muAtt;

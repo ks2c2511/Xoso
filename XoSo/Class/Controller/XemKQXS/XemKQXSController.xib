@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XemKQXSController">
             <connections>
                 <outlet property="buttonChonngay" destination="QNY-h6-xhh" id="mhY-kj-cLf"/>
+                <outlet property="containnerViewHeader" destination="MfA-L0-SNH" id="vzD-dg-piK"/>
                 <outlet property="labelNameCity" destination="VCg-BF-D2e" id="PKY-Fc-OB2"/>
                 <outlet property="tableView" destination="TKs-qs-Mg6" id="O0F-IN-eux"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,6 +24,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNY-h6-xhh">
                             <rect key="frame" x="8" y="6" width="119" height="27"/>
+                            <color key="backgroundColor" red="0.60392156862745094" green="0.15294117647058825" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="119" id="n5w-w0-5dN"/>
                             </constraints>
@@ -30,20 +32,27 @@
                             <state key="normal" title="Chọn ngày">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="SelectDate:" destination="-1" eventType="touchUpInside" id="csY-k3-xkQ"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCg-BF-D2e">
-                            <rect key="frame" x="135" y="6" width="129" height="27"/>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCg-BF-D2e">
+                            <rect key="frame" x="135" y="6" width="177" height="27"/>
+                            <color key="backgroundColor" red="0.81568627450980391" green="0.99607843137254903" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                            <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="eiS-oE-fe4" appends="YES" id="UQu-c2-U5z"/>
+                            </connections>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vU-pI-3jN">
-                            <rect key="frame" x="268" y="6" width="46" height="27"/>
-                            <color key="backgroundColor" red="0.84705882349999995" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="264" y="6" width="50" height="27"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="46" id="5C6-TU-t6e"/>
+                                <constraint firstAttribute="width" constant="50" id="5C6-TU-t6e"/>
                             </constraints>
-                            <state key="normal">
+                            <state key="normal" image="ic_arrow_drop_down_36pt.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -51,10 +60,11 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="VCg-BF-D2e" firstAttribute="leading" secondItem="QNY-h6-xhh" secondAttribute="trailing" constant="8" id="2v0-Mc-gWp"/>
                         <constraint firstItem="QNY-h6-xhh" firstAttribute="bottom" secondItem="VCg-BF-D2e" secondAttribute="bottom" id="APh-9u-cpq"/>
+                        <constraint firstAttribute="trailing" secondItem="VCg-BF-D2e" secondAttribute="trailing" constant="8" id="Fzm-yh-oAi"/>
                         <constraint firstItem="QNY-h6-xhh" firstAttribute="top" secondItem="VCg-BF-D2e" secondAttribute="top" id="VeJ-xb-Zt3"/>
                         <constraint firstItem="QNY-h6-xhh" firstAttribute="top" secondItem="MfA-L0-SNH" secondAttribute="top" constant="6" id="XPd-yE-VsU"/>
                         <constraint firstAttribute="trailing" secondItem="0vU-pI-3jN" secondAttribute="trailing" constant="6" id="YUV-nX-MBn"/>
@@ -63,15 +73,19 @@
                         <constraint firstItem="0vU-pI-3jN" firstAttribute="top" secondItem="VCg-BF-D2e" secondAttribute="top" id="erB-hi-S50"/>
                         <constraint firstAttribute="bottom" secondItem="QNY-h6-xhh" secondAttribute="bottom" constant="7" id="gdn-NG-9bF"/>
                         <constraint firstItem="0vU-pI-3jN" firstAttribute="bottom" secondItem="VCg-BF-D2e" secondAttribute="bottom" id="ttD-j6-YkY"/>
-                        <constraint firstItem="0vU-pI-3jN" firstAttribute="leading" secondItem="VCg-BF-D2e" secondAttribute="trailing" constant="4" id="xf5-S3-6pA"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TKs-qs-Mg6">
                     <rect key="frame" x="0.0" y="40" width="320" height="376"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="PFn-xg-52s"/>
+                        <outlet property="delegate" destination="-1" id="Xmq-WQ-f0u"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="MfA-L0-SNH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2RX-YY-FV0"/>
                 <constraint firstItem="TKs-qs-Mg6" firstAttribute="top" secondItem="MfA-L0-SNH" secondAttribute="bottom" id="Fsa-y3-uPK"/>
@@ -83,7 +97,29 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="271" y="212"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="FMy-dW-XzT" appends="YES" id="7MF-Am-5Bs"/>
+                <outletCollection property="gestureRecognizers" destination="X1H-my-HC7" appends="YES" id="tZH-dS-KE6"/>
+            </connections>
+            <point key="canvasLocation" x="420" y="220"/>
         </view>
+        <tapGestureRecognizer id="eiS-oE-fe4">
+            <connections>
+                <action selector="selectCity:" destination="-1" id="23p-fS-G8e"/>
+            </connections>
+        </tapGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="FMy-dW-XzT">
+            <connections>
+                <action selector="LeftSwipe:" destination="-1" id="9Gf-Ua-wr4"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="X1H-my-HC7">
+            <connections>
+                <action selector="RightSwipe:" destination="-1" id="XJ2-Eq-mvz"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
+    <resources>
+        <image name="ic_arrow_drop_down_36pt.png" width="36" height="36"/>
+    </resources>
 </document>

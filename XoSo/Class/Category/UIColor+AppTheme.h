@@ -14,5 +14,6 @@
 +(UIColor *)appRedBackgroundColor;
 +(UIColor *)appGrayTextColor;
 +(UIColor *)appNavigationBarColor;
++(UIColor *)appVioletNavigationBarColor;
 +(UIColor *)appOrange;
 @end

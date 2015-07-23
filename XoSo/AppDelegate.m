@@ -13,6 +13,11 @@
 #import "ConstantDefine.h"
 #import "HomeController.h"
 #import "MenuController.h"
+#import <FMDB.h>
+#import <NSManagedObject+GzDatabase.h>
+#import "Province.h"
+#import "Dream.h"
+#import "SplashController.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -27,10 +32,63 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self CustomTheme];
-    [self showMainIsOnApp];
+//    [self showMainIsOnApp];
+    self.window.rootViewController = [SplashController new];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showMainIsOnApp];
+    });
     [self notificationImplement];
     
+    [GzDatabase ShareDatabaseWithDatamodel:@"Xoso" sqliteName:@"Xoso"];
+    
     [self.window makeKeyAndVisible];
+
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:user_default_loaded_local_database]) {
+        NSString *pathToResource = [[NSBundle mainBundle] pathForResource:@"mydb" ofType:@"db"];
+        
+        NSLog(@"---> start %@", [NSDate date]);
+        FMDatabase *DB =  [FMDatabase databaseWithPath:pathToResource];
+        [DB open];
+        FMResultSet *results = [DB executeQuery:@"select * from LOTTERY_PROVINCE"];
+        
+        while ([results next]) {
+            Province *province = [Province CreateEntityDescription];
+            province.province_id = @([results intForColumn:@"province_id"]);
+            province.province_name = [results stringForColumn:@"province"];
+            province.province_group = @([results intForColumn:@"province_group"]);
+            province.check_city = @([results intForColumn:@"checkcity"]);
+            //        NSLog(@"User: %@",name);
+
+        }
+    
+    FMResultSet *resultsDream = [DB executeQuery:@"select * from dream"];
+    
+    while ([resultsDream next]) {
+        Dream *dream = [Dream CreateEntityDescription];
+        dream.dream_id = @([resultsDream intForColumn:@"id"]);
+        dream.so = [resultsDream stringForColumn:@"so"];
+        dream.ten = [resultsDream stringForColumn:@"ten"];
+        
+    }
+    
+    
+
+        [GzDatabase saveToPersistentStore];
+        [DB close];
+        
+        NSLog(@"---> end %@", [NSDate date]);
+        
+        NSArray *arr = [Province fetchAll];
+        NSLog(@"---> arrProvince : %lu", (unsigned long)[arr count]);
+        
+        
+        NSArray *arrD = [Dream fetchAll];
+        NSLog(@"---> dreameCount : %lu", (unsigned long)[arrD count]);
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:user_default_loaded_local_database];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 
     
     return YES;

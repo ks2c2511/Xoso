@@ -22,7 +22,11 @@
     return [UIColor colorWithRed:52.0 / 255.0 green:164.0 / 255.0 blue:37.0 / 255.0 alpha:1];
 }
 
++(UIColor *)appVioletNavigationBarColor {
+    return [UIColor colorWithRed:154.0 / 255.0 green:39.0 / 255.0 blue:197.0 / 255.0 alpha:1];
+}
+
 +(UIColor *)appOrange{
-    return [UIColor orangeColor];
+    return [UIColor colorWithRed:228.0 / 255.0 green:171.0 / 255.0 blue:46.0 / 255.0 alpha:1];
 }
 @end

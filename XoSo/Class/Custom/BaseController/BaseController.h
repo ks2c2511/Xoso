@@ -13,4 +13,5 @@
 @interface BaseController : UIViewController
 @property (strong,nonatomic) MarqueeLabel *labelNavigationTitleRun;
 @property (strong, nonatomic) UIBarButtonItem *menuButtonItem;
+@property (strong,nonatomic) UIImageView *imageBackGround;
 @end
