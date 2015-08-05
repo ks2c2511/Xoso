@@ -15,12 +15,18 @@
 #import "Ads.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <UIImageView+WebCache.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import "KiemxuController.h"
+#import "LichSuCuocController.h"
+#import "TuongThuatController.h"
+#import "ThongKeController.h"
 
 
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *arrData;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @end
 
 @implementation HomeController
@@ -36,6 +42,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
            self.labelNavigationTitleRun.text = noti.thongbao;
        }
    }];
+    
+    self.bannerView.adUnitID = google_id_Ad;
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -83,6 +93,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         }];
         
     }
+    
     else {
          [cell.imageLogo setImage:[UIImage imageNamed:self.arrData[indexPath.row][@"iconname"]]];
     }
@@ -122,9 +133,23 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         LotoOnlineController *lotoOnline = [LotoOnlineController new];
         [self.navigationController pushViewController:lotoOnline animated:YES];
     }
-    
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"kiem_xu"]) {
+        KiemxuController *kiemXu = [KiemxuController new];
+        [self.navigationController pushViewController:kiemXu animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"lich_su_choi"]) {
+        LichSuCuocController *history = [LichSuCuocController new];
+        [self.navigationController pushViewController:history animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"tuong_thuat"]) {
+        TuongThuatController *tuongthuat = [TuongThuatController new];
+        [self.navigationController pushViewController:tuongthuat animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
+        ThongKeController *thongke = [ThongKeController new];
+        [self.navigationController pushViewController:thongke animated:YES];
+    }
 }
-
 
 -(NSArray *)arrData {
     if (!_arrData) {

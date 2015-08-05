@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+
 
 @interface LotoDauDuoiHeader : UITableViewHeaderFooterView
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 
 @end

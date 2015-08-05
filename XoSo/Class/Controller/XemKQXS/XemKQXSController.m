@@ -17,6 +17,7 @@
 #import "TableListItem.h"
 #import "Province.h"
 #import <NSManagedObject+GzDatabase.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 typedef NS_ENUM(NSInteger, ListType) {
     ListTypeXoSo,
@@ -38,6 +39,8 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 @property (strong,nonatomic) NSDateFormatter *dateFormat;
 @property (strong,nonatomic) NSString *selectDate;
 @property (assign,nonatomic) NSInteger companyId;
+@property (assign,nonatomic) NSInteger khoangcach;
+@property (assign,nonatomic) NSInteger quayTruocOrSau;
 @end
 
 @implementation XemKQXSController
@@ -68,11 +71,13 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 
 -(void)LoadData {
     
-    
-    [XemKQXSStore GetResultByDateWithDate:self.selectDate CompanyId:@(self.companyId) Done:^(BOOL success, NSArray *arr) {
+    [XemKQXSStore GetResultNearTimeWithMaTinh:@(self.companyId) SoLanQuay:1 Done:^(BOOL success, NSArray *arrKqsx, NSArray *arrLoto) {
         NSMutableArray *muArr = [NSMutableArray new];
-        if (arr.count != 0) {
-            [muArr addObject:[self dicWithArray:arr ListType:ListTypeXoSo]];
+        if (arrKqsx.count != 0) {
+            XemKQXSModel *model = arrKqsx[0];
+            self.selectDate = model.RESULT_DATE;
+            [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
+            [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
         }
         
         self.arrData = muArr;
@@ -93,7 +98,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     if (section == 0) {
         return 30.0;
     }
-    return 100.0;
+    return 90;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
@@ -101,7 +106,12 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         if (!header) {
             header = [[NameXosoCityHeader alloc] initWithReuseIdentifier:identifi_NameXosoCityHeader];
             header.contentView.backgroundColor = [UIColor colorWithRed:70.0/255.0 green:70.0/255.0 blue:70.0/255.0 alpha:1.0];
-        }
+                  }
+         header.labelTitle.text = [NSString stringWithFormat:@"%@, %@",self.labelNameCity.text,self.selectDate];
+        [header.buttonLeft addTarget:self action:@selector(RightSwipe:) forControlEvents:UIControlEventTouchUpInside];
+        [header.buttonRight addTarget:self action:@selector(LeftSwipe:) forControlEvents:UIControlEventTouchUpInside];
+
+        
         
         return header;
     }
@@ -110,6 +120,10 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         if (!header) {
             header = [[LotoDauDuoiHeader alloc] initWithReuseIdentifier:identifi_LotoDauDuoiHeader];
         }
+        
+        header.bannerView.adUnitID = google_id_Ad;
+        header.bannerView.rootViewController = self;
+        [header.bannerView loadRequest:[GADRequest request]];
         return header;
     }
 }
@@ -131,17 +145,19 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     if ([self.arrData[indexPath.section][@"listtype"] integerValue] == ListTypeXoSo) {
         KetquaXosoMainCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi_KetquaXosoMainCell forIndexPath:indexPath];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        XemKQXSModel *xemMOdel = self.arrData[indexPath.section][@"array"][indexPath.row];
         if (indexPath.row == 0) {
             cell.labelNumber.text = [NSString stringWithFormat:@"Đặc biệt"];
             cell.labelNumber.textColor = [UIColor appOrange];
             cell.labelResult.textColor = [UIColor redColor];
-            cell.labelResult.text = [NSString stringWithFormat:@"%@",[self.arrData[indexPath.section][@"array"][indexPath.row] RESULT_NUMBER]];
+            cell.labelResult.text = [NSString stringWithFormat:@"%@",[xemMOdel RESULT_NUMBER]];
         }
         else {
-            cell.labelNumber.text = [NSString stringWithFormat:@"%@",[self.arrData[indexPath.section][@"array"][indexPath.row] PRIZE_ID]];
+            cell.labelNumber.text = [NSString stringWithFormat:@"%@",[xemMOdel PRIZE_ID]];
             cell.labelNumber.textColor = [UIColor whiteColor];
             cell.labelResult.textColor = [UIColor blackColor];
-            cell.labelResult.text = [NSString stringWithFormat:@"%@",[self.arrData[indexPath.section][@"array"][indexPath.row] RESULT_NUMBER]];
+            cell.labelResult.text = [NSString stringWithFormat:@"%@",[xemMOdel RESULT_NUMBER]];
         }
         
         return cell;
@@ -149,6 +165,15 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     else {
         LotoDauDuoiCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi_LotoDauDuoiCell forIndexPath:indexPath];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        DauDuoiModel *xemMOdel = self.arrData[indexPath.section][@"array"][indexPath.row];
+        cell.labelDauLeft.text = [NSString stringWithFormat:@"%li",(long)xemMOdel.gia_tri];
+        cell.labelDuoiLeft.text = xemMOdel.duoi;
+        
+        cell.labelDuoiRight.text = [NSString stringWithFormat:@"%li",(long)xemMOdel.gia_tri];
+        cell.labelDauRight.text = xemMOdel.dau;
+        
+        
         
         return cell;
     }
@@ -189,13 +214,12 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     return _dateFormat;
 }
 - (IBAction)SelectDate:(UIButton *)sender {
-    
   
     [ActionSheetDatePicker showPickerWithTitle:@"Chọn ngày" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
         
         self.selectDate = [self.dateFormat stringFromDate:(NSDate *)selectedDate];
         
-        [self LoadData];
+        [self GetDataDiffrentDay];
         
         
     } cancelBlock:^(ActionSheetDatePicker *picker) {
@@ -231,7 +255,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             weakSelf.companyId = [pro.province_id integerValue];
            
             [weakSelf.tableListItem reloadData];
-            [weakSelf LoadData];
+            [weakSelf GetDataDiffrentDay];
         }];
         
         [self.view addSubview:_tableListItem];
@@ -240,13 +264,32 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     return _tableListItem;
 }
 
+-(void)GetDataDiffrentDay {
+
+    [XemKQXSStore GetResultByDateWithDate:self.selectDate CompanyId:@(self.companyId) Done:^(BOOL success, NSArray *arrKqsx, NSArray *arrLoto) {
+        NSMutableArray *muArr = [NSMutableArray new];
+                if (arrKqsx.count != 0) {
+                    XemKQXSModel *model = arrKqsx[0];
+                    self.selectDate = model.RESULT_DATE;
+                    [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
+                    [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
+                }
+        
+                self.arrData = muArr;
+                muArr = nil;
+                [self.tableView reloadData];
+    }];
+}
+
 - (IBAction)RightSwipe:(UISwipeGestureRecognizer *)sender {
     
     [UIView transitionWithView:self.tableView
-                      duration:0.7
+                      duration:.5
                        options:UIViewAnimationOptionTransitionCurlDown
                     animations:^{
+                        self.selectDate = [self.dateFormat stringFromDate:[[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:-60*60*24]];
                         
+                        [self GetDataDiffrentDay];
                         
                     } completion:nil];
 }
@@ -254,11 +297,13 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 - (IBAction)LeftSwipe:(UISwipeGestureRecognizer *)sender {
     
     [UIView transitionWithView:self.tableView
-                      duration:0.7
+                      duration:.5
                        options:UIViewAnimationOptionTransitionCurlUp
                     animations:^{
                         
+                        self.selectDate = [self.dateFormat stringFromDate:[[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:60*60*24]];
                         
+                        [self GetDataDiffrentDay];
                      
                     } completion:nil];
 }

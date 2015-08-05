@@ -120,36 +120,34 @@ static NSString *const identifiCell = @"identificell";
     
     
     for (int i = 1; i <= 7; i++) {
-         NSInteger   numbetDate = [_arrayDate[tag1+i -2] integerValue];
-//        UIImageView *img = (UIImageView *)[cell.contentView viewWithTag:baseTag+i];
-//        img.hidden = YES;
-//        if ([CalendarData checkHasEventWithDay:numbetDate Month:_months Year:_years]) {
-//            img.hidden = NO;
-//        }
-        
-        UIButton *btn = (UIButton *)[cell.contentView viewWithTag:tag1+i-1];
-        btn.hidden = NO;
-        btn.backgroundColor = [UIColor clearColor];
-        
-        [btn setTitle:[_arrayDate[tag1+i-2] stringValue] forState:UIControlStateNormal];
-        
-        if ([CalendarData isTodayWithDay:numbetDate Month:_months Year:_years]) {
-            btn.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:230.0/255.0 blue:166.0/255.0 alpha:1.0];
+        if (tag1+i-2 < self.arrayDate.count) {
+            NSInteger   numbetDate = [_arrayDate[tag1+i -2] integerValue];
+            
+            UIButton *btn = (UIButton *)[cell.contentView viewWithTag:tag1+i-1];
+            btn.hidden = NO;
+            btn.backgroundColor = [UIColor clearColor];
+            
+            [btn setTitle:[_arrayDate[tag1+i-2] stringValue] forState:UIControlStateNormal];
+            
+            if ([CalendarData isTodayWithDay:numbetDate Month:_months Year:_years]) {
+                btn.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:230.0/255.0 blue:166.0/255.0 alpha:1.0];
+            }
+            else if (![CalendarData checkDateIsPastWithDay:numbetDate Month:_months Year:_years]) {
+                btn.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:154.0/255.0 blue:174.0/255.0 alpha:1.0];
+                [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+            else {
+                btn.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
+                [btn setTitleColor:[UIColor colorWithRed:0.0/255.0 green:22.0/255.0 blue:255.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+            }
+            
+            if ((numbetDate > 20 && indexPath.row == 0)|| (numbetDate < 8 && indexPath.row >= 3)) {
+                btn.hidden = YES;
+                //            img.hidden = YES;
+            }
+
         }
-        else if (![CalendarData checkDateIsPastWithDay:numbetDate Month:_months Year:_years]) {
-             btn.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:154.0/255.0 blue:174.0/255.0 alpha:1.0];
-            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-        else {
-            btn.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
-            [btn setTitleColor:[UIColor colorWithRed:0.0/255.0 green:22.0/255.0 blue:255.0/255.0 alpha:1.0] forState:UIControlStateNormal];
-        }
-        
-        if ((numbetDate > 20 && indexPath.row == 0)|| (numbetDate < 8 && indexPath.row >= 3)) {
-            btn.hidden = YES;
-//            img.hidden = YES;
-        }
-    }
+            }
     
     return cell;
 }

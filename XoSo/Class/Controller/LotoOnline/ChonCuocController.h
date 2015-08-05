@@ -7,7 +7,8 @@
 //
 
 #import "BaseController.h"
+#import "LotoResult.h"
 
 @interface ChonCuocController : BaseController
-
+@property (strong,nonatomic) LotoResult *loto;
 @end

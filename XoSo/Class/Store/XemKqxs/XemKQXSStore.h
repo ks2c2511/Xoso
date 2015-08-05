@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "XemKQXSModel.h"
+#import "DauDuoiModel.h"
 
 @interface XemKQXSStore : NSObject
-+ (void)GetResultByDateWithDate:(NSString *)date CompanyId:(NSNumber *)companyId Done:(void (^)(BOOL success,NSArray *arr))done;
++ (void)GetResultByDateWithDate:(NSString *)date CompanyId:(NSNumber *)companyId Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
+
++(void)GetResultNearTimeWithMaTinh:(NSNumber *)matinh SoLanQuay:(NSInteger)solanquay Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
+
++(void)GetResultPreDayWithResultDate:(NSString *)date Ckorder:(NSInteger)index KhoangCachDenNgay:(NSInteger)kc Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
 @end

@@ -7,8 +7,16 @@
 //
 
 #import "KiemxuController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import "User.h"
+#import <NSManagedObject+GzDatabase.h>
 
 @interface KiemxuController ()
+@property (weak, nonatomic) IBOutlet UILabel *labelSoXu;
+@property (weak, nonatomic) IBOutlet UIView *viewBackGround;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+- (IBAction)CaiUngDung:(id)sender;
+- (IBAction)NapTheCao:(id)sender;
 
 @end
 
@@ -16,6 +24,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.bannerView.adUnitID = google_id_Ad;
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
+    
+    self.viewBackGround.layer.borderColor = [UIColor colorWithRed:70.0/255.0 green:35.0/255.0 blue:4.0/255.0 alpha:1.0].CGColor;
+    self.viewBackGround.layer.borderWidth = 6.0;
+    self.viewBackGround.layer.cornerRadius = 6.0;
+    
+    
+    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            User *user = [objects firstObject];
+            self.labelSoXu.text = [NSString stringWithFormat:@"Số xu trong tài khoản của bạn là: %@ xu",user.point];
+        }
+    }];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -34,4 +59,9 @@
 }
 */
 
+- (IBAction)CaiUngDung:(id)sender {
+}
+
+- (IBAction)NapTheCao:(id)sender {
+}
 @end

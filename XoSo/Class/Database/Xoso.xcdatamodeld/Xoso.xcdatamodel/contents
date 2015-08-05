@@ -11,6 +11,14 @@
         <attribute name="so" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="KQXS" representedClassName="KQXS" syncable="YES">
+        <attribute name="company_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_id" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="result_number" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Loto" representedClassName="Loto" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lototype" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,11 +50,12 @@
         <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Dream" positionX="88" positionY="-135" width="128" height="90"/>
-        <element name="Loto" positionX="88" positionY="-36" width="128" height="148"/>
-        <element name="Province" positionX="-47" positionY="-36" width="128" height="103"/>
-        <element name="Notifi" positionX="27" positionY="-27" width="128" height="88"/>
         <element name="Ads" positionX="36" positionY="-18" width="128" height="105"/>
-        <element name="User" positionX="45" positionY="-9" width="128" height="165"/>
+        <element name="Dream" positionX="88" positionY="-135" width="128" height="90"/>
+        <element name="KQXS" positionX="45" positionY="-54" width="128" height="135"/>
+        <element name="Loto" positionX="160" positionY="-54" width="128" height="148"/>
+        <element name="Notifi" positionX="-18" positionY="-81" width="128" height="88"/>
+        <element name="Province" positionX="-54" positionY="-72" width="128" height="103"/>
+        <element name="User" positionX="97" positionY="42" width="128" height="165"/>
     </elements>
 </model>

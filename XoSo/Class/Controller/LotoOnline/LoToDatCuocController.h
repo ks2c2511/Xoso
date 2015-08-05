@@ -7,7 +7,7 @@
 //
 
 #import "BaseController.h"
-#import "Loto.h"
+#import "LotoResult.h"
 
 typedef NS_ENUM(NSInteger, LoaiSoXo) {
     LoaiSoXoLoTo =1,
@@ -17,5 +17,5 @@ typedef NS_ENUM(NSInteger, LoaiSoXo) {
 };
 
 @interface LoToDatCuocController : BaseController
-@property (strong,nonatomic) Loto *loto;
+@property (strong,nonatomic) LotoResult *loto;
 @end

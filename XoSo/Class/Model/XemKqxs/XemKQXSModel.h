@@ -11,8 +11,8 @@
 
 @interface XemKQXSModel : MTLModel <MTLJSONSerializing>
 @property (strong,nonatomic) NSString *RESULT_ID;
-@property (strong,nonatomic) NSNumber *COMPANY_ID;
-@property (strong,nonatomic) NSNumber *PRIZE_ID;
+@property (strong,nonatomic) NSString *COMPANY_ID;
+@property (strong,nonatomic) NSString *PRIZE_ID;
 @property (strong,nonatomic) NSString *RESULT_DATE;
 @property (strong,nonatomic) NSString *RESULT_NUMBER;
 @property (strong,nonatomic) NSString *RESULT_DESC;

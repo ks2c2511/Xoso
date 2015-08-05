@@ -31,11 +31,20 @@
 #define GET_QUANGCAO @"link_google.php"
 #define GET_CAP_NHAT @"http://aviostore.com/?tool=apk&name=xo_so_IOS"
 #define POST_REGISTER @"register_default_user.php"
+#define POST_LOGIN @"login.php"
+#define GET_LOTO_TYPE @"return_locaion_lototype_id.php"
+#define GET_REAL_TIME_SERVER @"get_server_current_date.php"
+#define POST_SEND_NUMBER_LOTO_ONLINE @"insert_lotonumber_userpoint.php"
+#define GET_HISTORY @"process/get_history.php"
 
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"
 
+
+//constance
+
+#define google_id_Ad @"ca-app-pub-8172894227923068/6488921439"
 
 //userDefault
 

@@ -51,7 +51,15 @@
             
         }];
         }
+        else {
+            User *user = [objects firstObject];
+             [LoginUser loginWithUserName:user.user_name Pass:user.password DeviceId:user.phone_id Done:^(BOOL success) {
+                 
+             }];
+        }
     }];
+    
+   
     // Do any additional setup after loading the view from its nib.
 }
 

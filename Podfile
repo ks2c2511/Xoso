@@ -15,6 +15,8 @@ target 'XoSo' do
     pod 'ActionSheetPicker-3.0', '~> 1.5.1'
     pod 'FMDB', '~> 2.5'
     pod 'UIAlertView+Blocks', '~> 0.9'
+    pod 'IQKeyboardManager', '~> 3.2.3'
+
 end
 
 

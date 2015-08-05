@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeController">
             <connections>
+                <outlet property="bannerView" destination="XeG-Xc-a9X" id="VRv-LQ-q8k"/>
                 <outlet property="collectionView" destination="bVE-J3-TmV" id="6EN-xt-fuL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bVE-J3-TmV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="h7j-Ih-K5m">
                         <size key="itemSize" width="100" height="78"/>
@@ -30,13 +31,23 @@
                         <outlet property="delegate" destination="-1" id="QvG-jU-R7Y"/>
                     </connections>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeG-Xc-a9X" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="366" width="320" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="GFd-zs-cmx"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="XeG-Xc-a9X" secondAttribute="bottom" id="2qU-ZF-XER"/>
+                <constraint firstItem="XeG-Xc-a9X" firstAttribute="top" secondItem="bVE-J3-TmV" secondAttribute="bottom" id="56S-vJ-XJh"/>
+                <constraint firstAttribute="trailing" secondItem="XeG-Xc-a9X" secondAttribute="trailing" id="8z3-cJ-F8Q"/>
                 <constraint firstAttribute="trailing" secondItem="bVE-J3-TmV" secondAttribute="trailing" id="R6X-tT-3CD"/>
                 <constraint firstItem="bVE-J3-TmV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c5v-6P-Tnv"/>
                 <constraint firstItem="bVE-J3-TmV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iE2-gF-3Ke"/>
-                <constraint firstAttribute="bottom" secondItem="bVE-J3-TmV" secondAttribute="bottom" id="ntF-Ch-Zes"/>
+                <constraint firstItem="XeG-Xc-a9X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yfq-qp-vw6"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

@@ -1,0 +1,265 @@
+//
+//  TuongThuatController.m
+//  XoSo
+//
+//  Created by Khoa Le on 7/26/15.
+//  Copyright (c) 2015 Khoa Le. All rights reserved.
+//
+
+#import "TuongThuatController.h"
+#import "TableBacOneCell.h"
+#import "TableBacTwoCell.h"
+#import "TableBacThreeCell.h"
+#import "TableBacFourCell.h"
+#import "TableSixCell.h"
+#import "TableMIenTrungCell.h"
+#import "TableMienNamCell.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
+
+typedef NS_ENUM(NSInteger, TableType) {
+    TableTypeMienBac,
+    TableTypeMienTrung,
+    TableTypeMienNam,
+    
+};
+
+@interface TuongThuatController ()
+@property (weak, nonatomic) IBOutlet UIButton *buttonMIenbac;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMIenTrung;
+@property (weak, nonatomic) IBOutlet UIButton *buttonMIennam;
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (assign,nonatomic) TableType typeTableCell;
+@end
+
+@implementation TuongThuatController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.imageBackGround.hidden = YES;
+    
+    self.bannerView.adUnitID = google_id_Ad;
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
+    
+    [self.tableView registerClass:[TableBacOneCell class] forCellReuseIdentifier:NSStringFromClass([TableBacOneCell class])];
+    [self.tableView registerClass:[TableBacTwoCell class] forCellReuseIdentifier:NSStringFromClass([TableBacTwoCell class])];
+    [self.tableView registerClass:[TableBacThreeCell class] forCellReuseIdentifier:NSStringFromClass([TableBacThreeCell class])];
+    [self.tableView registerClass:[TableBacFourCell class] forCellReuseIdentifier:NSStringFromClass([TableBacFourCell class])];
+    [self.tableView registerClass:[TableSixCell class] forCellReuseIdentifier:NSStringFromClass([TableSixCell class])];
+    [self.tableView registerClass:[TableMIenTrungCell class] forCellReuseIdentifier:NSStringFromClass([TableMIenTrungCell class])];
+    [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
+    // Do any additional setup after loading the view from its nib.
+}
+
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.typeTableCell == TableTypeMienBac) {
+        return 8;
+    }
+    else {
+        return 10;
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.typeTableCell == TableTypeMienBac) {
+        if (indexPath.row == 3 || indexPath.row == 5) {
+            return 60;
+        }
+        return 30;
+    }
+    else {
+        if (indexPath.row == 3) {
+            return 90;
+        }
+        else if (indexPath.row == 5) {
+            return 210;
+        }
+        else if (indexPath.row == 6) {
+            return 60;
+        }
+        return 30;
+    }
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    
+    if (self.typeTableCell == TableTypeMienBac) {
+        UIColor *backGroudColor;
+        if (indexPath.row %2 == 0) {
+            backGroudColor = [UIColor colorWithRed:250.0/255.0 green:255.0/255.0 blue:200.0/255.0 alpha:1.0];
+        }
+        else backGroudColor = [UIColor whiteColor];
+        
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            TableBacOneCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacOneCell class]) forIndexPath:indexPath];
+            if (indexPath.row == 0) {
+                cell.labelTitle.text = @"Đặc biệt";
+                cell.labelTitle.textColor = [UIColor redColor];
+                
+            }
+            else {
+                cell.labelTitle.text = @"Giải nhất";
+                cell.labelTitle.textColor = [UIColor blackColor];
+            }
+            cell.labelTitle.backgroundColor = backGroudColor;
+            cell.labelNUmber.backgroundColor = backGroudColor;
+            
+            return cell;
+            
+        }
+        else if (indexPath.row == 2 ) {
+            TableBacTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacTwoCell class]) forIndexPath:indexPath];
+            cell.labelTitle.backgroundColor = backGroudColor;
+            cell.labelNumber1.backgroundColor = backGroudColor;
+            cell.labelNumber2.backgroundColor = backGroudColor;
+            cell.labelTitle.text = @"Giải Nhì";
+            
+            return cell;
+            
+        }
+        else if (indexPath.row == 3 || indexPath.row == 5) {
+            TableSixCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableSixCell class]) forIndexPath:indexPath];
+            cell.labelTitle.backgroundColor = backGroudColor;
+            
+            for (int i = 1; i < 6; i++) {
+                [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
+            }
+            if (indexPath.row == 3) {
+                cell.labelTitle.text = @"Giải Ba";
+            }
+            else {
+                cell.labelTitle.text = @"Giải Năm";
+            }
+            
+            return cell;
+            
+        }
+        else if (indexPath.row == 4 || indexPath.row == 7) {
+            TableBacFourCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacFourCell class]) forIndexPath:indexPath];
+            
+            cell.labelTitle.backgroundColor = backGroudColor;
+            
+            for (int i = 1; i < 5; i++) {
+                [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
+            }
+            if (indexPath.row == 4) {
+                cell.labelTitle.text = @"Giải Tư";
+            }
+            else {
+                cell.labelTitle.text = @"Giải Bảy";
+            }
+            
+            
+            return cell;
+        }
+        else if (indexPath.row == 6) {
+            TableBacThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacThreeCell class]) forIndexPath:indexPath];
+            
+            cell.labelTitle.backgroundColor = backGroudColor;
+            
+            for (int i = 1; i < 4; i++) {
+                [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
+            }
+            cell.labelTitle.text = @"Giải Sáu";
+            
+            
+            return cell;
+        }
+
+    }
+    else if (self.typeTableCell == TableTypeMienTrung) {
+        UIColor *backGroudColor;
+        if (indexPath.row %2 != 0) {
+            backGroudColor = [UIColor colorWithRed:250.0/255.0 green:255.0/255.0 blue:200.0/255.0 alpha:1.0];
+        }
+        else backGroudColor = [UIColor whiteColor];
+        
+        
+        TableMIenTrungCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableMIenTrungCell class]) forIndexPath:indexPath];
+        
+        cell.labelTitle.backgroundColor = backGroudColor;
+        
+        for (int i = 1; i < 3; i++) {
+            [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.labelTitle.text = @"G";
+//            cell.labelNumber1
+        }
+        else {
+            cell.labelTitle.text = [NSString stringWithFormat:@"%d",9-indexPath.row];
+        }
+    
+        
+        return cell;
+    }
+    else {
+        UIColor *backGroudColor;
+        if (indexPath.row %2 != 0) {
+            backGroudColor = [UIColor colorWithRed:250.0/255.0 green:255.0/255.0 blue:200.0/255.0 alpha:1.0];
+        }
+        else backGroudColor = [UIColor whiteColor];
+        
+        
+        TableMienNamCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableMienNamCell class]) forIndexPath:indexPath];
+        
+        cell.labelTitle.backgroundColor = backGroudColor;
+        
+        for (int i = 1; i < 4; i++) {
+            [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
+        }
+        
+        if (indexPath.row == 0) {
+            cell.labelTitle.text = @"G";
+            //            cell.labelNumber1
+        }
+        else {
+            cell.labelTitle.text = [NSString stringWithFormat:@"%d",9-indexPath.row];
+        }
+        
+        
+        return cell;
+    }
+       return nil;
+    
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+
+-(void)setTypeTableCell:(TableType)typeTableCell {
+    _typeTableCell = typeTableCell;
+    [self.tableView reloadData];
+}
+- (IBAction)ChonMien:(UISegmentedControl *)sender {
+    self.typeTableCell = sender.selectedSegmentIndex;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+@end

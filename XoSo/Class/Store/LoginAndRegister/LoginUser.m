@@ -43,7 +43,7 @@
                 user.phone = responseObject[@"user_phone"];
                 user.gender = @([responseObject[@"user_gender"] integerValue]);
                 user.point = @([responseObject[@"point"] integerValue]);
-                user.phone_id =responseObject[@"user_name"];
+                user.phone_id =userPhoneId;
                 [user saveToPersistentStore];
                 
             }
@@ -62,41 +62,53 @@
         }
     }];
     
-//    
-//    [[GzNetworking sharedInstance] POST:[BASE_URL stringByAppendingString:POST_REGISTER] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
-//            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"user_id == %@",responseObject[@"user_id"]];
-//            
-//            [User fetchEntityObjectsWithPredicate:predicate success:^(BOOL succeeded, NSArray *objects) {
-//                
-//                for (User *user in objects) {
-//                    [user DeleteThis];
-//                }
-//                
-//                if (objects.count == 0) {
-//                    User *user = [User CreateEntityDescription];
-//                    user.user_id = responseObject[@"user_id"];
-//                    user.user_name = responseObject[@"user_name"];
-//                    user.password = responseObject[@"user_name"];
-//                    user.email = responseObject[@"user_name"];
-//                    user.phone = responseObject[@"user_name"];
-//                    user.gender = responseObject[@"user_name"];
-//                    user.point = responseObject[@"user_name"];
-//                    user.phone_id =responseObject[@"user_name"];
-//                    [user saveToPersistentStore];
-//                    
-//                }
-//            }];
-//        }
-//        else {
-//            done(NO);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        if (error) {
-//            done(NO);
-//        }
-//    }];
     
+}
+
++(void)loginWithUserName:(NSString *)user_name Pass:(NSString *)pass DeviceId:(NSString *)deviceId Done:(void (^)(BOOL success))done {
+    NSDictionary *dic = @{@"USER_NAME": user_name,
+                          @"USER_PASSWORD":pass,
+                          @"android_ID":deviceId
+                          };
+    
+    [[GzNetworking sharedInstance] POST:[BASE_URL stringByAppendingString:POST_LOGIN] parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            if ([(NSArray *)responseObject count] == 0) {
+                done (YES);
+                return;
+            }
+            
+            NSArray *arr = [User fetchAll];
+            
+            
+            
+            if (arr.count != 0) {
+                User *user = arr[0];
+                user.user_id = responseObject[0][@"user_id"];
+                user.user_name = responseObject[0][@"user_name"];
+                user.password = responseObject[0][@"user_password"];
+                user.email = responseObject[0][@"user_email"];
+                user.phone = responseObject[0][@"user_phone"];
+                user.gender = @([responseObject[0][@"user_gender"] integerValue]);
+                user.point = @([responseObject[0][@"point"] integerValue]);
+                [user saveToPersistentStore];
+                
+            }
+            
+        }
+        else {
+            done(NO);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            done(NO);
+        }
+    }];
+
 }
 @end

@@ -7,58 +7,130 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KiemxuController">
             <connections>
+                <outlet property="bannerView" destination="cbE-rE-Tas" id="Cew-c6-JgI"/>
+                <outlet property="labelSoXu" destination="Vc3-Zh-L9K" id="S9g-I9-YDs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackGround" destination="i5F-hj-eiL" id="thr-Yr-Xje"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <rect key="frame" x="0.0" y="64" width="320" height="416"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5F-hj-eiL">
-                    <rect key="frame" x="4" y="4" width="312" height="200"/>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="312" placeholderIntrinsicHeight="260" translatesAutoresizingMaskIntoConstraints="NO" id="i5F-hj-eiL">
+                    <rect key="frame" x="4" y="4" width="312" height="274"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTL-qf-aZj">
-                            <rect key="frame" x="16" y="16" width="280" height="50"/>
+                            <rect key="frame" x="16" y="16" width="280" height="72"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-Zh-L9K">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="21" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-Zh-L9K">
                                     <rect key="frame" x="8" y="6" width="264" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-K1-EMc">
-                                    <rect key="frame" x="8" y="29" width="264" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="21" text="Bạn có thể nhận đươc xu bằng các cách sau" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-K1-EMc">
+                                    <rect key="frame" x="8" y="43" width="264" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="XUC-GX-y9O"/>
+                                <constraint firstItem="5Ib-K1-EMc" firstAttribute="top" secondItem="Vc3-Zh-L9K" secondAttribute="bottom" constant="16" id="CFs-zL-Eft"/>
+                                <constraint firstAttribute="bottom" secondItem="5Ib-K1-EMc" secondAttribute="bottom" constant="8" id="M8p-Pz-59G"/>
+                                <constraint firstItem="Vc3-Zh-L9K" firstAttribute="top" secondItem="WTL-qf-aZj" secondAttribute="top" constant="6" id="ZVR-ok-Ogr"/>
+                                <constraint firstAttribute="trailing" secondItem="Vc3-Zh-L9K" secondAttribute="trailing" constant="8" id="aCb-f4-KI3"/>
+                                <constraint firstItem="Vc3-Zh-L9K" firstAttribute="leading" secondItem="WTL-qf-aZj" secondAttribute="leading" constant="8" id="eo2-kQ-uFw"/>
+                                <constraint firstAttribute="trailing" secondItem="5Ib-K1-EMc" secondAttribute="trailing" constant="8" id="n8U-3Q-Dz9"/>
+                                <constraint firstItem="5Ib-K1-EMc" firstAttribute="leading" secondItem="WTL-qf-aZj" secondAttribute="leading" constant="8" id="z4y-tH-7LJ"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6i-Zn-XDY" customClass="ButtonBorder">
+                            <rect key="frame" x="75" y="134" width="163" height="29"/>
+                            <color key="backgroundColor" red="0.85098039219999999" green="0.20000000000000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="29" id="8nJ-Ea-dM7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Nạp thẻ cào">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="NapTheCao:" destination="-1" eventType="touchUpInside" id="b3V-Ru-01J"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="83" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-9t-SeX">
+                            <rect key="frame" x="24" y="178" width="264" height="83"/>
+                            <string key="text">Mỗi ngày cài đặt thành công ứng dụng (tải về, cài đặt và sử dụng ứng dụng) trong chức năng cài đặt ứng dụng. Bạn sẽ được cộng 1000 xu vào tài khoản.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBL-8f-wcL" customClass="ButtonBorder">
+                            <rect key="frame" x="75" y="96" width="163" height="30"/>
+                            <color key="backgroundColor" red="0.85098039219999999" green="0.20000000000000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="XX1-Rb-age"/>
+                                <constraint firstAttribute="width" constant="163" id="Y5D-Sn-Tvp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Cài ứng dụng">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="CaiUngDung:" destination="-1" eventType="touchUpInside" id="MtG-Vo-gHl"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="8sA-Fy-gUJ"/>
+                        <constraint firstAttribute="height" constant="260" id="8sA-Fy-gUJ"/>
+                        <constraint firstItem="64x-9t-SeX" firstAttribute="top" secondItem="A6i-Zn-XDY" secondAttribute="bottom" constant="15" id="97C-BH-C7S"/>
+                        <constraint firstAttribute="centerX" secondItem="mBL-8f-wcL" secondAttribute="centerX" id="DlR-HK-jC4"/>
+                        <constraint firstItem="A6i-Zn-XDY" firstAttribute="leading" secondItem="mBL-8f-wcL" secondAttribute="leading" id="HJB-SH-wfg"/>
+                        <constraint firstAttribute="centerX" secondItem="A6i-Zn-XDY" secondAttribute="centerX" id="JFk-QG-CRn"/>
+                        <constraint firstItem="64x-9t-SeX" firstAttribute="leading" secondItem="i5F-hj-eiL" secondAttribute="leading" constant="24" id="KKr-MR-liZ"/>
                         <constraint firstItem="WTL-qf-aZj" firstAttribute="top" secondItem="i5F-hj-eiL" secondAttribute="top" constant="16" id="Rbj-67-1q3"/>
+                        <constraint firstAttribute="trailing" secondItem="64x-9t-SeX" secondAttribute="trailing" constant="24" id="X64-M5-KWr"/>
+                        <constraint firstItem="A6i-Zn-XDY" firstAttribute="trailing" secondItem="mBL-8f-wcL" secondAttribute="trailing" id="bIC-w4-gIB"/>
                         <constraint firstAttribute="trailing" secondItem="WTL-qf-aZj" secondAttribute="trailing" constant="16" id="hSh-Pz-EA5"/>
                         <constraint firstItem="WTL-qf-aZj" firstAttribute="leading" secondItem="i5F-hj-eiL" secondAttribute="leading" constant="16" id="iJh-GY-Ty9"/>
+                        <constraint firstAttribute="bottom" secondItem="64x-9t-SeX" secondAttribute="bottom" constant="13" id="ocn-9D-b9c"/>
+                        <constraint firstItem="A6i-Zn-XDY" firstAttribute="top" secondItem="mBL-8f-wcL" secondAttribute="bottom" constant="8" id="t0l-Lw-LlJ"/>
+                        <constraint firstItem="mBL-8f-wcL" firstAttribute="top" secondItem="WTL-qf-aZj" secondAttribute="bottom" constant="8" id="vbX-9N-CFx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="8sA-Fy-gUJ"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbE-rE-Tas" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="366" width="320" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="IF2-eL-WXq"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="i5F-hj-eiL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="4" id="58W-Vj-ylm"/>
+                <constraint firstAttribute="trailing" secondItem="cbE-rE-Tas" secondAttribute="trailing" id="6ih-ts-d0S"/>
                 <constraint firstItem="i5F-hj-eiL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="HAX-Wh-271"/>
+                <constraint firstAttribute="bottom" secondItem="cbE-rE-Tas" secondAttribute="bottom" id="Y2Y-dk-0nN"/>
+                <constraint firstItem="cbE-rE-Tas" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u0e-kp-o8t"/>
                 <constraint firstAttribute="trailing" secondItem="i5F-hj-eiL" secondAttribute="trailing" constant="4" id="zMb-GC-KvV"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="289" y="152"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="260" y="131"/>
         </view>
     </objects>
 </document>

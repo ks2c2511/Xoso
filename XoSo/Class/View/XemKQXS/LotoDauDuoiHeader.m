@@ -8,11 +8,13 @@
 
 #import "LotoDauDuoiHeader.h"
 
+
 @implementation LotoDauDuoiHeader
 
 -(id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [[NSBundle mainBundle] loadNibNamed:@"LotoDauDuoiHeader" owner:nil options:nil][0];
     if (self) {
+     
         
     }
     return self;

@@ -9,9 +9,8 @@
 #import "LotoOnlineController.h"
 #import "Monthcalendar.h"
 #import "LoToDatCuocController.h"
-#import "Loto.h"
 #import "CalendarData.h"
-#import <NSManagedObject+GzDatabase.h>
+#import "LotoResult.h"
 
 @interface LotoOnlineController ()
 @property (strong,nonatomic) Monthcalendar *monthCalendar;
@@ -37,8 +36,8 @@
         [_monthCalendar setSelectedDate:^(NSInteger day, NSInteger month, NSInteger year) {
             LoToDatCuocController *datcuoc = [LoToDatCuocController new];
             
-            Loto *loto = [Loto CreateEntityDescription];
-            loto.date = [CalendarData dateWithDay:day Month:month Year:year];
+            LotoResult *loto = [LotoResult new];
+            loto.date = [NSString stringWithFormat:@"%li-%li-%li",(long)year,(long)month,(long)day];
             datcuoc.loto = loto;
             [weakSelf.navigationController pushViewController:datcuoc animated:YES];
         }];
