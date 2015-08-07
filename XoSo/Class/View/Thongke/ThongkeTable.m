@@ -8,8 +8,6 @@
 
 #import "ThongkeTable.h"
 
-
-
 @interface ThongkeTable () <UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -31,6 +29,7 @@
     [self registerClass:[ThongkeDetailCell class] forCellReuseIdentifier:NSStringFromClass([ThongkeDetailCell class])];
     self.delegate = self;
     self.dataSource = self;
+    self.tableFooterView = [UIView new];
 }
 
 
@@ -40,7 +39,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 20;
+    return self.arrData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,6 +72,11 @@
 {
 }
 
+
+-(void)setArrData:(NSArray *)arrData {
+    _arrData = arrData;
+    [self reloadData];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

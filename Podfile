@@ -3,10 +3,10 @@
 
 target 'XoSo' do
 	pod 'ECSlidingViewController', '~> 2.0.3'
-	pod 'GzoneLibNew/GzNetworking'
-    pod 'GzoneLibNew/GzInternetConnection'
-    pod 'GzoneLibNew/GzDatabase'
-    pod 'GzoneLibNew/GzCategory'
+	pod 'GzoneLibNew/GzNetworking', '~> 1.0.14'
+    pod 'GzoneLibNew/GzInternetConnection', '~> 1.0.14'
+    pod 'GzoneLibNew/GzDatabase', '~> 1.0.14'
+    pod 'GzoneLibNew/GzCategory', '~> 1.0.14'
     pod 'SDWebImage', '~> 3.7.1'
 	pod 'MRProgress/Overlay', '~> 0.8.1'
     pod 'MarqueeLabel', '~> 2.1.1'

@@ -7,10 +7,12 @@
 //
 
 #import "ThongkeSoController.h"
-#import <UIColor+uiGradients.h>
 #import "ThongkeDacbiet.h"
 #import "CustomSegment.h"
 #import "ThongkeChuave.h"
+#import "TableListItem.h"
+#import "Province.h"
+#import <NSManagedObject+GzDatabase.h>
 
 typedef NS_ENUM(NSInteger, ContentType) {
     ContentTypeDacbiet,
@@ -24,23 +26,24 @@ typedef NS_ENUM(NSInteger, ContentType) {
 @property (weak, nonatomic) IBOutlet UIView *viewBackground;
 @property (strong,nonatomic) UIPageViewController *pageController;
 @property (weak, nonatomic) IBOutlet CustomSegment *segmentType;
+@property (strong,nonatomic) TableListItem *tableListItem;
+@property (strong,nonatomic) TableListItem *tableSoluong;
 @property (assign,nonatomic) NSInteger selectIndex;
+@property (assign,nonatomic) NSInteger matinh,luotquay;
 - (IBAction)SelectType:(id)sender;
+- (IBAction)SelectSoluong:(UIButton *)sender;
+
+- (IBAction)SelectCity:(UIButton *)sender;
+
 @end
 
 @implementation ThongkeSoController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = view.bounds;
-//    gradient.startPoint = CGPointMake(0, 0);
-//    gradient.endPoint = CGPointMake(view.frame.size.width, 0);
-//    gradient.colors = @[(id)[startColor CGColor], (id)[endColor CGColor], nil];
-//    
-//    [view.layer insertSublayer:gradient atIndex:0];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"Thống kê từ 00 - 99";
+    self.matinh = 1;
+    self.luotquay = 10;
     
     [self createPageCOntroller];
 }
@@ -112,13 +115,11 @@ typedef NS_ENUM(NSInteger, ContentType) {
     }
     
     
-    
-    
     NSInteger index = [[pageViewController.viewControllers objectAtIndex:0] typeIndex];
     
     [self.segmentType setSelectedSegmentIndex:index];
-    
-   
+    _selectIndex = index;
+
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
@@ -137,9 +138,9 @@ typedef NS_ENUM(NSInteger, ContentType) {
     if (type == ContentTypeDacbiet || type == ContentTypeLoto ) {
         ThongkeDacbiet *tbController = [ThongkeDacbiet new];
         tbController.typeIndex = type;
-//        tbController.keyPath = _arrayKeyPath[type];
-//        tbController.respondObject = _respondObject;
-        
+        tbController.matinh = self.matinh;
+        tbController.luotquay = self.luotquay;
+
         return tbController;
     }
     else if (type == ContentTypeChuave) {
@@ -147,8 +148,8 @@ typedef NS_ENUM(NSInteger, ContentType) {
         
         ThongkeChuave *tbController = [ThongkeChuave new];
         tbController.typeIndex = type;
-        //        tbController.keyPath = _arrayKeyPath[type];
-        //        tbController.respondObject = _respondObject;
+        tbController.matinh = self.matinh;
+        tbController.luotquay = self.luotquay;
         
         return tbController;
     }
@@ -156,6 +157,65 @@ typedef NS_ENUM(NSInteger, ContentType) {
     return nil;
 }
 
+-(TableListItem *)tableListItem {
+    if (!_tableListItem) {
+        _tableListItem = [[TableListItem alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableListItem.arrData = [Province fetchAll];
+        [_tableListItem setTableViewCellConfigBlock:^(TableListCell *cell ,Province *pro) {
+            cell.labelTttle.text = pro.province_name;
+            if (self.matinh == [pro.province_id integerValue]) {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_checked_white.png"]];
+            }
+            else {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_unchecked_white.png"]];
+            }
+        }];
+
+        __weak typeof(self)weakSelf = self;
+        [_tableListItem setSelectItem:^(NSIndexPath *indexPath, Province *pro) {
+            [weakSelf.buttonNameSoxo setTitle:pro.province_name forState:UIControlStateNormal];
+            weakSelf.matinh = [pro.province_id integerValue];
+
+            [weakSelf.tableListItem reloadData];
+
+            [weakSelf setViewWithIndex:weakSelf.selectIndex];
+        }];
+
+        [self.view addSubview:_tableListItem];
+    }
+
+    return _tableListItem;
+}
+
+-(TableListItem *)tableSoluong {
+    if (!_tableSoluong) {
+        _tableSoluong = [[TableListItem alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableSoluong.arrData = @[@"10",@"20",@"30",@"60",@"100",@"365"];
+        [_tableSoluong setTableViewCellConfigBlock:^(TableListCell *cell ,NSString *number) {
+            cell.labelTttle.text = number;
+            if (self.luotquay == [number integerValue]) {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_checked_white.png"]];
+            }
+            else {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_unchecked_white.png"]];
+            }
+        }];
+
+        __weak typeof(self)weakSelf = self;
+        [_tableSoluong setSelectItem:^(NSIndexPath *indexPath, NSString *number) {
+            [weakSelf.buttonLanquay setTitle:number forState:UIControlStateNormal];
+            weakSelf.luotquay = [number integerValue];
+
+            [weakSelf.tableSoluong reloadData];
+
+            [weakSelf setViewWithIndex:weakSelf.selectIndex];
+        }];
+
+        [self.view addSubview:_tableSoluong];
+    }
+    
+    return _tableSoluong;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -176,14 +236,10 @@ typedef NS_ENUM(NSInteger, ContentType) {
 
 - (IBAction)SelectType:(id)sender {
     CustomSegment *seg = (CustomSegment *)sender;
-    
+
     if (seg.selectedSegmentIndex == self.selectIndex) {
         return;
     }
-
-    
-    
-    
     UIPageViewControllerNavigationDirection direction;
     if (seg.selectedSegmentIndex > self.selectIndex) {
         direction = UIPageViewControllerNavigationDirectionForward;
@@ -191,11 +247,54 @@ typedef NS_ENUM(NSInteger, ContentType) {
     else {
         direction = UIPageViewControllerNavigationDirectionReverse;
     }
-    
+
     [_pageController setViewControllers:[NSArray arrayWithObjects:[self contentViewWithType:(ContentType)seg.selectedSegmentIndex], nil] direction:direction animated:YES completion:^(BOOL finished) {
-        
+
     }];
 
     _selectIndex = seg.selectedSegmentIndex;
+
+}
+
+- (IBAction)SelectSoluong:(UIButton *)sender {
+
+    self.tableSoluong.frame = ({
+        CGRect frame = self.buttonLanquay.frame;
+        frame.origin.x = CGRectGetMinX(self.buttonLanquay.frame) - 50;
+        frame.origin.y = CGRectGetMaxY(self.buttonLanquay.frame);
+        frame.size.width = CGRectGetWidth(self.buttonLanquay.frame) +50;
+        frame.size.height = 250;
+        frame;
+    });
+    [self.tableSoluong showOrHiden];
+}
+
+-(void)setViewWithIndex:(NSInteger)index {
+
+    UIPageViewControllerNavigationDirection direction;
+    if (index > self.selectIndex) {
+        direction = UIPageViewControllerNavigationDirectionForward;
+    }
+    else {
+        direction = UIPageViewControllerNavigationDirectionReverse;
+    }
+
+    [_pageController setViewControllers:[NSArray arrayWithObjects:[self contentViewWithType:(ContentType)index], nil] direction:direction animated:NO completion:^(BOOL finished) {
+
+    }];
+
+    _selectIndex = index;
+    self.segmentType.selectedSegmentIndex = index;
+}
+
+- (IBAction)SelectCity:(UIButton *)sender {
+    self.tableListItem.frame = ({
+        CGRect frame = self.buttonNameSoxo.frame;
+        frame.origin.y = CGRectGetMaxY(self.buttonNameSoxo.frame);
+        frame.size.width = CGRectGetWidth(self.buttonNameSoxo.frame);
+        frame.size.height = [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.buttonNameSoxo.frame) - HeightNavigationBar;
+        frame;
+    });
+    [self.tableListItem showOrHiden];
 }
 @end

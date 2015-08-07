@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThongkeChuave">
             <connections>
+                <outlet property="collectionView" destination="M2Q-v4-aJQ" id="Wkg-aY-yR6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,42 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peT-nj-K6x">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-v4-aJQ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFP-OK-FRr">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8e-V2-O0M">
-                                    <rect key="frame" x="0.0" y="8" width="320" height="250"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Đặc biệt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jO-wv-3XN">
-                                            <rect key="frame" x="8" y="4" width="156" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <color key="textColor" red="0.98039215690000003" green="0.15686274510000001" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </view>
-                            </subviews>
-                        </scrollView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="NFP-OK-FRr" secondAttribute="trailing" id="Vzo-cO-vhl"/>
-                        <constraint firstItem="NFP-OK-FRr" firstAttribute="leading" secondItem="peT-nj-K6x" secondAttribute="leading" id="aON-cx-qcK"/>
-                        <constraint firstAttribute="bottom" secondItem="NFP-OK-FRr" secondAttribute="bottom" id="c7h-RJ-WPB"/>
-                        <constraint firstItem="NFP-OK-FRr" firstAttribute="top" secondItem="peT-nj-K6x" secondAttribute="top" id="vLK-DN-yah"/>
-                    </constraints>
-                </view>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="SS9-5J-bhh">
+                        <size key="itemSize" width="32" height="20"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="f2M-vS-j3r"/>
+                        <outlet property="delegate" destination="-1" id="OYb-Ft-ACE"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="peT-nj-K6x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9TM-0C-QL7"/>
-                <constraint firstAttribute="trailing" secondItem="peT-nj-K6x" secondAttribute="trailing" id="9nF-Jx-v9Z"/>
-                <constraint firstItem="peT-nj-K6x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BaF-a9-jdw"/>
-                <constraint firstAttribute="bottom" secondItem="peT-nj-K6x" secondAttribute="bottom" id="W6r-Mr-Vno"/>
+                <constraint firstAttribute="trailing" secondItem="M2Q-v4-aJQ" secondAttribute="trailing" id="Eq8-9Y-Jrk"/>
+                <constraint firstAttribute="bottom" secondItem="M2Q-v4-aJQ" secondAttribute="bottom" id="MRT-Vg-6bp"/>
+                <constraint firstItem="M2Q-v4-aJQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ydn-Qf-lho"/>
+                <constraint firstItem="M2Q-v4-aJQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xlx-cU-N9Q"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

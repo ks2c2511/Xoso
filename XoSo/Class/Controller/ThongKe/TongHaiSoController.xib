@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TongHaiSoController">
+            <connections>
+                <outlet property="buttonCity" destination="MgD-1B-VhJ" id="ibS-T2-a8M"/>
+                <outlet property="buttonLuotquay" destination="ScO-BG-rhN" id="fYW-6x-aXL"/>
+                <outlet property="tableView" destination="fTq-Af-P4u" id="FbX-kw-OKP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fTq-Af-P4u">
+                    <rect key="frame" x="0.0" y="70" width="320" height="434"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="AVX-IN-xV4"/>
+                        <outlet property="delegate" destination="-1" id="fA1-xG-awH"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVR-Bh-CfK">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tỉnh,TP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-fb-Ai2">
+                            <rect key="frame" x="8" y="8" width="83" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Dk8-GC-J7W"/>
+                                <constraint firstAttribute="width" constant="83" id="vxW-FL-IYc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.68627450980000004" green="0.81176470590000005" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lần quay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-Mz-yzR">
+                            <rect key="frame" x="232" y="8" width="80" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="cFQ-EL-kh5"/>
+                                <constraint firstAttribute="width" constant="80" id="e4l-wQ-Y9k"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.68627450980000004" green="0.81176470590000005" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgD-1B-VhJ">
+                            <rect key="frame" x="8" y="32" width="199" height="30"/>
+                            <rect key="contentStretch" x="0.69999999999999973" y="0.0" width="0.0" height="0.0"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="lNu-bg-jpP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Xổ số thủ đô" backgroundImage="bg_choncachdanh.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="SelectCity:" destination="-1" eventType="touchUpInside" id="n3u-Og-1eg"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-BG-rhN">
+                            <rect key="frame" x="232" y="32" width="80" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="XAy-Pf-FTd"/>
+                                <constraint firstAttribute="width" constant="80" id="dPK-Ja-OlQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="10" backgroundImage="bg_choncachdanh.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="SelectLuotQuay:" destination="-1" eventType="touchUpInside" id="3h9-ut-rZd"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="7SP-8h-gPQ">
+                            <rect key="frame" x="183" y="35" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="Y6b-QX-ZmS"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oqw-nH-XSI">
+                            <rect key="frame" x="288" y="35" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="JQd-Xj-WvU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="MgD-1B-VhJ" firstAttribute="leading" secondItem="iVR-Bh-CfK" secondAttribute="leading" constant="8" id="7qB-3P-ALu"/>
+                        <constraint firstItem="ScO-BG-rhN" firstAttribute="bottom" secondItem="Oqw-nH-XSI" secondAttribute="bottom" constant="3" id="9Mj-Uy-NOW"/>
+                        <constraint firstItem="ScO-BG-rhN" firstAttribute="leading" secondItem="MgD-1B-VhJ" secondAttribute="trailing" constant="25" id="GwL-72-PK8"/>
+                        <constraint firstItem="7SP-8h-gPQ" firstAttribute="leading" secondItem="MgD-1B-VhJ" secondAttribute="trailing" constant="-24" id="MCa-Ue-COc"/>
+                        <constraint firstAttribute="trailing" secondItem="GLm-Mz-yzR" secondAttribute="trailing" constant="8" id="NUN-Pf-jgf"/>
+                        <constraint firstItem="7SP-8h-gPQ" firstAttribute="bottom" secondItem="MgD-1B-VhJ" secondAttribute="bottom" constant="-3" id="QUe-MW-c7Y"/>
+                        <constraint firstItem="7SP-8h-gPQ" firstAttribute="top" secondItem="MgD-1B-VhJ" secondAttribute="top" constant="3" id="Vv2-7T-uGH"/>
+                        <constraint firstAttribute="trailing" secondItem="ScO-BG-rhN" secondAttribute="trailing" constant="8" id="WqZ-uG-fYc"/>
+                        <constraint firstItem="ScO-BG-rhN" firstAttribute="top" secondItem="Oqw-nH-XSI" secondAttribute="top" constant="-3" id="dGf-bz-l1P"/>
+                        <constraint firstItem="ScO-BG-rhN" firstAttribute="top" secondItem="GLm-Mz-yzR" secondAttribute="bottom" constant="3" id="f3m-bi-HnB"/>
+                        <constraint firstItem="pHP-fb-Ai2" firstAttribute="top" secondItem="iVR-Bh-CfK" secondAttribute="top" constant="8" id="gxR-e3-zBh"/>
+                        <constraint firstItem="GLm-Mz-yzR" firstAttribute="top" secondItem="iVR-Bh-CfK" secondAttribute="top" constant="8" id="q0e-2J-PNl"/>
+                        <constraint firstItem="MgD-1B-VhJ" firstAttribute="top" secondItem="pHP-fb-Ai2" secondAttribute="bottom" constant="3" id="qQU-4r-Jgj"/>
+                        <constraint firstItem="Oqw-nH-XSI" firstAttribute="leading" secondItem="ScO-BG-rhN" secondAttribute="trailing" constant="-24" id="spV-3H-zhj"/>
+                        <constraint firstAttribute="height" constant="70" id="uTu-nk-WQk"/>
+                        <constraint firstItem="pHP-fb-Ai2" firstAttribute="leading" secondItem="iVR-Bh-CfK" secondAttribute="leading" constant="8" id="xnj-OD-X6s"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fTq-Af-P4u" secondAttribute="trailing" id="Qp7-ka-d3m"/>
+                <constraint firstItem="fTq-Af-P4u" firstAttribute="top" secondItem="iVR-Bh-CfK" secondAttribute="bottom" id="RQ9-W0-5Wa"/>
+                <constraint firstAttribute="trailing" secondItem="iVR-Bh-CfK" secondAttribute="trailing" id="gMI-cW-aty"/>
+                <constraint firstItem="iVR-Bh-CfK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iZ3-KE-HDT"/>
+                <constraint firstAttribute="bottom" secondItem="fTq-Af-P4u" secondAttribute="bottom" id="ujJ-ee-HoG"/>
+                <constraint firstItem="fTq-Af-P4u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vy3-8d-jTB"/>
+                <constraint firstItem="iVR-Bh-CfK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x3y-da-W49"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="86" y="233"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_choncachdanh.png" width="104" height="41"/>
+        <image name="ic_arrow_drop_down_18pt.png" width="18" height="18"/>
+    </resources>
+</document>

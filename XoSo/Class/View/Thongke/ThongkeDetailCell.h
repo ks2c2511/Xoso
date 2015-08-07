@@ -10,6 +10,7 @@
 
 @interface ThongkeDetailCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_W_PercentView;
 @property (weak, nonatomic) IBOutlet UIView *viewContainNumber;
 @property (weak, nonatomic) IBOutlet UIView *viewContainpercent;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumber;

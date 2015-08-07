@@ -40,14 +40,24 @@
 
 #define GET_TUONGTHUAT_TRUCTIEP @"Tructiep.php"
 
+#define GET_THONGKE_CAPSO @"TKCapso.php"
+#define GET_THONGKE_DAUDUOI @"TKDauDuoi.php"
+#define GET_THONGKE_HAISOCUOI @"TKTong2socuoi.php"
+
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"
 
-
 //constance
 
 #define google_id_Ad @"ca-app-pub-8172894227923068/6488921439"
+
+#define thong_ke_cap_so @"thongkecapso"
+#define thong_ke_chuave @"chuave"
+#define thong_ke_dau @"dau"
+#define thong_ke_duoi @"duoi"
+#define thong_ke_type_dac_biet @"dacbiet"
+#define thong_ke_type_loto @"loto"
 
 //userDefault
 

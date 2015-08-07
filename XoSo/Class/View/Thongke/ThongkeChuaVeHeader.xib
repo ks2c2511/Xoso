@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="ThongkeChuaVeHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJc-oG-KJt">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpa-uF-mbE">
+                            <rect key="frame" x="8" y="4" width="312" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="qpa-uF-mbE" secondAttribute="bottom" constant="5" id="bxC-mp-Q2W"/>
+                        <constraint firstItem="qpa-uF-mbE" firstAttribute="top" secondItem="dJc-oG-KJt" secondAttribute="top" constant="4" id="doj-27-BKx"/>
+                        <constraint firstItem="qpa-uF-mbE" firstAttribute="leading" secondItem="dJc-oG-KJt" secondAttribute="leading" constant="8" id="ec1-jQ-kFc"/>
+                        <constraint firstAttribute="trailing" secondItem="qpa-uF-mbE" secondAttribute="trailing" id="mOb-BN-bhZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dJc-oG-KJt" secondAttribute="bottom" id="0Ci-Ra-GLT"/>
+                <constraint firstItem="dJc-oG-KJt" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="5Zz-yu-cAN"/>
+                <constraint firstItem="dJc-oG-KJt" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="A6b-Hi-OH3"/>
+                <constraint firstAttribute="trailing" secondItem="dJc-oG-KJt" secondAttribute="trailing" id="anR-EG-0Kt"/>
+            </constraints>
+            <connections>
+                <outlet property="labelHeader" destination="qpa-uF-mbE" id="b3A-9n-tWC"/>
+            </connections>
+            <point key="canvasLocation" x="455" y="232"/>
+        </collectionReusableView>
+    </objects>
+</document>

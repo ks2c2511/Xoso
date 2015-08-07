@@ -9,10 +9,14 @@
 #import "ThongKeController.h"
 #import "ThongKeCell.h"
 #import "ThongkeSoController.h"
+#import "ThongkeDauduoiController.h"
+#import "TongHaiSoController.h"
+
 
 @interface ThongKeController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSArray *arrData;
+
 @end
 
 @implementation ThongKeController
@@ -22,6 +26,8 @@
     self.navigationItem.title = @"Thống kê";
     
     [self.tableView registerClass:[ThongKeCell class] forCellReuseIdentifier:NSStringFromClass([ThongKeCell class])];
+
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -59,6 +65,14 @@
     if (indexPath.row == 0) {
         ThongkeSoController *thongkeSo = [ThongkeSoController new];
         [self.navigationController pushViewController:thongkeSo animated:YES];
+    }
+    else if (indexPath.row == 1) {
+        ThongkeDauduoiController *dauduoi = [ThongkeDauduoiController new];
+        [self.navigationController pushViewController:dauduoi animated:YES];
+    }
+    else if (indexPath.row == 2) {
+        TongHaiSoController *tong = [TongHaiSoController new];
+        [self.navigationController pushViewController:tong animated:YES];
     }
 }
 

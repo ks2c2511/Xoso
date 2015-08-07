@@ -10,4 +10,5 @@
 
 @interface ThongkeDacbiet : BaseController
 @property (assign,nonatomic) NSInteger typeIndex;
+@property (assign,nonatomic) NSInteger matinh,luotquay;
 @end
