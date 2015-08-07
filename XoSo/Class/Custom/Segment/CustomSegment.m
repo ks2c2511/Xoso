@@ -123,6 +123,11 @@ static float spaceSeparator = 5.0f;
     _selectLine.frame = rectSelectLine;
 }
 
+-(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
+    [super setSelectedSegmentIndex:selectedSegmentIndex];
+    [self ReFrameSelectLineWithIndex:self];
+}
+
 #pragma mark - Acessors
 
 - (UIColor *)FColor {

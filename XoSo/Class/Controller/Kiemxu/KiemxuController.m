@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"Kiếm xu";
     self.bannerView.adUnitID = google_id_Ad;
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];

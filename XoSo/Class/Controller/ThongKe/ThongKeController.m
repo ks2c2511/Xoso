@@ -8,6 +8,7 @@
 
 #import "ThongKeController.h"
 #import "ThongKeCell.h"
+#import "ThongkeSoController.h"
 
 @interface ThongKeController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Thống kê";
     
     [self.tableView registerClass:[ThongKeCell class] forCellReuseIdentifier:NSStringFromClass([ThongKeCell class])];
     // Do any additional setup after loading the view from its nib.
@@ -54,12 +56,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.row == 0) {
+        ThongkeSoController *thongkeSo = [ThongkeSoController new];
+        [self.navigationController pushViewController:thongkeSo animated:YES];
+    }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
+
 
 -(NSArray *)arrData {
     if (!_arrData) {

@@ -111,6 +111,15 @@
 		6AC779371B4C37C6006AD38A /* ic_menu_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC779351B4C37C6006AD38A /* ic_menu_white.png */; };
 		6AC7793A1B4C3B69006AD38A /* arrow_down_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC779381B4C3B69006AD38A /* arrow_down_icon.png */; };
 		6AC7793B1B4C3B69006AD38A /* arrow_down_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC779391B4C3B69006AD38A /* arrow_down_icon@2x.png */; };
+		6AE2192B1B72574600FC9525 /* ThongkeSoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE219291B72574600FC9525 /* ThongkeSoController.m */; };
+		6AE2192C1B72574600FC9525 /* ThongkeSoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2192A1B72574600FC9525 /* ThongkeSoController.xib */; };
+		6AE2192E1B7257D300FC9525 /* bg_choncachdanh.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2192D1B7257D300FC9525 /* bg_choncachdanh.png */; };
+		6AE219391B72607400FC9525 /* ic_arrow_drop_down_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE219371B72607400FC9525 /* ic_arrow_drop_down_18pt.png */; };
+		6AE2193A1B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE219381B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png */; };
+		6AE2193E1B7269A800FC9525 /* ThongkeDacbiet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2193C1B7269A800FC9525 /* ThongkeDacbiet.m */; };
+		6AE2193F1B7269A800FC9525 /* ThongkeDacbiet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE2193D1B7269A800FC9525 /* ThongkeDacbiet.xib */; };
+		6AE219431B726F7900FC9525 /* ThongkeChuave.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE219411B726F7900FC9525 /* ThongkeChuave.m */; };
+		6AE219441B726F7900FC9525 /* ThongkeChuave.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE219421B726F7900FC9525 /* ThongkeChuave.xib */; };
 		6AE21DD71B71120000981657 /* ThongKeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE21DD51B71120000981657 /* ThongKeCell.m */; };
 		6AE21DD81B71120000981657 /* ThongKeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE21DD61B71120000981657 /* ThongKeCell.xib */; };
 		6AE21DDB1B711A7000981657 /* ThongkeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE21DDA1B711A7000981657 /* ThongkeTable.m */; };
@@ -137,6 +146,9 @@
 		6AEBA4851B4755C6001B4A3E /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEBA4831B4755C6001B4A3E /* LeftMenuCell.m */; };
 		6AEBA4861B4755C6001B4A3E /* LeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEBA4841B4755C6001B4A3E /* LeftMenuCell.xib */; };
 		6AEBA48A1B4759A6001B4A3E /* NSAttributedString+Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEBA4891B4759A6001B4A3E /* NSAttributedString+Icon.m */; };
+		6AED64171B73A0D2008DBB31 /* TuongthuatStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AED64161B73A0D2008DBB31 /* TuongthuatStore.m */; };
+		6AED641B1B73A287008DBB31 /* TuongthuatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AED641A1B73A287008DBB31 /* TuongthuatModel.m */; };
+		6AED641E1B73A5DC008DBB31 /* TuongthuatConvertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AED641D1B73A5DC008DBB31 /* TuongthuatConvertModel.m */; };
 		6AEDD5051B5015720036683C /* mydb.db in Resources */ = {isa = PBXBuildFile; fileRef = 6AEDD5041B5015720036683C /* mydb.db */; };
 		6AEDD5081B5018A10036683C /* Xoso.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD5061B5018A10036683C /* Xoso.xcdatamodeld */; };
 		6AEDD50B1B5019880036683C /* Province.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD50A1B5019880036683C /* Province.m */; };
@@ -339,6 +351,18 @@
 		6AC779351B4C37C6006AD38A /* ic_menu_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_white.png; sourceTree = "<group>"; };
 		6AC779381B4C3B69006AD38A /* arrow_down_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down_icon.png; sourceTree = "<group>"; };
 		6AC779391B4C3B69006AD38A /* arrow_down_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_down_icon@2x.png"; sourceTree = "<group>"; };
+		6AE219281B72574600FC9525 /* ThongkeSoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeSoController.h; sourceTree = "<group>"; };
+		6AE219291B72574600FC9525 /* ThongkeSoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeSoController.m; sourceTree = "<group>"; };
+		6AE2192A1B72574600FC9525 /* ThongkeSoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeSoController.xib; sourceTree = "<group>"; };
+		6AE2192D1B7257D300FC9525 /* bg_choncachdanh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_choncachdanh.png; sourceTree = "<group>"; };
+		6AE219371B72607400FC9525 /* ic_arrow_drop_down_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_arrow_drop_down_18pt.png; sourceTree = "<group>"; };
+		6AE219381B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_arrow_drop_down_18pt@2x.png"; sourceTree = "<group>"; };
+		6AE2193B1B7269A800FC9525 /* ThongkeDacbiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeDacbiet.h; sourceTree = "<group>"; };
+		6AE2193C1B7269A800FC9525 /* ThongkeDacbiet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeDacbiet.m; sourceTree = "<group>"; };
+		6AE2193D1B7269A800FC9525 /* ThongkeDacbiet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeDacbiet.xib; sourceTree = "<group>"; };
+		6AE219401B726F7900FC9525 /* ThongkeChuave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeChuave.h; sourceTree = "<group>"; };
+		6AE219411B726F7900FC9525 /* ThongkeChuave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeChuave.m; sourceTree = "<group>"; };
+		6AE219421B726F7900FC9525 /* ThongkeChuave.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeChuave.xib; sourceTree = "<group>"; };
 		6AE21DD41B71120000981657 /* ThongKeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongKeCell.h; sourceTree = "<group>"; };
 		6AE21DD51B71120000981657 /* ThongKeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongKeCell.m; sourceTree = "<group>"; };
 		6AE21DD61B71120000981657 /* ThongKeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongKeCell.xib; sourceTree = "<group>"; };
@@ -383,6 +407,12 @@
 		6AEBA4841B4755C6001B4A3E /* LeftMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuCell.xib; sourceTree = "<group>"; };
 		6AEBA4881B4759A6001B4A3E /* NSAttributedString+Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Icon.h"; sourceTree = "<group>"; };
 		6AEBA4891B4759A6001B4A3E /* NSAttributedString+Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Icon.m"; sourceTree = "<group>"; };
+		6AED64151B73A0D2008DBB31 /* TuongthuatStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuongthuatStore.h; sourceTree = "<group>"; };
+		6AED64161B73A0D2008DBB31 /* TuongthuatStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuongthuatStore.m; sourceTree = "<group>"; };
+		6AED64191B73A287008DBB31 /* TuongthuatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuongthuatModel.h; sourceTree = "<group>"; };
+		6AED641A1B73A287008DBB31 /* TuongthuatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuongthuatModel.m; sourceTree = "<group>"; };
+		6AED641C1B73A5DC008DBB31 /* TuongthuatConvertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuongthuatConvertModel.h; sourceTree = "<group>"; };
+		6AED641D1B73A5DC008DBB31 /* TuongthuatConvertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuongthuatConvertModel.m; sourceTree = "<group>"; };
 		6AEDD5041B5015720036683C /* mydb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mydb.db; sourceTree = "<group>"; };
 		6AEDD5071B5018A10036683C /* Xoso.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Xoso.xcdatamodel; sourceTree = "<group>"; };
 		6AEDD5091B5019880036683C /* Province.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Province.h; sourceTree = "<group>"; };
@@ -661,6 +691,7 @@
 		6A79A9AE1B46F9A60098AB4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6AED64181B73A27B008DBB31 /* Tuongthuat */,
 				6AF27DF61B692FF50016F8E2 /* History */,
 				6AE7B2891B66885200D250AB /* LotoOnline */,
 				6AFE6E581B4D8787009E750C /* XemKqxs */,
@@ -671,6 +702,7 @@
 		6A79A9AF1B46F9A60098AB4A /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				6AED64141B73A0BD008DBB31 /* Tuongthuat */,
 				6AF27DF21B692C600016F8E2 /* History */,
 				6AE7B28D1B6689BF00D250AB /* LotoOnline */,
 				6AADD2451B6154CC00CF90BD /* LoginAndRegister */,
@@ -870,6 +902,7 @@
 		6AC778E71B4C22D8006AD38A /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				6AE2192D1B7257D300FC9525 /* bg_choncachdanh.png */,
 				6AC778E81B4C22D8006AD38A /* cai_dat.png */,
 				6AC778E91B4C22D8006AD38A /* cai_dat@2x.png */,
 				6AC778EA1B4C22D8006AD38A /* chia_se.png */,
@@ -893,6 +926,8 @@
 		6AC779331B4C37BB006AD38A /* navigation */ = {
 			isa = PBXGroup;
 			children = (
+				6AE219371B72607400FC9525 /* ic_arrow_drop_down_18pt.png */,
+				6AE219381B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png */,
 				6A20E9AA1B52B14B000168E2 /* ic_arrow_forward_18pt_2x.png */,
 				6A20E9AB1B52B14B000168E2 /* ic_arrow_forward_18pt.png */,
 				6A20E9A61B52B12E000168E2 /* ic_arrow_back_18pt_2x.png */,
@@ -985,6 +1020,26 @@
 				6AEBA4891B4759A6001B4A3E /* NSAttributedString+Icon.m */,
 			);
 			path = AttributeString;
+			sourceTree = "<group>";
+		};
+		6AED64141B73A0BD008DBB31 /* Tuongthuat */ = {
+			isa = PBXGroup;
+			children = (
+				6AED64151B73A0D2008DBB31 /* TuongthuatStore.h */,
+				6AED64161B73A0D2008DBB31 /* TuongthuatStore.m */,
+			);
+			path = Tuongthuat;
+			sourceTree = "<group>";
+		};
+		6AED64181B73A27B008DBB31 /* Tuongthuat */ = {
+			isa = PBXGroup;
+			children = (
+				6AED64191B73A287008DBB31 /* TuongthuatModel.h */,
+				6AED641A1B73A287008DBB31 /* TuongthuatModel.m */,
+				6AED641C1B73A5DC008DBB31 /* TuongthuatConvertModel.h */,
+				6AED641D1B73A5DC008DBB31 /* TuongthuatConvertModel.m */,
+			);
+			path = Tuongthuat;
 			sourceTree = "<group>";
 		};
 		6AEDD5031B5014D00036683C /* Database */ = {
@@ -1176,6 +1231,15 @@
 				6AFF07501B65385C000432C4 /* ThongKeController.h */,
 				6AFF07511B65385C000432C4 /* ThongKeController.m */,
 				6AFF07521B65385C000432C4 /* ThongKeController.xib */,
+				6AE219281B72574600FC9525 /* ThongkeSoController.h */,
+				6AE219291B72574600FC9525 /* ThongkeSoController.m */,
+				6AE2192A1B72574600FC9525 /* ThongkeSoController.xib */,
+				6AE2193B1B7269A800FC9525 /* ThongkeDacbiet.h */,
+				6AE2193C1B7269A800FC9525 /* ThongkeDacbiet.m */,
+				6AE2193D1B7269A800FC9525 /* ThongkeDacbiet.xib */,
+				6AE219401B726F7900FC9525 /* ThongkeChuave.h */,
+				6AE219411B726F7900FC9525 /* ThongkeChuave.m */,
+				6AE219421B726F7900FC9525 /* ThongkeChuave.xib */,
 			);
 			path = ThongKe;
 			sourceTree = "<group>";
@@ -1311,12 +1375,14 @@
 				6AC778D41B4C2290006AD38A /* quay_thu@2x.png in Resources */,
 				6AEDD51E1B502B170036683C /* ic_radio_button_checked_white_2x.png in Resources */,
 				6A20E9A81B52B12E000168E2 /* ic_arrow_back_18pt_2x.png in Resources */,
+				6AE219441B726F7900FC9525 /* ThongkeChuave.xib in Resources */,
 				6AC779051B4C22D8006AD38A /* thong_tin_icon@2x.png in Resources */,
 				6AFE6E4A1B4D7D61009E750C /* NameXosoCityHeader.xib in Resources */,
 				6AEBA4811B475414001B4A3E /* LeftMenuData.plist in Resources */,
 				6AC7792F1B4C30F4006AD38A /* kiem_xu_0.png in Resources */,
 				6AC778D71B4C2290006AD38A /* thong_ke.png in Resources */,
 				6AC778D91B4C2290006AD38A /* tien_ich.png in Resources */,
+				6AE219391B72607400FC9525 /* ic_arrow_drop_down_18pt.png in Resources */,
 				6AC779001B4C22D8006AD38A /* hom_thu_xanh.png in Resources */,
 				6AC779021B4C22D8006AD38A /* home_icon.png in Resources */,
 				6AC779271B4C30E1006AD38A /* cau_loto_0.png in Resources */,
@@ -1349,6 +1415,7 @@
 				6AC778C61B4C2290006AD38A /* giai_mong_icon@2x.png in Resources */,
 				6AF9825D1B497F19003A31B7 /* HomeData.plist in Resources */,
 				6AF9825A1B497DEE003A31B7 /* HomeCollectionCell.xib in Resources */,
+				6AE2193F1B7269A800FC9525 /* ThongkeDacbiet.xib in Resources */,
 				6AEDD51A1B502B080036683C /* ic_radio_button_unchecked_white_2x.png in Resources */,
 				6AC779291B4C30E1006AD38A /* cau_loto_1.png in Resources */,
 				6AE7B2A71B6FCF5900182523 /* TableMienNamCell.xib in Resources */,
@@ -1360,6 +1427,7 @@
 				6AC778FD1B4C22D8006AD38A /* dang_nhap_icon@2x.png in Resources */,
 				6AFE6E511B4D7EBE009E750C /* ic_arrow_back_white_2x.png in Resources */,
 				6AADD22C1B61342900CF90BD /* SplashController.xib in Resources */,
+				6AE2192C1B72574600FC9525 /* ThongkeSoController.xib in Resources */,
 				6AC779071B4C22D8006AD38A /* user_icon@2x.png in Resources */,
 				6AC778CE1B4C2290006AD38A /* lich_su_choi@2x.png in Resources */,
 				6AFE6E571B4D8017009E750C /* LotoDauDuoiHeader.xib in Resources */,
@@ -1374,8 +1442,10 @@
 				6A7F0FB51B6E6511003909E4 /* TableBacOneCell.xib in Resources */,
 				6AFE6E4E1B4D7E6E009E750C /* ic_arrow_forward_white.png in Resources */,
 				6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */,
+				6AE2192E1B7257D300FC9525 /* bg_choncachdanh.png in Resources */,
 				6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */,
 				6AFE6E451B4D7A6B009E750C /* LotoDauDuoiCell.xib in Resources */,
+				6AE2193A1B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png in Resources */,
 				6AC778F91B4C22D8006AD38A /* cai_dat@2x.png in Resources */,
 				6AC7792A1B4C30E1006AD38A /* cau_loto_1@2x.png in Resources */,
 				6AC778FC1B4C22D8006AD38A /* dang_nhap_icon.png in Resources */,
@@ -1435,6 +1505,7 @@
 			files = (
 				6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */,
 				6AEBA4851B4755C6001B4A3E /* LeftMenuCell.m in Sources */,
+				6AE219431B726F7900FC9525 /* ThongkeChuave.m in Sources */,
 				6AFE6E5B1B4D87A0009E750C /* XemKQXSModel.m in Sources */,
 				6A4D84A21B5D539A00432DA5 /* ButtonBorder.m in Sources */,
 				6A4D84AA1B5D55D800432DA5 /* CustomSegment.m in Sources */,
@@ -1445,13 +1516,16 @@
 				6AE21DDB1B711A7000981657 /* ThongkeTable.m in Sources */,
 				6A7F0FB91B6E6527003909E4 /* TableBacTwoCell.m in Sources */,
 				6AADD2441B61546300CF90BD /* User.m in Sources */,
+				6AE2193E1B7269A800FC9525 /* ThongkeDacbiet.m in Sources */,
 				6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */,
 				6AE21DD71B71120000981657 /* ThongKeCell.m in Sources */,
 				6AE21DDF1B711AA000981657 /* ThongkeDetailCell.m in Sources */,
 				6AE7B28C1B66887200D250AB /* LotoTypeModel.m in Sources */,
 				6A7F0FCD1B6E6C52003909E4 /* TableSixCell.m in Sources */,
 				6AE973F41B5FDF5700654EBA /* ChontinhCell.m in Sources */,
+				6AE2192B1B72574600FC9525 /* ThongkeSoController.m in Sources */,
 				6AEDD5161B501F0A0036683C /* TableListCell.m in Sources */,
+				6AED641B1B73A287008DBB31 /* TuongthuatModel.m in Sources */,
 				6AFF07531B65385C000432C4 /* ThongKeController.m in Sources */,
 				6AEDD52E1B5032D40036683C /* LotoOnlineController.m in Sources */,
 				6AADD2411B6147DF00CF90BD /* Ads.m in Sources */,
@@ -1469,6 +1543,7 @@
 				6AADD22B1B61342900CF90BD /* SplashController.m in Sources */,
 				6AE7B2931B668BD500D250AB /* LotoRegionModel.m in Sources */,
 				6AE78EA11B67E59C00BEEBEE /* CustomTextField.m in Sources */,
+				6AED641E1B73A5DC008DBB31 /* TuongthuatConvertModel.m in Sources */,
 				6A7078E61B49888300565E08 /* XemKQXSController.m in Sources */,
 				6AFF074D1B653788000432C4 /* TuongThuatController.m in Sources */,
 				6AE7B2901B6689CF00D250AB /* LotoOnlineStore.m in Sources */,
@@ -1493,6 +1568,7 @@
 				6AF27DF91B6930020016F8E2 /* HistoryModel.m in Sources */,
 				6A7F0FC81B6E657A003909E4 /* TableMIenTrungCell.m in Sources */,
 				6AADD23E1B6141D400CF90BD /* Notifi.m in Sources */,
+				6AED64171B73A0D2008DBB31 /* TuongthuatStore.m in Sources */,
 				6AF27DF11B6927390016F8E2 /* NSString+FromArray.m in Sources */,
 				6A79A9C61B46F9F70098AB4A /* UIFont+Traits.m in Sources */,
 				6AEBA48A1B4759A6001B4A3E /* NSAttributedString+Icon.m in Sources */,
@@ -1600,7 +1676,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: My Poker Card Ltd";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1615,6 +1691,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "13ad2bb9-37db-4de0-88df-2c4fc3f5417e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

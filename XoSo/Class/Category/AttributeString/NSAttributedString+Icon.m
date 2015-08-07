@@ -36,4 +36,10 @@
     return att;
 }
 
++(NSAttributedString *)atttributeWithText:(NSString *)text Font:(UIFont *)font Color:(UIColor *)color BackGroundText:(UIColor *)bColor {
+    text = (text == nil)?@"":text;
+    NSAttributedString *att = [[NSAttributedString alloc] initWithString:text attributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,color,NSForegroundColorAttributeName,bColor,NSBackgroundColorAttributeName, nil]];
+    return att;
+}
+
 @end

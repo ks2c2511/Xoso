@@ -23,7 +23,8 @@
 
 //Request
 
-#define BASE_URL @"http://210.211.97.45/sentienich/lottery/"
+//#define BASE_URL @"http://210.211.97.45/sentienich/lottery/"
+#define BASE_URL @"http://sentienich.aviostore.com/lottery/"
 #define GET_XEM_KQXS_PRE_DAY @"KQXSPREDAY1.php"
 #define GET_XEM_KQXS_NGAY_GAN_NHAT @"KQXS10Day.php"
 #define GET_XEM_KQXS_THEO_TINH_HIEN_TAI @"KQXS1DayTheoMT.php"
@@ -36,6 +37,8 @@
 #define GET_REAL_TIME_SERVER @"get_server_current_date.php"
 #define POST_SEND_NUMBER_LOTO_ONLINE @"insert_lotonumber_userpoint.php"
 #define GET_HISTORY @"process/get_history.php"
+
+#define GET_TUONGTHUAT_TRUCTIEP @"Tructiep.php"
 
 //notification
 

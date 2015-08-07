@@ -15,7 +15,6 @@
 @implementation XemKQXSStore
 + (void)GetResultByDateWithDate:(NSString *)date CompanyId:(NSNumber *)companyId Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done {
     
-    
     [self getKetquaByDate:[[self dateFormatter] dateFromString:date] CompanyId:[companyId integerValue] Done:^(BOOL success, NSArray *arr) {
         
         NSMutableArray *muArr = [NSMutableArray new];

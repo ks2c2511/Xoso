@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Lô tô online";
     
     self.popupView.alpha = 0;
     [self.collectionView registerClass:[ChonCuocCell class] forCellWithReuseIdentifier:NSStringFromClass([ChonCuocCell class])];

@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Lịch sử cá cược";
     
     currentPage= 1;
     
@@ -36,8 +37,6 @@
             if (self.showFutureCuoc) {
                 NSPredicate *pre  = [NSPredicate predicateWithFormat:@"STATUS == %@",[NSString stringWithFormat:@"%i",1]];
                 _arrData = [data filteredArrayUsingPredicate:pre];
-               
-                
             }
             else {
                 _arrData = data;

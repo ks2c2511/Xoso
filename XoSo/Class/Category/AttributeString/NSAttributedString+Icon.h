@@ -13,4 +13,5 @@
 +(NSAttributedString *)addIconWithString:(NSString *)str icon:(UIImage *)icon iconBounds:(CGRect)iconBounds attrDict:(NSDictionary *)attrDict;
 
 + (NSAttributedString *)atttributeWithText:(NSString *)text Font:(UIFont *)font Color:(UIColor *)color;
++(NSAttributedString *)atttributeWithText:(NSString *)text Font:(UIFont *)font Color:(UIColor *)color BackGroundText:(UIColor *)bColor;
 @end
