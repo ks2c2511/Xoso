@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThongKeController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LichsuchoiController">
             <connections>
-                <outlet property="tableView" destination="UPB-OB-jkw" id="mKU-7P-W6a"/>
+                <outlet property="tableView" destination="Kpp-nZ-tkd" id="wJg-Wg-AY3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,26 +16,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UPB-OB-jkw">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kpp-nZ-tkd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="pyi-Vd-fH2"/>
-                        <outlet property="delegate" destination="-1" id="tfb-L3-9Sm"/>
+                        <outlet property="dataSource" destination="-1" id="p79-FD-K2k"/>
+                        <outlet property="delegate" destination="-1" id="G7l-ck-STG"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UPB-OB-jkw" secondAttribute="bottom" id="LTq-9w-63T"/>
-                <constraint firstItem="UPB-OB-jkw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qyv-oW-ofT"/>
-                <constraint firstItem="UPB-OB-jkw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="boB-UU-yXu"/>
-                <constraint firstAttribute="trailing" secondItem="UPB-OB-jkw" secondAttribute="trailing" id="dqE-dw-FjO"/>
+                <constraint firstAttribute="bottom" secondItem="Kpp-nZ-tkd" secondAttribute="bottom" id="3Ou-gG-ab5"/>
+                <constraint firstItem="Kpp-nZ-tkd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dj0-Ue-s0u"/>
+                <constraint firstItem="Kpp-nZ-tkd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MKP-0K-yCN"/>
+                <constraint firstAttribute="trailing" secondItem="Kpp-nZ-tkd" secondAttribute="trailing" id="ZyJ-lA-oFL"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="194" y="171"/>
+            <point key="canvasLocation" x="342" y="87"/>
         </view>
     </objects>
 </document>

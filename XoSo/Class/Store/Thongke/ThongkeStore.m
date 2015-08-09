@@ -9,6 +9,8 @@
 #import "ThongkeStore.h"
 #import <GzNetworking.h>
 #import "ConstantDefine.h"
+#import "User.h"
+#import <NSManagedObject+GzDatabase.h>
 
 @implementation ThongkeStore
 + (void)thongkeWithLuotQuay:(NSInteger)luotquay MaTinh:(NSInteger)matinh Xem:(NSString *)xem Type:(NSString *)loto Done:(void (^)(BOOL success, NSArray *arr))done {
@@ -66,6 +68,51 @@
             done(NO, nil);
         }
     }];
+}
+
++ (void)lichsuchoiWithDone:(void (^)( BOOL success, NSArray *arr))done {
+    [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_LICHSUCHOI] parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            
+            NSArray *arr = [MTLJSONAdapter modelsOfClass:[LichSuChoiModel class] fromJSONArray:responseObject error:nil];
+            done(YES, arr);
+        }
+    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            done(NO, nil);
+        }
+    }];
+
+}
+
++(void)thongkeUserDiemCaoWithType:(NSInteger)type Done:(void (^)( BOOL success, NSArray *arr, NSString *pointUser,NSString *leverUser))done {
+   
+
+    [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0 ) {
+            User *use = [objects firstObject];
+             NSDictionary *dic;
+            NSString *prefix;
+                dic = @{@"type": @(type),
+                        @"userid":use.user_id};
+                prefix = GET_THONGKE_DIEMCHOI;
+           
+            
+            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+                if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+                    
+                    NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongKeDiemCaoModel class] fromJSONArray:[responseObject objectForKey:@"top_ten_point"] error:nil];
+                    done(YES, arr, responseObject[@"point_user"],responseObject[@"level_user"]);
+                }
+            } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+                if (error) {
+                    done(NO, nil,nil,nil);
+                }
+            }];
+
+        }
+    }];
+
 }
 
 @end

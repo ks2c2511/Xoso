@@ -11,6 +11,9 @@
 #import "ThongkeSoController.h"
 #import "ThongkeDauduoiController.h"
 #import "TongHaiSoController.h"
+#import "LichsuchoiController.h"
+#import "ThongkechukeController.h"
+#import "ThongkeUserController.h"
 
 
 @interface ThongKeController ()
@@ -73,6 +76,18 @@
     else if (indexPath.row == 2) {
         TongHaiSoController *tong = [TongHaiSoController new];
         [self.navigationController pushViewController:tong animated:YES];
+    }
+    else if (indexPath.row == 3) {
+        LichsuchoiController *lichsuchoi = [LichsuchoiController new];
+        [self.navigationController pushViewController:lichsuchoi animated:YES];
+    }
+    else if (indexPath.row == 4) {
+        ThongkechukeController *chuki = [ThongkechukeController new];
+        [self.navigationController pushViewController:chuki animated:YES];
+    }
+    else if (indexPath.row == 5) {
+        ThongkeUserController *user =[ThongkeUserController new];
+        [self.navigationController pushViewController:user animated:YES];
     }
 }
 
