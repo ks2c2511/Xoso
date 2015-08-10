@@ -30,6 +30,8 @@ static NSInteger const heightSelect = 7;
         CGContextAddLineToPoint(context, 0.0, rect.size.height);
         CGContextAddLineToPoint(context, rect.size.width, rect.size.height);
         CGContextAddLineToPoint(context, rect.size.width, rect.size.height -heightSelect);
+    
+        
 
     }
     else {
@@ -41,7 +43,7 @@ static NSInteger const heightSelect = 7;
     }
     
         CGContextDrawPath(context, kCGPathFill);
-        CGContextClosePath(context);
+//        CGContextClosePath(context);
 }
 
 -(void)setIsSelect:(BOOL)isSelect {

@@ -18,5 +18,6 @@
 
 + (void)lichsuchoiWithDone:(void (^)( BOOL success, NSArray *arr))done;
 
-+(void)thongkeUserDiemCaoWithType:(NSInteger)type Done:(void (^)( BOOL success, NSArray *arr, NSString *pointUser,NSString *leverUser))done;
++(void)thongkeUserDiemCaoWithType:(NSInteger)type Done:(void (^)( BOOL success, NSArray *arr, NSString *pointUser,NSString *leverUser,NSString *nameUser))done;
++(void)thongkeUserTrungCaoWithFromDate:(NSString *)fromDate ToDate:(NSString *)todate Done:(void (^)( BOOL success, NSArray *arr))done;
 @end

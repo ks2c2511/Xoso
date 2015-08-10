@@ -82,6 +82,7 @@ typedef NS_ENUM(NSInteger, TableType) {
     TuongthuatConvertModel *modelConvert = self.arrData[indexPath.row];
     NSArray *arrKetqua1 = modelConvert.arr1;
     NSArray *arrKetqua2 = modelConvert.arr2;
+    
     if (arrKetqua1.count == 0 && arrKetqua2.count == 0) {
         if (indexPath.row == 3 || indexPath.row == 5) {
             return 60;
@@ -89,6 +90,7 @@ typedef NS_ENUM(NSInteger, TableType) {
         return 30;
     }
     else {
+        return 30*arrKetqua1.count;
         if (indexPath.row == 3) {
             return 90;
         }
@@ -109,9 +111,8 @@ typedef NS_ENUM(NSInteger, TableType) {
     NSArray *arrKetqua1 = modelConvert.arr1;
     NSArray *arrKetqua2 = modelConvert.arr2;
     
-    if (arrKetqua1.count == 0 && arrKetqua2.count == 0 && ![@"G" isEqualToString:modelConvert.ma_giai]) {
+    if (arrKetqua1.count == 0 && arrKetqua2.count == 0) {
        
-        
         UIColor *backGroudColor;
         if (indexPath.row %2 == 0) {
             backGroudColor = [UIColor colorWithRed:250.0/255.0 green:255.0/255.0 blue:200.0/255.0 alpha:1.0];
@@ -231,23 +232,44 @@ typedef NS_ENUM(NSInteger, TableType) {
         }
         
         if (indexPath.row == 0) {
-            cell.labelTitle.text = @"G";
-//            cell.labelNumber1
+            cell.labelTitle.text = modelConvert.ma_giai;
+            
+            if (arrKetqua.count > 0) {
+                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            }
+            if (arrKetqua1.count > 0) {
+                cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            }
+           
+            
         }
         else {
-            cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9-indexPath.row];
+            if ([modelConvert.ma_giai integerValue] == 0 || [modelConvert.ma_giai integerValue] == 9) {
+                cell.labelTitle.text = @"DB";
+            }
+            else {
+                cell.labelTitle.text = modelConvert.ma_giai;
+            }
+            
+            
+            if (arrKetqua.count > 0) {
+                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            }
+            if (arrKetqua1.count > 0) {
+                cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            }
         }
+    
     
         
         return cell;
     }
-    else {
+    else if (arrKetqua.count != 0 && arrKetqua1.count != 0 && arrKetqua2.count != 0){
         UIColor *backGroudColor;
         if (indexPath.row %2 != 0) {
             backGroudColor = [UIColor colorWithRed:250.0/255.0 green:255.0/255.0 blue:200.0/255.0 alpha:1.0];
         }
         else backGroudColor = [UIColor whiteColor];
-        
         
         TableMienNamCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableMienNamCell class]) forIndexPath:indexPath];
         
@@ -269,11 +291,14 @@ typedef NS_ENUM(NSInteger, TableType) {
             if (arrKetqua2.count > 0) {
                 cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
             }
-           
-            //            cell.labelNumber1
         }
         else {
-            cell.labelTitle.text = modelConvert.ma_giai;
+            if ([modelConvert.ma_giai integerValue] == 0 || [modelConvert.ma_giai integerValue] == 9) {
+                cell.labelTitle.text = @"DB";
+            }
+            else {
+                cell.labelTitle.text = modelConvert.ma_giai;
+            }
             
             if (arrKetqua.count > 0) {
                 cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
@@ -285,9 +310,7 @@ typedef NS_ENUM(NSInteger, TableType) {
                 cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
             }
         }
-        
-       
-        
+                
         return cell;
     }
        return nil;

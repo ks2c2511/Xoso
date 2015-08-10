@@ -85,7 +85,7 @@
 
 }
 
-+(void)thongkeUserDiemCaoWithType:(NSInteger)type Done:(void (^)( BOOL success, NSArray *arr, NSString *pointUser,NSString *leverUser))done {
++(void)thongkeUserDiemCaoWithType:(NSInteger)type Done:(void (^)( BOOL success, NSArray *arr, NSString *pointUser,NSString *leverUser,NSString *nameUser))done {
    
 
     [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
@@ -102,14 +102,42 @@
                 if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
                     
                     NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongKeDiemCaoModel class] fromJSONArray:[responseObject objectForKey:@"top_ten_point"] error:nil];
-                    done(YES, arr, responseObject[@"point_user"],responseObject[@"level_user"]);
+                    done(YES, arr, responseObject[@"point_user"],responseObject[@"level_user"],use.user_name);
                 }
             } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
                 if (error) {
-                    done(NO, nil,nil,nil);
+                    done(NO, nil,nil,nil,nil);
                 }
             }];
 
+        }
+    }];
+
+}
+
++(void)thongkeUserTrungCaoWithFromDate:(NSString *)fromDate ToDate:(NSString *)todate Done:(void (^)( BOOL success, NSArray *arr))done {
+    [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0 ) {
+            User *use = [objects firstObject];
+            NSDictionary *dic;
+            NSString *prefix;
+            dic = @{@"fromdate": fromDate,
+                    @"todate":todate,
+                    @"user_id":use.user_id};
+            prefix = GET_THONGKETRUNGCAONHAT;
+            
+            
+            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+                if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+                    
+                    NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongKeDiemCaoModel class] fromJSONArray:[responseObject objectForKey:@"top_ten_point"] error:nil];
+                    done(YES, arr);
+                }
+            } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+                if (error) {
+                    done(NO, nil);
+                }
+            }];
         }
     }];
 
