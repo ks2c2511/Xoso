@@ -9,20 +9,28 @@
 #import "ThongkechukeController.h"
 #import "ThongkechukiCell.h"
 #import "ThongkechukiHeader.h"
-
+#import "ThongkeStore.h"
+#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
+#import "TableListItem.h"
+#import "Province.h"
+#import <NSManagedObject+GzDatabase.h>
 
 @interface ThongkechukeController ()
 @property (weak, nonatomic) IBOutlet UITextField *textfieldCapso;
 @property (weak, nonatomic) IBOutlet UIButton *buttonXemthongke;
 @property (weak, nonatomic) IBOutlet UIButton *buttonCity;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong,nonatomic) NSMutableArray *arrData;
+@property (assign,nonatomic) NSInteger page;
+@property (assign, nonatomic) NSInteger matinh;
+@property (strong, nonatomic) TableListItem *tableListItem;
 @end
 
 @implementation ThongkechukeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Thống kê chu kì";
     // Do any additional setup after loading the view from its nib.
     
     self.buttonXemthongke.layer.borderColor = [UIColor colorWithRed:186.0/255.0 green:163.0/255.0 blue:92.0/255.0 alpha:1.0].CGColor;
@@ -44,7 +52,37 @@
     [self.tableView registerClass:[ThongkechukiCell class] forCellReuseIdentifier:NSStringFromClass([ThongkechukiCell class])];
     [self.tableView registerClass:[ThongkechukiHeader class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ThongkechukiHeader class])];
     
+    self.page = 1;
+    self.matinh = 1;
+    [ThongkeStore thongkeChukiLotoWithCapso:0 MaTinh:self.matinh Page:self.page Done:^(BOOL success, NSArray *arr) {
+        
+        self.arrData = [arr mutableCopy];
+        [self.tableView reloadData];
+    }];
     
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    refreshControl.triggerVerticalOffset = 10;
+    refreshControl.tintColor = [UIColor whiteColor];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]
+                                      initWithString:@"Load more..."
+                                      attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }];
+    [refreshControl addTarget:self
+                       action:@selector(refresh:)
+             forControlEvents:UIControlEventValueChanged];
+    self.tableView.bottomRefreshControl = refreshControl;
+    
+}
+
+- (void)refresh:(UIRefreshControl *)ref {
+    
+    _page += 1;
+    [ThongkeStore thongkeChukiLotoWithCapso:[self.textfieldCapso.text integerValue] MaTinh:self.matinh Page:self.page Done:^(BOOL success, NSArray *arr) {
+        
+        [self.arrData addObjectsFromArray:arr];
+        [self.tableView reloadData];
+        
+        [ref endRefreshing];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -71,7 +109,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 10;
+    return self.arrData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +140,11 @@
     
     cell.labelChuki.backgroundColor = color;
     cell.labelNgay.backgroundColor = color;
+    
+    ThongkeChuki *model = self.arrData[indexPath.row];
+    
+    cell.labelChuki.text = model.count;
+    cell.labelNgay.text = model.date;
 
 }
 
@@ -117,6 +160,65 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (TableListItem *)tableListItem {
+    if (!_tableListItem) {
+        _tableListItem = [[TableListItem alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableListItem.arrData = [Province fetchAll];
+        [_tableListItem setTableViewCellConfigBlock: ^(TableListCell *cell, Province *pro) {
+            cell.labelTttle.text = pro.province_name;
+            if (self.matinh == [pro.province_id integerValue]) {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_checked_white.png"]];
+            }
+            else {
+                [cell.imageIconSelect setImage:[UIImage imageNamed:@"ic_radio_button_unchecked_white.png"]];
+            }
+        }];
+        
+        __weak typeof(self) weakSelf = self;
+        
+        [_tableListItem setSelectItem: ^(NSIndexPath *indexPath, Province *pro) {
+            [weakSelf.buttonCity setTitle:pro.province_name forState:UIControlStateNormal];
+            weakSelf.matinh = [pro.province_id integerValue];
+            
+            [weakSelf.tableListItem reloadData];
+           
+        }];
+        
+        [self.view addSubview:_tableListItem];
+    }
+    
+    return _tableListItem;
+}
+
+-(NSMutableArray *)arrData {
+    if (!_arrData) {
+        _arrData = [NSMutableArray new];
+    }
+    return _arrData;
+}
+- (IBAction)XemThongKe:(id)sender {
+    
+    self.page = 1;
+    [ThongkeStore thongkeChukiLotoWithCapso:[self.textfieldCapso.text integerValue] MaTinh:self.matinh Page:self.page Done:^(BOOL success, NSArray *arr) {
+        
+        self.arrData = [arr mutableCopy];
+        [self.tableView reloadData];
+    }];
+
+    
+    
+}
+- (IBAction)ChonTinh:(id)sender {
+    self.tableListItem.frame = ({
+        CGRect frame = self.buttonCity.frame;
+        frame.origin.y = CGRectGetMaxY(self.buttonCity.frame);
+        frame.size.width = CGRectGetWidth(self.buttonCity.frame);
+        frame.size.height = [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.buttonCity.frame) - HeightNavigationBar;
+        frame;
+    });
+    [self.tableListItem showOrHiden];
 }
 
 /*

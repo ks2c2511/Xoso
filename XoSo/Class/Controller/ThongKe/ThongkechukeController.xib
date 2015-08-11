@@ -26,10 +26,10 @@
                         <constraint firstAttribute="height" constant="21" id="neI-k0-AM4"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPJ-PE-yt9">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPJ-PE-yt9">
                     <rect key="frame" x="45" y="4" width="97" height="30"/>
                     <color key="tintColor" red="0.72941176470588232" green="0.63921568627450975" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -37,7 +37,7 @@
                         <constraint firstAttribute="height" constant="30" id="uxW-as-ITs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TX-xm-7wc">
                     <rect key="frame" x="150" y="3" width="162" height="30"/>
@@ -50,6 +50,9 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="XemThongKe:" destination="-1" eventType="touchUpInside" id="he1-Zs-5J4"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhu-xl-59f">
                     <rect key="frame" x="8" y="41" width="304" height="30"/>
@@ -63,6 +66,9 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="ChonTinh:" destination="-1" eventType="touchUpInside" id="TXN-xl-J4x"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="YlF-BY-tg6">
                     <rect key="frame" x="282" y="41" width="30" height="34"/>

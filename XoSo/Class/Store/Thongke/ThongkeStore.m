@@ -96,9 +96,8 @@
                 dic = @{@"type": @(type),
                         @"userid":use.user_id};
                 prefix = GET_THONGKE_DIEMCHOI;
-           
             
-            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
                 if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
                     
                     NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongKeDiemCaoModel class] fromJSONArray:[responseObject objectForKey:@"top_ten_point"] error:nil];
@@ -127,10 +126,10 @@
             prefix = GET_THONGKETRUNGCAONHAT;
             
             
-            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:nil success: ^(AFHTTPRequestOperation *operation, id responseObject) {
-                if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:prefix] parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+                if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
                     
-                    NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongKeDiemCaoModel class] fromJSONArray:[responseObject objectForKey:@"top_ten_point"] error:nil];
+                    NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongkeTrungcaoModel class] fromJSONArray:responseObject error:nil];
                     done(YES, arr);
                 }
             } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -138,6 +137,26 @@
                     done(NO, nil);
                 }
             }];
+        }
+    }];
+
+}
+
++ (void)thongkeChukiLotoWithCapso:(NSInteger)capso MaTinh:(NSInteger) matinh Page:(NSInteger )page Done:(void (^)( BOOL success, NSArray *arr))done {
+    
+    NSDictionary *dic = @{ @"capso": @(capso),
+                           @"matinh":@(matinh),
+                           @"page":@(page)};
+    
+    [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_THONGKE_CHUKI] parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            
+            NSArray *arr = [MTLJSONAdapter modelsOfClass:[ThongkeChuki class] fromJSONArray:responseObject error:nil];
+            done(YES, arr);
+        }
+    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            done(NO, nil);
         }
     }];
 

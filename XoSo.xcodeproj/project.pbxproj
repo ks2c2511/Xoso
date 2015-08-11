@@ -175,6 +175,10 @@
 		6AE973FA1B5FE3A500654EBA /* KiemxuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE973F81B5FE3A500654EBA /* KiemxuController.m */; };
 		6AE973FB1B5FE3A500654EBA /* KiemxuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE973F91B5FE3A500654EBA /* KiemxuController.xib */; };
 		6AE980E01B631DCD0022D575 /* DauDuoiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE980DF1B631DCD0022D575 /* DauDuoiModel.m */; };
+		6AEA05371B7A3E6A00D1A8F2 /* ThongkeChuki.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA05361B7A3E6A00D1A8F2 /* ThongkeChuki.m */; };
+		6AEA053A1B7A502000D1A8F2 /* ThongkeTrungcaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA05391B7A502000D1A8F2 /* ThongkeTrungcaoModel.m */; };
+		6AEA053F1B7A553E00D1A8F2 /* SoiCauController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */; };
+		6AEA05401B7A553E00D1A8F2 /* SoiCauController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */; };
 		6AEB98EF1B79048C0052F694 /* ThongkeTopUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB98ED1B79048C0052F694 /* ThongkeTopUserCell.m */; };
 		6AEB98F01B79048C0052F694 /* ThongkeTopUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB98EE1B79048C0052F694 /* ThongkeTopUserCell.xib */; };
 		6AEB98F31B7905A00052F694 /* ThongKeTopUserFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB98F21B7905A00052F694 /* ThongKeTopUserFooter.m */; };
@@ -490,6 +494,13 @@
 		6AE973F91B5FE3A500654EBA /* KiemxuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KiemxuController.xib; sourceTree = "<group>"; };
 		6AE980DE1B631DCD0022D575 /* DauDuoiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DauDuoiModel.h; sourceTree = "<group>"; };
 		6AE980DF1B631DCD0022D575 /* DauDuoiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DauDuoiModel.m; sourceTree = "<group>"; };
+		6AEA05351B7A3E6A00D1A8F2 /* ThongkeChuki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeChuki.h; sourceTree = "<group>"; };
+		6AEA05361B7A3E6A00D1A8F2 /* ThongkeChuki.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeChuki.m; sourceTree = "<group>"; };
+		6AEA05381B7A502000D1A8F2 /* ThongkeTrungcaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeTrungcaoModel.h; sourceTree = "<group>"; };
+		6AEA05391B7A502000D1A8F2 /* ThongkeTrungcaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeTrungcaoModel.m; sourceTree = "<group>"; };
+		6AEA053C1B7A553E00D1A8F2 /* SoiCauController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoiCauController.h; sourceTree = "<group>"; };
+		6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoiCauController.m; sourceTree = "<group>"; };
+		6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoiCauController.xib; sourceTree = "<group>"; };
 		6AEB98EC1B79048C0052F694 /* ThongkeTopUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeTopUserCell.h; sourceTree = "<group>"; };
 		6AEB98ED1B79048C0052F694 /* ThongkeTopUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeTopUserCell.m; sourceTree = "<group>"; };
 		6AEB98EE1B79048C0052F694 /* ThongkeTopUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeTopUserCell.xib; sourceTree = "<group>"; };
@@ -681,6 +692,10 @@
 				6AB053941B76FC5E0089D4BA /* LichSuChoiModel.m */,
 				6AB053BD1B779DAD0089D4BA /* ThongKeDiemCaoModel.h */,
 				6AB053BE1B779DAD0089D4BA /* ThongKeDiemCaoModel.m */,
+				6AEA05351B7A3E6A00D1A8F2 /* ThongkeChuki.h */,
+				6AEA05361B7A3E6A00D1A8F2 /* ThongkeChuki.m */,
+				6AEA05381B7A502000D1A8F2 /* ThongkeTrungcaoModel.h */,
+				6AEA05391B7A502000D1A8F2 /* ThongkeTrungcaoModel.m */,
 			);
 			path = Thongke;
 			sourceTree = "<group>";
@@ -785,6 +800,7 @@
 		6A79A9AC1B46F9A60098AB4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6AEA053B1B7A551B00D1A8F2 /* SoiCau */,
 				6AFF074F1B65384D000432C4 /* ThongKe */,
 				6AFF07491B653775000432C4 /* TuongThuat */,
 				6AFF073D1B652B99000432C4 /* LichSuCuoc */,
@@ -1221,6 +1237,16 @@
 				6AE973F91B5FE3A500654EBA /* KiemxuController.xib */,
 			);
 			path = Kiemxu;
+			sourceTree = "<group>";
+		};
+		6AEA053B1B7A551B00D1A8F2 /* SoiCau */ = {
+			isa = PBXGroup;
+			children = (
+				6AEA053C1B7A553E00D1A8F2 /* SoiCauController.h */,
+				6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */,
+				6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */,
+			);
+			path = SoiCau;
 			sourceTree = "<group>";
 		};
 		6AEBA47C1B4753CF001B4A3E /* LeftMenu */ = {
@@ -1672,6 +1698,7 @@
 				6A7F0FC91B6E657A003909E4 /* TableMIenTrungCell.xib in Resources */,
 				6AFF074E1B653788000432C4 /* TuongThuatController.xib in Resources */,
 				6AC778D51B4C2290006AD38A /* soi_cau.png in Resources */,
+				6AEA05401B7A553E00D1A8F2 /* SoiCauController.xib in Resources */,
 				6AB0538D1B76F9BB0089D4BA /* LichsuchoiController.xib in Resources */,
 				6A7F0FCE1B6E6C52003909E4 /* TableSixCell.xib in Resources */,
 				6A7F0FB51B6E6511003909E4 /* TableBacOneCell.xib in Resources */,
@@ -1742,6 +1769,7 @@
 			files = (
 				6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */,
 				6AB640CC1B74A502005427BF /* ThongkeDauduoiHeader.m in Sources */,
+				6AEA05371B7A3E6A00D1A8F2 /* ThongkeChuki.m in Sources */,
 				6AEBA4851B4755C6001B4A3E /* LeftMenuCell.m in Sources */,
 				6AE219431B726F7900FC9525 /* ThongkeChuave.m in Sources */,
 				6AFE6E5B1B4D87A0009E750C /* XemKQXSModel.m in Sources */,
@@ -1795,6 +1823,7 @@
 				6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */,
 				6A9790D91B5E8A050004DD0E /* ChonCuocController.m in Sources */,
 				6A9790DF1B5E8C4F0004DD0E /* ChonCuocCell.m in Sources */,
+				6AEA053F1B7A553E00D1A8F2 /* SoiCauController.m in Sources */,
 				6AB640D41B74ACA9005427BF /* TongHaiSoController.m in Sources */,
 				6AEBA47F1B4753EA001B4A3E /* LeftMenu.m in Sources */,
 				6A79A9D51B46FBA20098AB4A /* HomeController.m in Sources */,
@@ -1810,6 +1839,7 @@
 				6AF27DF51B692C780016F8E2 /* HistoryStore.m in Sources */,
 				6AEDD5391B5033460036683C /* CalendarData.m in Sources */,
 				6AEDD50B1B5019880036683C /* Province.m in Sources */,
+				6AEA053A1B7A502000D1A8F2 /* ThongkeTrungcaoModel.m in Sources */,
 				6AB053BA1B7794380089D4BA /* ThongkeUserHeader.m in Sources */,
 				6A76AFE91B74611800D98654 /* ThongkeStore.m in Sources */,
 				6A79A9CF1B46FB640098AB4A /* MenuController.m in Sources */,

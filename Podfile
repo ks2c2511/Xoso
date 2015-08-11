@@ -17,6 +17,7 @@ target 'XoSo' do
     pod 'UIAlertView+Blocks', '~> 0.9'
     pod 'IQKeyboardManager', '~> 3.2.3'
     pod 'UIColor+uiGradients'
+    pod 'CCBottomRefreshControl'
 
 end
 

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ThongkeUserCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelTong;
+@property (weak, nonatomic) IBOutlet UILabel *labelTrung;
+@property (weak, nonatomic) IBOutlet UILabel *labelTileTrung;
 
 @end

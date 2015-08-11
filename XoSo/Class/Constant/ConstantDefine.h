@@ -45,7 +45,8 @@
 #define GET_THONGKE_HAISOCUOI @"TKTong2socuoi.php"
 #define GET_LICHSUCHOI @"process/get_list_loto_user.php"
 #define GET_THONGKE_DIEMCHOI @"Thong_ke_diem_choi.php"
-#define GET_THONGKETRUNGCAONHAT @"get_top_user_trung.php"
+#define GET_THONGKETRUNGCAONHAT @"process/get_top_user_trung.php"
+#define GET_THONGKE_CHUKI @"TKchukyLoto.php"
 
 //notification
 

@@ -13,7 +13,7 @@
 #import "ThongkeTopUserCell.h"
 #import "ThongKeTopUserFooter.h"
 #import "ThongkeStore.h"
-
+#import <UIAlertView+Blocks.h>
 typedef NS_ENUM(NSInteger, TopUSer) {
     TopUSerDiemCao,
     TopUSerTrungCao
@@ -28,6 +28,11 @@ typedef NS_ENUM(NSInteger, TopUSer) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_H_Chonngay;
 @property (strong,nonatomic) NSArray *arrData;
 @property (assign,nonatomic) TopUSer userTop;
+@property (strong,nonatomic) NSString *nameUser,*leverUser,*pointUser;
+@property (assign,nonatomic) NSInteger numberDay;
+@property (strong, nonatomic) UIDatePicker *datePicker;
+@property (strong,nonatomic) NSDateFormatter *dateFormatter;
+
 - (IBAction)ChonDiemCao:(id)sender;
 - (IBAction)ChonTrungCao:(id)sender;
 
@@ -37,6 +42,8 @@ typedef NS_ENUM(NSInteger, TopUSer) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"TOP người chơi";
     
     [self.tableView registerClass:[ThongkeUserCell class] forCellReuseIdentifier:NSStringFromClass([ThongkeUserCell class])];
     [self.tableView registerClass:[ThongkeUserHeader class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ThongkeUserHeader class])];
@@ -49,18 +56,33 @@ typedef NS_ENUM(NSInteger, TopUSer) {
     self.textfieldTungay.layer.borderWidth = 2.0;
     self.textfieldTungay.layer.cornerRadius = 6.0;
     self.textfieldTungay.layer.masksToBounds = YES;
+    self.textfieldTungay.inputView = self.datePicker;
+    self.textfieldTungay.text = [self.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:-7*24*60*60]];
     
     self.textDenngay.layer.borderColor = [UIColor colorWithRed:174.0/255.0 green:148.0/255.0 blue:71.0/255.0 alpha:1.0].CGColor;
     self.textDenngay.layer.borderWidth = 2.0;
     self.textDenngay.layer.cornerRadius = 6.0;
     self.textDenngay.layer.masksToBounds = YES;
+    self.textDenngay.text = [self.dateFormatter stringFromDate:[NSDate date]];
+    
+    self.textDenngay.inputView = self.datePicker;
     
     self.buttonDiemcao.isSelect = YES;
     
+    self.numberDay = [self numberDayWithFromDay:[NSDate dateWithTimeIntervalSinceNow:-7*24*60*60] ToDay:[NSDate date]];
     
     [self LoadData];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(NSInteger)numberDayWithFromDay:(NSDate *)from ToDay:(NSDate *)to {
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:from
+                                                          toDate:to
+                                                         options:0];
+    return components.day;
 }
 
 -(void)LoadData {
@@ -68,6 +90,11 @@ typedef NS_ENUM(NSInteger, TopUSer) {
         [ThongkeStore thongkeUserTrungCaoWithFromDate:self.textfieldTungay.text ToDate:self.textDenngay.text Done:^(BOOL success, NSArray *arr) {
             if (success) {
             
+                self.arrData = arr;
+                [self.tableView reloadData];
+            }
+            else {
+                self.arrData = nil;
                 [self.tableView reloadData];
             }
         }];
@@ -76,10 +103,31 @@ typedef NS_ENUM(NSInteger, TopUSer) {
         [ThongkeStore thongkeUserDiemCaoWithType:1 Done:^(BOOL success, NSArray *arr, NSString *pointUser, NSString *leverUser, NSString *nameUser) {
             if (success) {
                 
+                self.arrData = arr;
+                _nameUser = nameUser;
+                _pointUser = pointUser;
+                _leverUser = leverUser;
+                
                 [self.tableView reloadData];
             }
         }];
     }
+}
+
+#pragma mark - Textfield Delegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+   
+        textField.text = [self.dateFormatter stringFromDate:self.datePicker.date];
+    
+    self.numberDay = [self numberDayWithFromDay:[self.dateFormatter dateFromString:self.textfieldTungay.text] ToDay:[self.dateFormatter dateFromString:self.textDenngay.text]];
+    if (self.numberDay < 0) {
+        UIAlertView *alert = [UIAlertView showWithTitle:@"Lỗi" message:@"Chọn lại khoảng ngày." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        [alert show];
+    }
+    else {
+        [self LoadData];
+    }
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -107,6 +155,9 @@ typedef NS_ENUM(NSInteger, TopUSer) {
         if (!footer) {
             footer = [[ThongKeTopUserFooter alloc] initWithReuseIdentifier:NSStringFromClass([ThongKeTopUserFooter class])];
         }
+        footer.labelName.text = [NSString stringWithFormat:@"%@",self.nameUser];
+        footer.labelPoint.text = [NSString stringWithFormat:@"%@",self.pointUser];
+        footer.labelStt.text = [NSString stringWithFormat:@"%@",self.leverUser];
         
         return footer;
     }
@@ -142,7 +193,7 @@ typedef NS_ENUM(NSInteger, TopUSer) {
         static ThongkeTopUserCell *sizingCell = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            sizingCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ThongkeUserCell class])];
+            sizingCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ThongkeTopUserCell class])];
         });
         [self configureCell:sizingCell forRowAtIndexPath:indexPath];
         
@@ -161,14 +212,14 @@ typedef NS_ENUM(NSInteger, TopUSer) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.arrData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //    if (IS_IOS8) {
     //        return UITableViewAutomaticDimension;
     //    }
-    return [self heightForBasicCellAtIndexPath:indexPath];
+    return 30;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -184,21 +235,28 @@ typedef NS_ENUM(NSInteger, TopUSer) {
         ThongkeTopUserCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ThongkeTopUserCell class]) forIndexPath:indexPath];
         
         [self configureCell:cell forRowAtIndexPath:indexPath];
-        cell.tag = indexPath.row;
         
         return cell;
     }
-   
 }
 
 - (void)configureCell:(id )cell
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.userTop == TopUSerTrungCao) {
-        
+        ThongkeTrungcaoModel *model = self.arrData[indexPath.row];
+        ThongkeUserCell *usercell = cell;
+        usercell.labelName.text = model.username;
+        usercell.labelTrung.text = [NSString stringWithFormat:@"%@",model.trung];
+        usercell.labelTong.text = [NSString stringWithFormat:@"%ld",(long)self.numberDay];
+        usercell.labelTileTrung.text = [NSString stringWithFormat:@"%@/%@",usercell.labelTrung.text,usercell.labelTong.text];
     }
     else {
-        
+        ThongKeDiemCaoModel *model = self.arrData[indexPath.row];
+        ThongkeTopUserCell *topCell = (ThongkeTopUserCell *)cell;
+        topCell.labelStt.text = [NSString stringWithFormat:@"%ld",indexPath.row +1];
+        topCell.labelName.text = [NSString stringWithFormat:@"%@",model.username];
+        topCell.labelPoint.text = [NSString stringWithFormat:@"%@",model.sumpoint];
     }
 }
 
@@ -233,7 +291,7 @@ typedef NS_ENUM(NSInteger, TopUSer) {
     self.contraint_H_Chonngay.constant = 0;
     self.userTop = TopUSerDiemCao;
     
-    [self.tableView reloadData];
+    [self LoadData];
 }
 
 - (IBAction)ChonTrungCao:(id)sender {
@@ -243,6 +301,26 @@ typedef NS_ENUM(NSInteger, TopUSer) {
     self.contraint_H_Chonngay.constant = 70;
     self.userTop = TopUSerTrungCao;
     
-    [self.tableView reloadData];
+    [self LoadData];
 }
+
+#pragma mark -Date picker
+- (UIDatePicker *)datePicker {
+    if (!_datePicker) {
+        _datePicker = [[UIDatePicker alloc] init];
+        _datePicker.maximumDate = [NSDate date];
+        _datePicker.datePickerMode = UIDatePickerModeDate;
+    }
+    
+    return _datePicker;
+}
+
+- (NSDateFormatter *)dateFormatter {
+    if (!_dateFormatter) {
+        _dateFormatter = [NSDateFormatter new];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    }
+    return _dateFormatter;
+}
+
 @end
