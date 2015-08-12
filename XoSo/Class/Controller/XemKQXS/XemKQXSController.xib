@@ -101,7 +101,7 @@
                 <outletCollection property="gestureRecognizers" destination="FMy-dW-XzT" appends="YES" id="7MF-Am-5Bs"/>
                 <outletCollection property="gestureRecognizers" destination="X1H-my-HC7" appends="YES" id="tZH-dS-KE6"/>
             </connections>
-            <point key="canvasLocation" x="420" y="220"/>
+            <point key="canvasLocation" x="327" y="240"/>
         </view>
         <tapGestureRecognizer id="eiS-oE-fe4">
             <connections>

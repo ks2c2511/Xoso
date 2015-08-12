@@ -20,6 +20,8 @@
 #import "LichSuCuocController.h"
 #import "TuongThuatController.h"
 #import "ThongKeController.h"
+#import "SoiCauController.h"
+#import "CauVipController.h"
 
 
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
@@ -148,6 +150,14 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
         ThongKeController *thongke = [ThongKeController new];
         [self.navigationController pushViewController:thongke animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
+        SoiCauController *soicau = [SoiCauController new];
+        [self.navigationController pushViewController:soicau animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
+        CauVipController *soicau = [CauVipController new];
+        [self.navigationController pushViewController:soicau animated:YES];
     }
 }
 

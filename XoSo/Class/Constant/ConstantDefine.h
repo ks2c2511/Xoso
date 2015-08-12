@@ -47,6 +47,9 @@
 #define GET_THONGKE_DIEMCHOI @"Thong_ke_diem_choi.php"
 #define GET_THONGKETRUNGCAONHAT @"process/get_top_user_trung.php"
 #define GET_THONGKE_CHUKI @"TKchukyLoto.php"
+#define GET_SOICAU @"Soicau.php"
+#define GET_TINH_QUAY_SO @"process/return_location_id.php"
+#define GET_LOTODACBIET @"soilo.php"
 
 //notification
 
