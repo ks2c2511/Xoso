@@ -21,6 +21,7 @@
 @property (assign, nonatomic) NSInteger matinhTrung,matinhNam;
 - (IBAction)SoiCauMienTrung:(id)sender;
 - (IBAction)SoiCauMienNam:(id)sender;
+- (IBAction)SoiCauMienBac:(id)sender;
 
 - (IBAction)ChonMienTrung:(id)sender;
 - (IBAction)ChonMienNam:(id)sender;
@@ -128,6 +129,20 @@
 
 - (IBAction)SoiCauMienNam:(id)sender {
     [CauVipStore soiCauVipWithMaTinh:self.matinhNam Done:^(BOOL success, NSString *content) {
+        [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex == [alertView cancelButtonIndex]) {
+                
+                NSLog(@"Cancelled");
+            } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
+                
+                NSLog(@"Have a cold beer");
+            }
+        }];
+    }];
+}
+
+- (IBAction)SoiCauMienBac:(id)sender {
+    [CauVipStore soiCauVipWithMaTinh:1 Done:^(BOOL success, NSString *content) {
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {
                 

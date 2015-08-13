@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiaiMongController">
+            <connections>
+                <outlet property="contraint_Bottom_Table" destination="huA-bP-n5A" id="7ex-v5-ATd"/>
+                <outlet property="searchBar" destination="rTu-On-VXE" id="s9d-Ze-5iC"/>
+                <outlet property="tableView" destination="QUR-Js-VCx" id="ZQJ-5L-esw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="44" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QUR-Js-VCx">
+                    <rect key="frame" x="8" y="48" width="304" height="452"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zGB-93-cV8"/>
+                        <outlet property="delegate" destination="-1" id="gRZ-6w-gYc"/>
+                    </connections>
+                </tableView>
+                <searchBar contentMode="redraw" placeholder="Bạn mơ thấy gì?" translatesAutoresizingMaskIntoConstraints="NO" id="rTu-On-VXE">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="xLp-bq-g2L"/>
+                    </constraints>
+                    <color key="barTintColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="MFn-xg-dW6"/>
+                    </connections>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QUR-Js-VCx" secondAttribute="trailing" constant="8" id="Bbg-K1-27Q"/>
+                <constraint firstItem="QUR-Js-VCx" firstAttribute="top" secondItem="rTu-On-VXE" secondAttribute="bottom" constant="4" id="C6e-LP-l6Y"/>
+                <constraint firstAttribute="trailing" secondItem="rTu-On-VXE" secondAttribute="trailing" id="N7h-7y-XZj"/>
+                <constraint firstItem="rTu-On-VXE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NrF-YX-5NB"/>
+                <constraint firstItem="rTu-On-VXE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bSs-zG-67y"/>
+                <constraint firstAttribute="bottom" secondItem="QUR-Js-VCx" secondAttribute="bottom" constant="4" id="huA-bP-n5A"/>
+                <constraint firstItem="QUR-Js-VCx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wmO-e7-dEM"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="302" y="199"/>
+        </view>
+    </objects>
+</document>

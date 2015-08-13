@@ -187,6 +187,12 @@
 		6AEA053A1B7A502000D1A8F2 /* ThongkeTrungcaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA05391B7A502000D1A8F2 /* ThongkeTrungcaoModel.m */; };
 		6AEA053F1B7A553E00D1A8F2 /* SoiCauController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */; };
 		6AEA05401B7A553E00D1A8F2 /* SoiCauController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */; };
+		6AEB66D91B7CE10200A3D3A5 /* GiaiMongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB66D71B7CE10200A3D3A5 /* GiaiMongController.m */; };
+		6AEB66DA1B7CE10200A3D3A5 /* GiaiMongController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB66D81B7CE10200A3D3A5 /* GiaiMongController.xib */; };
+		6AEB66DF1B7CE41000A3D3A5 /* GiaiMongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB66DD1B7CE41000A3D3A5 /* GiaiMongCell.m */; };
+		6AEB66E01B7CE41000A3D3A5 /* GiaiMongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB66DE1B7CE41000A3D3A5 /* GiaiMongCell.xib */; };
+		6AEB66E51B7CEBD400A3D3A5 /* QuayThuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB66E31B7CEBD400A3D3A5 /* QuayThuController.m */; };
+		6AEB66E61B7CEBD400A3D3A5 /* QuayThuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB66E41B7CEBD400A3D3A5 /* QuayThuController.xib */; };
 		6AEB98EF1B79048C0052F694 /* ThongkeTopUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB98ED1B79048C0052F694 /* ThongkeTopUserCell.m */; };
 		6AEB98F01B79048C0052F694 /* ThongkeTopUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB98EE1B79048C0052F694 /* ThongkeTopUserCell.xib */; };
 		6AEB98F31B7905A00052F694 /* ThongKeTopUserFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB98F21B7905A00052F694 /* ThongKeTopUserFooter.m */; };
@@ -522,6 +528,15 @@
 		6AEA053C1B7A553E00D1A8F2 /* SoiCauController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoiCauController.h; sourceTree = "<group>"; };
 		6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoiCauController.m; sourceTree = "<group>"; };
 		6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoiCauController.xib; sourceTree = "<group>"; };
+		6AEB66D61B7CE10200A3D3A5 /* GiaiMongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaiMongController.h; sourceTree = "<group>"; };
+		6AEB66D71B7CE10200A3D3A5 /* GiaiMongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaiMongController.m; sourceTree = "<group>"; };
+		6AEB66D81B7CE10200A3D3A5 /* GiaiMongController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaiMongController.xib; sourceTree = "<group>"; };
+		6AEB66DC1B7CE41000A3D3A5 /* GiaiMongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaiMongCell.h; sourceTree = "<group>"; };
+		6AEB66DD1B7CE41000A3D3A5 /* GiaiMongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaiMongCell.m; sourceTree = "<group>"; };
+		6AEB66DE1B7CE41000A3D3A5 /* GiaiMongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaiMongCell.xib; sourceTree = "<group>"; };
+		6AEB66E21B7CEBD400A3D3A5 /* QuayThuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuayThuController.h; sourceTree = "<group>"; };
+		6AEB66E31B7CEBD400A3D3A5 /* QuayThuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuayThuController.m; sourceTree = "<group>"; };
+		6AEB66E41B7CEBD400A3D3A5 /* QuayThuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuayThuController.xib; sourceTree = "<group>"; };
 		6AEB98EC1B79048C0052F694 /* ThongkeTopUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeTopUserCell.h; sourceTree = "<group>"; };
 		6AEB98ED1B79048C0052F694 /* ThongkeTopUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeTopUserCell.m; sourceTree = "<group>"; };
 		6AEB98EE1B79048C0052F694 /* ThongkeTopUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeTopUserCell.xib; sourceTree = "<group>"; };
@@ -851,6 +866,8 @@
 		6A79A9AC1B46F9A60098AB4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6AEB66E11B7CEBC000A3D3A5 /* QuayThu */,
+				6AEB66D51B7CE0ED00A3D3A5 /* GiaiMong */,
 				6A12AC851B7BA54E0020EFB5 /* CauVip */,
 				6AEA053B1B7A551B00D1A8F2 /* SoiCau */,
 				6AFF074F1B65384D000432C4 /* ThongKe */,
@@ -915,6 +932,7 @@
 		6A79A9B01B46F9A60098AB4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6AEB66DB1B7CE3F600A3D3A5 /* GiaiMong */,
 				6AE21DD31B7111ED00981657 /* Thongke */,
 				6A7F0FB01B6E6426003909E4 /* Tuongthuat */,
 				6AFF07431B652C98000432C4 /* LIchsuChoi */,
@@ -1323,6 +1341,36 @@
 			path = SoiCau;
 			sourceTree = "<group>";
 		};
+		6AEB66D51B7CE0ED00A3D3A5 /* GiaiMong */ = {
+			isa = PBXGroup;
+			children = (
+				6AEB66D61B7CE10200A3D3A5 /* GiaiMongController.h */,
+				6AEB66D71B7CE10200A3D3A5 /* GiaiMongController.m */,
+				6AEB66D81B7CE10200A3D3A5 /* GiaiMongController.xib */,
+			);
+			path = GiaiMong;
+			sourceTree = "<group>";
+		};
+		6AEB66DB1B7CE3F600A3D3A5 /* GiaiMong */ = {
+			isa = PBXGroup;
+			children = (
+				6AEB66DC1B7CE41000A3D3A5 /* GiaiMongCell.h */,
+				6AEB66DD1B7CE41000A3D3A5 /* GiaiMongCell.m */,
+				6AEB66DE1B7CE41000A3D3A5 /* GiaiMongCell.xib */,
+			);
+			path = GiaiMong;
+			sourceTree = "<group>";
+		};
+		6AEB66E11B7CEBC000A3D3A5 /* QuayThu */ = {
+			isa = PBXGroup;
+			children = (
+				6AEB66E21B7CEBD400A3D3A5 /* QuayThuController.h */,
+				6AEB66E31B7CEBD400A3D3A5 /* QuayThuController.m */,
+				6AEB66E41B7CEBD400A3D3A5 /* QuayThuController.xib */,
+			);
+			path = QuayThu;
+			sourceTree = "<group>";
+		};
 		6AEBA47C1B4753CF001B4A3E /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1709,6 +1757,7 @@
 				6AB640D51B74ACA9005427BF /* TongHaiSoController.xib in Resources */,
 				6AC778D91B4C2290006AD38A /* tien_ich.png in Resources */,
 				6AE219391B72607400FC9525 /* ic_arrow_drop_down_18pt.png in Resources */,
+				6AEB66DA1B7CE10200A3D3A5 /* GiaiMongController.xib in Resources */,
 				6AC779001B4C22D8006AD38A /* hom_thu_xanh.png in Resources */,
 				6AC779021B4C22D8006AD38A /* home_icon.png in Resources */,
 				6AC779271B4C30E1006AD38A /* cau_loto_0.png in Resources */,
@@ -1753,6 +1802,7 @@
 				6AE7B2A71B6FCF5900182523 /* TableMienNamCell.xib in Resources */,
 				6AC778D31B4C2290006AD38A /* quay_thu.png in Resources */,
 				6AFE6E4D1B4D7E6E009E750C /* ic_arrow_forward_white_2x.png in Resources */,
+				6AEB66E61B7CEBD400A3D3A5 /* QuayThuController.xib in Resources */,
 				6AC779311B4C30F4006AD38A /* kiem_xu_1.png in Resources */,
 				6AB053A51B774AFB0089D4BA /* ThongkechukiHeader.xib in Resources */,
 				6AB053921B76FA2B0089D4BA /* ThongkeLichSuChoiCell.xib in Resources */,
@@ -1784,6 +1834,7 @@
 				6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */,
 				6A12AC8A1B7BA5620020EFB5 /* CauVipController.xib in Resources */,
 				6AFE6E451B4D7A6B009E750C /* LotoDauDuoiCell.xib in Resources */,
+				6AEB66E01B7CE41000A3D3A5 /* GiaiMongCell.xib in Resources */,
 				6AE2193A1B72607400FC9525 /* ic_arrow_drop_down_18pt@2x.png in Resources */,
 				6AB053BC1B77944C0089D4BA /* ThongkeUserHeader.xib in Resources */,
 				6AC778F91B4C22D8006AD38A /* cai_dat@2x.png in Resources */,
@@ -1862,6 +1913,7 @@
 				6AADD2441B61546300CF90BD /* User.m in Sources */,
 				6AE2193E1B7269A800FC9525 /* ThongkeDacbiet.m in Sources */,
 				6A12AC961B7BADBD0020EFB5 /* CauVipStore.m in Sources */,
+				6AEB66E51B7CEBD400A3D3A5 /* QuayThuController.m in Sources */,
 				6AB053A31B774AE10089D4BA /* ThongkechukiHeader.m in Sources */,
 				6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */,
 				6AE21DD71B71120000981657 /* ThongKeCell.m in Sources */,
@@ -1876,6 +1928,7 @@
 				6AB053951B76FC5E0089D4BA /* LichSuChoiModel.m in Sources */,
 				6AFF07531B65385C000432C4 /* ThongKeController.m in Sources */,
 				6AEDD52E1B5032D40036683C /* LotoOnlineController.m in Sources */,
+				6AEB66DF1B7CE41000A3D3A5 /* GiaiMongCell.m in Sources */,
 				6AB053AA1B7751970089D4BA /* ThongkeUserController.m in Sources */,
 				6AADD2411B6147DF00CF90BD /* Ads.m in Sources */,
 				6AEDD5121B501EF40036683C /* TableListItem.m in Sources */,
@@ -1938,6 +1991,7 @@
 				6AEDD53C1B5033460036683C /* MonthCell.m in Sources */,
 				6ACED25F1B749AE000BF0E2D /* ThongkeDauduoiController.m in Sources */,
 				6AFF07471B652CC1000432C4 /* LichSuChoiCell.m in Sources */,
+				6AEB66D91B7CE10200A3D3A5 /* GiaiMongController.m in Sources */,
 				6A79A9C11B46F9F70098AB4A /* NSMutableAttributedString+htmlContent.m in Sources */,
 				6AC7790A1B4C2AD4006AD38A /* HomeStore.m in Sources */,
 				6A76AFDF1B7457FE00D98654 /* ThongkeChuaVeCell.m in Sources */,
