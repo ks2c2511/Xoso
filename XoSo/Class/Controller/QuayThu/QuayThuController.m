@@ -55,9 +55,6 @@
     }
 }
 
-//-(NSInteger)randomWithMax:(NSInteger )max Min:(NSInteger)min {
-//    return ((min) + arc4random() % ((max+1) - (min)));
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

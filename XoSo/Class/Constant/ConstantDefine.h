@@ -50,6 +50,11 @@
 #define GET_SOICAU @"Soicau.php"
 #define GET_TINH_QUAY_SO @"process/return_location_id.php"
 #define GET_LOTODACBIET @"soilo.php"
+#define GET_LIST_CHAT @"process/get_list_chat.php"
+#define GET_ADD_COMMENT_LEVELONE @"process/add_subject_chat.php"
+#define GET_LIST_SUBCOMMENT @"process/get_list_comment.php"
+#define GET_LIKE_CHAT @"process/update_like_count.php"
+#define GET_SUB_COMMENT @"process/add_comment_chat.php"
 
 //notification
 

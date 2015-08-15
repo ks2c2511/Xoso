@@ -24,6 +24,7 @@
 #import "CauVipController.h"
 #import "GiaiMongController.h"
 #import "QuayThuController.h"
+#import "ChatLevelOneController.h"
 
 
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
@@ -168,6 +169,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"quay_thu"]) {
         QuayThuController *quaythu = [QuayThuController new];
         [self.navigationController pushViewController:quaythu animated:YES];
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"phong_chat"]) {
+        ChatLevelOneController *chat = [ChatLevelOneController new];
+        [self.navigationController pushViewController:chat animated:YES];
     }
 }
 
