@@ -8,6 +8,7 @@
 
 #import "LeftMenu.h"
 #import "LeftMenuCell.h"
+#import "ConstantDefine.h"
 
 
 static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
@@ -77,6 +78,14 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+#if DEBUG
+    NSLog(@"---log---> %@",self.arrData[indexPath.row][@"key"]);
+#endif
+    
+    NSString *key = self.arrData[indexPath.row][@"key"];
+    if ([key isEqualToString:@"menu_tai_khoan"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowManageUser object:nil];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

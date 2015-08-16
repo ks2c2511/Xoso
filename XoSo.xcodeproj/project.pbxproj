@@ -242,6 +242,10 @@
 		6AEDD53B1B5033460036683C /* Monthcalendar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEDD5351B5033460036683C /* Monthcalendar.xib */; };
 		6AEDD53C1B5033460036683C /* MonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD5371B5033460036683C /* MonthCell.m */; };
 		6AEDD53D1B5033460036683C /* MonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEDD5381B5033460036683C /* MonthCell.xib */; };
+		6AEF475C1B8031E7002676DF /* TienichController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF475A1B8031E7002676DF /* TienichController.m */; };
+		6AEF475D1B8031E7002676DF /* TienichController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF475B1B8031E7002676DF /* TienichController.xib */; };
+		6AEF47621B803766002676DF /* ManageUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEF47601B803766002676DF /* ManageUserController.m */; };
+		6AEF47631B803766002676DF /* ManageUserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEF47611B803766002676DF /* ManageUserController.xib */; };
 		6AF27DF11B6927390016F8E2 /* NSString+FromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF01B6927390016F8E2 /* NSString+FromArray.m */; };
 		6AF27DF51B692C780016F8E2 /* HistoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF41B692C780016F8E2 /* HistoryStore.m */; };
 		6AF27DF91B6930020016F8E2 /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF81B6930020016F8E2 /* HistoryModel.m */; };
@@ -627,6 +631,12 @@
 		6AEDD5361B5033460036683C /* MonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCell.h; sourceTree = "<group>"; };
 		6AEDD5371B5033460036683C /* MonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCell.m; sourceTree = "<group>"; };
 		6AEDD5381B5033460036683C /* MonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthCell.xib; sourceTree = "<group>"; };
+		6AEF47591B8031E7002676DF /* TienichController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TienichController.h; sourceTree = "<group>"; };
+		6AEF475A1B8031E7002676DF /* TienichController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TienichController.m; sourceTree = "<group>"; };
+		6AEF475B1B8031E7002676DF /* TienichController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TienichController.xib; sourceTree = "<group>"; };
+		6AEF475F1B803766002676DF /* ManageUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageUserController.h; sourceTree = "<group>"; };
+		6AEF47601B803766002676DF /* ManageUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageUserController.m; sourceTree = "<group>"; };
+		6AEF47611B803766002676DF /* ManageUserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageUserController.xib; sourceTree = "<group>"; };
 		6AF27DEF1B6927390016F8E2 /* NSString+FromArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FromArray.h"; sourceTree = "<group>"; };
 		6AF27DF01B6927390016F8E2 /* NSString+FromArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FromArray.m"; sourceTree = "<group>"; };
 		6AF27DF31B692C780016F8E2 /* HistoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryStore.h; sourceTree = "<group>"; };
@@ -961,6 +971,8 @@
 		6A79A9AC1B46F9A60098AB4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6AEF475E1B803746002676DF /* Taikhoan */,
+				6AEF47581B8031D5002676DF /* Tienich */,
 				6A1EBEE31B7F8A28005CAAB1 /* Chat */,
 				6AEB66E11B7CEBC000A3D3A5 /* QuayThu */,
 				6AEB66D51B7CE0ED00A3D3A5 /* GiaiMong */,
@@ -1579,6 +1591,26 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		6AEF47581B8031D5002676DF /* Tienich */ = {
+			isa = PBXGroup;
+			children = (
+				6AEF47591B8031E7002676DF /* TienichController.h */,
+				6AEF475A1B8031E7002676DF /* TienichController.m */,
+				6AEF475B1B8031E7002676DF /* TienichController.xib */,
+			);
+			path = Tienich;
+			sourceTree = "<group>";
+		};
+		6AEF475E1B803746002676DF /* Taikhoan */ = {
+			isa = PBXGroup;
+			children = (
+				6AEF475F1B803766002676DF /* ManageUserController.h */,
+				6AEF47601B803766002676DF /* ManageUserController.m */,
+				6AEF47611B803766002676DF /* ManageUserController.xib */,
+			);
+			path = Taikhoan;
+			sourceTree = "<group>";
+		};
 		6AF27DEE1B6927170016F8E2 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
@@ -1856,6 +1888,7 @@
 				6A5BA9111B7FA3D6008D5811 /* ChatLeverTwoCell.xib in Resources */,
 				6AC7792F1B4C30F4006AD38A /* kiem_xu_0.png in Resources */,
 				6AB640CE1B74A54F005427BF /* ThongkeDauduoiHeader.xib in Resources */,
+				6AEF475D1B8031E7002676DF /* TienichController.xib in Resources */,
 				6AC778D71B4C2290006AD38A /* thong_ke.png in Resources */,
 				6AB640D51B74ACA9005427BF /* TongHaiSoController.xib in Resources */,
 				6AC778D91B4C2290006AD38A /* tien_ich.png in Resources */,
@@ -1889,6 +1922,7 @@
 				6AC779281B4C30E1006AD38A /* cau_loto_0@2x.png in Resources */,
 				6A76AFE51B745B9A00D98654 /* ThongkeChuaVeHeader.xib in Resources */,
 				6AE973FB1B5FE3A500654EBA /* KiemxuController.xib in Resources */,
+				6AEF47631B803766002676DF /* ManageUserController.xib in Resources */,
 				6AC778DD1B4C2290006AD38A /* xem_kqxs.png in Resources */,
 				6AC778D61B4C2290006AD38A /* soi_cau@2x.png in Resources */,
 				6A76AFE01B7457FE00D98654 /* ThongkeChuaVeCell.xib in Resources */,
@@ -2024,7 +2058,9 @@
 				6A12AC961B7BADBD0020EFB5 /* CauVipStore.m in Sources */,
 				6AEB66E51B7CEBD400A3D3A5 /* QuayThuController.m in Sources */,
 				6AB053A31B774AE10089D4BA /* ThongkechukiHeader.m in Sources */,
+				6AEF47621B803766002676DF /* ManageUserController.m in Sources */,
 				6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */,
+				6AEF475C1B8031E7002676DF /* TienichController.m in Sources */,
 				6AE21DD71B71120000981657 /* ThongKeCell.m in Sources */,
 				6AE21DDF1B711AA000981657 /* ThongkeDetailCell.m in Sources */,
 				6AB0539A1B7701E50089D4BA /* ThongkechukeController.m in Sources */,

@@ -18,6 +18,7 @@
 #import "Province.h"
 #import "Dream.h"
 #import "SplashController.h"
+#import "ManageUserController.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -89,6 +90,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:user_default_loaded_local_database];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showManageUserScreen) name:notificationShowManageUser object:nil];
 
     
     return YES;
@@ -134,6 +138,13 @@
         [self.slidingViewController anchorTopViewToRightAnimated:YES onComplete:^{
         }];
     }
+}
+
+-(void)showManageUserScreen {
+    ManageUserController *user = [ManageUserController new];
+    self.navigationController.viewControllers = @[user];
+    
+    [self ShowLeftMenu];
 }
 #pragma mark - custom Navigaton
 - (void)CustomTheme {

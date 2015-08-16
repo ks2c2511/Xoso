@@ -59,6 +59,7 @@
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"
+#define notificationShowManageUser @"notificationShowManageUser"
 
 //constance
 
