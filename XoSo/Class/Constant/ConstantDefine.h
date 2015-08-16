@@ -55,6 +55,8 @@
 #define GET_LIST_SUBCOMMENT @"process/get_list_comment.php"
 #define GET_LIKE_CHAT @"process/update_like_count.php"
 #define GET_SUB_COMMENT @"process/add_comment_chat.php"
+#define GET_LOGIN_OTHER_USER @"login.php"
+#define GET_FORGOT_PASS @"process/get_password_lost.php"
 
 //notification
 

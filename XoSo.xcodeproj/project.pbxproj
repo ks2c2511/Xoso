@@ -249,6 +249,15 @@
 		6AF27DF11B6927390016F8E2 /* NSString+FromArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF01B6927390016F8E2 /* NSString+FromArray.m */; };
 		6AF27DF51B692C780016F8E2 /* HistoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF41B692C780016F8E2 /* HistoryStore.m */; };
 		6AF27DF91B6930020016F8E2 /* HistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF27DF81B6930020016F8E2 /* HistoryModel.m */; };
+		6AF3837D1B80C90900459938 /* LoginOtherUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3837B1B80C90900459938 /* LoginOtherUserController.m */; };
+		6AF3837E1B80C90900459938 /* LoginOtherUserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3837C1B80C90900459938 /* LoginOtherUserController.xib */; };
+		6AF383811B80CB8800459938 /* ic_check_box_outline_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3837F1B80CB8800459938 /* ic_check_box_outline_blank.png */; };
+		6AF383821B80CB8800459938 /* ic_check_box_outline_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF383801B80CB8800459938 /* ic_check_box_outline_blank@2x.png */; };
+		6AF383851B80CBAC00459938 /* ic_check_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF383831B80CBAC00459938 /* ic_check_box.png */; };
+		6AF383861B80CBAC00459938 /* ic_check_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF383841B80CBAC00459938 /* ic_check_box@2x.png */; };
+		6AF3838A1B80D9CE00459938 /* ManageUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF383891B80D9CE00459938 /* ManageUserStore.m */; };
+		6AF3838E1B80DCDF00459938 /* QuenPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3838C1B80DCDF00459938 /* QuenPassController.m */; };
+		6AF3838F1B80DCDF00459938 /* QuenPassController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3838D1B80DCDF00459938 /* QuenPassController.xib */; };
 		6AF982591B497DEE003A31B7 /* HomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF982571B497DEE003A31B7 /* HomeCollectionCell.m */; };
 		6AF9825A1B497DEE003A31B7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF982581B497DEE003A31B7 /* HomeCollectionCell.xib */; };
 		6AF9825D1B497F19003A31B7 /* HomeData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AF9825C1B497F19003A31B7 /* HomeData.plist */; };
@@ -643,6 +652,18 @@
 		6AF27DF41B692C780016F8E2 /* HistoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryStore.m; sourceTree = "<group>"; };
 		6AF27DF71B6930020016F8E2 /* HistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryModel.h; sourceTree = "<group>"; };
 		6AF27DF81B6930020016F8E2 /* HistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryModel.m; sourceTree = "<group>"; };
+		6AF3837A1B80C90900459938 /* LoginOtherUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginOtherUserController.h; sourceTree = "<group>"; };
+		6AF3837B1B80C90900459938 /* LoginOtherUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginOtherUserController.m; sourceTree = "<group>"; };
+		6AF3837C1B80C90900459938 /* LoginOtherUserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginOtherUserController.xib; sourceTree = "<group>"; };
+		6AF3837F1B80CB8800459938 /* ic_check_box_outline_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_box_outline_blank.png; sourceTree = "<group>"; };
+		6AF383801B80CB8800459938 /* ic_check_box_outline_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_check_box_outline_blank@2x.png"; sourceTree = "<group>"; };
+		6AF383831B80CBAC00459938 /* ic_check_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_box.png; sourceTree = "<group>"; };
+		6AF383841B80CBAC00459938 /* ic_check_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_check_box@2x.png"; sourceTree = "<group>"; };
+		6AF383881B80D9CE00459938 /* ManageUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageUserStore.h; sourceTree = "<group>"; };
+		6AF383891B80D9CE00459938 /* ManageUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageUserStore.m; sourceTree = "<group>"; };
+		6AF3838B1B80DCDF00459938 /* QuenPassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuenPassController.h; sourceTree = "<group>"; };
+		6AF3838C1B80DCDF00459938 /* QuenPassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuenPassController.m; sourceTree = "<group>"; };
+		6AF3838D1B80DCDF00459938 /* QuenPassController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuenPassController.xib; sourceTree = "<group>"; };
 		6AF982561B497DEE003A31B7 /* HomeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionCell.h; sourceTree = "<group>"; };
 		6AF982571B497DEE003A31B7 /* HomeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionCell.m; sourceTree = "<group>"; };
 		6AF982581B497DEE003A31B7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
@@ -747,6 +768,10 @@
 		6A4D849C1B5D4DCE00432DA5 /* new_art */ = {
 			isa = PBXGroup;
 			children = (
+				6AF383831B80CBAC00459938 /* ic_check_box.png */,
+				6AF383841B80CBAC00459938 /* ic_check_box@2x.png */,
+				6AF3837F1B80CB8800459938 /* ic_check_box_outline_blank.png */,
+				6AF383801B80CB8800459938 /* ic_check_box_outline_blank@2x.png */,
 				6A5BA9061B7FA32F008D5811 /* bg_like.png */,
 				6A5BA8FD1B7F93D5008D5811 /* message.png */,
 				6A5BA8FE1B7F93D5008D5811 /* thich.png */,
@@ -1024,6 +1049,7 @@
 		6A79A9AF1B46F9A60098AB4A /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				6AF383871B80D9BC00459938 /* User */,
 				6A5BA8F31B7F8F77008D5811 /* Chat */,
 				6A12AC931B7BADB10020EFB5 /* CauVip */,
 				6AE51FDF1B7B998D00513180 /* SoiCau */,
@@ -1607,6 +1633,12 @@
 				6AEF475F1B803766002676DF /* ManageUserController.h */,
 				6AEF47601B803766002676DF /* ManageUserController.m */,
 				6AEF47611B803766002676DF /* ManageUserController.xib */,
+				6AF3837A1B80C90900459938 /* LoginOtherUserController.h */,
+				6AF3837B1B80C90900459938 /* LoginOtherUserController.m */,
+				6AF3837C1B80C90900459938 /* LoginOtherUserController.xib */,
+				6AF3838B1B80DCDF00459938 /* QuenPassController.h */,
+				6AF3838C1B80DCDF00459938 /* QuenPassController.m */,
+				6AF3838D1B80DCDF00459938 /* QuenPassController.xib */,
 			);
 			path = Taikhoan;
 			sourceTree = "<group>";
@@ -1636,6 +1668,15 @@
 				6AF27DF81B6930020016F8E2 /* HistoryModel.m */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		6AF383871B80D9BC00459938 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6AF383881B80D9CE00459938 /* ManageUserStore.h */,
+				6AF383891B80D9CE00459938 /* ManageUserStore.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		6AF982551B497DD2003A31B7 /* Home */ = {
@@ -1881,6 +1922,7 @@
 				6A20E9A81B52B12E000168E2 /* ic_arrow_back_18pt_2x.png in Resources */,
 				6AE219441B726F7900FC9525 /* ThongkeChuave.xib in Resources */,
 				6AB053A01B7747CA0089D4BA /* ThongkechukiCell.xib in Resources */,
+				6AF383851B80CBAC00459938 /* ic_check_box.png in Resources */,
 				6AC779051B4C22D8006AD38A /* thong_tin_icon@2x.png in Resources */,
 				6AFE6E4A1B4D7D61009E750C /* NameXosoCityHeader.xib in Resources */,
 				6AEBA4811B475414001B4A3E /* LeftMenuData.plist in Resources */,
@@ -1909,10 +1951,12 @@
 				6AC7793B1B4C3B69006AD38A /* arrow_down_icon@2x.png in Resources */,
 				6AC778C51B4C2290006AD38A /* giai_mong_icon.png in Resources */,
 				6AEDD53B1B5033460036683C /* Monthcalendar.xib in Resources */,
+				6AF383821B80CB8800459938 /* ic_check_box_outline_blank@2x.png in Resources */,
 				6A20E9AC1B52B14B000168E2 /* ic_arrow_forward_18pt_2x.png in Resources */,
 				6AC778DB1B4C2290006AD38A /* tuong_thuat.png in Resources */,
 				6AFE6E401B4D7732009E750C /* KetquaXosoMainCell.xib in Resources */,
 				6AC779301B4C30F4006AD38A /* kiem_xu_0@2x.png in Resources */,
+				6AF3838F1B80DCDF00459938 /* QuenPassController.xib in Resources */,
 				6A12AC8C1B7BA5EF0020EFB5 /* sms_ads.png in Resources */,
 				6A79A9D61B46FBA20098AB4A /* HomeController.xib in Resources */,
 				6AEB98F51B7905B90052F694 /* ThongKeTopUserFooter.xib in Resources */,
@@ -1921,6 +1965,7 @@
 				6AB053B21B7756F20089D4BA /* ads_close@2x.png in Resources */,
 				6AC779281B4C30E1006AD38A /* cau_loto_0@2x.png in Resources */,
 				6A76AFE51B745B9A00D98654 /* ThongkeChuaVeHeader.xib in Resources */,
+				6AF383861B80CBAC00459938 /* ic_check_box@2x.png in Resources */,
 				6AE973FB1B5FE3A500654EBA /* KiemxuController.xib in Resources */,
 				6AEF47631B803766002676DF /* ManageUserController.xib in Resources */,
 				6AC778DD1B4C2290006AD38A /* xem_kqxs.png in Resources */,
@@ -1935,6 +1980,7 @@
 				6A79A9D01B46FB640098AB4A /* MenuController.xib in Resources */,
 				6AC778C61B4C2290006AD38A /* giai_mong_icon@2x.png in Resources */,
 				6AF9825D1B497F19003A31B7 /* HomeData.plist in Resources */,
+				6AF3837E1B80C90900459938 /* LoginOtherUserController.xib in Resources */,
 				6AF9825A1B497DEE003A31B7 /* HomeCollectionCell.xib in Resources */,
 				6AE2193F1B7269A800FC9525 /* ThongkeDacbiet.xib in Resources */,
 				6AEDD51A1B502B080036683C /* ic_radio_button_unchecked_white_2x.png in Resources */,
@@ -1957,6 +2003,7 @@
 				6AC778CE1B4C2290006AD38A /* lich_su_choi@2x.png in Resources */,
 				6AFE6E571B4D8017009E750C /* LotoDauDuoiHeader.xib in Resources */,
 				6AC779041B4C22D8006AD38A /* thong_tin_icon.png in Resources */,
+				6AF383811B80CB8800459938 /* ic_check_box_outline_blank.png in Resources */,
 				6AB053B11B7756F20089D4BA /* ads_close.png in Resources */,
 				6AEBA4861B4755C6001B4A3E /* LeftMenuCell.xib in Resources */,
 				6ACED2601B749AE000BF0E2D /* ThongkeDauduoiController.xib in Resources */,
@@ -2060,8 +2107,10 @@
 				6AB053A31B774AE10089D4BA /* ThongkechukiHeader.m in Sources */,
 				6AEF47621B803766002676DF /* ManageUserController.m in Sources */,
 				6A79A9C51B46F9F70098AB4A /* UIColor+AppTheme.m in Sources */,
+				6AF3838E1B80DCDF00459938 /* QuenPassController.m in Sources */,
 				6AEF475C1B8031E7002676DF /* TienichController.m in Sources */,
 				6AE21DD71B71120000981657 /* ThongKeCell.m in Sources */,
+				6AF3837D1B80C90900459938 /* LoginOtherUserController.m in Sources */,
 				6AE21DDF1B711AA000981657 /* ThongkeDetailCell.m in Sources */,
 				6AB0539A1B7701E50089D4BA /* ThongkechukeController.m in Sources */,
 				6AE7B28C1B66887200D250AB /* LotoTypeModel.m in Sources */,
@@ -2082,6 +2131,7 @@
 				6AE78E9D1B67D83E00BEEBEE /* LotoResult.m in Sources */,
 				6AE7B2A61B6FCF5900182523 /* TableMienNamCell.m in Sources */,
 				6AB053BF1B779DAD0089D4BA /* ThongKeDiemCaoModel.m in Sources */,
+				6AF3838A1B80D9CE00459938 /* ManageUserStore.m in Sources */,
 				6AFE6E551B4D8007009E750C /* LotoDauDuoiHeader.m in Sources */,
 				6AE54F2D1B62949600183710 /* KQXS.m in Sources */,
 				6A5BA9101B7FA3D6008D5811 /* ChatLeverTwoCell.m in Sources */,

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginOtherUserController">
+            <connections>
+                <outlet property="bannerView" destination="45a-YW-NqO" id="gOV-eQ-vmJ"/>
+                <outlet property="buttonLuuMatKhau" destination="Wo6-Af-eN6" id="p8z-qE-dpl"/>
+                <outlet property="textfieldNameUser" destination="pL9-qS-nsd" id="LOp-E7-dOc"/>
+                <outlet property="textfieldPass" destination="dxA-Fs-Jvg" id="c3s-0b-gXC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackGround" destination="XLs-fT-tZw" id="HAi-MQ-vML"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45a-YW-NqO" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="454" width="320" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ir3-yH-sTZ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="312" placeholderIntrinsicHeight="260" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-fT-tZw">
+                    <rect key="frame" x="4" y="26" width="312" height="330"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên đăng nhập" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gR-yY-lV6">
+                            <rect key="frame" x="16" y="8" width="147" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="IYg-Eo-FW2"/>
+                                <constraint firstAttribute="width" constant="147" id="nU6-pM-XT4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tên đăng nhập" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pL9-qS-nsd">
+                            <rect key="frame" x="16" y="37" width="280" height="50"/>
+                            <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="amf-gb-DuL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2k-e8-o7b">
+                            <rect key="frame" x="16" y="97" width="147" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="147" id="Lcg-R2-K4R"/>
+                                <constraint firstAttribute="height" constant="21" id="bKG-iN-GJ6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Mật khẩu đăng nhập" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxA-Fs-Jvg">
+                            <rect key="frame" x="16" y="126" width="280" height="50"/>
+                            <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="IRl-rh-pRv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="NhapMatKhau:" destination="-1" eventType="editingDidEnd" id="FXh-cl-Fo9"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuH-mO-rtK">
+                            <rect key="frame" x="144" y="184" width="152" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="152" id="ZLy-qR-REK"/>
+                                <constraint firstAttribute="height" constant="30" id="kjc-Jc-lBy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="Quên mật khẩu?">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="QuenMatKhau:" destination="-1" eventType="touchUpInside" id="rRA-oq-bK3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wo6-Af-eN6">
+                            <rect key="frame" x="16" y="227" width="147" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="147" id="KGP-z3-OoO"/>
+                                <constraint firstAttribute="height" constant="43" id="bPM-rp-MCr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Lưu mật khẩu" image="ic_check_box_outline_blank.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="LuuMatKhau:" destination="-1" eventType="touchUpInside" id="6al-R4-oPp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQU-xY-zXt" customClass="ButtonBorder">
+                            <rect key="frame" x="86" y="285" width="141" height="37"/>
+                            <color key="backgroundColor" red="0.85098039219999999" green="0.20000000000000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="IHx-O3-fDe"/>
+                                <constraint firstAttribute="width" constant="141" id="vkE-8C-8MH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Đăng nhập">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="DangNhap:" destination="-1" eventType="touchUpInside" id="CH6-AP-Thc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="pL9-qS-nsd" firstAttribute="leading" secondItem="N2k-e8-o7b" secondAttribute="leading" id="31V-B9-ZkV"/>
+                        <constraint firstItem="pL9-qS-nsd" firstAttribute="leading" secondItem="8gR-yY-lV6" secondAttribute="leading" id="3gt-Xh-PuM"/>
+                        <constraint firstItem="8gR-yY-lV6" firstAttribute="leading" secondItem="XLs-fT-tZw" secondAttribute="leading" constant="16" id="4CJ-w3-3hN"/>
+                        <constraint firstItem="Wo6-Af-eN6" firstAttribute="top" secondItem="EuH-mO-rtK" secondAttribute="bottom" constant="13" id="5cf-rC-c0a"/>
+                        <constraint firstAttribute="bottom" secondItem="gQU-xY-zXt" secondAttribute="bottom" constant="8" id="DGu-6a-Z4G"/>
+                        <constraint firstAttribute="height" constant="330" id="DKc-fc-Pec"/>
+                        <constraint firstAttribute="trailing" secondItem="pL9-qS-nsd" secondAttribute="trailing" constant="16" id="ELq-Kr-UB3"/>
+                        <constraint firstItem="Wo6-Af-eN6" firstAttribute="leading" secondItem="dxA-Fs-Jvg" secondAttribute="leading" id="RI0-6J-FLZ"/>
+                        <constraint firstItem="N2k-e8-o7b" firstAttribute="leading" secondItem="dxA-Fs-Jvg" secondAttribute="leading" id="Utu-wg-Zby"/>
+                        <constraint firstAttribute="centerX" secondItem="gQU-xY-zXt" secondAttribute="centerX" id="WWc-cN-zNy"/>
+                        <constraint firstItem="EuH-mO-rtK" firstAttribute="trailing" secondItem="dxA-Fs-Jvg" secondAttribute="trailing" id="Yt5-2U-jil"/>
+                        <constraint firstItem="pL9-qS-nsd" firstAttribute="top" secondItem="8gR-yY-lV6" secondAttribute="bottom" constant="8" id="afs-XQ-xdU"/>
+                        <constraint firstAttribute="trailing" secondItem="dxA-Fs-Jvg" secondAttribute="trailing" constant="16" id="bZB-Au-wKS"/>
+                        <constraint firstItem="N2k-e8-o7b" firstAttribute="top" secondItem="pL9-qS-nsd" secondAttribute="bottom" constant="10" id="ffT-yO-R67"/>
+                        <constraint firstItem="8gR-yY-lV6" firstAttribute="top" secondItem="XLs-fT-tZw" secondAttribute="top" constant="8" id="lH5-o6-GzD"/>
+                        <constraint firstItem="EuH-mO-rtK" firstAttribute="top" secondItem="dxA-Fs-Jvg" secondAttribute="bottom" constant="8" id="r3N-Fb-NIZ"/>
+                        <constraint firstItem="dxA-Fs-Jvg" firstAttribute="top" secondItem="N2k-e8-o7b" secondAttribute="bottom" constant="8" id="xVB-pY-Hqi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="XLs-fT-tZw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="3nc-3o-XrN"/>
+                <constraint firstItem="45a-YW-NqO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I8U-dY-CqG"/>
+                <constraint firstAttribute="bottom" secondItem="45a-YW-NqO" secondAttribute="bottom" id="V98-an-V5B"/>
+                <constraint firstAttribute="trailing" secondItem="XLs-fT-tZw" secondAttribute="trailing" constant="4" id="rJz-gA-L94"/>
+                <constraint firstAttribute="trailing" secondItem="45a-YW-NqO" secondAttribute="trailing" id="wcq-AG-f51"/>
+                <constraint firstItem="XLs-fT-tZw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="zNv-ht-flC"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="358" y="177"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_check_box_outline_blank.png" width="24" height="24"/>
+    </resources>
+</document>

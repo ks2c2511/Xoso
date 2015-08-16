@@ -10,6 +10,8 @@
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <UIAlertView+Blocks.h>
+#import "LoginOtherUserController.h"
 
 @interface ManageUserController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelTaiKhoan;
@@ -74,9 +76,22 @@
 */
 
 - (IBAction)Dangnhapuserkhac:(id)sender {
+    
+    [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn muốn đăng xuất ứng dụng." cancelButtonTitle:@"Có" otherButtonTitles:@[@"Không"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex == [alertView cancelButtonIndex]) {
+            
+            LoginOtherUserController *loginOther = [LoginOtherUserController new];
+            [self.navigationController pushViewController:loginOther animated:YES];
+            
+        } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Không"]) {
+            
+            
+        }
+    }];
 }
 
 - (IBAction)Thaydoithongtin:(id)sender {
+    
 }
 
 - (IBAction)Thaydoimatkhau:(id)sender {
