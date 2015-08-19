@@ -19,7 +19,10 @@
 #import "Dream.h"
 #import "SplashController.h"
 #import "ManageUserController.h"
-
+#import "LoginOtherUserController.h"
+#import "ThongtinController.h"
+#import "HuongDanController.h"
+#import "HopThuController.h"
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (strong,nonatomic) UINavigationController *navigationController;
@@ -93,6 +96,11 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showManageUserScreen) name:notificationShowManageUser object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginOtherUser) name:notificationShowLoginOtherUser object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showInfo) name:notificationShowInfoUser object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHome) name:notification_show_home object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHuongdan) name:notificationShowHuongDanUser object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHomThu) name:notificationShowHopthu object:nil];
 
     
     return YES;
@@ -144,7 +152,43 @@
     ManageUserController *user = [ManageUserController new];
     self.navigationController.viewControllers = @[user];
     
-    [self ShowLeftMenu];
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showLoginOtherUser {
+    LoginOtherUserController *user = [LoginOtherUserController new];
+    self.navigationController.viewControllers = @[user];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showHuongdan {
+    HuongDanController *user = [HuongDanController new];
+    self.navigationController.viewControllers = @[user];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showHomThu {
+    HopThuController *email = [HopThuController new];
+    self.navigationController.viewControllers = @[email];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showInfo {
+    ThongtinController *tt = [ThongtinController new];
+    self.navigationController.viewControllers = @[tt];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showHome {
+    HomeController *home = [HomeController new];
+    self.navigationController.viewControllers = @[home];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
 }
 #pragma mark - custom Navigaton
 - (void)CustomTheme {

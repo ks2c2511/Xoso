@@ -78,13 +78,28 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-#if DEBUG
-    NSLog(@"---log---> %@",self.arrData[indexPath.row][@"key"]);
-#endif
+
     
     NSString *key = self.arrData[indexPath.row][@"key"];
     if ([key isEqualToString:@"menu_tai_khoan"]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowManageUser object:nil];
+    }
+    else if ([key isEqualToString:@"menu_dang_nhap"]) {
+         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowLoginOtherUser object:nil];
+    }
+    else if ([key isEqualToString:@"menu_chia_se"]) {
+        if (self.Share) {
+            self.Share();
+        }
+    }
+    else if ([key isEqualToString:@"menu_thong_tin"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowInfoUser object:nil];
+    }
+    else if ([key isEqualToString:@"menu_huong_dan"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowHuongDanUser object:nil];
+    }
+    else if ([key isEqualToString:@"menu_hop_thu"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowHopthu object:nil];
     }
 }
 

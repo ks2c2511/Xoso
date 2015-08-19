@@ -48,12 +48,14 @@
     [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
         if (objects.count == 0) {
         [LoginUser registerUserWithUserName:[[NSUUID UUID] UUIDString] Password:[[NSUUID UUID] UUIDString] Phone:@"123456789" Email:@"nhap_email_cua_ban@email.com" Gender:1 User_Phone_Id:[[NSUUID UUID] UUIDString] Done:^(BOOL success) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
             
         }];
         }
         else {
             User *user = [objects firstObject];
              [LoginUser loginWithUserName:user.user_name Pass:user.password DeviceId:user.phone_id Done:^(BOOL success) {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
                  
              }];
         }

@@ -23,7 +23,7 @@
 
 //Request
 
-//#define BASE_URL @"http://210.211.97.45/sentienich/lottery/"
+#define BASE_URL_TEST @"http://210.211.97.45/sentienich/lottery/"
 #define BASE_URL @"http://sentienich.aviostore.com/lottery/"
 #define GET_XEM_KQXS_PRE_DAY @"KQXSPREDAY1.php"
 #define GET_XEM_KQXS_NGAY_GAN_NHAT @"KQXS10Day.php"
@@ -57,11 +57,20 @@
 #define GET_SUB_COMMENT @"process/add_comment_chat.php"
 #define GET_LOGIN_OTHER_USER @"login.php"
 #define GET_FORGOT_PASS @"process/get_password_lost.php"
+#define GET_CHANGE_INFO @"update_account.php"
+#define GET_CHANGE_PASS @"update_password.php"
+#define GET_EMAIL_LIST @"danhsach_email.php"
 
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"
+#define notification_show_home @"notification_show_home"
 #define notificationShowManageUser @"notificationShowManageUser"
+#define notificationShowLoginOtherUser @"notificationShowLoginOtherUser"
+#define notificationShowInfoUser @"notificationShowInfoUser"
+#define notificationShowHuongDanUser @"notificationShowHuongDanUser"
+#define notificationShowHopthu @"notificationShowHopthu"
+#define notificationCapnhatuser @"notificationCapnhatuser"
 
 //constance
 

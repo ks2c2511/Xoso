@@ -12,11 +12,13 @@
 #import "UIColor+AppTheme.h"
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
+#import "LeftMenu.h"
 
 @interface MenuController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_W_Table;
 @property (weak, nonatomic) IBOutlet UIImageView *imageAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *labelInfoProfile;
+@property (weak, nonatomic) IBOutlet LeftMenu *tableView;
 
 @end
 
@@ -25,13 +27,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.contraint_W_Table.constant = [[UIScreen mainScreen] bounds].size.width/ratioMenuAndMainView;
-    
     [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
         if (objects.count != 0) {
             User *use = [objects firstObject];
             self.labelInfoProfile.attributedText = [self attWithName:use.user_name Email:use.email SurPlus:[use.point integerValue]];
             
         }
+    }];
+   
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:notificationCapnhatuser object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+            if (objects.count != 0) {
+                User *use = [objects firstObject];
+                self.labelInfoProfile.attributedText = [self attWithName:use.user_name Email:use.email SurPlus:[use.point integerValue]];
+                
+            }
+        }];
+    }];
+    
+    
+    
+    [self.tableView setShare:^{
+        [self shareText:@"Xổ số huyền thoại" andImage:[UIImage imageNamed:@"ic_launcher.png"]  andUrl:[NSURL URLWithString:@"https://www.google.com/?gws_rd=ssl"]];
     }];
     
     
@@ -52,6 +70,24 @@
         [muAtt appendAttributedString:attSurPlus];
     
     return muAtt;
+}
+
+- (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    
+    if (text) {
+        [sharingItems addObject:text];
+    }
+    if (image) {
+        [sharingItems addObject:image];
+    }
+    if (url) {
+        [sharingItems addObject:url];
+    }
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

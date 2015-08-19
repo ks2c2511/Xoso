@@ -12,6 +12,7 @@
 #import <NSManagedObject+GzDatabase.h>
 #import "SoiCauStore.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "CauVipStore.h"
 
 @interface SoiCauController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonMien;
@@ -27,6 +28,8 @@
 @property (assign, nonatomic) NSInteger matinh,mamien;
 @property (strong,nonatomic) NSArray *arrMien;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (strong,nonatomic) NSArray *arrMienTrung,*arrMienName;
+@property (assign, nonatomic) NSInteger matinhTrung,matinhNam;
 
 - (IBAction)SelectMien:(id)sender;
 - (IBAction)SelectCity:(id)sender;
@@ -41,6 +44,28 @@
     
     self.matinh = 1;
     self.mamien = 1;
+    
+    
+    [CauVipStore GetTinhCoQuaySo:^(BOOL success, NSArray *arrMienTrung, NSArray *arrMienNam) {
+        
+        if (success) {
+            self.arrMienTrung = arrMienTrung;
+            self.arrMienName = arrMienNam;
+            
+//            if (arrMienTrung.count != 0) {
+//                Province *pro = [arrMienTrung firstObject];
+//                [self.buttonChonTInhMienTrung setTitle:pro.province_name forState:UIControlStateNormal];
+//                self.matinhTrung = [pro.province_id integerValue];
+//            }
+//            if (arrMienNam.count != 0) {
+//                Province *pro = [arrMienNam firstObject];
+//                [self.buttonChonTinhMienNam setTitle:pro.province_name forState:UIControlStateNormal];
+//                self.matinhNam = [pro.province_id integerValue];
+//            }
+            
+        }
+    }];
+
     [self loadData];
     
     
@@ -134,6 +159,12 @@
             weakSelf.mamien = [item[@"mamien"] integerValue];
             
             NSArray *arrTinh = [Province fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"province_group == %d",weakSelf.mamien]];
+            if (weakSelf.mamien == 2) {
+                arrTinh = weakSelf.arrMienTrung;
+            }
+            else if (weakSelf.mamien == 3) {
+                arrTinh = weakSelf.arrMienName;
+            }
             
             if (arrTinh.count != 0) {
                  weakSelf.tableListItem.arrData = arrTinh;

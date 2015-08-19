@@ -15,7 +15,9 @@
 #import "LotoOnlineStore.h"
 #import "NSString+FromArray.h"
 #import "LichSuCuocController.h"
-@interface ChonCuocController ()
+@interface ChonCuocController () {
+    NSInteger userPoint;
+}
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong,nonatomic) UIBarButtonItem *buttonDatCuoc;
@@ -48,6 +50,7 @@
         if (objects.count != 0) {
             User *user = [objects firstObject];
             self.labelSodu.text = [NSString stringWithFormat:@"Số dư: %@",user.point];
+            userPoint = [user.point integerValue];
         }
     }];
     // Do any additional setup after loading the view from its nib.
@@ -153,6 +156,10 @@
     
     if ([self.textfieldNhapSo.text isEqualToString:@""]) {
         UIAlertView *alert = [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn cần nhập số xu." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        [alert show];
+    }
+    else if ([self.textfieldNhapSo.text integerValue] > userPoint) {
+        UIAlertView *alert = [UIAlertView showWithTitle:@"Thông báo" message:@"Số xu không đủ. Bạn cần nạp xu để tiếp tục." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         [alert show];
     }
     else {

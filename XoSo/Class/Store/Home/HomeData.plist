@@ -98,13 +98,5 @@
 		<key>key</key>
 		<string>phong_chat</string>
 	</dict>
-	<dict>
-		<key>title</key>
-		<string>Tiện ích</string>
-		<key>iconname</key>
-		<string>tien_ich.png</string>
-		<key>key</key>
-		<string>tien_ich</string>
-	</dict>
 </array>
 </plist>

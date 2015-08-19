@@ -10,6 +10,7 @@
                 <outlet property="contraint_W_Table" destination="Ruc-VA-syU" id="SzR-No-5uY"/>
                 <outlet property="imageAvatar" destination="IAv-eO-SgL" id="rz0-Ab-Hwy"/>
                 <outlet property="labelInfoProfile" destination="WfM-sz-XKr" id="5Mr-qN-1QI"/>
+                <outlet property="tableView" destination="c8z-2a-FVT" id="clH-LD-v0F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

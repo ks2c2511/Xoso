@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LeftMenu : UITableView
-
+@property (copy)void(^Share)(void);
 @end

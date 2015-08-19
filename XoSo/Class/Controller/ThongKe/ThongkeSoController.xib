@@ -42,15 +42,16 @@
                             <color key="textColor" red="0.68627450980000004" green="0.81176470590000005" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vd-Vx-mn3">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vd-Vx-mn3" customClass="ButtonBorder">
                             <rect key="frame" x="8" y="32" width="199" height="30"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <rect key="contentStretch" x="0.69999999999999973" y="0.0" width="0.0" height="0.0"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="lZX-cM-GDh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Xổ số thủ đô" backgroundImage="bg_choncachdanh.png">
+                            <state key="normal" title="Xổ số thủ đô">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -58,15 +59,16 @@
                                 <action selector="SelectCity:" destination="-1" eventType="touchUpInside" id="m22-CS-BmV"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-Hr-baz">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-Hr-baz" customClass="ButtonBorder">
                             <rect key="frame" x="232" y="32" width="80" height="30"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="Ogd-Mp-9cb"/>
                                 <constraint firstAttribute="height" constant="30" id="Set-Z4-YMz"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="10" backgroundImage="bg_choncachdanh.png">
+                            <state key="normal" title="10">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -145,7 +147,6 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_choncachdanh.png" width="104" height="41"/>
         <image name="ic_arrow_drop_down_18pt.png" width="18" height="18"/>
     </resources>
 </document>

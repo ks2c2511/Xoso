@@ -40,6 +40,7 @@
     [self.bannerView loadRequest:[GADRequest request]];
     
     self.navigationItem.title = @"Đăng nhập";
+    self.navigationItem.leftBarButtonItem = self.homeButtonItem;
     
     
     self.viewBackGround.layer.borderColor = [UIColor colorWithRed:70.0/255.0 green:35.0/255.0 blue:4.0/255.0 alpha:1.0].CGColor;
@@ -81,8 +82,11 @@
 - (IBAction)DangNhap:(id)sender {
     
     if ([self validSubmit]) {
-        [ManageUserStore LoginOtherUserWithUserName:self.textfieldNameUser.text Pass:self.textfieldPass.text Done:^(BOOL success) {
-            
+        [ManageUserStore LoginOtherUserWithUserName:self.textfieldNameUser.text Pass:self.textfieldPass.text Done:^(BOOL success,NSString *str) {
+            if (success) {
+                 [UIAlertView showWithTitle:@"Thành công" message:@"Đăng nhập thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+            }
         }];
     }
     

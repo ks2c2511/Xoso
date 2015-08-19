@@ -12,6 +12,8 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIAlertView+Blocks.h>
 #import "LoginOtherUserController.h"
+#import "ChangeInfoController.h"
+#import "DoiMatKhauController.h"
 
 @interface ManageUserController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelTaiKhoan;
@@ -37,17 +39,22 @@
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     
-    self.navigationItem.leftBarButtonItem = self.menuButtonItem;
+    self.navigationItem.leftBarButtonItem = self.homeButtonItem;
     
     self.viewBackGround.layer.borderColor = [UIColor colorWithRed:70.0/255.0 green:35.0/255.0 blue:4.0/255.0 alpha:1.0].CGColor;
     self.viewBackGround.layer.borderWidth = 6.0;
     self.viewBackGround.layer.cornerRadius = 6.0;
 
     
+   
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
     [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
         if (objects.count != 0 ) {
             User *use = [objects firstObject];
-           
+            
             self.labelTaiKhoan.text = use.user_name;
             self.labelDienThoai.text = use.phone;
             self.labelEmail.text = use.email;
@@ -57,7 +64,6 @@
             
         }
     }];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,9 +97,13 @@
 }
 
 - (IBAction)Thaydoithongtin:(id)sender {
+    ChangeInfoController *info = [ChangeInfoController new];
+    [self.navigationController pushViewController:info animated:YES];
     
 }
 
 - (IBAction)Thaydoimatkhau:(id)sender {
+    DoiMatKhauController *doiMatKhau = [DoiMatKhauController new];
+    [self.navigationController pushViewController:doiMatKhau animated:YES];
 }
 @end

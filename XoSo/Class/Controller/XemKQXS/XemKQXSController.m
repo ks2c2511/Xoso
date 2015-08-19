@@ -47,6 +47,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Kết quả xổ số";
     
     [Province fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"province_id == 1"] success:^(BOOL succeeded, NSArray *objects) {
         if (objects.count !=0) {
@@ -96,7 +97,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return 30.0;
+        return 40;
     }
     return 90;
 }

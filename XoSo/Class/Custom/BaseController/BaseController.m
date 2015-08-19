@@ -55,8 +55,19 @@
     return _menuButtonItem;
 }
 
+- (UIBarButtonItem *)homeButtonItem {
+    if (!_homeButtonItem) {
+        _homeButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_home.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(ShowHome)];
+    }
+    
+    return _homeButtonItem;
+}
+
 -(void)ShowLeftMenu {
     [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_left_menu object:nil];
+}
+-(void)ShowHome {
+     [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
 }
 
 -(UIImageView *)imageBackGround {

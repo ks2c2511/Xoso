@@ -97,6 +97,7 @@
                 [user saveToPersistentStore];
                 
             }
+            done(YES);
             
         }
         else {
