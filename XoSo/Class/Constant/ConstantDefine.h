@@ -60,7 +60,8 @@
 #define GET_CHANGE_INFO @"update_account.php"
 #define GET_CHANGE_PASS @"update_password.php"
 #define GET_EMAIL_LIST @"danhsach_email.php"
-
+#define GET_NOI_DUNG_NAP_THE @"xoso_thongbao_napthe.php"
+#define GET_NAP_QUA_THE @"process/vnepay/card_charging.php"
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"

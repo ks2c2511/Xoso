@@ -45,13 +45,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        return self.arrData.count;
+    return self.arrData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    if (IS_IOS8) {
-    //        return UITableViewAutomaticDimension;
-    //    }
+
     return 65;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,19 +65,39 @@
 - (void)configureCell:(HopThuCell *)cell
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HopThuModel *model = self.arrData[indexPath.row];
+    Hopthu *model = self.arrData[indexPath.row];
+    if (!model.daxem) {
+        [cell.imageLogo setImage:[UIImage imageNamed:@"email_icon1.png"]];
+        cell.labelTitle.textColor = [UIColor colorWithRed:20.0/255.0 green:112.0/255.0 blue:206.0/255.0 alpha:1.0];
+    }
+    else {
+        [cell.imageLogo setImage:[UIImage imageNamed:@"email_icon2.png"]];
+        cell.labelTitle.textColor = [UIColor colorWithRed:138.0/255.0 green:138.0/255.0 blue:138.0/255.0 alpha:1.0];
+    }
+    
     cell.labelTitle.text = model.subject;
     cell.abelTime.text = model.date;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-     HopThuModel *model = self.arrData[indexPath.row];
+     Hopthu *model = self.arrData[indexPath.row];
     
     [UIAlertView showWithTitle:[NSString stringWithFormat:@"%@ (%@)",model.subject,model.date] message:model.content cancelButtonTitle:@"OK" otherButtonTitles:@[@"Xoá"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
         if (buttonIndex == 1) {
-            
+            [model DeleteThis];
+            self.arrData = [Hopthu fetchAll];
+            [self.tableView reloadData];
+        }
+        else {
+            model.daxem = @(YES);
+            [model saveToPersistentStore];
+            [Hopthu fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+                self.arrData = objects;
+                [self.tableView reloadData];
+            }];
         }
     }];
 }

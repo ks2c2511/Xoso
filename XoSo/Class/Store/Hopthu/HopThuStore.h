@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HopThuModel.h"
+#import <NSManagedObject+GzDatabase.h>
+#import "Hopthu.h"
 
 @interface HopThuStore : NSObject
 +(void)GetEmailWithType:(NSInteger)type Done:(void(^)(BOOL success,NSArray *arr))done;

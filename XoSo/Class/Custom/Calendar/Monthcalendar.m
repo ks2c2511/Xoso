@@ -166,7 +166,10 @@ static NSString *const identifiCell = @"identificell";
 }
 
 -(void)SelectDate:(UIButton *)button {
-    if ([CalendarData checkHourAndDateIsPastWithDay:[_arrayDate[button.tag -1] integerValue] Month:_months Year:_years]) {
+
+    
+   
+    if ([CalendarData checkDateIsPastWithDay:[_arrayDate[button.tag -1] integerValue] Month:_months Year:_years]) {
         
         if (self.SelectedDate) {
             self.SelectedDate([_arrayDate[button.tag -1] integerValue],_months,_years);

@@ -27,6 +27,6 @@
 +(NSInteger )indexDateWithBeginDate:(NSDate *)begindate Target:(NSDate *)tagget;
 +(NSDate *)setDateWithHour:(NSInteger)hour FromDate:(NSDate *)date;
 +(BOOL)isTodayWithDate:(NSDate *)date;
-+(BOOL)checkHourAndDateIsPastWithDay:(NSInteger )day Month:(NSInteger )month Year:(NSInteger )year;
++(NSInteger)getHourAndDateIsPastWithDay:(NSInteger )day Month:(NSInteger )month Year:(NSInteger )year;
 +(NSInteger)getWeekOfDate:(NSDate *)date;
 @end

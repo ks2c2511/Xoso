@@ -11,9 +11,10 @@
 #import "LoToDatCuocController.h"
 #import "CalendarData.h"
 #import "LotoResult.h"
-
+#import <UIAlertView+Blocks.h>
 @interface LotoOnlineController ()
 @property (strong,nonatomic) Monthcalendar *monthCalendar;
+@property (assign,nonatomic) BOOL isBac,isTrung,isNam;
 @end
 
 @implementation LotoOnlineController
@@ -32,13 +33,45 @@
         _monthCalendar = [Monthcalendar new];
         [_monthCalendar SetMOnthWithIndex:_monthCalendar.indexMOnth];
         
+        _isBac = YES;
+        _isTrung = YES;
+        _isNam = YES;
                 __weak typeof(self)weakSelf = self;
         [_monthCalendar setSelectedDate:^(NSInteger day, NSInteger month, NSInteger year) {
+            
+            if ([CalendarData isTodayWithDay:day Month:month Year:year]) {
+                
+                
+                if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 18) {
+                    
+                    [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn chỉ chọn được ngày kế tiếp" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                }
+                else if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 17) {
+                    weakSelf.isBac = YES;
+                    weakSelf.isTrung =NO;
+                    weakSelf.isNam =NO;
+                    
+                }
+                else if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 16) {
+                    weakSelf.isBac = YES;
+                    weakSelf.isTrung =YES;
+                    weakSelf.isNam =NO;
+                }
+                else {
+                    weakSelf.isBac = YES;
+                    weakSelf.isTrung =YES;
+                    weakSelf.isNam =YES;
+                }
+            }
+            
             LoToDatCuocController *datcuoc = [LoToDatCuocController new];
             
             LotoResult *loto = [LotoResult new];
             loto.date = [NSString stringWithFormat:@"%li-%li-%li",(long)year,(long)month,(long)day];
             datcuoc.loto = loto;
+            datcuoc.isBac = weakSelf.isBac;
+            datcuoc.isTrung = weakSelf.isTrung;
+            datcuoc.isNam =weakSelf.isNam;
             [weakSelf.navigationController pushViewController:datcuoc animated:YES];
         }];
         

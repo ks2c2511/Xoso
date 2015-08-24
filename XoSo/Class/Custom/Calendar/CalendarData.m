@@ -325,15 +325,20 @@
 
 +(BOOL)checkDateIsPastWithDay:(NSInteger )day Month:(NSInteger )month Year:(NSInteger )year {
     
+    
     NSCalendar *calendar = [[NSCalendar alloc]
                             initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [calendar components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit| NSHourCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    
+    NSDate *today = [calendar dateFromComponents:components];
+    
     components.day = day;
     components.month = month;
     components.year = year;
     NSDate *otherDate = [calendar dateFromComponents:components];
+
     
-    NSComparisonResult result = [[NSDate date] compare:otherDate];
+    NSComparisonResult result = [today compare:otherDate];
     
     if(result==NSOrderedAscending) {
         
@@ -341,15 +346,17 @@
         return YES;
     }
     
-    else if(result==NSOrderedDescending)
-    return NO;
+    else if(result==NSOrderedDescending) {
+        
+          return NO;
+    }
+  
     else
-    return NO;
+    return YES;
     
-    return NO;
 }
 
-+(BOOL)checkHourAndDateIsPastWithDay:(NSInteger )day Month:(NSInteger )month Year:(NSInteger )year {
++(NSInteger)getHourAndDateIsPastWithDay:(NSInteger )day Month:(NSInteger )month Year:(NSInteger )year {
     
     NSCalendar *calendar = [[NSCalendar alloc]
                             initWithCalendarIdentifier:NSGregorianCalendar];
@@ -357,28 +364,8 @@
     components.day = day;
     components.month = month;
     components.year = year;
-    NSDate *otherDate = [calendar dateFromComponents:components];
     
-    NSComparisonResult result = [[NSDate date] compare:otherDate];
-    
-    if(result==NSOrderedAscending) {
-        
-        
-        return YES;
-    }
-    
-    else if(result==NSOrderedDescending)
-        return NO;
-    else {
-        if (components.hour > 18 ) {
-            return NO;
-        }
-        else {
-            return YES;
-        }
-    }
-    
-    return NO;
+    return components.hour;
 }
 
 +(NSInteger )getWeekOfDate:(NSDate *)date {

@@ -18,7 +18,7 @@ target 'XoSo' do
     pod 'IQKeyboardManager', '~> 3.2.3'
     pod 'UIColor+uiGradients'
     pod 'CCBottomRefreshControl'
-
+    pod 'IDMPhotoBrowser'
 end
 
 

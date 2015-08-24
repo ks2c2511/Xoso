@@ -10,11 +10,14 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
+#import "NapquaSMS.h"
+#import "TheCaoController.h"
 
 @interface KiemxuController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelSoXu;
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (strong,nonatomic) NSString *userId;
 - (IBAction)CaiUngDung:(id)sender;
 - (IBAction)NapTheCao:(id)sender;
 
@@ -38,6 +41,7 @@
         if (objects.count != 0) {
             User *user = [objects firstObject];
             self.labelSoXu.text = [NSString stringWithFormat:@"Số xu trong tài khoản của bạn là: %@ xu",user.point];
+            self.userId = user.user_id;
         }
     }];
 
@@ -60,8 +64,17 @@
 */
 
 - (IBAction)CaiUngDung:(id)sender {
+    
+    NapquaSMS *sms = [NapquaSMS new];
+    sms.userId = self.userId;
+    [self.navigationController pushViewController:sms animated:YES];
+    
 }
 
 - (IBAction)NapTheCao:(id)sender {
+    TheCaoController *thecao = [TheCaoController new];
+    thecao.userId = self.userId;
+    [self.navigationController pushViewController:thecao animated:YES];
+    
 }
 @end

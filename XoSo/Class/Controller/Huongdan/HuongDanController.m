@@ -9,8 +9,9 @@
 #import "HuongDanController.h"
 #import "HuongdanCell.h"
 #import "HuongdanModel.h"
+#import <IDMPhotoBrowser.h>
 
-@interface HuongDanController ()
+@interface HuongDanController () <IDMPhotoBrowserDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSArray *arrData;
 @end
@@ -63,6 +64,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+     HuongdanModel *model = self.arrData[indexPath.row];
+    
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:[self SaveArrayPhotosWithArray:model.arrNameImage] animatedFromView:self.view]; // using initWithPhotos:animatedFromView: method to use the zoom-in animation
+    browser.delegate = self;
+    browser.displayActionButton = YES;
+    browser.displayArrowButton = YES;
+    browser.displayCounterLabel = YES;
+    browser.usePopAnimation = YES;
+    [browser setInitialPageIndex:indexPath.row];
+    
+     [self presentViewController:browser animated:YES completion:nil];
+}
+
+- (NSArray *)SaveArrayPhotosWithArray:(NSArray *)arrUrl {
+    IDMPhoto *photo;
+    NSMutableArray *arr = [NSMutableArray new];
+    for (id url in arrUrl) {
+        photo = [IDMPhoto photoWithImage:[UIImage imageNamed:url]];
+       
+        
+        [arr addObject:photo];
+    }
+    
+    return arr;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,62 +104,62 @@
 -(HuongdanModel *)modelxoSo {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn chơi xổ số";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"chon_ngay_choi_loto.png",@"chon_loai_loto.png",@"chon_so_loto.png",@"nhap_tien_choi_loto.png"];
     return model;
 }
 
 -(HuongdanModel *)modeltaikhoan {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn nạp tài khoản";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"chon_loai_sms.png",@"nhan_tin.png",@"nap_the.png"];
     return model;
 }
 -(HuongdanModel *)modelthaoluan {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn thảo luận";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"ket_qua_xsoff.PNG"];
     return model;
 }
 
 -(HuongdanModel *)modelthongke {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn thống kê";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"thongke1.PNG",@"tk2.PNG"];
     return model;
 }
 
 -(HuongdanModel *)modelxemKQXS {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn xem KQXS online - offline";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"help_result.PNG"];
     return model;
 }
 
 -(HuongdanModel *)modeldangnhap {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn đăng nhập";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"help_result.PNG",@"login2.JPG"];
     return model;
 }
 
 -(HuongdanModel *)modeldangki {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn đăng kí";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"dangki1.JPG",@"dangki2.JPG"];
     return model;
 }
 
 -(HuongdanModel *)modelchucnangtaikhoan {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn chức năng tài khoản";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"taikhoan1.JPG",@"taikhoan2.JPG",@"taikoan3.JPG"];
     return model;
 }
 
 -(HuongdanModel *)modelchucnanggiaimong {
     HuongdanModel *model = [HuongdanModel new];
     model.title = @"Hướng dẫn chức năng giải mộng";
-    model.arrNameImage = @[];
+    model.arrNameImage = @[@"dream1.JPG",@"dream2.JPG"];
     return model;
 }
 

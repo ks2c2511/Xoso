@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ten_the</key>
+		<string>Vinaphone</string>
+		<key>loai_the</key>
+		<string>vinaphone</string>
+	</dict>
+	<dict>
+		<key>ten_the</key>
+		<string>Mobifone</string>
+		<key>loai_the</key>
+		<string>mobifone</string>
+	</dict>
+	<dict>
+		<key>ten_the</key>
+		<string>Viettel</string>
+		<key>loai_the</key>
+		<string>viettel</string>
+	</dict>
+	<dict>
+		<key>ten_the</key>
+		<string>FPT Gate</string>
+		<key>loai_the</key>
+		<string>FPT</string>
+	</dict>
+	<dict>
+		<key>ten_the</key>
+		<string>VTC Vcoin</string>
+		<key>loai_the</key>
+		<string>VTC</string>
+	</dict>
+	<dict>
+		<key>ten_the</key>
+		<string>MegaCard</string>
+		<key>loai_the</key>
+		<string>MGC</string>
+	</dict>
+</array>
+</plist>

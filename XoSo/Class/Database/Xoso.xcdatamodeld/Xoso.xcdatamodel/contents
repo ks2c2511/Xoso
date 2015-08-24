@@ -11,6 +11,14 @@
         <attribute name="so" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ten" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Hopthu" representedClassName="Hopthu" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daxem" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="idHopthu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trung_lo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="KQXS" representedClassName="KQXS" syncable="YES">
         <attribute name="company_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
@@ -57,5 +65,6 @@
         <element name="Notifi" positionX="-18" positionY="-81" width="128" height="88"/>
         <element name="Province" positionX="-54" positionY="-72" width="128" height="103"/>
         <element name="User" positionX="97" positionY="42" width="128" height="165"/>
+        <element name="Hopthu" positionX="54" positionY="18" width="128" height="135"/>
     </elements>
 </model>

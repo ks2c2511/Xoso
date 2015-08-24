@@ -18,4 +18,5 @@ typedef NS_ENUM(NSInteger, LoaiSoXo) {
 
 @interface LoToDatCuocController : BaseController
 @property (strong,nonatomic) LotoResult *loto;
+@property (assign,nonatomic) BOOL isBac, isTrung,isNam;
 @end
