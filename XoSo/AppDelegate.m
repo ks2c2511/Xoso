@@ -113,8 +113,20 @@ NSString *const SubscriptionTopic = @"/topics/global";
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHuongdan) name:notificationShowHuongDanUser object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHomThu) name:notificationShowHopthu object:nil];
     
-    
-  /*
+  
+//    // Create a config and set a delegate that implements the GGLInstaceIDDelegate protocol.
+//    GGLInstanceIDConfig *instanceIDConfig = [GGLInstanceIDConfig defaultConfig];
+//    instanceIDConfig.delegate = self;
+//    // Start the GGLInstanceID shared instance with the that config and request a registration
+//    // token to enable reception of notifications
+//    [[GGLInstanceID sharedInstance] startWithConfig:instanceIDConfig];
+//    _registrationOptions = @{kGGLInstanceIDRegisterAPNSOption:@"",
+//                             kGGLInstanceIDAPNSServerTypeSandboxOption:@YES};
+//    [[GGLInstanceID sharedInstance] tokenWithAuthorizedEntity:_gcmSenderID
+//                                                        scope:kGGLInstanceIDScopeGCM
+//                                                      options:_registrationOptions
+//                                                      handler:_registrationHandler];
+  
     // [START_EXCLUDE]
     _registrationKey = @"onRegistrationCompleted";
     _messageKey = @"onMessageReceived";
@@ -157,12 +169,12 @@ NSString *const SubscriptionTopic = @"/topics/global";
                                                               userInfo:userInfo];
         }
     };
-*/
+
     
     return YES;
 }
 
-/*
+
 - (void)subscribeToTopic {
     // If the app has a registration token and is connected to GCM, proceed to subscribe to the
     // topic
@@ -284,7 +296,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
                                                       handler:_registrationHandler];
 }
 // [END on_token_refresh]
-*/
+
 
 -(void)notificationImplement {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowLeftMenu) name:notification_show_left_menu object:nil];

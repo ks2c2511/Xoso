@@ -19,6 +19,7 @@ target 'XoSo' do
     pod 'UIColor+uiGradients'
     pod 'CCBottomRefreshControl'
     pod 'IDMPhotoBrowser'
+    pod 'Google/CloudMessaging'
 end
 
 

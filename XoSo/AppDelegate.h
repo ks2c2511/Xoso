@@ -8,8 +8,9 @@
 
 
 #import <UIKit/UIKit.h>
-//#import <Google/CloudMessaging.h>
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+#import <Google/CloudMessaging.h>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,GGLInstanceIDDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
