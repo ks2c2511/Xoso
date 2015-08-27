@@ -20,14 +20,6 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Kiếm xu</string>
-		<key>iconname</key>
-		<string>kiem_xu_</string>
-		<key>key</key>
-		<string>kiem_xu</string>
-	</dict>
-	<dict>
-		<key>title</key>
 		<string>Lịch sử chơi</string>
 		<key>iconname</key>
 		<string>lich_su_choi.png</string>

@@ -23,6 +23,9 @@
 #import "ThongtinController.h"
 #import "HuongDanController.h"
 #import "HopThuController.h"
+#import <GAI.h>
+#import <GAIDictionaryBuilder.h>
+
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -48,6 +51,10 @@ NSString *const SubscriptionTopic = @"/topics/global";
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self CustomTheme];
 //    [self showMainIsOnApp];
+    
+    
+
+
     self.window.rootViewController = [SplashController new];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -127,9 +134,9 @@ NSString *const SubscriptionTopic = @"/topics/global";
 //                                                      options:_registrationOptions
 //                                                      handler:_registrationHandler];
   
+    
     // [START_EXCLUDE]
-    _registrationKey = @"onRegistrationCompleted";
-    _messageKey = @"onMessageReceived";
+
     // Configure the Google context: parses the GoogleService-Info.plist, and initializes
     // the services that have entries in the file
     NSError* configureError;
@@ -156,19 +163,44 @@ NSString *const SubscriptionTopic = @"/topics/global";
         if (registrationToken != nil) {
             weakSelf.registrationToken = registrationToken;
             NSLog(@"Registration Token: %@", registrationToken);
-            [weakSelf subscribeToTopic];
+           
             NSDictionary *userInfo = @{@"registrationToken":registrationToken};
-            [[NSNotificationCenter defaultCenter] postNotificationName:weakSelf.registrationKey
+            [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
                                                                 object:nil
                                                               userInfo:userInfo];
         } else {
             NSLog(@"Registration to GCM failed with error: %@", error.localizedDescription);
-            NSDictionary *userInfo = @{@"error":error.localizedDescription};
-            [[NSNotificationCenter defaultCenter] postNotificationName:weakSelf.registrationKey
+            
+                        NSDictionary *userInfo = @{@"error":error.localizedDescription};
+            [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
                                                                 object:nil
                                                               userInfo:userInfo];
         }
     };
+    
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    
+
+    
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-45319055-8"];
+    
+    id <GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    tracker.allowIDFACollection = YES;
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Open APP"     // Event category (required)
+                                                          action:@"" // Event action (required)
+                                                           label:@""          // Event label
+                                                           value:nil] build]];    // Event value
+
 
     
     return YES;
@@ -250,7 +282,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"Registration for remote notification failed with error: %@", error.localizedDescription);
     // [END receive_apns_token_error]
     NSDictionary *userInfo = @{@"error" :error.localizedDescription};
-    [[NSNotificationCenter defaultCenter] postNotificationName:_registrationKey
+    [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
                                                         object:nil
                                                       userInfo:userInfo];
 }
@@ -263,9 +295,11 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[GCMService sharedInstance] appDidReceiveMessage:userInfo];
     // Handle the received message
     // [START_EXCLUDE]
-    [[NSNotificationCenter defaultCenter] postNotificationName:_messageKey
+    [[NSNotificationCenter defaultCenter] postNotificationName:on_messageKey
                                                         object:nil
                                                       userInfo:userInfo];
+    
+//    [UIAlertView showWithTitle:@"receive push" message:nil cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
     // [END_EXCLUDE]
 }
 
@@ -278,9 +312,12 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
     // Handle the received message
     // Invoke the completion handler passing the appropriate UIBackgroundFetchResult value
     // [START_EXCLUDE]
-    [[NSNotificationCenter defaultCenter] postNotificationName:_messageKey
+    [[NSNotificationCenter defaultCenter] postNotificationName:on_messageKey
                                                         object:nil
                                                       userInfo:userInfo];
+    
+//    [UIAlertView showWithTitle:@"receive push" message:nil cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    
     handler(UIBackgroundFetchResultNoData);
     // [END_EXCLUDE]
 }

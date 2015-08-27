@@ -75,6 +75,20 @@
 
 //constance
 
+//key push
+
+#define key_push_push_kqxs @"push_kqxs"
+#define key_push_pushsoilo @"pushsoilo"
+#define key_push_pushkhuyenmai @"pushkhuyenmai"
+#define key_push_pushthongbao @"pushthongbao"
+#define key_push_pushcongtien @"pushcongtien"
+
+#define push_API_key @"AIzaSyCw0keCM-K2JCEnkbmkZUbJmOczmBgYdNU"
+
+#define registrationKey @"onRegistrationCompleted"
+#define on_messageKey @"onMessageReceived"
+
+
 #define google_id_Ad @"ca-app-pub-8172894227923068/6488921439"
 
 #define thong_ke_cap_so @"thongkecapso"

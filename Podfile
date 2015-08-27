@@ -20,6 +20,7 @@ target 'XoSo' do
     pod 'CCBottomRefreshControl'
     pod 'IDMPhotoBrowser'
     pod 'Google/CloudMessaging'
+    pod 'GoogleAnalytics-iOS-SDK'
 end
 
 

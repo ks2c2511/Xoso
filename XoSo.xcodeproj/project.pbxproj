@@ -292,6 +292,7 @@
 		6AF982591B497DEE003A31B7 /* HomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF982571B497DEE003A31B7 /* HomeCollectionCell.m */; };
 		6AF9825A1B497DEE003A31B7 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF982581B497DEE003A31B7 /* HomeCollectionCell.xib */; };
 		6AF9825D1B497F19003A31B7 /* HomeData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AF9825C1B497F19003A31B7 /* HomeData.plist */; };
+		6AFB52E81B8F6F4C00899485 /* GcmPushStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB52E71B8F6F4C00899485 /* GcmPushStore.m */; };
 		6AFCAA921B896997006254B0 /* chon_loai_loto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCAA791B896997006254B0 /* chon_loai_loto.png */; };
 		6AFCAA931B896997006254B0 /* chon_ngay_choi_loto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCAA7A1B896997006254B0 /* chon_ngay_choi_loto.png */; };
 		6AFCAA941B896997006254B0 /* chon_so_loto.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFCAA7B1B896997006254B0 /* chon_so_loto.png */; };
@@ -777,6 +778,8 @@
 		6AF982571B497DEE003A31B7 /* HomeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionCell.m; sourceTree = "<group>"; };
 		6AF982581B497DEE003A31B7 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
 		6AF9825C1B497F19003A31B7 /* HomeData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeData.plist; sourceTree = "<group>"; };
+		6AFB52E61B8F6F4C00899485 /* GcmPushStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcmPushStore.h; sourceTree = "<group>"; };
+		6AFB52E71B8F6F4C00899485 /* GcmPushStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcmPushStore.m; sourceTree = "<group>"; };
 		6AFCAA791B896997006254B0 /* chon_loai_loto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chon_loai_loto.png; sourceTree = "<group>"; };
 		6AFCAA7A1B896997006254B0 /* chon_ngay_choi_loto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chon_ngay_choi_loto.png; sourceTree = "<group>"; };
 		6AFCAA7B1B896997006254B0 /* chon_so_loto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chon_so_loto.png; sourceTree = "<group>"; };
@@ -1243,6 +1246,7 @@
 		6A79A9AF1B46F9A60098AB4A /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				6AFB52E51B8F6F2500899485 /* PUSH */,
 				6AF9298D1B8A190B00EE7F7D /* Napthe */,
 				6AD2F9511B84C824008A76B3 /* Hopthu */,
 				6AF383871B80D9BC00459938 /* User */,
@@ -1960,6 +1964,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		6AFB52E51B8F6F2500899485 /* PUSH */ = {
+			isa = PBXGroup;
+			children = (
+				6AFB52E61B8F6F4C00899485 /* GcmPushStore.h */,
+				6AFB52E71B8F6F4C00899485 /* GcmPushStore.m */,
+			);
+			path = PUSH;
+			sourceTree = "<group>";
+		};
 		6AFCAA771B896997006254B0 /* huongdan */ = {
 			isa = PBXGroup;
 			children = (
@@ -2555,6 +2568,7 @@
 				6AD2F9501B84C6C8008A76B3 /* HopThuModel.m in Sources */,
 				6AF3838A1B80D9CE00459938 /* ManageUserStore.m in Sources */,
 				6AFE6E551B4D8007009E750C /* LotoDauDuoiHeader.m in Sources */,
+				6AFB52E81B8F6F4C00899485 /* GcmPushStore.m in Sources */,
 				6AE54F2D1B62949600183710 /* KQXS.m in Sources */,
 				6A5BA9101B7FA3D6008D5811 /* ChatLeverTwoCell.m in Sources */,
 				6AE6E6BC1B823D6E0057DBD3 /* CaidatController.m in Sources */,
@@ -2687,7 +2701,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2709,6 +2723,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2763,6 +2778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
 				INFOPLIST_FILE = XoSo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2836,6 +2852,7 @@
 					"\"AdSupport\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

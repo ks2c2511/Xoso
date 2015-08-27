@@ -17,4 +17,6 @@
 +(void)changeInfoWithUserId:(NSString *)userId Name:(NSString *)name Email:(NSString *)email Phone:(NSString *)phone GioiTinh:(NSInteger)gioitinh Done:(void(^)(BOOL success,NSString *str))done;
 
 +(void)changeInfoWithUserId:(NSString *)userId Pass:(NSString *)pass Done:(void(^)(BOOL success))done;
+
+
 @end

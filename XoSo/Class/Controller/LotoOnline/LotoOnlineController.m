@@ -45,34 +45,50 @@
                 if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 18) {
                     
                     [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn chỉ chọn được ngày kế tiếp" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                }
-                else if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 17) {
-                    weakSelf.isBac = YES;
-                    weakSelf.isTrung =NO;
-                    weakSelf.isNam =NO;
                     
                 }
-                else if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 16) {
-                    weakSelf.isBac = YES;
-                    weakSelf.isTrung =YES;
-                    weakSelf.isNam =NO;
-                }
                 else {
-                    weakSelf.isBac = YES;
-                    weakSelf.isTrung =YES;
-                    weakSelf.isNam =YES;
+                    if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 17) {
+                        weakSelf.isBac = YES;
+                        weakSelf.isTrung =NO;
+                        weakSelf.isNam =NO;
+                        
+                    }
+                    else if ([CalendarData getHourAndDateIsPastWithDay:day Month:month Year:year] > 16) {
+                        weakSelf.isBac = YES;
+                        weakSelf.isTrung =YES;
+                        weakSelf.isNam =NO;
+                    }
+                    else {
+                        weakSelf.isBac = YES;
+                        weakSelf.isTrung =YES;
+                        weakSelf.isNam =YES;
+                    }
+                    
+                    LoToDatCuocController *datcuoc = [LoToDatCuocController new];
+                    
+                    LotoResult *loto = [LotoResult new];
+                    loto.date = [NSString stringWithFormat:@"%li-%li-%li",(long)year,(long)month,(long)day];
+                    datcuoc.loto = loto;
+                    datcuoc.isBac = weakSelf.isBac;
+                    datcuoc.isTrung = weakSelf.isTrung;
+                    datcuoc.isNam =weakSelf.isNam;
+                    [weakSelf.navigationController pushViewController:datcuoc animated:YES];
                 }
             }
+            else {
+                LoToDatCuocController *datcuoc = [LoToDatCuocController new];
+                
+                LotoResult *loto = [LotoResult new];
+                loto.date = [NSString stringWithFormat:@"%li-%li-%li",(long)year,(long)month,(long)day];
+                datcuoc.loto = loto;
+                datcuoc.isBac = weakSelf.isBac;
+                datcuoc.isTrung = weakSelf.isTrung;
+                datcuoc.isNam =weakSelf.isNam;
+                [weakSelf.navigationController pushViewController:datcuoc animated:YES];
+            }
             
-            LoToDatCuocController *datcuoc = [LoToDatCuocController new];
-            
-            LotoResult *loto = [LotoResult new];
-            loto.date = [NSString stringWithFormat:@"%li-%li-%li",(long)year,(long)month,(long)day];
-            datcuoc.loto = loto;
-            datcuoc.isBac = weakSelf.isBac;
-            datcuoc.isTrung = weakSelf.isTrung;
-            datcuoc.isNam =weakSelf.isNam;
-            [weakSelf.navigationController pushViewController:datcuoc animated:YES];
+           
         }];
         
         [self.view addSubview:_monthCalendar];
