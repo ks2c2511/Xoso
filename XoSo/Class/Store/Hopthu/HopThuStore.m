@@ -22,7 +22,7 @@
             dic = @{@"type":@(type),
                     @"user_id":use.user_id};
             
-            [[GzNetworking sharedInstance] GET:[BASE_URL_TEST stringByAppendingString:GET_EMAIL_LIST] parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
+            [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_EMAIL_LIST] parameters:dic success: ^(AFHTTPRequestOperation *operation, id responseObject) {
                 if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
                     
                     NSArray *arr = [MTLJSONAdapter modelsOfClass:[HopThuModel class] fromJSONArray:responseObject error:nil];
