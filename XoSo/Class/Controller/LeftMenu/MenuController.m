@@ -13,6 +13,8 @@
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import "LeftMenu.h"
+#import "LoginUser.h"
+
 
 @interface MenuController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_W_Table;
@@ -51,9 +53,30 @@
     [self.tableView setShare:^{
         [self shareText:@"Xổ số huyền thoại" andImage:[UIImage imageNamed:@"ic_launcher.png"]  andUrl:[NSURL URLWithString:@"https://www.google.com/?gws_rd=ssl"]];
     }];
-    
+
+
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginApp) name:notifiReloadLoginAPI object:nil];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)loginApp {
+    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count == 0) {
+            [LoginUser registerUserWithUserName:[[NSUUID UUID] UUIDString] Password:[[NSUUID UUID] UUIDString] Phone:@"123456789" Email:@"nhap_email_cua_ban@email.com" Gender:1 User_Phone_Id:[[NSUUID UUID] UUIDString] Done:^(BOOL success) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+
+            }];
+        }
+        else {
+            User *user = [objects firstObject];
+            [LoginUser loginWithUserName:user.user_name Pass:user.password DeviceId:user.phone_id Done:^(BOOL success) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+
+            }];
+        }
+    }];
+
 }
 
 -(NSAttributedString *)attWithName:(NSString *)name Email:(NSString *)email SurPlus:(NSInteger)surplus {

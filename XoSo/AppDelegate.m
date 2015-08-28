@@ -200,8 +200,6 @@ NSString *const SubscriptionTopic = @"/topics/global";
                                                           action:@"" // Event action (required)
                                                            label:@""          // Event label
                                                            value:nil] build]];    // Event value
-
-
     
     return YES;
 }

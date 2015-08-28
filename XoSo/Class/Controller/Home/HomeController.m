@@ -172,10 +172,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-            self.user.point = @(pointRemove);
-            [self.user saveToPersistentStore];
-            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+//            self.user.point = @(pointRemove);
+//            [self.user saveToPersistentStore];
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             ThongKeController *thongke = [ThongKeController new];
             [self.navigationController pushViewController:thongke animated:YES];
         }
@@ -192,10 +192,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-            self.user.point = @(pointRemove);
-            [self.user saveToPersistentStore];
-            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+//            self.user.point = @(pointRemove);
+//            [self.user saveToPersistentStore];
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             SoiCauController *soicau = [SoiCauController new];
             [self.navigationController pushViewController:soicau animated:YES];
         }
@@ -212,11 +212,11 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-            self.user.point = @(pointRemove);
-            [self.user saveToPersistentStore];
+//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+//            self.user.point = @(pointRemove);
+//            [self.user saveToPersistentStore];
 
-            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             CauVipController *soicau = [CauVipController new];
             [self.navigationController pushViewController:soicau animated:YES];
         }

@@ -72,6 +72,7 @@
 #define notificationShowHuongDanUser @"notificationShowHuongDanUser"
 #define notificationShowHopthu @"notificationShowHopthu"
 #define notificationCapnhatuser @"notificationCapnhatuser"
+#define notifiReloadLoginAPI @"notifiReloadLoginAPI"
 
 //constance
 

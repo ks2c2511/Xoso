@@ -82,9 +82,7 @@
             }
             
             NSArray *arr = [User fetchAll];
-            
-            
-            
+
             if (arr.count != 0) {
                 User *user = arr[0];
                 user.user_id = responseObject[0][@"user_id"];
