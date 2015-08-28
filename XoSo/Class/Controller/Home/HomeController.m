@@ -13,6 +13,7 @@
 #import "LotoOnlineController.h"
 #import "Notifi.h"
 #import "Ads.h"
+#import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <UIImageView+WebCache.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
@@ -32,6 +33,8 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *arrData;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (strong,nonatomic) Notifi *notifi;
+@property (strong,nonatomic) User *user;
 @end
 
 @implementation HomeController
@@ -45,8 +48,15 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
        if (succeeded) {
            Notifi *noti = [objects firstObject];
            self.labelNavigationTitleRun.text = noti.thongbao;
+           _notifi = noti;
        }
    }];
+
+    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            _user = [objects firstObject];
+        }
+    }];
     
     self.bannerView.adUnitID = google_id_Ad;
     self.bannerView.rootViewController = self;
@@ -151,16 +161,66 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         [self.navigationController pushViewController:tuongthuat animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
-        ThongKeController *thongke = [ThongKeController new];
-        [self.navigationController pushViewController:thongke animated:YES];
+
+        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+            return;
+        }
+        else {
+            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+            self.user.point = @(pointRemove);
+            [self.user saveToPersistentStore];
+            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+            ThongKeController *thongke = [ThongKeController new];
+            [self.navigationController pushViewController:thongke animated:YES];
+        }
+
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
-        SoiCauController *soicau = [SoiCauController new];
-        [self.navigationController pushViewController:soicau animated:YES];
+        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+            return;
+        }
+        else {
+            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+            self.user.point = @(pointRemove);
+            [self.user saveToPersistentStore];
+            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+            SoiCauController *soicau = [SoiCauController new];
+            [self.navigationController pushViewController:soicau animated:YES];
+        }
+
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
-        CauVipController *soicau = [CauVipController new];
-        [self.navigationController pushViewController:soicau animated:YES];
+        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+            return;
+        }
+        else {
+            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+            self.user.point = @(pointRemove);
+            [self.user saveToPersistentStore];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+            CauVipController *soicau = [CauVipController new];
+            [self.navigationController pushViewController:soicau animated:YES];
+        }
+
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"giai_mong"]) {
         GiaiMongController *giaimong = [GiaiMongController new];

@@ -16,6 +16,7 @@
 #import "TableMienNamCell.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "TuongthuatStore.h"
+#import "CalendarData.h"
 
 typedef NS_ENUM(NSInteger, TableType) {
     TableTypeMienBac = 1,
@@ -55,8 +56,24 @@ typedef NS_ENUM(NSInteger, TableType) {
     [self.tableView registerClass:[TableMIenTrungCell class] forCellReuseIdentifier:NSStringFromClass([TableMIenTrungCell class])];
     [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
     
-    [self getTuongThuatWithMien:TableTypeMienBac];
+
+        [self loadDataRealTime];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)loadDataRealTime {
+    [self getTuongThuatWithMien:self.typeTableCell];
+    NSInteger currentHour = [CalendarData getRecenHour];
+    if ( self.typeTableCell == TableTypeMienBac && currentHour >= 16 &&currentHour <= 17) {
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3*60];
+    }
+    else  if ( self.typeTableCell == TableTypeMienTrung && currentHour >= 17 &&currentHour <= 18) {
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3*60];
+    }
+    else  if ( self.typeTableCell == TableTypeMienNam && currentHour >= 18 &&currentHour <= 19) {
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3*60];
+    }
 }
 
 -(void)getTuongThuatWithMien:(TableType)type {

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MarqueeLabel.h>
 #import "ConstantDefine.h"
+#import <UIAlertView+Blocks.h>
 
 @interface BaseController : UIViewController
 @property (strong,nonatomic) MarqueeLabel *labelNavigationTitleRun;
