@@ -53,7 +53,9 @@ NSString *const SubscriptionTopic = @"/topics/global";
 //    [self showMainIsOnApp];
     
     
-
+#if DEBUG
+    NSLog(@"----> %@",[[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+#endif
 
     self.window.rootViewController = [SplashController new];
     
@@ -177,8 +179,7 @@ NSString *const SubscriptionTopic = @"/topics/global";
                                                               userInfo:userInfo];
         }
     };
-    
-    
+
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     
