@@ -55,6 +55,7 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self.tableView registerClass:[TableMIenTrungCell class] forCellReuseIdentifier:NSStringFromClass([TableMIenTrungCell class])];
     [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
 
+    self.typeTableCell = TableTypeMienBac;
     [self loadDataRealTime];
 }
 

@@ -50,6 +50,8 @@
 {
     ThongKeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ThongKeCell class]) forIndexPath:indexPath];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     [self configureCell:cell forRowAtIndexPath:indexPath];
     cell.tag = indexPath.row;
     

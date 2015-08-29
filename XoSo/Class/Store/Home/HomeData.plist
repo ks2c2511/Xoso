@@ -76,14 +76,6 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Game_đấm bốc</string>
-		<key>iconname</key>
-		<string></string>
-		<key>key</key>
-		<string>game_dam_boc</string>
-	</dict>
-	<dict>
-		<key>title</key>
 		<string>Phòng chat</string>
 		<key>iconname</key>
 		<string>phong_chat.png</string>

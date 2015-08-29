@@ -24,22 +24,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:registrationKey object:nil queue:nil usingBlock:^(NSNotification *note) {
-        if ([note.userInfo objectForKey:@"registrationToken"]) {
-            [GcmPushStore sendPushRegisterKeyWithKey:[note.userInfo objectForKey:@"registrationToken"] Done:^(BOOL success) {
-                if (success) {
-                    [UIAlertView showWithTitle:@"Success" message:[note.userInfo objectForKey:@"registrationToken"] cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                }
-                else {
-                    [UIAlertView showWithTitle:@"Error" message:@"Send Server fail" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                }
-            }];
-        }
-        else {
-            [UIAlertView showWithTitle:@"Error" message:@"Register push fail" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-        }
-       
-    }];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:registrationKey object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        if ([note.userInfo objectForKey:@"registrationToken"]) {
+//            [GcmPushStore sendPushRegisterKeyWithKey:[note.userInfo objectForKey:@"registrationToken"] Done:^(BOOL success) {
+//                if (success) {
+//                    [UIAlertView showWithTitle:@"Success" message:[note.userInfo objectForKey:@"registrationToken"] cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//                }
+//                else {
+//                    [UIAlertView showWithTitle:@"Error" message:@"Send Server fail" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//                }
+//            }];
+//        }
+//        else {
+//            [UIAlertView showWithTitle:@"Error" message:@"Register push fail" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//        }
+//       
+//    }];
     
     [ThongBao GetThongBaoWithType:1 Done:^(BOOL success, NSString *thongbao, NSInteger typeShow, NSInteger reduceMonney) {
         

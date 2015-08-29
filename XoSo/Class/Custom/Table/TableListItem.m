@@ -54,6 +54,8 @@ static NSString *const identifi_TableListCell = @"identifi_TableListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TableListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi_TableListCell forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     
     [self configureCell:cell forRowAtIndexPath:indexPath];
     cell.tag = indexPath.row;
