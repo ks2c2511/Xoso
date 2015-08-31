@@ -9,14 +9,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import <Google/CloudMessaging.h>
-@interface AppDelegate : UIResponder <UIApplicationDelegate,GGLInstanceIDDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 
-@property(nonatomic, readonly, strong) NSString *gcmSenderID;
-@property(nonatomic, readonly, strong) NSDictionary *registrationOptions;
+
 
 @end
 

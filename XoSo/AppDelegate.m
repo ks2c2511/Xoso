@@ -25,9 +25,9 @@
 #import "HopThuController.h"
 #import <GAI.h>
 #import <GAIDictionaryBuilder.h>
+#import <Pushwoosh/PushNotificationManager.h>
 
-
-@interface AppDelegate () <ECSlidingViewControllerDelegate>
+@interface AppDelegate () <ECSlidingViewControllerDelegate,PushNotificationDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (strong,nonatomic) UINavigationController *navigationController;
 @property (strong,nonatomic) UIScreenEdgePanGestureRecognizer *panScreenGesture;
@@ -121,62 +121,6 @@ NSString *const SubscriptionTopic = @"/topics/global";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHomThu) name:notificationShowHopthu object:nil];
     
   
-//    // Create a config and set a delegate that implements the GGLInstaceIDDelegate protocol.
-//    GGLInstanceIDConfig *instanceIDConfig = [GGLInstanceIDConfig defaultConfig];
-//    instanceIDConfig.delegate = self;
-//    // Start the GGLInstanceID shared instance with the that config and request a registration
-//    // token to enable reception of notifications
-//    [[GGLInstanceID sharedInstance] startWithConfig:instanceIDConfig];
-//    _registrationOptions = @{kGGLInstanceIDRegisterAPNSOption:@"",
-//                             kGGLInstanceIDAPNSServerTypeSandboxOption:@YES};
-//    [[GGLInstanceID sharedInstance] tokenWithAuthorizedEntity:_gcmSenderID
-//                                                        scope:kGGLInstanceIDScopeGCM
-//                                                      options:_registrationOptions
-//                                                      handler:_registrationHandler];
-  
-    
-    // [START_EXCLUDE]
-
-    // Configure the Google context: parses the GoogleService-Info.plist, and initializes
-    // the services that have entries in the file
-    NSError* configureError;
-    [[GGLContext sharedInstance] configureWithError:&configureError];
-    if (configureError != nil) {
-        NSLog(@"Error configuring the Google context: %@", configureError);
-    }
-    _gcmSenderID = [[[GGLContext sharedInstance] configuration] gcmSenderID];
-    // [END_EXCLUDE]
-    // Register for remote notifications
-    UIUserNotificationType allNotificationTypes =
-    (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-    UIUserNotificationSettings *settings =
-    [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-    // [END register_for_remote_notifications]
-    // [START start_gcm_service]
-    [[GCMService sharedInstance] startWithConfig:[GCMConfig defaultConfig]];
-    // [END start_gcm_service]
-    __weak typeof(self) weakSelf = self;
-    // Handler for registration token request
-    _registrationHandler = ^(NSString *registrationToken, NSError *error){
-        if (registrationToken != nil) {
-            weakSelf.registrationToken = registrationToken;
-            NSLog(@"Registration Token: %@", registrationToken);
-           
-            NSDictionary *userInfo = @{@"registrationToken":registrationToken};
-            [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
-                                                                object:nil
-                                                              userInfo:userInfo];
-        } else {
-            NSLog(@"Registration to GCM failed with error: %@", error.localizedDescription);
-            
-                        NSDictionary *userInfo = @{@"error":error.localizedDescription};
-            [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
-                                                                object:nil
-                                                              userInfo:userInfo];
-        }
-    };
     
     
     // Optional: automatically send uncaught exceptions to Google Analytics.
@@ -201,140 +145,86 @@ NSString *const SubscriptionTopic = @"/topics/global";
                                                            label:@""          // Event label
                                                            value:nil] build]];    // Event value
     
+    
+    //lots of your initialization code
+    
+    //-----------PUSHWOOSH PART-----------
+    // set custom delegate for push handling, in our case - view controller
+    PushNotificationManager * pushManager = [PushNotificationManager pushManager];
+    pushManager.delegate = self;
+    
+    // handling push on app start
+    [[PushNotificationManager pushManager] handlePushReceived:launchOptions];
+    
+    // make sure we count app open in Pushwoosh stats
+    [[PushNotificationManager pushManager] sendAppOpen];
+    
+    // register for push notifications!
+    [[PushNotificationManager pushManager] registerForPushNotifications];
+    
+    NSDictionary *launchNotification = [PushNotificationManager pushManager].launchNotification;
+    if (launchNotification) {
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:launchNotification
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:&error];
+        
+        if (!jsonData) {
+            NSLog(@"Got an error: %@", error);
+        } else {
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            NSLog(@"Received launch notification with data: %@", jsonString);
+        }
+    }
+    else {
+        NSLog(@"No launch notification");
+    }
+    
     return YES;
 }
 
-
-- (void)subscribeToTopic {
-    // If the app has a registration token and is connected to GCM, proceed to subscribe to the
-    // topic
-    if (_registrationToken && _connectedToGCM) {
-        [[GCMPubSub sharedInstance] subscribeWithToken:_registrationToken
-                                                 topic:SubscriptionTopic
-                                               options:nil
-                                               handler:^(NSError *error) {
-                                                   if (error) {
-                                                       // Treat the "already subscribed" error more gently
-                                                       if (error.code == 3001) {
-                                                           NSLog(@"Already subscribed to %@",
-                                                                 SubscriptionTopic);
-                                                       } else {
-                                                           NSLog(@"Subscription failed: %@",
-                                                                 error.localizedDescription);
-                                                       }
-                                                   } else {
-                                                       self.subscribedToTopic = true;
-                                                       NSLog(@"Subscribed to %@", SubscriptionTopic);
-                                                   }
-                                               }];
-    }
+// system push notification registration success callback, delegate to pushManager
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [[PushNotificationManager pushManager] handlePushRegistration:deviceToken];
 }
 
-
-// [START connect_gcm_service]
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Connect to the GCM server to receive non-APNS notifications
-    [[GCMService sharedInstance] connectWithHandler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Could not connect to GCM: %@", error.localizedDescription);
-        } else {
-            _connectedToGCM = true;
-            NSLog(@"Connected to GCM");
-            // [START_EXCLUDE]
-            [self subscribeToTopic];
-            // [END_EXCLUDE]
-        }
-    }];
-}
-// [END connect_gcm_service]
-
-// [START disconnect_gcm_service]
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[GCMService sharedInstance] disconnect];
-    // [START_EXCLUDE]
-    _connectedToGCM = NO;
-    // [END_EXCLUDE]
-}
-// [END disconnect_gcm_service]
-
-// [START receive_apns_token]
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // [END receive_apns_token]
-    // [START get_gcm_reg_token]
-    // Start the GGLInstanceID shared instance with the default config and request a registration
-    // token to enable reception of notifications
-    [[GGLInstanceID sharedInstance] startWithConfig:[GGLInstanceIDConfig defaultConfig]];
-    _registrationOptions = @{kGGLInstanceIDRegisterAPNSOption:deviceToken,
-                             kGGLInstanceIDAPNSServerTypeSandboxOption:@YES};
-    [[GGLInstanceID sharedInstance] tokenWithAuthorizedEntity:_gcmSenderID
-                                                        scope:kGGLInstanceIDScopeGCM
-                                                      options:_registrationOptions
-                                                      handler:_registrationHandler];
-    // [END get_gcm_reg_token]
+// system push notification registration error callback, delegate to pushManager
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    [[PushNotificationManager pushManager] handlePushRegistrationFailure:error];
 }
 
-// [START receive_apns_token_error]
-- (void)application:(UIApplication *)application
-didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"Registration for remote notification failed with error: %@", error.localizedDescription);
-    // [END receive_apns_token_error]
-    NSDictionary *userInfo = @{@"error" :error.localizedDescription};
-    [[NSNotificationCenter defaultCenter] postNotificationName:registrationKey
-                                                        object:nil
-                                                      userInfo:userInfo];
+// system push notifications callback, delegate to pushManager
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [[PushNotificationManager pushManager] handlePushReceived:userInfo];
 }
 
-// [START ack_message_reception]
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"Notification received: %@", userInfo);
-    // This works only if the app started the GCM service
-    [[GCMService sharedInstance] appDidReceiveMessage:userInfo];
-    // Handle the received message
-    // [START_EXCLUDE]
-    [[NSNotificationCenter defaultCenter] postNotificationName:on_messageKey
-                                                        object:nil
-                                                      userInfo:userInfo];
-    
-//    [UIAlertView showWithTitle:@"receive push" message:nil cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-    // [END_EXCLUDE]
+- (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
+    NSLog(@"Push notification received");
+}
+
+-(void)notificationImplement {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowLeftMenu) name:notification_show_left_menu object:nil];
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
-    NSLog(@"Notification received: %@", userInfo);
-    // This works only if the app started the GCM service
-    [[GCMService sharedInstance] appDidReceiveMessage:userInfo];
-    // Handle the received message
-    // Invoke the completion handler passing the appropriate UIBackgroundFetchResult value
-    // [START_EXCLUDE]
-    [[NSNotificationCenter defaultCenter] postNotificationName:on_messageKey
-                                                        object:nil
-                                                      userInfo:userInfo];
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSDictionary *pushDict = [userInfo objectForKey:@"aps"];
+    BOOL isSilentPush = [[pushDict objectForKey:@"content-available"] boolValue];
     
-//    [UIAlertView showWithTitle:@"receive push" message:nil cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-    
-    handler(UIBackgroundFetchResultNoData);
-    // [END_EXCLUDE]
-}
-// [END ack_message_reception]
-
-// [START on_token_refresh]
-- (void)onTokenRefresh {
-    // A rotation of the registration tokens is happening, so the app needs to request a new token.
-    NSLog(@"The GCM registration token needs to be changed.");
-    [[GGLInstanceID sharedInstance] tokenWithAuthorizedEntity:_gcmSenderID
-                                                        scope:kGGLInstanceIDScopeGCM
-                                                      options:_registrationOptions
-                                                      handler:_registrationHandler];
-}
-// [END on_token_refresh]
-
-
--(void)notificationImplement {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowLeftMenu) name:notification_show_left_menu object:nil];
+    if (isSilentPush) {
+        NSLog(@"Silent push notification:%@", userInfo);
+        
+        //load content here
+        
+        // must call completionHandler
+        completionHandler(UIBackgroundFetchResultNewData);
+    } else {
+        [[PushNotificationManager pushManager] handlePushReceived:userInfo];
+        
+        // must call completionHandler
+        completionHandler(UIBackgroundFetchResultNoData);
+    }
 }
 
 #pragma mark - Show main app when On app

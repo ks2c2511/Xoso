@@ -39,5 +39,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Pushwoosh_APPID</key>
+	<string>D0713-AFA3F</string>
 </dict>
 </plist>

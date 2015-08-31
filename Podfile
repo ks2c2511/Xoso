@@ -19,7 +19,7 @@ target 'XoSo' do
     pod 'UIColor+uiGradients'
     pod 'CCBottomRefreshControl'
     pod 'IDMPhotoBrowser'
-    pod 'Google/CloudMessaging'
+    pod 'Pushwoosh', '~> 3.0.2'
     pod 'GoogleAnalytics-iOS-SDK'
 end
 

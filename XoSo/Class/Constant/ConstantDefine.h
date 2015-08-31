@@ -86,8 +86,7 @@
 
 #define push_API_key @"AIzaSyCw0keCM-K2JCEnkbmkZUbJmOczmBgYdNU"
 
-#define registrationKey @"onRegistrationCompleted"
-#define on_messageKey @"onMessageReceived"
+
 
 
 #define google_id_Ad @"ca-app-pub-8172894227923068/6488921439"
