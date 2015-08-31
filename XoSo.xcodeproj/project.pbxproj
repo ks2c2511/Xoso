@@ -64,7 +64,6 @@
 		6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9891B46F4920098AB4A /* AppDelegate.m */; };
 		6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9911B46F4920098AB4A /* Images.xcassets */; };
 		6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9931B46F4920098AB4A /* LaunchScreen.xib */; };
-		6A79A9A11B46F4920098AB4A /* XoSoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9A01B46F4920098AB4A /* XoSoTests.m */; };
 		6A79A9C01B46F9F70098AB4A /* UIImage+DrawColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */; };
 		6A79A9C11B46F9F70098AB4A /* NSMutableAttributedString+htmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B51B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.m */; };
 		6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B71B46F9F60098AB4A /* NSObject+AssociatedObject.m */; };
@@ -341,16 +340,6 @@
 		8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6A79A99B1B46F4920098AB4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6A79A9791B46F4920098AB4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A79A9801B46F4920098AB4A;
-			remoteInfo = XoSo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		6A001E0B1B86218300C92CDB /* Hopthu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hopthu.h; sourceTree = "<group>"; };
 		6A001E0C1B86218300C92CDB /* Hopthu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hopthu.m; sourceTree = "<group>"; };
@@ -438,9 +427,6 @@
 		6A79A9891B46F4920098AB4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6A79A9911B46F4920098AB4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6A79A9941B46F4920098AB4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6A79A99A1B46F4920098AB4A /* XoSoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XoSoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A79A99F1B46F4920098AB4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A79A9A01B46F4920098AB4A /* XoSoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XoSoTests.m; sourceTree = "<group>"; };
 		6A79A9B21B46F9F60098AB4A /* UIImage+DrawColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DrawColor.h"; sourceTree = "<group>"; };
 		6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DrawColor.m"; sourceTree = "<group>"; };
 		6A79A9B41B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+htmlContent.h"; sourceTree = "<group>"; };
@@ -853,13 +839,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A79A9971B46F4920098AB4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1094,7 +1073,6 @@
 			isa = PBXGroup;
 			children = (
 				6A79A9831B46F4920098AB4A /* XoSo */,
-				6A79A99D1B46F4920098AB4A /* XoSoTests */,
 				6A79A9821B46F4920098AB4A /* Products */,
 				AE8FB7F81070979017FA0445 /* Pods */,
 				C8C6127E4DF16C6174A60584 /* Frameworks */,
@@ -1105,7 +1083,6 @@
 			isa = PBXGroup;
 			children = (
 				6A79A9811B46F4920098AB4A /* XoSo.app */,
-				6A79A99A1B46F4920098AB4A /* XoSoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1130,23 +1107,6 @@
 				6AC778981B4C2290006AD38A /* art */,
 				6A79A9851B46F4920098AB4A /* Info.plist */,
 				6A79A9861B46F4920098AB4A /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6A79A99D1B46F4920098AB4A /* XoSoTests */ = {
-			isa = PBXGroup;
-			children = (
-				6A79A9A01B46F4920098AB4A /* XoSoTests.m */,
-				6A79A99E1B46F4920098AB4A /* Supporting Files */,
-			);
-			path = XoSoTests;
-			sourceTree = "<group>";
-		};
-		6A79A99E1B46F4920098AB4A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6A79A99F1B46F4920098AB4A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2212,24 +2172,6 @@
 			productReference = 6A79A9811B46F4920098AB4A /* XoSo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6A79A9991B46F4920098AB4A /* XoSoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A79A9A71B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSoTests" */;
-			buildPhases = (
-				6A79A9961B46F4920098AB4A /* Sources */,
-				6A79A9971B46F4920098AB4A /* Frameworks */,
-				6A79A9981B46F4920098AB4A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6A79A99C1B46F4920098AB4A /* PBXTargetDependency */,
-			);
-			name = XoSoTests;
-			productName = XoSoTests;
-			productReference = 6A79A99A1B46F4920098AB4A /* XoSoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2247,10 +2189,6 @@
 							};
 						};
 					};
-					6A79A9991B46F4920098AB4A = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 6A79A9801B46F4920098AB4A;
-					};
 				};
 			};
 			buildConfigurationList = 6A79A97C1B46F4920098AB4A /* Build configuration list for PBXProject "XoSo" */;
@@ -2267,7 +2205,6 @@
 			projectRoot = "";
 			targets = (
 				6A79A9801B46F4920098AB4A /* XoSo */,
-				6A79A9991B46F4920098AB4A /* XoSoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2468,13 +2405,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A79A9981B46F4920098AB4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2658,23 +2588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A79A9961B46F4920098AB4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A79A9A11B46F4920098AB4A /* XoSoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6A79A99C1B46F4920098AB4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6A79A9801B46F4920098AB4A /* XoSo */;
-			targetProxy = 6A79A99B1B46F4920098AB4A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6A79A9931B46F4920098AB4A /* LaunchScreen.xib */ = {
@@ -2948,40 +2862,6 @@
 			};
 			name = Release;
 		};
-		6A79A9A81B46F4920098AB4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XoSoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XoSo.app/XoSo";
-			};
-			name = Debug;
-		};
-		6A79A9A91B46F4920098AB4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XoSoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XoSo.app/XoSo";
-			};
-			name = Release;
-		};
 		6AFCFD171B90B3B2008E44CE /* Appstore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3109,21 +2989,6 @@
 			};
 			name = Appstore;
 		};
-		6AFCFD191B90B3B2008E44CE /* Appstore */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XoSoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XoSo.app/XoSo";
-			};
-			name = Appstore;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3143,16 +3008,6 @@
 				6A79A9A51B46F4920098AB4A /* Debug */,
 				6A79A9A61B46F4920098AB4A /* Release */,
 				6AFCFD181B90B3B2008E44CE /* Appstore */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
-		};
-		6A79A9A71B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A79A9A81B46F4920098AB4A /* Debug */,
-				6A79A9A91B46F4920098AB4A /* Release */,
-				6AFCFD191B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Appstore;
