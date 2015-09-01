@@ -25,9 +25,10 @@
 #import "HopThuController.h"
 #import <GAI.h>
 #import <GAIDictionaryBuilder.h>
-#import <Pushwoosh/PushNotificationManager.h>
+#import "XPush.h"
 
-@interface AppDelegate () <ECSlidingViewControllerDelegate,PushNotificationDelegate>
+
+@interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (strong,nonatomic) UINavigationController *navigationController;
 @property (strong,nonatomic) UIScreenEdgePanGestureRecognizer *panScreenGesture;
@@ -40,9 +41,6 @@
 @property(nonatomic, assign) BOOL subscribedToTopic;
 @end
 
-NSString *const SubscriptionTopic = @"/topics/global";
-
-
 @implementation AppDelegate
 
 
@@ -52,8 +50,6 @@ NSString *const SubscriptionTopic = @"/topics/global";
     [self CustomTheme];
 //    [self showMainIsOnApp];
     
-    
-
 
     self.window.rootViewController = [SplashController new];
     
@@ -147,85 +143,61 @@ NSString *const SubscriptionTopic = @"/topics/global";
     
     
     //lots of your initialization code
-    
-    //-----------PUSHWOOSH PART-----------
-    // set custom delegate for push handling, in our case - view controller
-    PushNotificationManager * pushManager = [PushNotificationManager pushManager];
-    pushManager.delegate = self;
-    
-    // handling push on app start
-    [[PushNotificationManager pushManager] handlePushReceived:launchOptions];
-    
-    // make sure we count app open in Pushwoosh stats
-    [[PushNotificationManager pushManager] sendAppOpen];
-    
-    // register for push notifications!
-    [[PushNotificationManager pushManager] registerForPushNotifications];
-    
-    NSDictionary *launchNotification = [PushNotificationManager pushManager].launchNotification;
-    if (launchNotification) {
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:launchNotification
-                                                           options:NSJSONWritingPrettyPrinted
-                                                             error:&error];
-        
-        if (!jsonData) {
-            NSLog(@"Got an error: %@", error);
-        } else {
-            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSLog(@"Received launch notification with data: %@", jsonString);
-        }
+
+    // Setup XtremePUSH
+    NSInteger types;
+
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.f) {
+        types = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+    } else {
+        types = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge;
     }
-    else {
-        NSLog(@"No launch notification");
-    }
+
+    [XPush registerForRemoteNotificationTypes:types];
+
+    [XPush applicationDidFinishLaunchingWithOptions:launchOptions];
     
+
     return YES;
 }
 
-// system push notification registration success callback, delegate to pushManager
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [[PushNotificationManager pushManager] handlePushRegistration:deviceToken];
+    [XPush applicationDidRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
-// system push notification registration error callback, delegate to pushManager
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    [[PushNotificationManager pushManager] handlePushRegistrationFailure:error];
-}
-
-// system push notifications callback, delegate to pushManager
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [[PushNotificationManager pushManager] handlePushReceived:userInfo];
+    BOOL showAlert = YES;//should or not library shows alert for this push.
+    [XPush applicationDidReceiveRemoteNotification:userInfo showAlert:showAlert];
+
+    for (NSString *key in [userInfo allKeys]) {
+        if ([key isEqualToString:@"message"]) {
+            if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
+
+            }
+            else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
+
+            }
+            else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
+
+            }
+            else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
+
+            }
+            else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
+
+            }
+        }
+    }
 }
 
-- (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
-    NSLog(@"Push notification received");
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    [XPush applicationDidFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 -(void)notificationImplement {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowLeftMenu) name:notification_show_left_menu object:nil];
 }
 
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSDictionary *pushDict = [userInfo objectForKey:@"aps"];
-    BOOL isSilentPush = [[pushDict objectForKey:@"content-available"] boolValue];
-    
-    if (isSilentPush) {
-        NSLog(@"Silent push notification:%@", userInfo);
-        
-        //load content here
-        
-        // must call completionHandler
-        completionHandler(UIBackgroundFetchResultNewData);
-    } else {
-        [[PushNotificationManager pushManager] handlePushReceived:userInfo];
-        
-        // must call completionHandler
-        completionHandler(UIBackgroundFetchResultNoData);
-    }
-}
 
 #pragma mark - Show main app when On app
 -(void)showMainIsOnApp {
@@ -343,15 +315,14 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                                                            }];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSForegroundColorAttributeName : [UIColor blackColor],
                                                            NSFontAttributeName : [UIFont boldSystemFontOfSize:17.0]
                                                            } forState:UIControlStateNormal];
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                           NSForegroundColorAttributeName : [UIColor blackColor],
                                                            NSFontAttributeName : [UIFont boldSystemFontOfSize:17.0]
                                                            } forState:UIControlStateHighlighted];
-    
-    
+
     [self.navigationController.navigationBar setTranslucent:NO];
     
     

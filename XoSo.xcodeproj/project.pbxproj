@@ -88,8 +88,15 @@
 		6A7F0FC91B6E657A003909E4 /* TableMIenTrungCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7F0FC71B6E657A003909E4 /* TableMIenTrungCell.xib */; };
 		6A7F0FCD1B6E6C52003909E4 /* TableSixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F0FCB1B6E6C52003909E4 /* TableSixCell.m */; };
 		6A7F0FCE1B6E6C52003909E4 /* TableSixCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7F0FCC1B6E6C52003909E4 /* TableSixCell.xib */; };
-		6A9715411B949D0A00131104 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9715401B949D0A00131104 /* libz.dylib */; };
-		6A9715431B949D2900131104 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9715421B949D2900131104 /* libstdc++.dylib */; };
+		6A8D66381B9549EF00C2C590 /* libXPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D66361B9549EF00C2C590 /* libXPush.a */; };
+		6A8D66391B954E6000C2C590 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEE86501B8B747B0035FC70 /* Security.framework */; };
+		6A8D663B1B954E6A00C2C590 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D663A1B954E6A00C2C590 /* CFNetwork.framework */; };
+		6A8D663C1B954E7000C2C590 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEE864C1B8B74690035FC70 /* MobileCoreServices.framework */; };
+		6A8D663E1B954E7700C2C590 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D663D1B954E7700C2C590 /* CoreTelephony.framework */; };
+		6A8D663F1B954E7F00C2C590 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AEE86521B8B74860035FC70 /* SystemConfiguration.framework */; };
+		6A8D66401B954E8900C2C590 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9715401B949D0A00131104 /* libz.dylib */; };
+		6A8D66421B954E8F00C2C590 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D66411B954E8F00C2C590 /* CoreLocation.framework */; };
+		6A8D66441B954E9A00C2C590 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D66431B954E9A00C2C590 /* CoreBluetooth.framework */; };
 		6A9790D91B5E8A050004DD0E /* ChonCuocController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9790D71B5E8A050004DD0E /* ChonCuocController.m */; };
 		6A9790DA1B5E8A050004DD0E /* ChonCuocController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9790D81B5E8A050004DD0E /* ChonCuocController.xib */; };
 		6A9790DF1B5E8C4F0004DD0E /* ChonCuocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9790DD1B5E8C4F0004DD0E /* ChonCuocCell.m */; };
@@ -468,6 +475,12 @@
 		6A7F0FCA1B6E6C52003909E4 /* TableSixCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableSixCell.h; sourceTree = "<group>"; };
 		6A7F0FCB1B6E6C52003909E4 /* TableSixCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableSixCell.m; sourceTree = "<group>"; };
 		6A7F0FCC1B6E6C52003909E4 /* TableSixCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableSixCell.xib; sourceTree = "<group>"; };
+		6A8D66361B9549EF00C2C590 /* libXPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXPush.a; sourceTree = "<group>"; };
+		6A8D66371B9549EF00C2C590 /* XPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPush.h; sourceTree = "<group>"; };
+		6A8D663A1B954E6A00C2C590 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6A8D663D1B954E7700C2C590 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6A8D66411B954E8F00C2C590 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6A8D66431B954E9A00C2C590 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		6A9715401B949D0A00131104 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6A9715421B949D2900131104 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		6A9790D61B5E8A050004DD0E /* ChonCuocController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChonCuocController.h; sourceTree = "<group>"; };
@@ -833,8 +846,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A9715431B949D2900131104 /* libstdc++.dylib in Frameworks */,
-				6A9715411B949D0A00131104 /* libz.dylib in Frameworks */,
+				6A8D66441B954E9A00C2C590 /* CoreBluetooth.framework in Frameworks */,
+				6A8D66421B954E8F00C2C590 /* CoreLocation.framework in Frameworks */,
+				6A8D66401B954E8900C2C590 /* libz.dylib in Frameworks */,
+				6A8D663F1B954E7F00C2C590 /* SystemConfiguration.framework in Frameworks */,
+				6A8D663E1B954E7700C2C590 /* CoreTelephony.framework in Frameworks */,
+				6A8D663C1B954E7000C2C590 /* MobileCoreServices.framework in Frameworks */,
+				6A8D663B1B954E6A00C2C590 /* CFNetwork.framework in Frameworks */,
+				6A8D66391B954E6000C2C590 /* Security.framework in Frameworks */,
+				6A8D66381B9549EF00C2C590 /* libXPush.a in Frameworks */,
 				8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1103,6 +1123,7 @@
 		6A79A9841B46F4920098AB4A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A8D66351B9549EF00C2C590 /* XtremePush */,
 				6AEDD5031B5014D00036683C /* Database */,
 				6AC778981B4C2290006AD38A /* art */,
 				6A79A9851B46F4920098AB4A /* Info.plist */,
@@ -1318,6 +1339,15 @@
 				6AE7B2A51B6FCF5900182523 /* TableMienNamCell.xib */,
 			);
 			path = Tuongthuat;
+			sourceTree = "<group>";
+		};
+		6A8D66351B9549EF00C2C590 /* XtremePush */ = {
+			isa = PBXGroup;
+			children = (
+				6A8D66361B9549EF00C2C590 /* libXPush.a */,
+				6A8D66371B9549EF00C2C590 /* XPush.h */,
+			);
+			path = XtremePush;
 			sourceTree = "<group>";
 		};
 		6A9790DB1B5E8C2E0004DD0E /* Loto */ = {
@@ -2132,6 +2162,10 @@
 		C8C6127E4DF16C6174A60584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A8D66431B954E9A00C2C590 /* CoreBluetooth.framework */,
+				6A8D66411B954E8F00C2C590 /* CoreLocation.framework */,
+				6A8D663D1B954E7700C2C590 /* CoreTelephony.framework */,
+				6A8D663A1B954E6A00C2C590 /* CFNetwork.framework */,
 				6A9715421B949D2900131104 /* libstdc++.dylib */,
 				6A9715401B949D0A00131104 /* libz.dylib */,
 				6AEE86541B8B748B0035FC70 /* UIKit.framework */,
@@ -2619,7 +2653,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ngoc Bui (88L5GYFYKQ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2641,7 +2675,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
+				PROVISIONING_PROFILE = "9a5103ca-93c8-4990-8445-652f0c63031e";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2696,10 +2730,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ngoc Bui (88L5GYFYKQ)";
 				INFOPLIST_FILE = XoSo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XoSo/XtremePush",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2770,7 +2808,7 @@
 					"\"AdSupport\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
+				PROVISIONING_PROFILE = "9a5103ca-93c8-4990-8445-652f0c63031e";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -2787,6 +2825,10 @@
 				INFOPLIST_FILE = XoSo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XoSo/XtremePush",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2914,6 +2956,10 @@
 				INFOPLIST_FILE = XoSo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XoSo/XtremePush",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
