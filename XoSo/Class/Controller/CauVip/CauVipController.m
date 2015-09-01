@@ -11,6 +11,8 @@
 #import "CauVipStore.h"
 #import "TableListItem.h"
 #import <UIAlertView+Blocks.h>
+#import "NSDate+Category.h"
+#import "TuongThuatController.h"
 
 @interface CauVipController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonTInhMienTrung;
@@ -34,6 +36,7 @@
     self.imageBackGround.hidden = YES;
     self.navigationItem.title = @"Cầu vip";
     
+    [UIAlertView showWithTitle:nil message:@"Mời bác soi cầu vip. Nhận định từ các chuyên gia." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
     [CauVipStore GetTinhCoQuaySo:^(BOOL success, NSArray *arrMienTrung, NSArray *arrMienNam) {
         
         if (success) {
@@ -111,6 +114,15 @@
 */
 
 - (IBAction)SoiCauMienTrung:(id)sender {
+    
+    if ([[NSDate date] hour] == 17 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đang quay số trực tiếp, mời bác quay lại sau 17h30'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            
+            TuongThuatController *tuongthuat = [TuongThuatController new];
+            [self.navigationController pushViewController:tuongthuat animated:YES];
+        }];
+        return;
+    }
     [CauVipStore soiCauVipWithMaTinh:self.matinhTrung Done:^(BOOL success, NSString *content) {
         
         
@@ -128,6 +140,16 @@
 }
 
 - (IBAction)SoiCauMienNam:(id)sender {
+    
+    if ([[NSDate date] hour] == 16 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đang quay số trực tiếp, mời bác quay lại sau 16h30'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            
+            TuongThuatController *tuongthuat = [TuongThuatController new];
+            [self.navigationController pushViewController:tuongthuat animated:YES];
+            
+        }];
+        return;
+    }
     [CauVipStore soiCauVipWithMaTinh:self.matinhNam Done:^(BOOL success, NSString *content) {
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {
@@ -142,6 +164,16 @@
 }
 
 - (IBAction)SoiCauMienBac:(id)sender {
+    
+    if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đang quay số trực tiếp, mời bác quay lại sau 18h30'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            
+            TuongThuatController *tuongthuat = [TuongThuatController new];
+            [self.navigationController pushViewController:tuongthuat animated:YES];
+            
+        }];
+        return;
+    }
     [CauVipStore soiCauVipWithMaTinh:1 Done:^(BOOL success, NSString *content) {
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {

@@ -35,6 +35,9 @@ typedef NS_ENUM (NSInteger, TableType) {
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) NSArray *arrData;
 @property (assign, nonatomic) TableType typeTableCell;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indical;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_H_ViewThongbao;
+@property (weak, nonatomic) IBOutlet UILabel *labelThongbao;
 @end
 
 @implementation TuongThuatController
@@ -43,7 +46,7 @@ typedef NS_ENUM (NSInteger, TableType) {
     [super viewDidLoad];
 
 
-
+   
     self.navigationItem.title = @"Tường thuật trực tiếp";
     self.imageBackGround.hidden = YES;
 
@@ -61,11 +64,36 @@ typedef NS_ENUM (NSInteger, TableType) {
 
     self.typeTableCell = TableTypeMienBac;
     [self loadDataRealTime];
+    
+#if DEBUG
+    NSLog(@"---log---> %ld, %ld",(long)[[NSDate date] hour],[[NSDate date] minute]);
+#endif
 
-    if (([[NSDate date] hour] < 18 || [[NSDate date] minute] < 15) && self.typeTableCell == TableTypeMienBac) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Chưa có kết quả, mời bạn quay lại sau 18h15'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienBac) {
+        
+        self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 18h15'";
+        self.indical.hidden = YES;
+        self.labelThongbao.hidden = NO;
+        self.contraint_H_ViewThongbao.constant = 30;
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            if (buttonIndex == 1) {
+                CauVipController *cauvip = [CauVipController new];
+                [self.navigationController pushViewController:cauvip animated:YES];
+            }
+        }];
+    }
+    else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30 && self.typeTableCell == TableTypeMienBac) {
+        self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
+        self.indical.hidden = NO;
+         [self.indical startAnimating];
+        self.labelThongbao.hidden = NO;
+        self.contraint_H_ViewThongbao.constant = 30;
     }
     else {
+        
+        self.labelThongbao.hidden = YES;
+        self.indical.hidden = YES;
+        self.contraint_H_ViewThongbao.constant = 0;
         [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
             if (buttonIndex == 1) {
                 CauVipController *cauvip = [CauVipController new];
@@ -346,23 +374,106 @@ typedef NS_ENUM (NSInteger, TableType) {
 - (IBAction)ChonMien:(UISegmentedControl *)sender {
     self.typeTableCell = sender.selectedSegmentIndex + 1;
 
-    if (([[NSDate date] hour] < 18 || [[NSDate date] minute] < 15) && self.typeTableCell == TableTypeMienBac) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Chưa có kết quả, mời bạn quay lại sau 18h15'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    if (self.typeTableCell == TableTypeMienBac) {
+        if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15))) {
+            
+            self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 18h15'";
+            self.indical.hidden = YES;
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
+        else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+            self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
+            self.indical.hidden = NO;
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+        }
+        else {
+            
+            self.labelThongbao.hidden = YES;
+            self.indical.hidden = YES;
+            self.contraint_H_ViewThongbao.constant = 0;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
     }
-    else if (([[NSDate date] hour] < 17 || [[NSDate date] minute] < 15) && self.typeTableCell == TableTypeMienTrung) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Chưa có kết quả, mời bạn quay lại sau 17h15'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    else if (self.typeTableCell == TableTypeMienTrung) {
+        if (([[NSDate date] hour] < 17 || ([[NSDate date] hour] == 17 && [[NSDate date] minute] < 15))) {
+            
+            self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 17h15'";
+            self.indical.hidden = YES;
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
+        else if ([[NSDate date] hour] == 17 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+            self.labelThongbao.text = @"Đang tường thuật xổ số miền Trung";
+            self.indical.hidden = NO;
+             [self.indical startAnimating];
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+        }
+        else {
+            
+            self.labelThongbao.hidden = YES;
+            self.indical.hidden = YES;
+            self.contraint_H_ViewThongbao.constant = 0;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
     }
-    else if (([[NSDate date] hour] < 16 || [[NSDate date] minute] < 15) && self.typeTableCell == TableTypeMienNam) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Chưa có kết quả, mời bạn quay lại sau 16h15'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-    }
-    else {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-            if (buttonIndex == 1) {
-                CauVipController *cauvip = [CauVipController new];
-                [self.navigationController pushViewController:cauvip animated:YES];
-            }
-        }];
-
+    else if (self.typeTableCell == TableTypeMienNam) {
+        if (([[NSDate date] hour] < 16 || ([[NSDate date] hour] == 16 && [[NSDate date] minute] < 15))) {
+            
+            self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 16h15'";
+            self.indical.hidden = YES;
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
+        else if ([[NSDate date] hour] == 16 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
+            self.labelThongbao.text = @"Đang tường thuật xổ số miền Nam";
+            self.indical.hidden = NO;
+             [self.indical startAnimating];
+            self.labelThongbao.hidden = NO;
+            self.contraint_H_ViewThongbao.constant = 30;
+        }
+        else {
+            
+            self.labelThongbao.hidden = YES;
+            self.indical.hidden = YES;
+            self.contraint_H_ViewThongbao.constant = 0;
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    CauVipController *cauvip = [CauVipController new];
+                    [self.navigationController pushViewController:cauvip animated:YES];
+                }
+            }];
+        }
     }
 
     [self getTuongThuatWithMien:self.typeTableCell];

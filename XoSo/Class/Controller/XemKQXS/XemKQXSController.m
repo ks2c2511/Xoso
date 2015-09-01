@@ -218,6 +218,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 -(NSDateFormatter *)dateFormat {
     if (!_dateFormat) {
         _dateFormat = [NSDateFormatter new];
+        _dateFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [_dateFormat setDateFormat:@"yyyy-MM-dd"];
     }
     return _dateFormat;
@@ -311,7 +312,8 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 
 
     NSDate *slDate = [[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:24*60*60];
-    if ([slDate isLaterDate:[self.dateFormat dateFromString:[self.dateFormat stringFromDate:[NSDate date]]]]) {
+    
+    if ([[self.dateFormat dateFromString:self.selectDate] isLaterDate:[self.dateFormat dateFromString:[self.dateFormat stringFromDate:[NSDate date]]]]) {
 
         [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả cho ngày kế tiếp." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         return;
