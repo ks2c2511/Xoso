@@ -26,7 +26,8 @@
 #import <GAI.h>
 #import <GAIDictionaryBuilder.h>
 #import "XPush.h"
-
+#import "TuongThuatController.h"
+#import "KiemxuController.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -171,22 +172,15 @@
 
     for (NSString *key in [userInfo allKeys]) {
         if ([key isEqualToString:@"message"]) {
-            if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
-
+            if (!self.navigationController) {
+                [self showMainIsOnApp];
             }
-            else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
+            [self showHome];
 
-            }
-            else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
-
-            }
-            else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
-
-            }
-            else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
-
-            }
-        }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:pushNotifiReceiveRemotePush object:nil userInfo:userInfo];
+            });
+}
     }
 }
 

@@ -18,6 +18,9 @@
 #import "Province.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <GzInternetConnection.h>
+#import <UIAlertView+Blocks.h>
+#import "NSDate+Category.h"
 
 typedef NS_ENUM(NSInteger, ListType) {
     ListTypeXoSo,
@@ -48,6 +51,12 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Kết quả xổ số";
+
+    [[GzInternetConnection ShareIntance] CheckInternetStatusWithsuccess:^(BOOL Status) {
+        if (!Status) {
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết nối mạng. Ứng dụng sẽ hiển thị thông tin offline" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        }
+    }];
     
     [Province fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"province_id == 1"] success:^(BOOL succeeded, NSArray *objects) {
         if (objects.count !=0) {
@@ -67,7 +76,6 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     self.containnerViewHeader.layer.borderWidth = 3.0;
     
         // Do any additional setup after loading the view from its nib.
-    
 }
 
 -(void)LoadData {
@@ -277,6 +285,10 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
                 }
         
                 self.arrData = muArr;
+
+        if (self.arrData.count == 0) {
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả cho ngày hiện tại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        }
                 muArr = nil;
                 [self.tableView reloadData];
     }];
@@ -296,13 +308,21 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 }
 
 - (IBAction)LeftSwipe:(UISwipeGestureRecognizer *)sender {
-    
+
+
+    NSDate *slDate = [[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:24*60*60];
+    if ([slDate isLaterDate:[self.dateFormat dateFromString:[self.dateFormat stringFromDate:[NSDate date]]]]) {
+
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả cho ngày kế tiếp." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        return;
+    }
+
     [UIView transitionWithView:self.tableView
                       duration:.5
                        options:UIViewAnimationOptionTransitionCurlUp
                     animations:^{
                         
-                        self.selectDate = [self.dateFormat stringFromDate:[[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:60*60*24]];
+                        self.selectDate = [self.dateFormat stringFromDate:slDate];
                         
                         [self GetDataDiffrentDay];
                      

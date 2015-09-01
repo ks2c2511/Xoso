@@ -17,7 +17,8 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "TuongthuatStore.h"
 #import "CalendarData.h"
-
+#import "NSDate+Category.h"
+#import <UIAlertView+Blocks.h>
 typedef NS_ENUM (NSInteger, TableType) {
     TableTypeMienBac = 1,
     TableTypeMienTrung = 2,
@@ -39,6 +40,14 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+#if DEBUG
+    NSLog(@"---> %ld, %ld",(long)[[NSDate date] hour],(long)[[NSDate date] minute]);
+#endif
+    if ([[NSDate date] hour] < 18 || [[NSDate date] minute] < 15) {
+
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Chưa có kết quả, mời bạn quay lại sau 18h15'" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    }
 
     self.navigationItem.title = @"Tường thuật trực tiếp";
     self.imageBackGround.hidden = YES;

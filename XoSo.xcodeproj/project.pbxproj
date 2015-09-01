@@ -97,6 +97,7 @@
 		6A8D66401B954E8900C2C590 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9715401B949D0A00131104 /* libz.dylib */; };
 		6A8D66421B954E8F00C2C590 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D66411B954E8F00C2C590 /* CoreLocation.framework */; };
 		6A8D66441B954E9A00C2C590 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D66431B954E9A00C2C590 /* CoreBluetooth.framework */; };
+		6A8D66471B958D7000C2C590 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D66461B958D7000C2C590 /* NSDate+Category.m */; };
 		6A9790D91B5E8A050004DD0E /* ChonCuocController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9790D71B5E8A050004DD0E /* ChonCuocController.m */; };
 		6A9790DA1B5E8A050004DD0E /* ChonCuocController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9790D81B5E8A050004DD0E /* ChonCuocController.xib */; };
 		6A9790DF1B5E8C4F0004DD0E /* ChonCuocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9790DD1B5E8C4F0004DD0E /* ChonCuocCell.m */; };
@@ -481,6 +482,8 @@
 		6A8D663D1B954E7700C2C590 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6A8D66411B954E8F00C2C590 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6A8D66431B954E9A00C2C590 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6A8D66451B958D7000C2C590 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		6A8D66461B958D7000C2C590 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
 		6A9715401B949D0A00131104 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6A9715421B949D2900131104 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		6A9790D61B5E8A050004DD0E /* ChonCuocController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChonCuocController.h; sourceTree = "<group>"; };
@@ -1164,6 +1167,8 @@
 				6A79A9BD1B46F9F60098AB4A /* UIColor+AppTheme.m */,
 				6A79A9BE1B46F9F60098AB4A /* UIFont+Traits.h */,
 				6A79A9BF1B46F9F60098AB4A /* UIFont+Traits.m */,
+				6A8D66451B958D7000C2C590 /* NSDate+Category.h */,
+				6A8D66461B958D7000C2C590 /* NSDate+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2601,6 +2606,7 @@
 				6AF9298B1B8A155E00EE7F7D /* TheCaoController.m in Sources */,
 				6AE7B2971B66961900D250AB /* ChonTypeCollectionCellCollectionViewCell.m in Sources */,
 				6A5BA90B1B7FA3C3008D5811 /* ChatMasterCell.m in Sources */,
+				6A8D66471B958D7000C2C590 /* NSDate+Category.m in Sources */,
 				6AEDD53C1B5033460036683C /* MonthCell.m in Sources */,
 				6ACED25F1B749AE000BF0E2D /* ThongkeDauduoiController.m in Sources */,
 				6AFF07471B652CC1000432C4 /* LichSuChoiCell.m in Sources */,

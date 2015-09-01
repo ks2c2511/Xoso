@@ -31,39 +31,78 @@
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong,nonatomic) NSArray *arrData;
+@property (strong, nonatomic) NSArray *arrData;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
-@property (strong,nonatomic) Notifi *notifi;
-@property (strong,nonatomic) User *user;
+@property (strong, nonatomic) Notifi *notifi;
+@property (strong, nonatomic) User *user;
 @end
 
 @implementation HomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.collectionView registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:identifi_HomeCollectionCell];
-    
-   [Notifi fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
-       if (succeeded) {
-           Notifi *noti = [objects firstObject];
-           self.labelNavigationTitleRun.text = noti.thongbao;
-           _notifi = noti;
-       }
-   }];
 
-    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+    [self.collectionView registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:identifi_HomeCollectionCell];
+
+    [Notifi fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
+        if (succeeded) {
+            Notifi *noti = [objects firstObject];
+            self.labelNavigationTitleRun.text = noti.thongbao;
+            _notifi = noti;
+        }
+    }];
+
+    [User fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
         if (objects.count != 0) {
             _user = [objects firstObject];
         }
     }];
-    
+
     self.bannerView.adUnitID = google_id_Ad;
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
+
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:pushNotifiReceiveRemotePush object:nil queue:nil usingBlock: ^(NSNotification *note) {
+        NSDictionary *userInfo = note.userInfo;
+
+        for (NSString *key in[userInfo allKeys]) {
+            if ([key isEqualToString:@"message"]) {
+                if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
+                    TuongThuatController *tuongthuat = [TuongThuatController new];
+                    [self.navigationController pushViewController:tuongthuat animated:YES];
+                }
+                else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                }
+                else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
+                    KiemxuController *kiemxu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemxu animated:YES];
+                }
+                else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
+                    if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+                        [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                            if (buttonIndex == 1) {
+                                KiemxuController *kiemXu = [KiemxuController new];
+                                [self.navigationController pushViewController:kiemXu animated:YES];
+                            }
+                        }];
+                        return;
+                    }
+                    else {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                        CauVipController *soicau = [CauVipController new];
+                        [self.navigationController pushViewController:soicau animated:YES];
+                    }
+                }
+                else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
+                }
+            }
+        }
+    }];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.leftBarButtonItem = self.menuButtonItem;
     self.navigationItem.titleView = self.labelNavigationTitleRun;
 }
@@ -77,67 +116,59 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     return self.arrData.count;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout*)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width/3 -4, 78);
+- (CGSize)  collectionView:(UICollectionView *)collectionView
+                    layout:(UICollectionViewLayout *)collectionViewLayout
+    sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width / 3 - 4, 78);
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     HomeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifi_HomeCollectionCell forIndexPath:indexPath];
     cell.labelTitle.text = self.arrData[indexPath.row][@"title"];
-    
 
-    
     if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"] || [self.arrData[indexPath.row][@"key"] isEqualToString:@"kiem_xu"]) {
         [cell.imageLogo setImage:[UIImage animatedImageNamed:self.arrData[indexPath.row][@"iconname"] duration:1.0]];
         cell.imageLogo.animationRepeatCount = 0;
         [cell.imageLogo startAnimating];
-        
     }
     else if ([@"game_dam_boc" isEqualToString:self.arrData[indexPath.row][@"key"]]) {
-        
-        [Ads fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        [Ads fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
             if (objects.count != 0) {
                 Ads *ad = [objects firstObject];
                 [cell.imageLogo sd_setImageWithURL:[NSURL URLWithString:ad.image]];
                 cell.labelTitle.text = ad.title;
             }
         }];
-        
     }
-    
+
     else {
-         [cell.imageLogo setImage:[UIImage imageNamed:self.arrData[indexPath.row][@"iconname"]]];
+        [cell.imageLogo setImage:[UIImage imageNamed:self.arrData[indexPath.row][@"iconname"]]];
     }
-   
-    
+
+
     return cell;
-    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
 #if DEBUG
-    NSLog(@"---log---> %@",self.arrData[indexPath.row][@"key"]);
+    NSLog(@"---log---> %@", self.arrData[indexPath.row][@"key"]);
 #endif
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
+
     HomeCollectionCell *cell = (HomeCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor appOrange];
-    
-    [UIView animateWithDuration:.35 animations:^{
+
+    [UIView animateWithDuration:.35 animations: ^{
         cell.contentView.backgroundColor = [UIColor clearColor];
     }];
-    
+
     if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"xem_kqxs"]) {
         XemKQXSController *kqxs = [XemKQXSController new];
         [self.navigationController pushViewController:kqxs animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"game_dam_boc"]) {
-        [Ads fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        [Ads fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
             if (objects.count != 0) {
                 Ads *ad = [objects firstObject];
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ad.link]];
@@ -161,9 +192,8 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         [self.navigationController pushViewController:tuongthuat animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
-
         if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     KiemxuController *kiemXu = [KiemxuController new];
                     [self.navigationController pushViewController:kiemXu animated:YES];
@@ -172,18 +202,17 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-//            self.user.point = @(pointRemove);
-//            [self.user saveToPersistentStore];
+            //            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
+            //            self.user.point = @(pointRemove);
+            //            [self.user saveToPersistentStore];
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             ThongKeController *thongke = [ThongKeController new];
             [self.navigationController pushViewController:thongke animated:YES];
         }
-
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
         if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     KiemxuController *kiemXu = [KiemxuController new];
                     [self.navigationController pushViewController:kiemXu animated:YES];
@@ -192,18 +221,14 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-//            self.user.point = @(pointRemove);
-//            [self.user saveToPersistentStore];
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             SoiCauController *soicau = [SoiCauController new];
             [self.navigationController pushViewController:soicau animated:YES];
         }
-
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
         if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     KiemxuController *kiemXu = [KiemxuController new];
                     [self.navigationController pushViewController:kiemXu animated:YES];
@@ -212,15 +237,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             return;
         }
         else {
-//            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-//            self.user.point = @(pointRemove);
-//            [self.user saveToPersistentStore];
-
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             CauVipController *soicau = [CauVipController new];
             [self.navigationController pushViewController:soicau animated:YES];
         }
-
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"giai_mong"]) {
         GiaiMongController *giaimong = [GiaiMongController new];
@@ -236,13 +256,12 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     }
 }
 
--(NSArray *)arrData {
+- (NSArray *)arrData {
     if (!_arrData) {
         _arrData = [[NSArray alloc]
                     initWithContentsOfFile:[[NSBundle mainBundle]
                                             pathForResource:@"HomeData"
                                             ofType:@"plist"]];
-
     }
     return _arrData;
 }
@@ -250,7 +269,5 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
 
 @end

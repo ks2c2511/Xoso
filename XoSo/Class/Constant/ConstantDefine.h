@@ -84,6 +84,8 @@
 #define key_push_pushthongbao @"pushthongbao"
 #define key_push_pushcongtien @"pushcongtien"
 
+#define pushNotifiReceiveRemotePush @"pushNotifiReceiveRemotePush"
+
 #define push_API_key @"AIzaSyCw0keCM-K2JCEnkbmkZUbJmOczmBgYdNU"
 
 
