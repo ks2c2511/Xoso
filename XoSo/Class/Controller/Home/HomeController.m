@@ -81,7 +81,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
                 }
                 else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
                     if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-                        [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                        [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
                             if (buttonIndex == 1) {
                                 KiemxuController *kiemXu = [KiemxuController new];
                                 [self.navigationController pushViewController:kiemXu animated:YES];

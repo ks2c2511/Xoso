@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Hòm thư";
+    self.navigationItem.title = @"Hộp thư";
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
     self.bannerView.adUnitID = google_id_Ad;
     self.bannerView.rootViewController = self;
