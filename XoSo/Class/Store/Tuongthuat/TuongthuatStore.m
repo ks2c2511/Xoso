@@ -23,6 +23,21 @@
             
             NSArray *arr = [MTLJSONAdapter modelsOfClass:[TuongthuatModel class] fromJSONArray:responseObject error:nil];
             
+            NSMutableArray *muArr = [NSMutableArray arrayWithArray:arr];
+          
+            
+//            [muArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(TuongthuatModel *p, NSUInteger index, BOOL *stop) {
+//                if ([p.ma_giai isEqualToString:@"8"]|| [p.ma_giai isEqualToString:@"7"]) {
+//                    [muArr removeObjectAtIndex:index];
+//                }
+//            }];
+            
+            for (int i = 0; i< 11; i ++) {
+                [muArr removeObjectAtIndex:i];
+            }
+            
+            arr = muArr;
+            
             if (mamien == 1) {
                 [self makeKQSXAndLoToMienBacWithArray:arr Done:^(BOOL success, NSArray *arrKqsx) {
                     done(YES,arrKqsx);
@@ -38,8 +53,6 @@
                     done(YES,arrKqsx);
                 }];
             }
-            
-            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error) {
@@ -73,8 +86,8 @@
         NSMutableArray *muArrKqsx = [NSMutableArray new];
         
         NSMutableArray *muArrProvince = [NSMutableArray new];
-    int maxmagiai = 0;
-    int minmagiai = 10;
+    int maxmagiai = 9;
+    int minmagiai = 0;
         for (TuongthuatModel *mod in array) {
             NSPredicate *preProvince = [NSPredicate predicateWithFormat:@"province_id == %@",mod.ma_tinh];
             NSArray *results = [Province fetchEntityObjectsWithPredicate:preProvince];
@@ -107,7 +120,7 @@
 
     }
     
-        for (int i = maxmagiai; i >= minmagiai; i--) {
+        for (int i = 8; i >= minmagiai; i--) {
            
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ma_giai == %@",[NSString stringWithFormat:@"%i",i]];
             
@@ -116,23 +129,46 @@
             NSMutableArray *termArr0 = [NSMutableArray new];
             NSMutableArray *termArr1 = [NSMutableArray new];
             NSMutableArray *termArr2 = [NSMutableArray new];
-            
-            for (TuongthuatModel *moFilter in termArr) {
-                
+            if (termArr.count == 0) {
                 for (int k = 0; k<arrRemoveDuplicate.count; k++) {
-                    if ([moFilter.ma_tinh isEqualToString:[[arrRemoveDuplicate[k] province_id] stringValue]]) {
-                        if (k == 0) {
-                            [termArr0 addObject:moFilter];
-                        }
-                        else if (k == 1) {
-                            [termArr1 addObject:moFilter];
-                        }
-                        else if (k == 2) {
-                            [termArr2 addObject:moFilter];
+                    TuongthuatModel *md = [TuongthuatModel new];
+                    md.ma_giai = [NSString stringWithFormat:@"%i",i];
+                    md.ma_tinh = [NSString stringWithFormat:@"%i",k];
+                    md.idTuongthuat = @"";
+                    md.ket_qua = @"...";
+                    if (k == 0) {
+                        [termArr0 addObject:md];
+                    }
+                    else if (k == 1) {
+                        [termArr1 addObject:md];
+                    }
+                    else if (k == 2) {
+                        [termArr2 addObject:md];
+                    }
+
+                }
+               
+                
+            }
+            else {
+                for (TuongthuatModel *moFilter in termArr) {
+                    
+                    for (int k = 0; k<arrRemoveDuplicate.count; k++) {
+                        if ([moFilter.ma_tinh isEqualToString:[[arrRemoveDuplicate[k] province_id] stringValue]]) {
+                            if (k == 0) {
+                                [termArr0 addObject:moFilter];
+                            }
+                            else if (k == 1) {
+                                [termArr1 addObject:moFilter];
+                            }
+                            else if (k == 2) {
+                                [termArr2 addObject:moFilter];
+                            }
                         }
                     }
+                    
                 }
-                
+
             }
             
             TuongthuatConvertModel *model = [TuongthuatConvertModel new];
@@ -156,8 +192,8 @@
     NSMutableArray *muArrKqsx = [NSMutableArray new];
     
     NSMutableArray *muArrProvince = [NSMutableArray new];
-    int maxmagiai = 0;
-    int minmagiai = 10;
+    int maxmagiai = 10;
+    int minmagiai = 1;
     for (TuongthuatModel *mod in array) {
         NSPredicate *preProvince = [NSPredicate predicateWithFormat:@"province_id == %@",mod.ma_tinh];
         NSArray *results = [Province fetchEntityObjectsWithPredicate:preProvince];
@@ -190,7 +226,7 @@
         
     }
     
-    for (int i = maxmagiai; i >= minmagiai; i--) {
+    for (int i = 9; i >= minmagiai; i--) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ma_giai == %@",[NSString stringWithFormat:@"%i",i]];
         
@@ -200,23 +236,46 @@
         NSMutableArray *termArr1 = [NSMutableArray new];
         NSMutableArray *termArr2 = [NSMutableArray new];
         
-        for (TuongthuatModel *moFilter in termArr) {
-            
+        if (termArr.count == 0) {
             for (int k = 0; k<arrRemoveDuplicate.count; k++) {
-                if ([moFilter.ma_tinh isEqualToString:[[arrRemoveDuplicate[k] province_id] stringValue]]) {
-                    if (k == 0) {
-                        [termArr0 addObject:moFilter];
-                    }
-                    else if (k == 1) {
-                        [termArr1 addObject:moFilter];
-                    }
-                    else if (k == 2) {
-                        [termArr2 addObject:moFilter];
+                TuongthuatModel *md = [TuongthuatModel new];
+                md.ma_giai = [NSString stringWithFormat:@"%i",i];
+                md.ma_tinh = [NSString stringWithFormat:@"%i",k];
+                md.idTuongthuat = @"";
+                md.ket_qua = @"...";
+                if (k == 0) {
+                    [termArr0 addObject:md];
+                }
+                else if (k == 1) {
+                    [termArr1 addObject:md];
+                }
+                else if (k == 2) {
+                    [termArr2 addObject:md];
+                }
+                
+            }
+        }
+        else {
+            for (TuongthuatModel *moFilter in termArr) {
+                
+                for (int k = 0; k<arrRemoveDuplicate.count; k++) {
+                    if ([moFilter.ma_tinh isEqualToString:[[arrRemoveDuplicate[k] province_id] stringValue]]) {
+                        if (k == 0) {
+                            [termArr0 addObject:moFilter];
+                        }
+                        else if (k == 1) {
+                            [termArr1 addObject:moFilter];
+                        }
+                        else if (k == 2) {
+                            [termArr2 addObject:moFilter];
+                        }
                     }
                 }
+                
             }
-            
         }
+        
+     
         
         TuongthuatConvertModel *model = [TuongthuatConvertModel new];
         model.arr = termArr0;

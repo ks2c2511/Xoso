@@ -168,7 +168,7 @@ typedef NS_ENUM (NSInteger, TableType) {
     NSArray *arrKetqua1 = modelConvert.arr1;
     NSArray *arrKetqua2 = modelConvert.arr2;
 
-    if (arrKetqua1.count == 0 && arrKetqua2.count == 0) {
+    if (self.typeTableCell == TableTypeMienBac) {
         UIColor *backGroudColor;
         if (indexPath.row % 2 == 0) {
             backGroudColor = [UIColor colorWithRed:250.0 / 255.0 green:255.0 / 255.0 blue:200.0 / 255.0 alpha:1.0];
@@ -265,7 +265,7 @@ typedef NS_ENUM (NSInteger, TableType) {
             return cell;
         }
     }
-    else if (arrKetqua.count != 0 && arrKetqua1.count != 0 && arrKetqua2.count == 0) {
+    else if (self.typeTableCell == TableTypeMienTrung) {
         UIColor *backGroudColor;
         if (indexPath.row % 2 != 0) {
             backGroudColor = [UIColor colorWithRed:250.0 / 255.0 green:255.0 / 255.0 blue:200.0 / 255.0 alpha:1.0];
@@ -312,7 +312,7 @@ typedef NS_ENUM (NSInteger, TableType) {
 
         return cell;
     }
-    else if (arrKetqua.count != 0 && arrKetqua1.count != 0 && arrKetqua2.count != 0) {
+    else if (self.typeTableCell == TableTypeMienNam) {
         UIColor *backGroudColor;
         if (indexPath.row % 2 != 0) {
             backGroudColor = [UIColor colorWithRed:250.0 / 255.0 green:255.0 / 255.0 blue:200.0 / 255.0 alpha:1.0];
