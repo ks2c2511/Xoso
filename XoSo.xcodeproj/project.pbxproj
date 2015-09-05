@@ -239,6 +239,7 @@
 		6AEA053A1B7A502000D1A8F2 /* ThongkeTrungcaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA05391B7A502000D1A8F2 /* ThongkeTrungcaoModel.m */; };
 		6AEA053F1B7A553E00D1A8F2 /* SoiCauController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */; };
 		6AEA05401B7A553E00D1A8F2 /* SoiCauController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */; };
+		6AEA34FD1B9A8EEB002FF4A1 /* Lotery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA34FC1B9A8EEB002FF4A1 /* Lotery.m */; };
 		6AEB66D91B7CE10200A3D3A5 /* GiaiMongController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB66D71B7CE10200A3D3A5 /* GiaiMongController.m */; };
 		6AEB66DA1B7CE10200A3D3A5 /* GiaiMongController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEB66D81B7CE10200A3D3A5 /* GiaiMongController.xib */; };
 		6AEB66DF1B7CE41000A3D3A5 /* GiaiMongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEB66DD1B7CE41000A3D3A5 /* GiaiMongCell.m */; };
@@ -680,6 +681,8 @@
 		6AEA053C1B7A553E00D1A8F2 /* SoiCauController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoiCauController.h; sourceTree = "<group>"; };
 		6AEA053D1B7A553E00D1A8F2 /* SoiCauController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoiCauController.m; sourceTree = "<group>"; };
 		6AEA053E1B7A553E00D1A8F2 /* SoiCauController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoiCauController.xib; sourceTree = "<group>"; };
+		6AEA34FB1B9A8EEB002FF4A1 /* Lotery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lotery.h; sourceTree = "<group>"; };
+		6AEA34FC1B9A8EEB002FF4A1 /* Lotery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lotery.m; sourceTree = "<group>"; };
 		6AEB66D61B7CE10200A3D3A5 /* GiaiMongController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiaiMongController.h; sourceTree = "<group>"; };
 		6AEB66D71B7CE10200A3D3A5 /* GiaiMongController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiaiMongController.m; sourceTree = "<group>"; };
 		6AEB66D81B7CE10200A3D3A5 /* GiaiMongController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiaiMongController.xib; sourceTree = "<group>"; };
@@ -1798,6 +1801,8 @@
 		6AEDD5031B5014D00036683C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				6AEA34FB1B9A8EEB002FF4A1 /* Lotery.h */,
+				6AEA34FC1B9A8EEB002FF4A1 /* Lotery.m */,
 				6A001E0B1B86218300C92CDB /* Hopthu.h */,
 				6A001E0C1B86218300C92CDB /* Hopthu.m */,
 				6AE54F2B1B62949600183710 /* KQXS.h */,
@@ -2596,6 +2601,7 @@
 				6A5BA8F21B7F8CF4008D5811 /* ChatLeverOneModel.m in Sources */,
 				6A001E0D1B86218300C92CDB /* Hopthu.m in Sources */,
 				6AB053AE1B7752970089D4BA /* ButtonSelect.m in Sources */,
+				6AEA34FD1B9A8EEB002FF4A1 /* Lotery.m in Sources */,
 				6AF27DF91B6930020016F8E2 /* HistoryModel.m in Sources */,
 				6A7F0FC81B6E657A003909E4 /* TableMIenTrungCell.m in Sources */,
 				6AADD23E1B6141D400CF90BD /* Notifi.m in Sources */,

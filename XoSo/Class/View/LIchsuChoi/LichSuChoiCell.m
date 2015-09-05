@@ -29,7 +29,7 @@
     // Configure the view for the selected state
 }
 
--(void)setTextForCellWithDate:(NSString *)date NameCity:(NSString *)cityName LotoName:(NSString *)lotoName DaySoDatCuoc:(NSString *)sodatcuoc SoXu:(NSString *)soxu Trung:(BOOL)trung ChuaQuaySo:(BOOL)chuaquay{
+-(void)setTextForCellWithDate:(NSString *)date NameCity:(NSString *)cityName LotoName:(NSString *)lotoName DaySoDatCuoc:(NSString *)sodatcuoc SoXu:(NSString *)soxu Trung:(BOOL)trung ChuaQuaySo:(BOOL)chuaquay SoxuNhan:(NSString *)soxunhan{
     
     NSMutableAttributedString *muAtt = [NSMutableAttributedString new];
     if (date && ![date isEqualToString:@""]) {
@@ -54,7 +54,7 @@
         [muAtt appendAttributedString:attTextTruot];
     }
     else {
-        NSAttributedString *attTextTrung = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"Trúng rồi! - Số xu được cộng: %@ xu",soxu] Font:[UIFont boldSystemFontOfSize:14.0] Color:[UIColor blueColor]];
+        NSAttributedString *attTextTrung = [NSAttributedString atttributeWithText:[NSString stringWithFormat:@"Trúng rồi! - Số xu được cộng: %@ xu",soxunhan] Font:[UIFont boldSystemFontOfSize:14.0] Color:[UIColor blueColor]];
         [muAtt appendAttributedString:attTextTrung];
     }
     

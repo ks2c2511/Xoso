@@ -22,6 +22,7 @@
 + (BOOL)isTodayWithDay:(NSInteger)day Month:(NSInteger)month Year:(NSInteger)year;
 + (NSString *)getCurrentDate;
 + (NSString *)getCurrentYear;
++ (NSInteger)getCurrentDayOfWeek;
 + (NSDate *)dateWithDay:(NSInteger)day Month:(NSInteger)month Year:(NSInteger)year;
 + (BOOL)checkDateIsPastWithDay:(NSInteger)day Month:(NSInteger)month Year:(NSInteger)year;
 + (NSInteger)indexDateWithBeginDate:(NSDate *)begindate Target:(NSDate *)tagget;

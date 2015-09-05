@@ -192,55 +192,53 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         [self.navigationController pushViewController:tuongthuat animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
-        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-            return;
-        }
-        else {
-            //            NSInteger pointRemove = [self.user.point integerValue] - [self.notifi.reducemonney integerValue];
-            //            self.user.point = @(pointRemove);
-            //            [self.user saveToPersistentStore];
+//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+//                if (buttonIndex == 1) {
+//                    KiemxuController *kiemXu = [KiemxuController new];
+//                    [self.navigationController pushViewController:kiemXu animated:YES];
+//                }
+//            }];
+//            return;
+//        }
+//        else {
+
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             ThongKeController *thongke = [ThongKeController new];
             [self.navigationController pushViewController:thongke animated:YES];
-        }
+//        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
-        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-            return;
-        }
-        else {
+//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+//                if (buttonIndex == 1) {
+//                    KiemxuController *kiemXu = [KiemxuController new];
+//                    [self.navigationController pushViewController:kiemXu animated:YES];
+//                }
+//            }];
+//            return;
+//        }
+//        else {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             SoiCauController *soicau = [SoiCauController new];
             [self.navigationController pushViewController:soicau animated:YES];
-        }
+//        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
-        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-            [UIAlertView showWithTitle:@"Lỗi" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-            return;
-        }
-        else {
+//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+//                if (buttonIndex == 1) {
+//                    KiemxuController *kiemXu = [KiemxuController new];
+//                    [self.navigationController pushViewController:kiemXu animated:YES];
+//                }
+//            }];
+//            return;
+//        }
+//        else {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             CauVipController *soicau = [CauVipController new];
             [self.navigationController pushViewController:soicau animated:YES];
-        }
+//        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"giai_mong"]) {
         GiaiMongController *giaimong = [GiaiMongController new];

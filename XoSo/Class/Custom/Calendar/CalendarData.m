@@ -275,6 +275,15 @@
     return newDate;
 }
 
++(NSInteger)getCurrentDayOfWeek {
+    NSCalendar *calendar = [[NSCalendar alloc]
+                            initWithCalendarIdentifier:NSGregorianCalendar];
+    [calendar setFirstWeekday:1];
+    NSDateComponents *components = [calendar components:(NSWeekdayCalendarUnit) fromDate:[NSDate date]];
+    
+    return [components weekday];
+}
+
 + (NSDate *)dateWithDay:(NSInteger)day Month:(NSInteger)month Year:(NSInteger)year {
     NSDateComponents *comps = [[NSDateComponents alloc]init];
     comps.day = day;

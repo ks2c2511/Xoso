@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumber1;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumber2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_W_Label;
 
 @end

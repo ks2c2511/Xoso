@@ -50,23 +50,7 @@
 }
 
 #pragma mark - UITableViewDataSource
-//- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-//    static <#Cell#> *sizingCell = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        sizingCell = [self.locationPickerView.tableView dequeueReusableCellWithIdentifier:<#identifi#>];
-//    });
-//    [self configureCell:sizingCell forRowAtIndexPath:indexPath];
-//    
-//    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-//}
-//
-//- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
-//    [sizingCell setNeedsLayout];
-//    [sizingCell layoutIfNeeded];
-//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height;
-//}
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,7 +82,7 @@
     HistoryModel *model = self.arrData[indexPath.row];
     
     BOOL quayso = ([model.STATUS integerValue] == 1)?YES:NO;
-    [cell setTextForCellWithDate:model.DATE NameCity:model.COMPANY_NAME LotoName:model.TYPE_NAME DaySoDatCuoc:model.LOTTO_NUMBER SoXu:[NSString stringWithFormat:@"%@",model.POINT_NUMBER] Trung:[model.ITERATIONS boolValue] ChuaQuaySo:quayso];
+    [cell setTextForCellWithDate:model.DATE NameCity:model.COMPANY_NAME LotoName:model.TYPE_NAME DaySoDatCuoc:model.LOTTO_NUMBER SoXu:[NSString stringWithFormat:@"%@",model.POINT_NUMBER] Trung:[model.ITERATIONS boolValue] ChuaQuaySo:quayso SoxuNhan:[NSString stringWithFormat:@"%@",model.POINT_REVEICED]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -16,6 +16,7 @@
 #import <FMDB.h>
 #import <NSManagedObject+GzDatabase.h>
 #import "Province.h"
+#import "Lotery.h"
 #import "Dream.h"
 #import "SplashController.h"
 #import "ManageUserController.h"
@@ -69,6 +70,19 @@
         NSLog(@"---> start %@", [NSDate date]);
         FMDatabase *DB =  [FMDatabase databaseWithPath:pathToResource];
         [DB open];
+        
+        
+        FMResultSet *results_lotery = [DB executeQuery:@"select * from lottery_schedules"];
+        
+        while ([results_lotery next]) {
+            Lotery *lotery = [Lotery CreateEntityDescription];
+            lotery.day_id = @([results_lotery intForColumn:@"DAY_ID"]);
+            lotery.company_id = @([results_lotery intForColumn:@"COMPANY_ID"]);
+            lotery.lotery_id = @([results_lotery intForColumn:@"id"]);
+            //        NSLog(@"User: %@",name);
+            
+        }
+        
         FMResultSet *results = [DB executeQuery:@"select * from LOTTERY_PROVINCE"];
         
         while ([results next]) {
@@ -91,8 +105,6 @@
         
     }
     
-    
-
         [GzDatabase saveToPersistentStore];
         [DB close];
         
@@ -104,6 +116,9 @@
         
         NSArray *arrD = [Dream fetchAll];
         NSLog(@"---> dreameCount : %lu", (unsigned long)[arrD count]);
+        
+        NSArray *arrL = [Lotery fetchAll];
+        NSLog(@"---> dreameCount : %lu", (unsigned long)[arrL count]);
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:user_default_loaded_local_database];
         [[NSUserDefaults standardUserDefaults] synchronize];

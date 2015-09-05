@@ -76,7 +76,7 @@
             
             if (success) {
                 [UIAlertView showWithTitle:@"Thành công" message:@"Cập nhật thông tin thành công" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             }
             else {
                 [UIAlertView showWithTitle:@"Lỗi" message:@"Có lỗi xảy ra trong quá trình cập nhật. Vui lòng thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];

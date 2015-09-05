@@ -14,10 +14,10 @@
     NSString *str =@"";;
     for (int i = 0; i < arr.count; i++) {
         if (i==0) {
-            str = [NSString stringWithFormat:@"%@",arr[i]];
+            str = [NSString stringWithFormat:@"%.2ld",[arr[i] integerValue]];
         }
         else {
-            str = [str stringByAppendingString:[NSString stringWithFormat:@",%@",arr[i]]];
+            str = [str stringByAppendingString:[NSString stringWithFormat:@",%.2ld",[arr[i] integerValue]]];
         }
     }
     return str;

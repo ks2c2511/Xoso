@@ -11,5 +11,5 @@
 #import "TuongthuatConvertModel.h"
 #import "Province.h"
 @interface TuongthuatStore : NSObject
-+ (void)getTuongThuatTrucTiepWithMaMien:(NSInteger)mamien Done:(void (^)(BOOL success,NSArray *arr))done;
++ (void)getTuongThuatTrucTiepWithMaMien:(NSInteger)mamien Done:(void (^)(BOOL success,NSArray *arr, NSInteger numberProvince))done;
 @end

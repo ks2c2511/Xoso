@@ -173,6 +173,8 @@
                 LichSuCuocController *lichsu = [LichSuCuocController new];
                 lichsu.showFutureCuoc = YES;
                 [self.navigationController pushViewController:lichsu animated:YES];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             }
             else {
                 [UIAlertView showWithTitle:@"Thất bại" message:@"Đặt cược thất bại. Vui lòng thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:Nil];

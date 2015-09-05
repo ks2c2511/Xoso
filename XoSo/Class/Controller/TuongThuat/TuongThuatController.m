@@ -35,7 +35,10 @@ typedef NS_ENUM (NSInteger, TableType) {
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) NSArray *arrData;
 @property (assign, nonatomic) TableType typeTableCell;
+@property (assign,nonatomic) NSInteger numberProvince;
+@property (assign,nonatomic) BOOL showPopUpPhangBac,showPopUpPhangTrung,showPopUpPhangNam;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indical;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentChonMien;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraint_H_ViewThongbao;
 @property (weak, nonatomic) IBOutlet UILabel *labelThongbao;
 @end
@@ -44,8 +47,7 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+    self.numberProvince = 3;
    
     self.navigationItem.title = @"Tường thuật trực tiếp";
     self.imageBackGround.hidden = YES;
@@ -62,12 +64,9 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self.tableView registerClass:[TableMIenTrungCell class] forCellReuseIdentifier:NSStringFromClass([TableMIenTrungCell class])];
     [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
 
-    self.typeTableCell = TableTypeMienBac;
+    self.typeTableCell = TableTypeMienNam;
     [self loadDataRealTime];
     
-#if DEBUG
-    NSLog(@"---log---> %ld, %ld",(long)[[NSDate date] hour],[[NSDate date] minute]);
-#endif
 
     if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienBac) {
         
@@ -75,12 +74,7 @@ typedef NS_ENUM (NSInteger, TableType) {
         self.indical.hidden = YES;
         self.labelThongbao.hidden = NO;
         self.contraint_H_ViewThongbao.constant = 30;
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-            if (buttonIndex == 1) {
-                CauVipController *cauvip = [CauVipController new];
-                [self.navigationController pushViewController:cauvip animated:YES];
-            }
-        }];
+        
     }
     else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30 && self.typeTableCell == TableTypeMienBac) {
         self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
@@ -94,12 +88,6 @@ typedef NS_ENUM (NSInteger, TableType) {
         self.labelThongbao.hidden = YES;
         self.indical.hidden = YES;
         self.contraint_H_ViewThongbao.constant = 0;
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-            if (buttonIndex == 1) {
-                CauVipController *cauvip = [CauVipController new];
-                [self.navigationController pushViewController:cauvip animated:YES];
-            }
-        }];
     }
 }
 
@@ -119,8 +107,9 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (void)getTuongThuatWithMien:(TableType)type {
     _typeTableCell = type;
-    [TuongthuatStore getTuongThuatTrucTiepWithMaMien:type Done: ^(BOOL success, NSArray *arr) {
+    [TuongthuatStore getTuongThuatTrucTiepWithMaMien:type Done: ^(BOOL success, NSArray *arr,NSInteger numberProvince) {
         if (success) {
+            _numberProvince = numberProvince;
             _arrData = arr;
         }
         else {
@@ -133,30 +122,32 @@ typedef NS_ENUM (NSInteger, TableType) {
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrData.count;
+    
+    if (self.typeTableCell == TableTypeMienBac) {
+        return 8;
+    }
+    else {
+        return 10;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TuongthuatConvertModel *modelConvert = self.arrData[indexPath.row];
-    NSArray *arrKetqua1 = modelConvert.arr1;
-    NSArray *arrKetqua2 = modelConvert.arr2;
 
-    if (arrKetqua1.count == 0 && arrKetqua2.count == 0) {
+    if (self.typeTableCell == TableTypeMienBac) {
         if (indexPath.row == 3 || indexPath.row == 5) {
             return 60;
         }
         return 30;
     }
     else {
-        return 30 * arrKetqua1.count;
         if (indexPath.row == 3) {
-            return 90;
+            return 70;
         }
         else if (indexPath.row == 5) {
-            return 210;
+            return 130;
         }
         else if (indexPath.row == 6) {
-            return 60;
+            return 45;
         }
         return 30;
     }
@@ -164,10 +155,12 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TuongthuatConvertModel *modelConvert = self.arrData[indexPath.row];
+//    array ket qua cuar moi tinh theo tung giai
     NSArray *arrKetqua = modelConvert.arr;
     NSArray *arrKetqua1 = modelConvert.arr1;
     NSArray *arrKetqua2 = modelConvert.arr2;
-
+    NSArray *arrKetqua3 = modelConvert.arr3;
+    
     if (self.typeTableCell == TableTypeMienBac) {
         UIColor *backGroudColor;
         if (indexPath.row % 2 == 0) {
@@ -180,14 +173,19 @@ typedef NS_ENUM (NSInteger, TableType) {
             if (indexPath.row == 0) {
                 cell.labelTitle.text = @"Đặc biệt";
                 cell.labelTitle.textColor = [UIColor redColor];
+                cell.labelNUmber.textColor = [UIColor redColor];
             }
             else {
                 cell.labelTitle.text = @"Giải nhất";
                 cell.labelTitle.textColor = [UIColor blackColor];
+                cell.labelNUmber.textColor = [UIColor blackColor];
             }
 
             if (arrKetqua.count != 0) {
                 cell.labelNUmber.text = [[arrKetqua firstObject] ket_qua];
+            }
+            else {
+                cell.labelNUmber.text = @"...";
             }
             cell.labelTitle.backgroundColor = backGroudColor;
             cell.labelNUmber.backgroundColor = backGroudColor;
@@ -200,10 +198,15 @@ typedef NS_ENUM (NSInteger, TableType) {
             cell.labelNumber1.backgroundColor = backGroudColor;
             cell.labelNumber2.backgroundColor = backGroudColor;
             cell.labelTitle.text = @"Giải Nhì";
+            cell.contraint_W_Label.constant = 72;
 
             if (arrKetqua.count == 2) {
                 cell.labelNumber1.text = [[arrKetqua firstObject] ket_qua];
                 cell.labelNumber2.text = [[arrKetqua lastObject] ket_qua];
+            }
+            else {
+                cell.labelNumber1.text = @"...";
+                cell.labelNumber2.text = @"...";
             }
 
             return cell;
@@ -216,6 +219,9 @@ typedef NS_ENUM (NSInteger, TableType) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
                 if (arrKetqua.count == 6) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
+                }
+                else {
+                    [(UILabel *)[cell.contentView viewWithTag:i] setText:@"..."];
                 }
             }
             if (indexPath.row == 3) {
@@ -231,11 +237,15 @@ typedef NS_ENUM (NSInteger, TableType) {
             TableBacFourCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacFourCell class]) forIndexPath:indexPath];
 
             cell.labelTitle.backgroundColor = backGroudColor;
+            cell.contraint_W_Label.constant = 72;
 
             for (int i = 1; i < 5; i++) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
                 if (arrKetqua.count == 4) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
+                }
+                else {
+                    [(UILabel *)[cell.contentView viewWithTag:i] setText:@"..."];
                 }
             }
             if (indexPath.row == 4) {
@@ -252,11 +262,15 @@ typedef NS_ENUM (NSInteger, TableType) {
             TableBacThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacThreeCell class]) forIndexPath:indexPath];
 
             cell.labelTitle.backgroundColor = backGroudColor;
+            cell.contraint_W_Label.constant = 72;
 
             for (int i = 1; i < 4; i++) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
                 if (arrKetqua.count == 3) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
+                }
+                else {
+                    [(UILabel *)[cell.contentView viewWithTag:i] setText:@"..."];
                 }
             }
             cell.labelTitle.text = @"Giải Sáu";
@@ -265,102 +279,292 @@ typedef NS_ENUM (NSInteger, TableType) {
             return cell;
         }
     }
-    else if (self.typeTableCell == TableTypeMienTrung) {
+    else {
         UIColor *backGroudColor;
         if (indexPath.row % 2 != 0) {
             backGroudColor = [UIColor colorWithRed:250.0 / 255.0 green:255.0 / 255.0 blue:200.0 / 255.0 alpha:1.0];
         }
         else backGroudColor = [UIColor whiteColor];
-
-
-        TableMIenTrungCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableMIenTrungCell class]) forIndexPath:indexPath];
-
-        cell.labelTitle.backgroundColor = backGroudColor;
-
-        for (int i = 1; i < 3; i++) {
-            [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
-        }
-
-        if (indexPath.row == 0) {
-            cell.labelTitle.text = modelConvert.ma_giai;
-
-            if (arrKetqua.count > 0) {
-                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+        
+        if (self.numberProvince == 2) {
+            TableBacTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacTwoCell class]) forIndexPath:indexPath];
+            cell.contraint_W_Label.constant = 20;
+            
+            cell.labelTitle.backgroundColor = backGroudColor;
+            cell.labelNumber1.backgroundColor = backGroudColor;
+            cell.labelNumber2.backgroundColor = backGroudColor;
+        
+        cell.labelTitle.textColor = [UIColor blackColor];
+        cell.labelNumber1.textColor = [UIColor blackColor];
+        cell.labelNumber2.textColor = [UIColor blackColor];
+            if (indexPath.row == 0) {
+                cell.labelTitle.text = @"G";
+                if (arrKetqua.count > 0) {
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                    }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
             }
-            if (arrKetqua1.count > 0) {
-                cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
-            }
-        }
-        else {
-            if ([modelConvert.ma_giai integerValue] == 0 || [modelConvert.ma_giai integerValue] == 9) {
+            else if (indexPath.row == 9) {
                 cell.labelTitle.text = @"DB";
+                
+                cell.labelTitle.textColor = [UIColor redColor];
+                cell.labelNumber1.textColor = [UIColor redColor];
+                cell.labelNumber2.textColor = [UIColor redColor];
+                
+                if (arrKetqua.count > 0) {
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                        cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
             }
             else {
-                cell.labelTitle.text = modelConvert.ma_giai;
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                
+                if (arrKetqua.count > 0) {
+                   
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
             }
-
-
-            if (arrKetqua.count > 0) {
-                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
-            }
-            if (arrKetqua1.count > 0) {
-                cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
-            }
+            
+            return cell;
         }
-
-
-
-        return cell;
-    }
-    else if (self.typeTableCell == TableTypeMienNam) {
-        UIColor *backGroudColor;
-        if (indexPath.row % 2 != 0) {
-            backGroudColor = [UIColor colorWithRed:250.0 / 255.0 green:255.0 / 255.0 blue:200.0 / 255.0 alpha:1.0];
-        }
-        else backGroudColor = [UIColor whiteColor];
-
-        TableMienNamCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableMienNamCell class]) forIndexPath:indexPath];
-
-        cell.labelTitle.backgroundColor = backGroudColor;
-
-        for (int i = 1; i < 4; i++) {
-            [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
-        }
-
-        if (indexPath.row == 0) {
-            cell.labelTitle.text = modelConvert.ma_giai;
-
-            if (arrKetqua.count > 0) {
-                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+        else if (self.numberProvince == 3) {
+            TableBacThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacThreeCell class]) forIndexPath:indexPath];
+            
+            cell.contraint_W_Label.constant = 20;
+            
+            cell.labelTitle.backgroundColor = backGroudColor;
+            cell.labelNumber1.backgroundColor = backGroudColor;
+            cell.labelNumber2.backgroundColor = backGroudColor;
+            cell.labelNumber3.backgroundColor = backGroudColor;
+            
+            cell.labelTitle.textColor = [UIColor blackColor];
+            cell.labelNumber1.textColor = [UIColor blackColor];
+            cell.labelNumber2.textColor = [UIColor blackColor];
+            cell.labelNumber3.textColor = [UIColor blackColor];
+            
+            if (indexPath.row == 0) {
+                cell.labelTitle.text = @"G";
+                if (arrKetqua.count > 0) {
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
+                
             }
-            if (arrKetqua1.count > 0) {
-                cell.labelNUmber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
-            }
-            if (arrKetqua2.count > 0) {
-                cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
-            }
-        }
-        else {
-            if ([modelConvert.ma_giai integerValue] == 0 || [modelConvert.ma_giai integerValue] == 9) {
+            else if (indexPath.row == 9) {
                 cell.labelTitle.text = @"DB";
+                
+                cell.labelTitle.textColor = [UIColor redColor];
+                cell.labelNumber1.textColor = [UIColor redColor];
+                cell.labelNumber2.textColor = [UIColor redColor];
+                cell.labelNumber3.textColor = [UIColor redColor];
+                
+                if (arrKetqua.count > 0) {
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
             }
             else {
-                cell.labelTitle.text = modelConvert.ma_giai;
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                if (arrKetqua.count > 0) {
+                    cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
             }
-
-            if (arrKetqua.count > 0) {
-                cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+             return cell;
+        }
+        else if (self.numberProvince == 4) {
+            TableBacFourCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TableBacFourCell class]) forIndexPath:indexPath];
+            
+            cell.contraint_W_Label.constant = 20;
+            
+            cell.labelTitle.backgroundColor = backGroudColor;
+            cell.labelNUmber1.backgroundColor = backGroudColor;
+            cell.labelNumber2.backgroundColor = backGroudColor;
+            cell.labelNumber3.backgroundColor = backGroudColor;
+            cell.labelNumber4.backgroundColor = backGroudColor;
+            
+            cell.labelTitle.textColor = [UIColor blackColor];
+            cell.labelNUmber1.textColor = [UIColor blackColor];
+            cell.labelNumber2.textColor = [UIColor blackColor];
+            cell.labelNumber3.textColor = [UIColor blackColor];
+            cell.labelNumber4.textColor = [UIColor blackColor];
+            
+            if (indexPath.row == 0) {
+                cell.labelTitle.text = @"G";
+                
+                if (arrKetqua.count > 0) {
+                    cell.labelNUmber1.text = [[[arrKetqua valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNUmber1.text = @"...";
+                }
+                
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
+                
+                if (arrKetqua3.count > 0) {
+                    cell.labelNumber4.text = [[[arrKetqua3 valueForKeyPath:@"province_name"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber4.text = @"...";
+                }
+                
             }
-            if (arrKetqua1.count > 0) {
-                cell.labelNUmber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            else if (indexPath.row == 9) {
+                cell.labelTitle.text = @"DB";
+                
+                cell.labelTitle.textColor = [UIColor redColor];
+                cell.labelNUmber1.textColor = [UIColor redColor];
+                cell.labelNumber2.textColor = [UIColor redColor];
+                cell.labelNumber3.textColor = [UIColor redColor];
+                cell.labelNumber4.textColor = [UIColor redColor];
+                
+                if (arrKetqua.count > 0) {
+                    cell.labelNUmber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNUmber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
+                
+                if (arrKetqua3.count > 0) {
+                    cell.labelNumber4.text = [[[arrKetqua3 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber4.text = @"...";
+                }
             }
-            if (arrKetqua2.count > 0) {
-                cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+            else {
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                if (arrKetqua.count > 0) {
+                    cell.labelNUmber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNUmber1.text = @"...";
+                }
+                if (arrKetqua1.count > 0) {
+                    cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber2.text = @"...";
+                }
+                
+                if (arrKetqua2.count > 0) {
+                    cell.labelNumber3.text = [[[arrKetqua2 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber3.text = @"...";
+                }
+                
+                if (arrKetqua3.count > 0) {
+                    cell.labelNumber4.text = [[[arrKetqua3 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
+                }
+                else {
+                    cell.labelNumber4.text = @"...";
+                }
             }
+             return cell;
+            
         }
 
-        return cell;
     }
+
     return nil;
 }
 
@@ -374,6 +578,14 @@ typedef NS_ENUM (NSInteger, TableType) {
 - (IBAction)ChonMien:(UISegmentedControl *)sender {
     self.typeTableCell = sender.selectedSegmentIndex + 1;
 
+   
+}
+
+-(void)setTypeTableCell:(TableType)typeTableCell {
+    _typeTableCell = typeTableCell;
+    
+    self.segmentChonMien.selectedSegmentIndex = typeTableCell -1;
+    
     if (self.typeTableCell == TableTypeMienBac) {
         if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15))) {
             
@@ -381,12 +593,18 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.indical.hidden = YES;
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            
+            if (!self.showPopUpPhangBac) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        CauVipController *cauvip = [CauVipController new];
+                        [self.navigationController pushViewController:cauvip animated:YES];
+                    }
+                }];
+                
+                self.showPopUpPhangBac = YES;
+            }
+            
         }
         else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
             self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
@@ -399,12 +617,17 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.labelThongbao.hidden = YES;
             self.indical.hidden = YES;
             self.contraint_H_ViewThongbao.constant = 0;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            
+            if (!self.showPopUpPhangBac) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        CauVipController *cauvip = [CauVipController new];
+                        [self.navigationController pushViewController:cauvip animated:YES];
+                    }
+                }];
+                
+                self.showPopUpPhangBac = YES;
+            }
         }
     }
     else if (self.typeTableCell == TableTypeMienTrung) {
@@ -414,17 +637,12 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.indical.hidden = YES;
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            
         }
         else if ([[NSDate date] hour] == 17 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
             self.labelThongbao.text = @"Đang tường thuật xổ số miền Trung";
             self.indical.hidden = NO;
-             [self.indical startAnimating];
+            [self.indical startAnimating];
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
         }
@@ -433,12 +651,16 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.labelThongbao.hidden = YES;
             self.indical.hidden = YES;
             self.contraint_H_ViewThongbao.constant = 0;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            if (!self.showPopUpPhangTrung) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        CauVipController *cauvip = [CauVipController new];
+                        [self.navigationController pushViewController:cauvip animated:YES];
+                    }
+                }];
+                
+                self.showPopUpPhangTrung = YES;
+            }
         }
     }
     else if (self.typeTableCell == TableTypeMienNam) {
@@ -448,17 +670,12 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.indical.hidden = YES;
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            
         }
         else if ([[NSDate date] hour] == 16 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
             self.labelThongbao.text = @"Đang tường thuật xổ số miền Nam";
             self.indical.hidden = NO;
-             [self.indical startAnimating];
+            [self.indical startAnimating];
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
         }
@@ -467,17 +684,21 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.labelThongbao.hidden = YES;
             self.indical.hidden = YES;
             self.contraint_H_ViewThongbao.constant = 0;
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    CauVipController *cauvip = [CauVipController new];
-                    [self.navigationController pushViewController:cauvip animated:YES];
-                }
-            }];
+            if (!self.showPopUpPhangNam) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        CauVipController *cauvip = [CauVipController new];
+                        [self.navigationController pushViewController:cauvip animated:YES];
+                    }
+                }];
+                
+                self.showPopUpPhangNam = YES;
+            }
         }
     }
-
+    
     [self getTuongThuatWithMien:self.typeTableCell];
-
+    
     if (self.typeTableCell == TableTypeMienBac) {
         self.labelTitle.text = @"Xổ Số Miền Bắc";
     }

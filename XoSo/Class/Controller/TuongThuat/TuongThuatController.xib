@@ -12,6 +12,7 @@
                 <outlet property="indical" destination="L29-1b-VZC" id="sot-Rw-WPh"/>
                 <outlet property="labelThongbao" destination="MsM-Yr-hX0" id="APY-JF-obq"/>
                 <outlet property="labelTitle" destination="szK-Sy-Sqi" id="5rt-QJ-5TO"/>
+                <outlet property="segmentChonMien" destination="mPh-BW-ibM" id="lQT-Ue-7Ne"/>
                 <outlet property="tableView" destination="dnA-a4-4vQ" id="yno-lJ-YKh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,7 +39,7 @@
                         <outlet property="delegate" destination="-1" id="bPk-EM-Ahr"/>
                     </connections>
                 </tableView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-BW-ibM">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="mPh-BW-ibM">
                     <rect key="frame" x="-2" y="0.0" width="324" height="29"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>

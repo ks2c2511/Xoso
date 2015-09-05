@@ -38,8 +38,8 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 @property (strong,nonatomic) TableListItem *tableListItem;
 @property (strong,nonatomic)NSArray *arrData;
 @property (weak, nonatomic) IBOutlet UIView *containnerViewHeader;
-
-@property (strong,nonatomic) NSDateFormatter *dateFormat;
+@property (strong,nonatomic) ActionSheetDatePicker *datePicker;
+@property (strong,nonatomic) NSDateFormatter *dateFormat,*dateFormatShow;
 @property (strong,nonatomic) NSString *selectDate;
 @property (assign,nonatomic) NSInteger companyId;
 @property (assign,nonatomic) NSInteger khoangcach;
@@ -116,7 +116,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             header = [[NameXosoCityHeader alloc] initWithReuseIdentifier:identifi_NameXosoCityHeader];
             header.contentView.backgroundColor = [UIColor colorWithRed:70.0/255.0 green:70.0/255.0 blue:70.0/255.0 alpha:1.0];
                   }
-         header.labelTitle.text = [NSString stringWithFormat:@"%@, %@",self.labelNameCity.text,self.selectDate];
+         header.labelTitle.text = [NSString stringWithFormat:@"%@, %@",self.labelNameCity.text,[self.dateFormatShow stringFromDate:[self.dateFormat dateFromString:self.selectDate]]];
         [header.buttonLeft addTarget:self action:@selector(RightSwipe:) forControlEvents:UIControlEventTouchUpInside];
         [header.buttonRight addTarget:self action:@selector(LeftSwipe:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -224,19 +224,10 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     return _dateFormat;
 }
 - (IBAction)SelectDate:(UIButton *)sender {
-  
-    [ActionSheetDatePicker showPickerWithTitle:@"Chọn ngày" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
-        
-        self.selectDate = [self.dateFormat stringFromDate:(NSDate *)selectedDate];
-        
-        [self GetDataDiffrentDay];
-        
-        
-    } cancelBlock:^(ActionSheetDatePicker *picker) {
-        
-        
-        
-    } origin:self.view];
+    
+    [self.datePicker showActionSheetPicker];
+    
+    
 }
 
 -(NSString *)selectDate {
@@ -288,7 +279,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
                 self.arrData = muArr;
 
         if (self.arrData.count == 0) {
-            [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả cho ngày hiện tại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         }
                 muArr = nil;
                 [self.tableView reloadData];
@@ -331,5 +322,32 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
                     } completion:nil];
 }
 
+-(ActionSheetDatePicker *)datePicker {
+    if (!_datePicker) {
+        
+        _datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Chọn ngày" datePickerMode:UIDatePickerModeDate selectedDate:[NSDate date] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+            
+            self.selectDate = [self.dateFormat stringFromDate:(NSDate *)selectedDate];
+            
+            [self GetDataDiffrentDay];
+            
+        } cancelBlock:^(ActionSheetDatePicker *picker) {
+            
+        } origin:self.view];
+        _datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        _datePicker.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    }
+    
+    
+    return _datePicker;
+}
 
+-(NSDateFormatter *)dateFormatShow {
+    if (!_dateFormatShow) {
+        _dateFormatShow = [NSDateFormatter new];
+        _dateFormatShow.dateFormat = @"dd-MM-yyyy";
+        _dateFormatShow.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    }
+    return _dateFormatShow;
+}
 @end
