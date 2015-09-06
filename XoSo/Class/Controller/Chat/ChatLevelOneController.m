@@ -143,6 +143,7 @@
     if (!_dateFormatter) {
         _dateFormatter = [NSDateFormatter new];
         _dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+        _dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [_dateFormatter setDateFormat:@"dd-MM-yyyy"];
     }
     return _dateFormatter;

@@ -309,6 +309,7 @@ typedef NS_ENUM(NSInteger, TopUSer) {
     if (!_datePicker) {
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.maximumDate = [NSDate date];
+        _datePicker.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         _datePicker.datePickerMode = UIDatePickerModeDate;
     }
     
@@ -318,6 +319,7 @@ typedef NS_ENUM(NSInteger, TopUSer) {
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [NSDateFormatter new];
+        _dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     return _dateFormatter;

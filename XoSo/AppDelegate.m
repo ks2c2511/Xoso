@@ -29,6 +29,7 @@
 #import "XPush.h"
 #import "TuongThuatController.h"
 #import "KiemxuController.h"
+#import "DangkiController.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -131,6 +132,7 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHome) name:notification_show_home object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHuongdan) name:notificationShowHuongDanUser object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHomThu) name:notificationShowHopthu object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDangki) name:notificationShowDangki object:nil];
     
   
     
@@ -269,6 +271,13 @@
 }
 -(void)showHomThu {
     HopThuController *email = [HopThuController new];
+    self.navigationController.viewControllers = @[email];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+}
+-(void)showDangki {
+    DangkiController *email = [DangkiController new];
     self.navigationController.viewControllers = @[email];
     
     [self.slidingViewController resetTopViewAnimated:YES onComplete:^{

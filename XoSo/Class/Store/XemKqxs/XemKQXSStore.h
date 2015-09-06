@@ -15,5 +15,5 @@
 
 +(void)GetResultNearTimeWithMaTinh:(NSNumber *)matinh SoLanQuay:(NSInteger)solanquay Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
 
-+(void)GetResultPreDayWithResultDate:(NSString *)date Ckorder:(NSInteger)index KhoangCachDenNgay:(NSInteger)kc Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
++(void)GetResultPreDayWithResultDate:(NSString *)date MaTinh:(NSString *)matinh Ckorder:(NSInteger)index KhoangCachDenNgay:(NSInteger)kc Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done;
 @end

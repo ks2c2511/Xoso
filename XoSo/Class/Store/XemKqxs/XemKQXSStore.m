@@ -63,16 +63,19 @@
    
 }
 
-+(void)GetResultPreDayWithResultDate:(NSString *)date Ckorder:(NSInteger)index KhoangCachDenNgay:(NSInteger)kc Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done{
++(void)GetResultPreDayWithResultDate:(NSString *)date MaTinh:(NSString *)matinh Ckorder:(NSInteger)index KhoangCachDenNgay:(NSInteger)kc Done:(void (^)(BOOL success,NSArray *arrKqsx,NSArray *arrLoto))done{
     
     NSDictionary *dic = @{@"result_date":date,
                           @"ckorder":@(index),
-                          @"scolled":@(kc)};
+                          @"scrolled":@(kc),
+                          @"company_id":matinh};
     
-    [[LabraryAPI sharedInstance] GetDataWithClass:[XemKQXSModel class] Url:[BASE_URL stringByAppendingString:GET_XEM_KQXS_PRE_DAY] Parametter:dic JSONKeyPath:nil Callback:^(BOOL success, id objects, id returnData) {
+    [[LabraryAPI sharedInstance] GetDataWithClass:[XemKQXSModel class] Url:[BASE_URL stringByAppendingString:GET_XEM_KQXS_PRE_DAY] Parametter:dic JSONKeyPath:@"data" Callback:^(BOOL success, id objects, id returnData) {
         
         if ([returnData isKindOfClass:[NSArray class]] && returnData != nil) {
-            NSArray *arrData = [MTLJSONAdapter modelsOfClass:[XemKQXSModel class] fromJSONArray:returnData error:nil];
+            NSArray *arrData = [MTLJSONAdapter modelsOfClass:[XemKQXSModel class] fromJSONArray:[returnData[0] objectForKey:@"data"] error:nil];
+            
+            
             [self saveKetquaWithMOdels:arrData];
             
             
@@ -90,7 +93,6 @@
     
     NSDictionary *dic = @{@"ma_tinh":matinh,
                           @"so_lan_quay":@(solanquay)};
-    
     
     [[LabraryAPI sharedInstance] GetDataWithClass:[XemKQXSModel class] Url:[BASE_URL stringByAppendingString:GET_XEM_KQXS_NGAY_GAN_NHAT] Parametter:dic JSONKeyPath:nil Callback:^(BOOL success, id objects, id returnData) {
         
@@ -137,7 +139,6 @@
 +(void)getKetquaByDate:(NSDate *)date CompanyId:(NSInteger)companyId Done:(void(^)(BOOL success,NSArray *arr))done {
      NSPredicate *pre = [NSPredicate predicateWithFormat:@"(date == %@) AND (company_id == %d)",date,companyId];
     
-
     [KQXS fetchEntityObjectsWithPredicate:pre success:^(BOOL succeeded, NSArray *objects) {
         if (objects.count != 0) {
              done(succeeded,objects);
@@ -224,7 +225,6 @@
         }
     }
     
-    
     done(YES,muArrKqsx,arrLoto);
 }
 
@@ -232,6 +232,7 @@
     static NSDateFormatter *dateformat;
     if (!dateformat) {
         dateformat = [NSDateFormatter new];
+        dateformat.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [dateformat setDateFormat:@"yyyy-MM-dd"];
     }
     return dateformat;

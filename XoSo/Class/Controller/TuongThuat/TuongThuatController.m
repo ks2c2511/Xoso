@@ -68,16 +68,16 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self loadDataRealTime];
     
 
-    if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienBac) {
+    if (([[NSDate date] hour] < 16 || ([[NSDate date] hour] == 16 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienNam) {
         
-        self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 18h15'";
+        self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 16h15'";
         self.indical.hidden = YES;
         self.labelThongbao.hidden = NO;
         self.contraint_H_ViewThongbao.constant = 30;
         
     }
-    else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30 && self.typeTableCell == TableTypeMienBac) {
-        self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
+    else if ([[NSDate date] hour] == 16 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30 && self.typeTableCell == TableTypeMienNam) {
+        self.labelThongbao.text = @"Đang tường thuật xổ số miền Nam";
         self.indical.hidden = NO;
          [self.indical startAnimating];
         self.labelThongbao.hidden = NO;
@@ -93,15 +93,15 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (void)loadDataRealTime {
     [self getTuongThuatWithMien:self.typeTableCell];
-    NSInteger currentHour = [CalendarData getRecenHour];
-    if (self.typeTableCell == TableTypeMienBac && currentHour >= 16 && currentHour <= 17) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3 * 60];
+    NSInteger currentHour = [[NSDate date] hour];
+    if (self.typeTableCell == TableTypeMienBac && currentHour >= 18 && currentHour <= 19) {
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
     }
     else if (self.typeTableCell == TableTypeMienTrung && currentHour >= 17 && currentHour <= 18) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3 * 60];
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
     }
-    else if (self.typeTableCell == TableTypeMienNam && currentHour >= 18 && currentHour <= 19) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:3 * 60];
+    else if (self.typeTableCell == TableTypeMienNam && currentHour >= 16 && currentHour <= 17) {
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
     }
 }
 
@@ -200,7 +200,7 @@ typedef NS_ENUM (NSInteger, TableType) {
             cell.labelTitle.text = @"Giải Nhì";
             cell.contraint_W_Label.constant = 72;
 
-            if (arrKetqua.count == 2) {
+            if (arrKetqua.count == 2 && [[arrKetqua firstObject] isKindOfClass:[TuongthuatModel class]]) {
                 cell.labelNumber1.text = [[arrKetqua firstObject] ket_qua];
                 cell.labelNumber2.text = [[arrKetqua lastObject] ket_qua];
             }
@@ -217,7 +217,7 @@ typedef NS_ENUM (NSInteger, TableType) {
 
             for (int i = 1; i <= 6; i++) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
-                if (arrKetqua.count == 6) {
+                if (arrKetqua.count == 6 && [arrKetqua[i - 1] isKindOfClass:[TuongthuatModel class]]) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
                 }
                 else {
@@ -241,7 +241,7 @@ typedef NS_ENUM (NSInteger, TableType) {
 
             for (int i = 1; i < 5; i++) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
-                if (arrKetqua.count == 4) {
+                if (arrKetqua.count == 4 && [arrKetqua[i - 1] isKindOfClass:[TuongthuatModel class]]) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
                 }
                 else {
@@ -266,7 +266,7 @@ typedef NS_ENUM (NSInteger, TableType) {
 
             for (int i = 1; i < 4; i++) {
                 [(UILabel *)[cell.contentView viewWithTag:i] setBackgroundColor:backGroudColor];
-                if (arrKetqua.count == 3) {
+                if (arrKetqua.count == 3 && [arrKetqua[i - 1] isKindOfClass:[TuongthuatModel class]]) {
                     [(UILabel *)[cell.contentView viewWithTag:i] setText:[arrKetqua[i - 1] ket_qua]];
                 }
                 else {
@@ -311,7 +311,6 @@ typedef NS_ENUM (NSInteger, TableType) {
                 else {
                     cell.labelNumber2.text = @"...";
                 }
-                
             }
             else if (indexPath.row == 9) {
                 cell.labelTitle.text = @"DB";
@@ -343,7 +342,6 @@ typedef NS_ENUM (NSInteger, TableType) {
                 else {
                     cell.labelNumber1.text = @"...";
                 }
-                
                 if (arrKetqua1.count > 0) {
                     cell.labelNumber2.text = [[[arrKetqua1 valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
                 }
@@ -562,9 +560,7 @@ typedef NS_ENUM (NSInteger, TableType) {
              return cell;
             
         }
-
     }
-
     return nil;
 }
 
@@ -577,18 +573,14 @@ typedef NS_ENUM (NSInteger, TableType) {
 
 - (IBAction)ChonMien:(UISegmentedControl *)sender {
     self.typeTableCell = sender.selectedSegmentIndex + 1;
-
-   
 }
 
 -(void)setTypeTableCell:(TableType)typeTableCell {
     _typeTableCell = typeTableCell;
     
     self.segmentChonMien.selectedSegmentIndex = typeTableCell -1;
-    
     if (self.typeTableCell == TableTypeMienBac) {
         if (([[NSDate date] hour] < 18 || ([[NSDate date] hour] == 18 && [[NSDate date] minute] < 15))) {
-            
             self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 18h15'";
             self.indical.hidden = YES;
             self.labelThongbao.hidden = NO;
@@ -604,7 +596,6 @@ typedef NS_ENUM (NSInteger, TableType) {
                 
                 self.showPopUpPhangBac = YES;
             }
-            
         }
         else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
             self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
@@ -613,7 +604,6 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.contraint_H_ViewThongbao.constant = 30;
         }
         else {
-            
             self.labelThongbao.hidden = YES;
             self.indical.hidden = YES;
             self.contraint_H_ViewThongbao.constant = 0;

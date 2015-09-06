@@ -135,6 +135,8 @@
 		6AB640CE1B74A54F005427BF /* ThongkeDauduoiHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AB640CD1B74A54F005427BF /* ThongkeDauduoiHeader.xib */; };
 		6AB640D41B74ACA9005427BF /* TongHaiSoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB640D21B74ACA9005427BF /* TongHaiSoController.m */; };
 		6AB640D51B74ACA9005427BF /* TongHaiSoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AB640D31B74ACA9005427BF /* TongHaiSoController.xib */; };
+		6AC6EE761B9C7A1800520A9D /* DangkiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC6EE741B9C7A1800520A9D /* DangkiController.m */; };
+		6AC6EE771B9C7A1800520A9D /* DangkiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC6EE751B9C7A1800520A9D /* DangkiController.xib */; };
 		6AC778C51B4C2290006AD38A /* giai_mong_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7789E1B4C2290006AD38A /* giai_mong_icon.png */; };
 		6AC778C61B4C2290006AD38A /* giai_mong_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7789F1B4C2290006AD38A /* giai_mong_icon@2x.png */; };
 		6AC778C71B4C2290006AD38A /* huong_dan_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC778A01B4C2290006AD38A /* huong_dan_icon.png */; };
@@ -545,6 +547,9 @@
 		6AB640D11B74ACA9005427BF /* TongHaiSoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TongHaiSoController.h; sourceTree = "<group>"; };
 		6AB640D21B74ACA9005427BF /* TongHaiSoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TongHaiSoController.m; sourceTree = "<group>"; };
 		6AB640D31B74ACA9005427BF /* TongHaiSoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TongHaiSoController.xib; sourceTree = "<group>"; };
+		6AC6EE731B9C7A1800520A9D /* DangkiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DangkiController.h; sourceTree = "<group>"; };
+		6AC6EE741B9C7A1800520A9D /* DangkiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DangkiController.m; sourceTree = "<group>"; };
+		6AC6EE751B9C7A1800520A9D /* DangkiController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DangkiController.xib; sourceTree = "<group>"; };
 		6AC7789E1B4C2290006AD38A /* giai_mong_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giai_mong_icon.png; sourceTree = "<group>"; };
 		6AC7789F1B4C2290006AD38A /* giai_mong_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "giai_mong_icon@2x.png"; sourceTree = "<group>"; };
 		6AC778A01B4C2290006AD38A /* huong_dan_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = huong_dan_icon.png; sourceTree = "<group>"; };
@@ -1897,6 +1902,9 @@
 				6AE6E6AD1B8230350057DBD3 /* DoiMatKhauController.h */,
 				6AE6E6AE1B8230350057DBD3 /* DoiMatKhauController.m */,
 				6AE6E6AF1B8230350057DBD3 /* DoiMatKhauController.xib */,
+				6AC6EE731B9C7A1800520A9D /* DangkiController.h */,
+				6AC6EE741B9C7A1800520A9D /* DangkiController.m */,
+				6AC6EE751B9C7A1800520A9D /* DangkiController.xib */,
 			);
 			path = Taikhoan;
 			sourceTree = "<group>";
@@ -2344,6 +2352,7 @@
 				6AC778C51B4C2290006AD38A /* giai_mong_icon.png in Resources */,
 				6AEDD53B1B5033460036683C /* Monthcalendar.xib in Resources */,
 				6AF383821B80CB8800459938 /* ic_check_box_outline_blank@2x.png in Resources */,
+				6AC6EE771B9C7A1800520A9D /* DangkiController.xib in Resources */,
 				6A20E9AC1B52B14B000168E2 /* ic_arrow_forward_18pt_2x.png in Resources */,
 				6AC778DB1B4C2290006AD38A /* tuong_thuat.png in Resources */,
 				6AFE6E401B4D7732009E750C /* KetquaXosoMainCell.xib in Resources */,
@@ -2525,6 +2534,7 @@
 				6AB0539A1B7701E50089D4BA /* ThongkechukeController.m in Sources */,
 				6AE7B28C1B66887200D250AB /* LotoTypeModel.m in Sources */,
 				6A7F0FCD1B6E6C52003909E4 /* TableSixCell.m in Sources */,
+				6AC6EE761B9C7A1800520A9D /* DangkiController.m in Sources */,
 				6AE973F41B5FDF5700654EBA /* ChontinhCell.m in Sources */,
 				6AE2192B1B72574600FC9525 /* ThongkeSoController.m in Sources */,
 				6AEDD5161B501F0A0036683C /* TableListCell.m in Sources */,

@@ -17,9 +17,9 @@
 + (void)getTuongThuatTrucTiepWithMaMien:(NSInteger)mamien Done:(void (^)(BOOL success,NSArray *arr,NSInteger numberProvince))done {
     
     NSDictionary *dic = @{@"ma_mien": @(mamien)};
-    
    
     [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_TUONGTHUAT_TRUCTIEP] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         if (responseObject &&[responseObject isKindOfClass:[NSArray class]]) {
             
             NSArray *arr = [MTLJSONAdapter modelsOfClass:[TuongthuatModel class] fromJSONArray:responseObject error:nil];
@@ -43,8 +43,22 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error) {
-            done(NO,nil,0);
+            if (mamien == 1) {
+                [self makeKQSXAndLoToMienBacWithArray:nil Done:^(BOOL success, NSArray *arrKqsx) {
+                    done(YES,arrKqsx,1);
+                }];
+            }
+            else if (mamien == 2) {
+                [self makeKQSXAndLoToMienTrungWithArray:nil Done:^(BOOL success, NSArray *arrKqsx,NSInteger numberProvince) {
+                    done(YES,arrKqsx,numberProvince);
+                }];
+            }
+            else {
+                [self makeKQSXAndLoToMienNamWithArray:nil Done:^(BOOL success, NSArray *arrKqsx,NSInteger numberProvince) {
+                    done(YES,arrKqsx,numberProvince);
+                }];
         }
+    }
     }];
 }
 
@@ -177,76 +191,78 @@
                     }
                     
                 }
+                
+                if (i == 6) {
+                    if (termArr0.count < 3 ) {
+                        for (int j = (int)termArr0.count; j < 3; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 3 ) {
+                        for (int j = (int)termArr1.count; j < 3; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 3 ) {
+                        for (int j = (int)termArr2.count; j < 3; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 3 ) {
+                        for (int j = (int)termArr3.count; j < 3; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                }
+                else if (i == 4) {
+                    if (termArr0.count < 7 ) {
+                        for (int j = (int)termArr0.count; j < 7; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 7 ) {
+                        for (int j = (int)termArr1.count; j < 7; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 7 ) {
+                        for (int j = (int)termArr2.count; j < 7; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 7 ) {
+                        for (int j = (int)termArr3.count; j < 7; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                }
+                else if (i == 3) {
+                    if (termArr0.count < 2 ) {
+                        for (int j = (int)termArr0.count; j < 2; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 2 ) {
+                        for (int j = (int)termArr1.count; j < 2; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 2 ) {
+                        for (int j = (int)termArr2.count; j < 2; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 2 ) {
+                        for (int j = (int)termArr3.count; j < 2; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                }
             }
             
             TuongthuatConvertModel *model = [TuongthuatConvertModel new];
             
-            if (i == 6) {
-                if (termArr0.count < 3 ) {
-                    for (int j = (int)termArr0.count; j < 3; j++) {
-                        [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr1.count < 3 ) {
-                    for (int j = (int)termArr1.count; j < 3; j++) {
-                        [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr2.count < 3 ) {
-                    for (int j = (int)termArr2.count; j < 3; j++) {
-                        [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr3.count < 3 ) {
-                    for (int j = (int)termArr3.count; j < 3; j++) {
-                        [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-            }
-            else if (i == 4) {
-                if (termArr0.count < 7 ) {
-                    for (int j = (int)termArr0.count; j < 7; j++) {
-                        [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr1.count < 7 ) {
-                    for (int j = (int)termArr1.count; j < 7; j++) {
-                        [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr2.count < 7 ) {
-                    for (int j = (int)termArr2.count; j < 7; j++) {
-                        [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr3.count < 7 ) {
-                    for (int j = (int)termArr3.count; j < 7; j++) {
-                        [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-            }
-            else if (i == 3) {
-                if (termArr0.count < 2 ) {
-                    for (int j = (int)termArr0.count; j < 2; j++) {
-                        [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr1.count < 2 ) {
-                    for (int j = (int)termArr1.count; j < 2; j++) {
-                        [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr2.count < 2 ) {
-                    for (int j = (int)termArr2.count; j < 2; j++) {
-                        [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-                if (termArr3.count < 2 ) {
-                    for (int j = (int)termArr3.count; j < 2; j++) {
-                        [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
-                    }
-                }
-            }
+            
            
             model.arr = termArr0;
             model.arr1 = termArr1;
@@ -258,12 +274,8 @@
         }
         
         done(YES,muArrKqsx,arrRemoveDuplicate.count);
-        
-        
-
 
     }];
-    
     
 }
 
@@ -285,7 +297,6 @@
                 [muArrProvince addObject:[results firstObject]];
             }
         }
-        
         
         TuongthuatConvertModel *modelTenTinh = [TuongthuatConvertModel new];
         NSArray *arrRemoveDuplicate = [[NSSet setWithArray: muArrProvince] allObjects];
@@ -314,7 +325,6 @@
         for (int i = 9; i >= minmagiai; i--) {
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ma_giai == %@",[NSString stringWithFormat:@"%i",i]];
-            
             NSArray *termArr = [array filteredArrayUsingPredicate:predicate];
             
             NSMutableArray *termArr0 = [NSMutableArray new];
@@ -328,7 +338,18 @@
                     md.ma_giai = [NSString stringWithFormat:@"%i",i];
                     md.ma_tinh = [NSString stringWithFormat:@"%i",k];
                     md.idTuongthuat = @"";
-                    md.ket_qua = @"...";
+                    if (i == 6) {
+                        md.ket_qua = [self numLineDotWithValue:3];
+                    }
+                    else if (i == 4) {
+                        md.ket_qua = [self numLineDotWithValue:7];
+                    }
+                    else if (i == 3) {
+                        md.ket_qua = [self numLineDotWithValue:2];
+                    }
+                    else {
+                        md.ket_qua = [self numLineDotWithValue:1];
+                    }
                     if (k == 0) {
                         [termArr0 addObject:md];
                     }
@@ -360,6 +381,73 @@
                             else if (k == 3) {
                                 [termArr3 addObject:moFilter];
                             }
+                        }
+                    }
+                }
+                
+                if (i == 6) {
+                    if (termArr0.count < 3 ) {
+                        for (int j = (int)termArr0.count; j < 3; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 3 ) {
+                        for (int j = (int)termArr1.count; j < 3; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 3 ) {
+                        for (int j = (int)termArr2.count; j < 3; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 3 ) {
+                        for (int j = (int)termArr3.count; j < 3; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                }
+                else if (i == 4) {
+                    if (termArr0.count < 7 ) {
+                        for (int j = (int)termArr0.count; j < 7; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 7 ) {
+                        for (int j = (int)termArr1.count; j < 7; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 7 ) {
+                        for (int j = (int)termArr2.count; j < 7; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 7 ) {
+                        for (int j = (int)termArr3.count; j < 7; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                }
+                else if (i == 3) {
+                    if (termArr0.count < 2 ) {
+                        for (int j = (int)termArr0.count; j < 2; j++) {
+                            [termArr0 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr1.count < 2 ) {
+                        for (int j = (int)termArr1.count; j < 2; j++) {
+                            [termArr1 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr2.count < 2 ) {
+                        for (int j = (int)termArr2.count; j < 2; j++) {
+                            [termArr2 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
+                        }
+                    }
+                    if (termArr3.count < 2 ) {
+                        for (int j = (int)termArr3.count; j < 2; j++) {
+                            [termArr3 addObject:[self createNewModelWithMaTinh:@"" MaMien:@"" Magiai:@""]];
                         }
                     }
                 }
@@ -399,18 +487,21 @@
 }
 
 +(NSString *)numLineDotWithValue:(NSInteger)value {
-    if (value == 1) {
-        return @"...";
-    }
-    else if (value == 0) {
+     if (value == 0) {
         return @"";
     }
+     else if (value == 1) {
+         return @"...";
+     }
+    
+     else if (value == 2) {
+         return @"...\n...";
+     }
     else {
-        NSString *dot;
-        for (int i = 0; i < value; i ++) {
+        NSString *dot = @"";
+        for (int i = 1; i <= value; i ++) {
             dot = [dot stringByAppendingString:@"...\n"];
         }
-        
         return dot;
     }
 }

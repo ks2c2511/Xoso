@@ -71,6 +71,7 @@
 #define notificationShowInfoUser @"notificationShowInfoUser"
 #define notificationShowHuongDanUser @"notificationShowHuongDanUser"
 #define notificationShowHopthu @"notificationShowHopthu"
+#define notificationShowDangki @"notificationShowDangki"
 #define notificationCapnhatuser @"notificationCapnhatuser"
 #define notifiReloadLoginAPI @"notifiReloadLoginAPI"
 

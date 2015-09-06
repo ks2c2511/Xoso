@@ -158,6 +158,7 @@ static NSString *const identifiCell = @"identificell";
         _dateFormater = [NSDateFormatter new];
         NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"VI"];
         [_dateFormater setLocale:usLocale];
+        _dateFormater.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [_dateFormater setDateFormat:@"MMMM yyyy"];
         
     }

@@ -20,6 +20,14 @@
 	</dict>
 	<dict>
 		<key>icon</key>
+		<string>dang_nhap_icon.png</string>
+		<key>key</key>
+		<string>menu_dang_ki</string>
+		<key>title</key>
+		<string>Đăng kí</string>
+	</dict>
+	<dict>
+		<key>icon</key>
 		<string>chia_se.png</string>
 		<key>key</key>
 		<string>menu_chia_se</string>

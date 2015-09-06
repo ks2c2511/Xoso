@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DangkiController">
+            <connections>
+                <outlet property="tfEmail" destination="tS8-0y-fEI" id="fAH-5q-NUA"/>
+                <outlet property="tfPass" destination="7g5-xr-J5c" id="6DV-rc-WMT"/>
+                <outlet property="tfRepeatPass" destination="n7e-k8-Ihg" id="pew-Uf-kvc"/>
+                <outlet property="tfTaiKhoan" destination="8py-9V-O1T" id="Ego-Ac-TPl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackGround" destination="YVF-Oi-bfB" id="Ghw-En-nHF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="312" placeholderIntrinsicHeight="260" translatesAutoresizingMaskIntoConstraints="NO" id="YVF-Oi-bfB">
+                    <rect key="frame" x="4" y="8" width="312" height="230"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-MT-4Ay" customClass="ButtonBorder">
+                            <rect key="frame" x="107" y="185" width="100" height="37"/>
+                            <color key="backgroundColor" red="0.85098039219999999" green="0.20000000000000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="pVp-qX-4p6"/>
+                                <constraint firstAttribute="height" constant="37" id="tVO-Fi-oJa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Đăng kí">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="Dangki:" destination="-1" eventType="touchUpInside" id="iND-ec-9EN"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Nhập tên tài khoản" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8py-9V-O1T">
+                            <rect key="frame" x="17" y="20" width="279" height="30"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="KcP-NP-M2i"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="g0u-dQ-whO"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Nhập email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tS8-0y-fEI">
+                            <rect key="frame" x="17" y="59" width="279" height="30"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="UkJ-EU-Lhr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="0ue-Ef-TZB"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Nhập mật khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7g5-xr-J5c">
+                            <rect key="frame" x="17" y="100" width="279" height="30"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="vpn-Gc-4l9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="rQJ-UY-BxD"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Nhập lại mật khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n7e-k8-Ihg">
+                            <rect key="frame" x="17" y="143" width="279" height="30"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="flA-LU-8tH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="bXk-jQ-mlm"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n7e-k8-Ihg" secondAttribute="trailing" constant="15" id="2i6-xQ-8LV"/>
+                        <constraint firstItem="n7e-k8-Ihg" firstAttribute="leading" secondItem="YVF-Oi-bfB" secondAttribute="leading" constant="17" id="39n-wK-x6t"/>
+                        <constraint firstAttribute="trailing" secondItem="tS8-0y-fEI" secondAttribute="trailing" constant="16" id="AZH-Yh-Ocx"/>
+                        <constraint firstItem="7g5-xr-J5c" firstAttribute="leading" secondItem="YVF-Oi-bfB" secondAttribute="leading" constant="17" id="AfI-wT-cmW"/>
+                        <constraint firstAttribute="height" constant="230" id="DJe-0T-43F"/>
+                        <constraint firstItem="7g5-xr-J5c" firstAttribute="top" secondItem="tS8-0y-fEI" secondAttribute="bottom" constant="11" id="DVz-MU-QGD"/>
+                        <constraint firstItem="8py-9V-O1T" firstAttribute="leading" secondItem="YVF-Oi-bfB" secondAttribute="leading" constant="17" id="TRw-n2-c2D"/>
+                        <constraint firstAttribute="centerX" secondItem="fYl-MT-4Ay" secondAttribute="centerX" constant="-1" id="UYG-HN-7ul"/>
+                        <constraint firstItem="8py-9V-O1T" firstAttribute="top" secondItem="YVF-Oi-bfB" secondAttribute="top" constant="20" id="ZEX-pK-xyd"/>
+                        <constraint firstAttribute="trailing" secondItem="7g5-xr-J5c" secondAttribute="trailing" constant="16" id="bED-ne-DS7"/>
+                        <constraint firstAttribute="trailing" secondItem="8py-9V-O1T" secondAttribute="trailing" constant="16" id="ddd-7A-Q4d"/>
+                        <constraint firstItem="n7e-k8-Ihg" firstAttribute="top" secondItem="7g5-xr-J5c" secondAttribute="bottom" constant="13" id="j4P-2X-vgz"/>
+                        <constraint firstAttribute="bottom" secondItem="fYl-MT-4Ay" secondAttribute="bottom" constant="8" id="o0O-Tq-jUc"/>
+                        <constraint firstItem="tS8-0y-fEI" firstAttribute="leading" secondItem="YVF-Oi-bfB" secondAttribute="leading" constant="17" id="oyP-ca-Hvs"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7g5-xr-J5c" secondAttribute="trailing" constant="15" id="sv4-wL-FGj"/>
+                        <constraint firstAttribute="trailing" secondItem="n7e-k8-Ihg" secondAttribute="trailing" constant="16" id="teC-HU-ZSF"/>
+                        <constraint firstItem="tS8-0y-fEI" firstAttribute="top" secondItem="8py-9V-O1T" secondAttribute="bottom" constant="9" id="vII-jI-XiB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YVF-Oi-bfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="94N-U9-4Tn"/>
+                <constraint firstAttribute="trailing" secondItem="YVF-Oi-bfB" secondAttribute="trailing" constant="4" id="r4d-vP-XZd"/>
+                <constraint firstItem="YVF-Oi-bfB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="xkz-6V-zeq"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="209" y="317"/>
+        </view>
+    </objects>
+</document>

@@ -57,6 +57,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết nối mạng. Ứng dụng sẽ hiển thị thông tin offline" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         }
     }];
+    self.companyId = 1;
     
     [Province fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"province_id == 1"] success:^(BOOL succeeded, NSArray *objects) {
         if (objects.count !=0) {
@@ -119,8 +120,6 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
          header.labelTitle.text = [NSString stringWithFormat:@"%@, %@",self.labelNameCity.text,[self.dateFormatShow stringFromDate:[self.dateFormat dateFromString:self.selectDate]]];
         [header.buttonLeft addTarget:self action:@selector(RightSwipe:) forControlEvents:UIControlEventTouchUpInside];
         [header.buttonRight addTarget:self action:@selector(LeftSwipe:) forControlEvents:UIControlEventTouchUpInside];
-
-        
         
         return header;
     }
@@ -182,8 +181,6 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         cell.labelDuoiRight.text = [NSString stringWithFormat:@"%li",(long)xemMOdel.gia_tri];
         cell.labelDauRight.text = xemMOdel.dau;
         
-        
-        
         return cell;
     }
    
@@ -219,6 +216,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     if (!_dateFormat) {
         _dateFormat = [NSDateFormatter new];
         _dateFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        _dateFormat.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         [_dateFormat setDateFormat:@"yyyy-MM-dd"];
     }
     return _dateFormat;
@@ -256,7 +254,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             weakSelf.companyId = [pro.province_id integerValue];
            
             [weakSelf.tableListItem reloadData];
-            [weakSelf GetDataDiffrentDay];
+            [weakSelf LoadData];
         }];
         
         [self.view addSubview:_tableListItem];
@@ -286,22 +284,43 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     }];
 }
 
+-(void)GetDataWithScroll {
+    [XemKQXSStore GetResultPreDayWithResultDate:self.selectDate MaTinh:[NSString stringWithFormat:@"%ld",self.companyId] Ckorder:self.quayTruocOrSau KhoangCachDenNgay:1 Done:^(BOOL success, NSArray *arrKqsx, NSArray *arrLoto) {
+         NSMutableArray *muArr = [NSMutableArray new];
+        if (arrKqsx.count != 0) {
+            XemKQXSModel *model = arrKqsx[0];
+            self.selectDate = model.RESULT_DATE;
+            [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
+            [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
+        }
+        
+        self.arrData = muArr;
+        
+        if (self.arrData.count == 0) {
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        }
+        muArr = nil;
+        [self.tableView reloadData];
+    }];
+}
+
 - (IBAction)RightSwipe:(UISwipeGestureRecognizer *)sender {
     
+    self.quayTruocOrSau = 1;
     [UIView transitionWithView:self.tableView
                       duration:.5
                        options:UIViewAnimationOptionTransitionCurlDown
                     animations:^{
-                        self.selectDate = [self.dateFormat stringFromDate:[[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:-60*60*24]];
+                        self.khoangcach +=1;
                         
-                        [self GetDataDiffrentDay];
+                        [self GetDataWithScroll];
                         
                     } completion:nil];
 }
 
 - (IBAction)LeftSwipe:(UISwipeGestureRecognizer *)sender {
 
-
+    self.quayTruocOrSau = 2;
     NSDate *slDate = [[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:24*60*60];
     
     if ([[self.dateFormat dateFromString:self.selectDate] isLaterDate:[self.dateFormat dateFromString:[self.dateFormat stringFromDate:[NSDate date]]]]) {
@@ -315,9 +334,9 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
                        options:UIViewAnimationOptionTransitionCurlUp
                     animations:^{
                         
-                        self.selectDate = [self.dateFormat stringFromDate:slDate];
+                        self.khoangcach -=1;
                         
-                        [self GetDataDiffrentDay];
+                        [self GetDataWithScroll];
                      
                     } completion:nil];
 }
@@ -337,7 +356,6 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         _datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         _datePicker.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     }
-    
     
     return _datePicker;
 }

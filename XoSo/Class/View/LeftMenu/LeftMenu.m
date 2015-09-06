@@ -102,6 +102,9 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
     else if ([key isEqualToString:@"menu_hop_thu"]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowHopthu object:nil];
     }
+    else if ([key isEqualToString:@"menu_dang_ki"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowDangki object:nil];
+    }
     else if ([key isEqualToString:@"menu_cai_dat"]) {
         [UIAlertView showWithTitle:@"Thông báo" message:@"Tính năng đang cập nhật" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
     }
