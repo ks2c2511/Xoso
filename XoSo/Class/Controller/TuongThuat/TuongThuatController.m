@@ -65,7 +65,6 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
 
     self.typeTableCell = TableTypeMienNam;
-    [self loadDataRealTime];
     
 
     if (([[NSDate date] hour] < 16 || ([[NSDate date] hour] == 16 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienNam) {
@@ -106,7 +105,6 @@ typedef NS_ENUM (NSInteger, TableType) {
 }
 
 - (void)getTuongThuatWithMien:(TableType)type {
-    _typeTableCell = type;
     [TuongthuatStore getTuongThuatTrucTiepWithMaMien:type Done: ^(BOOL success, NSArray *arr,NSInteger numberProvince) {
         if (success) {
             _numberProvince = numberProvince;
@@ -585,17 +583,7 @@ typedef NS_ENUM (NSInteger, TableType) {
             self.indical.hidden = YES;
             self.labelThongbao.hidden = NO;
             self.contraint_H_ViewThongbao.constant = 30;
-            
-            if (!self.showPopUpPhangBac) {
-                [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn biết phang con gì ngày mai chưa?" cancelButtonTitle:@"Đã biết" otherButtonTitles:@[@"Chưa biết"] tapBlock:^(UIAlertView *alert, NSInteger buttonIndex) {
-                    if (buttonIndex == 1) {
-                        CauVipController *cauvip = [CauVipController new];
-                        [self.navigationController pushViewController:cauvip animated:YES];
-                    }
-                }];
-                
-                self.showPopUpPhangBac = YES;
-            }
+        
         }
         else if ([[NSDate date] hour] == 18 && [[NSDate date] minute] >= 15 && [[NSDate date] minute] <= 30) {
             self.labelThongbao.text = @"Đang tường thuật xổ số miền Bắc";
@@ -687,7 +675,7 @@ typedef NS_ENUM (NSInteger, TableType) {
         }
     }
     
-    [self getTuongThuatWithMien:self.typeTableCell];
+    [self loadDataRealTime];
     
     if (self.typeTableCell == TableTypeMienBac) {
         self.labelTitle.text = @"Xổ Số Miền Bắc";

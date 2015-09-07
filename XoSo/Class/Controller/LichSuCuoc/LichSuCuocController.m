@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong,nonatomic) NSArray *arrData;
+@property (strong,nonatomic) NSDateFormatter *submitDateFormat;
+@property (strong,nonatomic) NSDateFormatter *dateFormat;
 @end
 
 @implementation LichSuCuocController
@@ -97,6 +99,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSDateFormatter *)dateFormat {
+    if (!_dateFormat) {
+        _dateFormat = [NSDateFormatter new];
+        _dateFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        _dateFormat.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        [_dateFormat setDateFormat:@"dd-MM-yyyy"];
+    }
+    return _dateFormat;
+}
+
+-(NSDateFormatter *)submitDateFormat {
+    if (!_submitDateFormat) {
+        _submitDateFormat = [NSDateFormatter new];
+        _submitDateFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        _submitDateFormat.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        [_submitDateFormat setDateFormat:@"yyyy-MM-dd"];
+    }
+    return _submitDateFormat;
 }
 
 /*

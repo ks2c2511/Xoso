@@ -14,7 +14,7 @@
 #import <UIAlertView+Blocks.h>
 #import "ManageUserStore.h"
 @interface ChangeInfoController () {
-    NSString *userId;
+    NSString *userId,*userName;
     
     BOOL isNam;
 }
@@ -50,6 +50,7 @@
         if (objects.count != 0 ) {
             User *use = [objects firstObject];
             self.tfName.text = use.user_name;
+            userName = use.user_name;
             self.tfEmail.text = use.email;
             self.tfPhone.text = use.phone;
             userId = use.user_id;
@@ -104,7 +105,7 @@
 - (IBAction)DongY:(id)sender {
     
     if ([self checkValid]) {
-        [ManageUserStore changeInfoWithUserId:userId Name:self.tfName.text Email:self.tfEmail.text Phone:self.tfPhone.text GioiTinh:!isNam Done:^(BOOL success,NSString *str) {
+        [ManageUserStore changeInfoWithUserId:userId Name:self.tfName.text OldName:userName Email:self.tfEmail.text Phone:self.tfPhone.text GioiTinh:!isNam Done:^(BOOL success,NSString *str) {
             
             if (success) {
                 [UIAlertView showWithTitle:@"Thành công" message:@"Cập nhật thông tin thành công" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];

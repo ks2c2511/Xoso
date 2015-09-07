@@ -72,13 +72,25 @@
     }];
 }
 
-+(void)changeInfoWithUserId:(NSString *)userId Name:(NSString *)name Email:(NSString *)email Phone:(NSString *)phone GioiTinh:(NSInteger)gioitinh Done:(void(^)(BOOL success,NSString *str))done {
-    NSDictionary *dic = @{@"user_id": !userId?@"":userId,
-                          @"user_name": !name?@"":name,
-                          @"user_phone": !phone?@"":phone,
-                          @"user_email": !email?@"":email,
-                          @"user_gender":@(gioitinh)
-                          };
++(void)changeInfoWithUserId:(NSString *)userId Name:(NSString *)name OldName:(NSString *)oldName Email:(NSString *)email Phone:(NSString *)phone GioiTinh:(NSInteger)gioitinh Done:(void(^)(BOOL success,NSString *str))done {
+    
+    NSDictionary *dic;
+    if (name == nil || [name isEqualToString:oldName]) {
+        dic = @{@"user_id": !userId?@"":userId,
+                @"user_phone": !phone?@"":phone,
+                @"user_email": !email?@"":email,
+                @"user_gender":@(gioitinh)
+                };
+    }
+    else {
+        dic = @{@"user_id": !userId?@"":userId,
+                @"user_name": !name?@"":name,
+                @"user_phone": !phone?@"":phone,
+                @"user_email": !email?@"":email,
+                @"user_gender":@(gioitinh)
+                };
+    }
+   
     
     [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_CHANGE_INFO] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {

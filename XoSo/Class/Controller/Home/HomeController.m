@@ -56,6 +56,9 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         if (objects.count != 0) {
             _user = [objects firstObject];
         }
+        else {
+            _user = nil;
+        }
     }];
 
     self.bannerView.adUnitID = google_id_Ad;
@@ -176,69 +179,54 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         }];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"loto_online"]) {
-        LotoOnlineController *lotoOnline = [LotoOnlineController new];
-        [self.navigationController pushViewController:lotoOnline animated:YES];
+        if ([self checkUser]) {
+            LotoOnlineController *lotoOnline = [LotoOnlineController new];
+            [self.navigationController pushViewController:lotoOnline animated:YES];
+        }
+       
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"kiem_xu"]) {
+        if ([self checkUser]) {
         KiemxuController *kiemXu = [KiemxuController new];
         [self.navigationController pushViewController:kiemXu animated:YES];
+        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"lich_su_choi"]) {
+        if ([self checkUser]) {
         LichSuCuocController *history = [LichSuCuocController new];
         [self.navigationController pushViewController:history animated:YES];
+        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"tuong_thuat"]) {
         TuongThuatController *tuongthuat = [TuongThuatController new];
         [self.navigationController pushViewController:tuongthuat animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
-//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-//                if (buttonIndex == 1) {
-//                    KiemxuController *kiemXu = [KiemxuController new];
-//                    [self.navigationController pushViewController:kiemXu animated:YES];
-//                }
-//            }];
-//            return;
-//        }
-//        else {
 
+
+        if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             ThongKeController *thongke = [ThongKeController new];
             [self.navigationController pushViewController:thongke animated:YES];
-//        }
+        }
+        
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
-//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-//                if (buttonIndex == 1) {
-//                    KiemxuController *kiemXu = [KiemxuController new];
-//                    [self.navigationController pushViewController:kiemXu animated:YES];
-//                }
-//            }];
-//            return;
-//        }
-//        else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-            SoiCauController *soicau = [SoiCauController new];
-            [self.navigationController pushViewController:soicau animated:YES];
-//        }
+         if ([self checkUser]) {
+             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+             SoiCauController *soicau = [SoiCauController new];
+             [self.navigationController pushViewController:soicau animated:YES];
+         }
+        
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
-//        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-//            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-//                if (buttonIndex == 1) {
-//                    KiemxuController *kiemXu = [KiemxuController new];
-//                    [self.navigationController pushViewController:kiemXu animated:YES];
-//                }
-//            }];
-//            return;
-//        }
-//        else {
+
+        if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             CauVipController *soicau = [CauVipController new];
             [self.navigationController pushViewController:soicau animated:YES];
-//        }
+        }
+        
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"giai_mong"]) {
         GiaiMongController *giaimong = [GiaiMongController new];
@@ -249,8 +237,28 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         [self.navigationController pushViewController:quaythu animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"phong_chat"]) {
-        ChatLevelOneController *chat = [ChatLevelOneController new];
-        [self.navigationController pushViewController:chat animated:YES];
+        if ([self checkUser]) {
+            ChatLevelOneController *chat = [ChatLevelOneController new];
+            [self.navigationController pushViewController:chat animated:YES];
+        }
+       
+    }
+}
+
+-(BOOL)checkUser {
+    if (self.user == nil) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Bác chưa đăng nhập. Hãy đăng nhập để sử dụng dịch vụ." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đăng nhập",@"Đăng kí"] tapBlock:^(UIAlertView *alert, NSInteger buttonIxdex) {
+            if (buttonIxdex == 1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowLoginOtherUser object:nil];
+            }
+            else if (buttonIxdex == 2) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowDangki object:nil];
+            }
+        }];
+        return NO;
+    }
+    else {
+        return YES;
     }
 }
 

@@ -10,11 +10,13 @@
 #import "LeftMenuCell.h"
 #import "ConstantDefine.h"
 #import <UIAlertView+Blocks.h>
-
+#import "User.h"
+#import <NSManagedObject+GzDatabase.h>
 
 static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 @interface LeftMenu () <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) NSArray *arrData;
+@property (strong, nonatomic) User *user;
 @end
 
 @implementation LeftMenu
@@ -31,6 +33,16 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 }
 
 -(void)settingTableMenu {
+    
+    [User fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            _user = [objects firstObject];
+        }
+        else {
+            _user = nil;
+        }
+    }];
+    
     _arrData = [[NSArray alloc]
                 initWithContentsOfFile:[[NSBundle mainBundle]
                                         pathForResource:@"LeftMenuData"
@@ -83,7 +95,10 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
     
     NSString *key = self.arrData[indexPath.row][@"key"];
     if ([key isEqualToString:@"menu_tai_khoan"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowManageUser object:nil];
+        if ([self checkUser]) {
+             [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowManageUser object:nil];
+        }
+       
     }
     else if ([key isEqualToString:@"menu_dang_nhap"]) {
          [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowLoginOtherUser object:nil];
@@ -100,13 +115,32 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowHuongDanUser object:nil];
     }
     else if ([key isEqualToString:@"menu_hop_thu"]) {
+        if ([self checkUser]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowHopthu object:nil];
+        }
     }
     else if ([key isEqualToString:@"menu_dang_ki"]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowDangki object:nil];
     }
     else if ([key isEqualToString:@"menu_cai_dat"]) {
         [UIAlertView showWithTitle:@"Thông báo" message:@"Tính năng đang cập nhật" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+    }
+}
+
+-(BOOL)checkUser {
+    if (self.user == nil) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Bác chưa đăng nhập. Hãy đăng nhập để sử dụng dịch vụ." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đăng nhập",@"Đăng kí"] tapBlock:^(UIAlertView *alert, NSInteger buttonIxdex) {
+            if (buttonIxdex == 1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowLoginOtherUser object:nil];
+            }
+            else if (buttonIxdex == 2) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowDangki object:nil];
+            }
+        }];
+        return NO;
+    }
+    else {
+        return YES;
     }
 }
 

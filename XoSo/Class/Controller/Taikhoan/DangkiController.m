@@ -11,6 +11,7 @@
 #import "ManageUserStore.h"
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
+#import "LoginUser.h"
 
 @interface DangkiController () {
     NSString *userId,*userName,*userPhone;
@@ -37,15 +38,15 @@
     self.viewBackGround.layer.borderWidth = 6.0;
     self.viewBackGround.layer.cornerRadius = 6.0;
     
-    [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
-        if (objects.count != 0 ) {
-            User *use = [objects firstObject];
-            
-            userId = use.user_id;
-            gioitinh = [use.gender boolValue];
-            
-        }
-    }];
+//    [User fetchAllInBackgroundWithBlock:^(BOOL succeeded, NSArray *objects) {
+//        if (objects.count != 0 ) {
+//            User *use = [objects firstObject];
+//            
+//            userId = use.user_id;
+//            gioitinh = [use.gender boolValue];
+//            
+//        }
+//    }];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -60,27 +61,41 @@
 - (IBAction)Dangki:(id)sender {
     if ([self isValid]) {
         
-        [ManageUserStore changeInfoWithUserId:userId Name:self.tfTaiKhoan.text Email:self.tfEmail.text Phone:userPhone GioiTinh:gioitinh Done:^(BOOL success,NSString *str) {
-            
+        [LoginUser registerUserWithUserName:self.tfTaiKhoan.text Password:self.tfPass.text Phone:@"123456789" Email:self.tfEmail.text Gender:1 User_Phone_Id:[[NSUUID UUID] UUIDString] Done:^(BOOL success) {
             if (success) {
-                [ManageUserStore changeInfoWithUserId:userId Pass:self.tfPass.text Done:^(BOOL success) {
-                    
-                    if (success) {
-                        [UIAlertView showWithTitle:@"Thành công" message:@"Đăng kí thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-                    }
-                    else {
-                        [UIAlertView showWithTitle:@"Lỗi" message:@"Có lỗi xảy ra trong quá trình đăng kí. Vui lòng thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                    }
-                }];
-                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
+                
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Đăng kí thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
             }
             else {
-                if ([str isEqualToString:@"username_is_exits"]) {
-                    [UIAlertView showWithTitle:@"Lỗi" message:@"Tài khoản đã tồn tại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                }
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Đăng kí thất bại. Tài khoản đã tồn tại. Xin thử lại" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
             }
+            
+            
         }];
+        
+//        [ManageUserStore changeInfoWithUserId:userId Name:self.tfTaiKhoan.text Email:self.tfEmail.text Phone:userPhone GioiTinh:gioitinh Done:^(BOOL success,NSString *str) {
+//            
+//            if (success) {
+//                [ManageUserStore changeInfoWithUserId:userId Pass:self.tfPass.text Done:^(BOOL success) {
+//                    
+//                    if (success) {
+//                        [UIAlertView showWithTitle:@"Thành công" message:@"Đăng kí thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+//                    }
+//                    else {
+//                        [UIAlertView showWithTitle:@"Lỗi" message:@"Có lỗi xảy ra trong quá trình đăng kí. Vui lòng thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//                    }
+//                }];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+//            }
+//            else {
+//                if ([str isEqualToString:@"username_is_exits"]) {
+//                    [UIAlertView showWithTitle:@"Lỗi" message:@"Tài khoản đã tồn tại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+//                }
+//            }
+//        }];
     }
     
 }

@@ -40,7 +40,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mọi góp ý xin gọi: 094 363 7588 hoặc email: enrich_the_life@hotmail.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VY7-l4-UWB">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Mọi góp ý xin gọi: 094 363 7588 hoặc email: kytaixoso@gmail.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VY7-l4-UWB">
                             <rect key="frame" x="8" y="68" width="296" height="48"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
