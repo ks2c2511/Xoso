@@ -60,10 +60,10 @@
 - (IBAction)Dangki:(id)sender {
     if ([self isValid]) {
         [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
-        [LoginUser registerUserWithUserName:self.tfTaiKhoan.text Password:self.tfPass.text Phone:@"123456789" Email:self.tfEmail.text Gender:1 User_Phone_Id:[[NSUUID UUID] UUIDString] Done: ^(BOOL success) {
+        [LoginUser registerUserWithUserName:self.tfTaiKhoan.text Password:self.tfPass.text Phone:@"" Email:self.tfEmail.text Gender:1 User_Phone_Id:[[NSUUID UUID] UUIDString] Done: ^(BOOL success) {
             if (success) {
                 [UIAlertView showWithTitle:@"Thông báo" message:@"Đăng kí thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock: ^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
                     [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
                 }];
             }

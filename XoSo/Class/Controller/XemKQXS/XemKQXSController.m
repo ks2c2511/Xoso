@@ -89,6 +89,9 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
             [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
         }
+        else {
+            [UIAlertView showWithTitle:@"Thông báo" message:@"Không thể lấy dữ liệu từ server." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        }
         
         self.arrData = muArr;
         muArr = nil;

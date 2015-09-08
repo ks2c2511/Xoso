@@ -100,7 +100,6 @@
             NSArray *arrData = [MTLJSONAdapter modelsOfClass:[XemKQXSModel class] fromJSONArray:returnData error:nil];
             
             [self saveKetquaWithMOdels:arrData];
-            
 
             [self makeKQSXAndLoToWithArray:arrData Done:^(BOOL success, NSArray *arrKqsx, NSArray *arrLoto) {
                 

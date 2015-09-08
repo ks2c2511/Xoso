@@ -87,7 +87,7 @@
             if (success) {
                 [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
                 [UIAlertView showWithTitle:@"Thành công" message:@"Đăng nhập thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
                     [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
 
                 }];
