@@ -39,6 +39,18 @@
                 [user saveToPersistentStore];
                 
             }
+            else {
+                User *user = [User CreateEntityDescription];
+                user.user_id = responseObject[0][@"user_id"];
+                user.user_name = responseObject[0][@"user_name"];
+                user.password = responseObject[0][@"user_password"];
+                user.email = responseObject[0][@"user_email"];
+                user.phone = responseObject[0][@"user_phone"];
+                user.gender = @([responseObject[0][@"user_gender"] integerValue]);
+                user.point = @([responseObject[0][@"point"] integerValue]);
+                [user saveToPersistentStore];
+
+            }
             done (YES,nil);
             
         }
@@ -115,6 +127,18 @@
                 [user saveToPersistentStore];
                 
             }
+            else {
+                User *user = [User CreateEntityDescription];
+                user.user_id = responseObject[0][@"user_id"];
+                user.user_name = responseObject[0][@"user_name"];
+                user.password = responseObject[0][@"user_password"];
+                user.email = responseObject[0][@"user_email"];
+                user.phone = responseObject[0][@"user_phone"];
+                user.gender = @([responseObject[0][@"user_gender"] integerValue]);
+                user.point = @([responseObject[0][@"point"] integerValue]);
+                [user saveToPersistentStore];
+
+            }
             done (YES,nil);
             
         }
@@ -153,6 +177,18 @@
                 user.point = @([responseObject[0][@"point"] integerValue]);
                 [user saveToPersistentStore];
                 
+            }
+            else {
+                User *user = [User CreateEntityDescription];
+                user.user_id = responseObject[0][@"user_id"];
+                user.user_name = responseObject[0][@"user_name"];
+                user.password = responseObject[0][@"user_password"];
+                user.email = responseObject[0][@"user_email"];
+                user.phone = responseObject[0][@"user_phone"];
+                user.gender = @([responseObject[0][@"user_gender"] integerValue]);
+                user.point = @([responseObject[0][@"point"] integerValue]);
+                [user saveToPersistentStore];
+
             }
             done(YES);
             

@@ -34,7 +34,6 @@
                 [user DeleteThis];
             }
             
-            if (arr.count == 0) {
                 User *user = [User CreateEntityDescription];
                 user.user_id = responseObject[@"user_id"];
                 user.user_name = responseObject[@"user_name"];
@@ -46,7 +45,7 @@
                 user.phone_id =userPhoneId;
                 [user saveToPersistentStore];
                 
-            }
+
 
             done (YES);
        
@@ -94,6 +93,17 @@
                 user.point = @([responseObject[0][@"point"] integerValue]);
                 [user saveToPersistentStore];
                 
+            }
+            else {
+                User *user = [User CreateEntityDescription];
+                user.user_id = responseObject[0][@"user_id"];
+                user.user_name = responseObject[0][@"user_name"];
+                user.password = responseObject[0][@"user_password"];
+                user.email = responseObject[0][@"user_email"];
+                user.phone = responseObject[0][@"user_phone"];
+                user.gender = @([responseObject[0][@"user_gender"] integerValue]);
+                user.point = @([responseObject[0][@"point"] integerValue]);
+                [user saveToPersistentStore];
             }
             done(YES);
             

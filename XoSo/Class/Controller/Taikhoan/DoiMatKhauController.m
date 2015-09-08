@@ -72,7 +72,9 @@
 - (IBAction)DongY:(id)sender {
     
     if ([self checkValid]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [ManageUserStore changeInfoWithUserId:userId Pass:self.tfPass.text Done:^(BOOL success) {
+            [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
             
             if (success) {
                 [UIAlertView showWithTitle:@"Thành công" message:@"Cập nhật thông tin thành công" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];

@@ -10,6 +10,7 @@
 #import <MarqueeLabel.h>
 #import "ConstantDefine.h"
 #import <UIAlertView+Blocks.h>
+#import <MRProgressOverlayView.h>
 
 @interface BaseController : UIViewController
 @property (strong,nonatomic) MarqueeLabel *labelNavigationTitleRun;

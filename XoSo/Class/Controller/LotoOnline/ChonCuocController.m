@@ -165,8 +165,7 @@
     else {
         self.popupView.alpha = 0;
         self.loto.soxu = [self.textfieldNhapSo.text integerValue];
-        
-      
+
         
         [LotoOnlineStore postLotoWithDate:self.loto.date LotoTypeId:self.loto.lotoTypeId LotoNumber:[NSString stringFromArray:self.loto.arrCuoc] PointDatCuoc:self.loto.soxu Done:^(BOOL success, id data) {
             if (success) {

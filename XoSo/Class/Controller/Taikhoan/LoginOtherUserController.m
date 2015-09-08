@@ -14,7 +14,6 @@
 #import "QuenPassController.h"
 
 
-
 @interface LoginOtherUserController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonLuuMatKhau;
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
@@ -82,10 +81,19 @@
 - (IBAction)DangNhap:(id)sender {
     
     if ([self validSubmit]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [ManageUserStore LoginOtherUserWithUserName:self.textfieldNameUser.text Pass:self.textfieldPass.text Done:^(BOOL success,NSString *str) {
+            [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
             if (success) {
-                 [UIAlertView showWithTitle:@"Thành công" message:@"Đăng nhập thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
-                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
+                [UIAlertView showWithTitle:@"Thành công" message:@"Đăng nhập thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
+
+                }];
+            }
+            else {
+                 [UIAlertView showWithTitle:@"Thất bại" message:@"Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin tài khoản." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
             }
         }];
     }

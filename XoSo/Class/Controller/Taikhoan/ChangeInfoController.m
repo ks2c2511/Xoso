@@ -105,7 +105,9 @@
 - (IBAction)DongY:(id)sender {
     
     if ([self checkValid]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [ManageUserStore changeInfoWithUserId:userId Name:self.tfName.text OldName:userName Email:self.tfEmail.text Phone:self.tfPhone.text GioiTinh:!isNam Done:^(BOOL success,NSString *str) {
+            [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
             
             if (success) {
                 [UIAlertView showWithTitle:@"Thành công" message:@"Cập nhật thông tin thành công" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
@@ -115,9 +117,7 @@
                 if ([str isEqualToString:@"username_is_exits"]) {
                     [UIAlertView showWithTitle:@"Lỗi" message:@"Tài khoản đã tồn tại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
                 }
-                
             }
-            
         }];
     }
 }

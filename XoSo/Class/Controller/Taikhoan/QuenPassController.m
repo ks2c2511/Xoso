@@ -48,7 +48,9 @@
 - (IBAction)LayMatKhau:(id)sender {
     
     if ([self checkValid]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [ManageUserStore QuenMatkhauWithEmail:self.textfieldEmail.text Done:^(BOOL success) {
+            [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
             
             [UIAlertView showWithTitle:@"Thành công" message:@"Mật khẩu mới được gửi tới email của bạn." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
             self.textfieldEmail.text = @"";

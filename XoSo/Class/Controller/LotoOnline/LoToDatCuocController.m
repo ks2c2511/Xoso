@@ -105,10 +105,7 @@
     return cell;
 }
 
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-   
     
     LotoTypeModel *model = self.currentModel.arrLotoType[indexPath.row];
     self.loto.lotoTypeId = [NSString stringWithFormat:@"%@",model.LOTTO_TYPE_ID];
@@ -142,7 +139,6 @@
     ChontinhCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ChontinhCell class]) forIndexPath:indexPath];
     
     [self configureCell:cell forRowAtIndexPath:indexPath];
-    
     
     return cell;
 }

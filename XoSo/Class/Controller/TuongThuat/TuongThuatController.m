@@ -94,13 +94,13 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self getTuongThuatWithMien:self.typeTableCell];
     NSInteger currentHour = [[NSDate date] hour];
     if (self.typeTableCell == TableTypeMienBac && currentHour >= 18 && currentHour <= 19) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 10];
     }
     else if (self.typeTableCell == TableTypeMienTrung && currentHour >= 17 && currentHour <= 18) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 10];
     }
     else if (self.typeTableCell == TableTypeMienNam && currentHour >= 16 && currentHour <= 17) {
-        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 60];
+        [self performSelector:@selector(loadDataRealTime) withObject:nil afterDelay:1 * 10];
     }
 }
 
@@ -331,7 +331,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
                 
                 if (arrKetqua.count > 0) {
                    
@@ -418,7 +418,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
                 if (arrKetqua.count > 0) {
                     cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
                 }
@@ -527,7 +527,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
                 if (arrKetqua.count > 0) {
                     cell.labelNUmber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
                 }
