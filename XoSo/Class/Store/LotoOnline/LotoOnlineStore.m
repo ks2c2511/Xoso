@@ -64,9 +64,9 @@
             model2.regionName = @"Miền Trung";
             
             LotoRegionModel *model3 = [LotoRegionModel new];
-            model3.arrLotoType = arrType2;
+            model3.arrLotoType = arrType3;
             model3.arrProvince = [[NSSet setWithArray: arrProvince3] allObjects];
-            model3.regionId = @"2";
+            model3.regionId = @"3";
             model3.regionName = @"Miền Nam";
             
             done(YES,@[model1,model2,model3]);
