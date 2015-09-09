@@ -10,6 +10,7 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "LichSuChoiCell.h"
 #import "HistoryStore.h"
+#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 @interface LichSuCuocController () {
     NSInteger currentPage;
 }
@@ -25,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Lịch sử cá cược";
+    
+    _tableView.tableFooterView = [UIView new];
     
     currentPage= 1;
     
@@ -48,7 +51,53 @@
         }
        
     }];
+    
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    refreshControl.triggerVerticalOffset = 10;
+    refreshControl.tintColor = [UIColor blackColor];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]
+                                      initWithString:@"Tải thêm"
+                                      attributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }];
+    [refreshControl addTarget:self
+                       action:@selector(refresh:)
+             forControlEvents:UIControlEventValueChanged];
+    self.tableView.bottomRefreshControl = refreshControl;
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)refresh:(UIRefreshControl *)refrest {
+    currentPage +=1;
+    [HistoryStore getHistoryWithPage:currentPage Done:^(BOOL success, NSArray *data) {
+        
+        [refrest endRefreshing];
+        if (success) {
+            if (self.showFutureCuoc) {
+                NSPredicate *pre  = [NSPredicate predicateWithFormat:@"STATUS == %@",[NSString stringWithFormat:@"%i",1]];
+                _arrData = [data filteredArrayUsingPredicate:pre];
+            }
+            else {
+                NSMutableArray *muArr = [NSMutableArray arrayWithArray:_arrData];
+                [muArr addObjectsFromArray:data];
+                
+                
+                NSMutableArray *muArrIndexpaths = [NSMutableArray new];
+                for (int i = (int)_arrData.count; i < muArr.count; i ++) {
+                    [muArrIndexpaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+                }
+                
+                
+                
+                _arrData = muArr;
+                
+                [self.tableView insertRowsAtIndexPaths:muArrIndexpaths withRowAnimation:UITableViewRowAnimationAutomatic];
+                muArr = nil;
+                muArrIndexpaths = nil;
+            }
+            
+            [self.tableView reloadData];
+        }
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource
