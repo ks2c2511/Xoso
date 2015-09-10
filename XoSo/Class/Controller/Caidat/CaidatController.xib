@@ -82,7 +82,7 @@
                         <action selector="ThongBao:" destination="-1" eventType="touchUpInside" id="llj-Hz-bjU"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-hH-B3P">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-hH-B3P">
                     <rect key="frame" x="267" y="48" width="24" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="hGh-ej-iz0"/>

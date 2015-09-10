@@ -73,6 +73,7 @@
 #define notificationShowHopthu @"notificationShowHopthu"
 #define notificationShowDangki @"notificationShowDangki"
 #define notificationCapnhatuser @"notificationCapnhatuser"
+#define notificationCaiDat @"notificationCaiDat"
 #define notifiReloadLoginAPI @"notifiReloadLoginAPI"
 
 //constance
@@ -104,4 +105,5 @@
 //userDefault
 
 #define user_default_loaded_local_database @"user_default_loaded_local_database"
+#define user_default_save_login_user @"user_default_save_login_user"
 #endif

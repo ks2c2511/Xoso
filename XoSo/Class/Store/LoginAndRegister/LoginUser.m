@@ -65,9 +65,9 @@
 }
 
 +(void)loginWithUserName:(NSString *)user_name Pass:(NSString *)pass DeviceId:(NSString *)deviceId Done:(void (^)(BOOL success))done {
-    NSDictionary *dic = @{@"USER_NAME": user_name,
-                          @"USER_PASSWORD":pass,
-                          @"android_ID":deviceId,
+    NSDictionary *dic = @{@"USER_NAME": !user_name?@"":user_name,
+                          @"USER_PASSWORD":!pass?@"":pass,
+                          @"android_ID":!deviceId?@"":deviceId,
                           @"type_login":@(5)
                           };
     

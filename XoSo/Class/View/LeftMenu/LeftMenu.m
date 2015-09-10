@@ -124,6 +124,8 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
     }
     else if ([key isEqualToString:@"menu_cai_dat"]) {
         [UIAlertView showWithTitle:@"Thông báo" message:@"Tính năng đang cập nhật" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        
+//         [[NSNotificationCenter defaultCenter] postNotificationName:notificationCaiDat object:nil];
     }
 }
 

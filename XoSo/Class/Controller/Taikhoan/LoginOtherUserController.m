@@ -12,6 +12,8 @@
 #import <UIAlertView+Blocks.h>
 #import "ManageUserStore.h"
 #import "QuenPassController.h"
+#import "User.h"
+#import <NSManagedObject+GzDatabase.h>
 
 
 @interface LoginOtherUserController ()
@@ -40,6 +42,25 @@
     
     self.navigationItem.title = @"Đăng nhập";
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
+    
+    _isSavePass = [[NSUserDefaults standardUserDefaults] boolForKey:user_default_save_login_user];
+    
+    if (self.isSavePass) {
+        [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+            if (objects.count != 0) {
+                User *user = objects[0];
+                self.textfieldNameUser.text = user.user_name;
+                self.textfieldPass.text = user.password;
+            }
+        }];
+    }
+    
+    if (self.isSavePass) {
+        [self.buttonLuuMatKhau setImage:[UIImage imageNamed:@"ic_check_box"] forState:UIControlStateNormal];
+    }
+    else {
+        [self.buttonLuuMatKhau setImage:[UIImage imageNamed:@"ic_check_box_outline_blank.png"] forState:UIControlStateNormal];
+    }
     
     
     self.viewBackGround.layer.borderColor = [UIColor colorWithRed:70.0/255.0 green:35.0/255.0 blue:4.0/255.0 alpha:1.0].CGColor;
@@ -74,6 +95,9 @@
     else {
          [self.buttonLuuMatKhau setImage:[UIImage imageNamed:@"ic_check_box_outline_blank.png"] forState:UIControlStateNormal];
     }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:_isSavePass forKey:user_default_save_login_user];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -87,6 +111,7 @@
             if (success) {
                 [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
                 [UIAlertView showWithTitle:@"Thành công" message:@"Đăng nhập thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    
                     [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
                     [[NSNotificationCenter defaultCenter] postNotificationName:notification_show_home object:nil];
 

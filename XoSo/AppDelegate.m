@@ -30,6 +30,7 @@
 #import "TuongThuatController.h"
 #import "KiemxuController.h"
 #import "DangkiController.h"
+#import "CaidatController.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -133,6 +134,7 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHuongdan) name:notificationShowHuongDanUser object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showHomThu) name:notificationShowHopthu object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDangki) name:notificationShowDangki object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCaidat) name:notificationCaiDat object:nil];
     
   
     
@@ -282,6 +284,14 @@
     
     [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
     }];
+}
+-(void)showCaidat {
+    CaidatController *caidat = [CaidatController new];
+    self.navigationController.viewControllers = @[caidat];
+    
+    [self.slidingViewController resetTopViewAnimated:YES onComplete:^{
+    }];
+    
 }
 -(void)showInfo {
     ThongtinController *tt = [ThongtinController new];
