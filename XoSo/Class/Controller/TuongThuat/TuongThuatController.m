@@ -64,9 +64,17 @@ typedef NS_ENUM (NSInteger, TableType) {
     [self.tableView registerClass:[TableMIenTrungCell class] forCellReuseIdentifier:NSStringFromClass([TableMIenTrungCell class])];
     [self.tableView registerClass:[TableMienNamCell class] forCellReuseIdentifier:NSStringFromClass([TableMienNamCell class])];
 
-    self.typeTableCell = TableTypeMienNam;
-    
 
+    
+    if ([[NSDate date] hour] < 17) {
+         self.typeTableCell = TableTypeMienNam;
+    }
+    else if ([[NSDate date] hour] >= 17 && [[NSDate date] hour] < 18) {
+        self.typeTableCell = TableTypeMienTrung;
+    }
+    else {
+        self.typeTableCell = TableTypeMienBac;
+    }
     if (([[NSDate date] hour] < 16 || ([[NSDate date] hour] == 16 && [[NSDate date] minute] < 15)) && self.typeTableCell == TableTypeMienNam) {
         
         self.labelThongbao.text = @"Chưa có kết quả, mời bạn quay lại sau 16h15'";
