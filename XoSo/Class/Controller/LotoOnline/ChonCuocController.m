@@ -170,7 +170,7 @@
         [LotoOnlineStore postLotoWithDate:self.loto.date LotoTypeId:self.loto.lotoTypeId LotoNumber:[NSString stringFromArray:self.loto.arrCuoc] PointDatCuoc:self.loto.soxu Done:^(BOOL success, id data) {
             if (success) {
                 LichSuCuocController *lichsu = [LichSuCuocController new];
-                lichsu.showFutureCuoc = YES;
+//                lichsu.showFutureCuoc = YES;
                 [self.navigationController pushViewController:lichsu animated:YES];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];

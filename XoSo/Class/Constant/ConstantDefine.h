@@ -33,6 +33,7 @@
 #define GET_CAP_NHAT @"http://aviostore.com/?tool=apk&name=xo_so_IOS"
 #define POST_REGISTER @"register_default_user.php"
 #define POST_LOGIN @"login.php"
+#define POST_CAPNHAT @"process/return_user_info.php"
 #define GET_LOTO_TYPE @"return_locaion_lototype_id.php"
 #define GET_REAL_TIME_SERVER @"get_server_current_date.php"
 #define POST_SEND_NUMBER_LOTO_ONLINE @"process/insert_lotonumber_userpoint.php"
@@ -73,6 +74,7 @@
 #define notificationShowHopthu @"notificationShowHopthu"
 #define notificationShowDangki @"notificationShowDangki"
 #define notificationCapnhatuser @"notificationCapnhatuser"
+#define notificationCaiDat @"notificationCaiDat"
 #define notifiReloadLoginAPI @"notifiReloadLoginAPI"
 
 //constance
@@ -104,4 +106,5 @@
 //userDefault
 
 #define user_default_loaded_local_database @"user_default_loaded_local_database"
+#define user_default_save_login_user @"user_default_save_login_user"
 #endif

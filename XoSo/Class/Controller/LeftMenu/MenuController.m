@@ -41,18 +41,20 @@
     }];
    
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:notifiReloadLoginAPI object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
-            if (objects.count != 0) {
-                User *use = [objects firstObject];
-                self.labelInfoProfile.attributedText = [self attWithName:use.user_name Email:use.email SurPlus:[use.point integerValue]];
-                
-            }
-            else {
-                self.labelInfoProfile.text = @"Bạn chưa đăng nhập. Hãy đăng nhập hoặc đăng kí để trải nghiệm đầy đủ tính năng của Xổ Số Huyền Thoại nhé";
-            }
-        }];
-    }];
+//    [[NSNotificationCenter defaultCenter] addObserverForName:notifiReloadLoginAPI object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+//            if (objects.count != 0) {
+//                User *use = [objects firstObject];
+//                self.labelInfoProfile.attributedText = [self attWithName:use.user_name Email:use.email SurPlus:[use.point integerValue]];
+//                
+//            }
+//            else {
+//                self.labelInfoProfile.text = @"Bạn chưa đăng nhập. Hãy đăng nhập hoặc đăng kí để trải nghiệm đầy đủ tính năng của Xổ Số Huyền Thoại nhé";
+//            }
+//        }];
+//    }];
+    
+    [self loginApp];
     
     
     
@@ -61,9 +63,25 @@
     }];
 
 
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginApp) name:notifiReloadLoginAPI object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(capnhatUser) name:notifiReloadLoginAPI object:nil];
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)capnhatUser {
+    [User fetchAllWithBlock:^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            User *user = [objects firstObject];
+            [LoginUser capnhatUserWithUSerName:user.user_name Done:^(BOOL success) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
+                
+            }];
+        }
+        else {
+            self.labelInfoProfile.text = @"Bạn chưa đăng nhập. Hãy đăng nhập hoặc đăng kí để trải nghiệm đầy đủ tính năng của Xổ Số Huyền Thoại nhé";
+        }
+        
+    }];
 }
 
 -(void)loginApp {
@@ -71,9 +89,12 @@
         if (objects.count != 0) {
             User *user = [objects firstObject];
             [LoginUser loginWithUserName:user.user_name Pass:user.password DeviceId:user.phone_id Done:^(BOOL success) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationCapnhatuser object:nil];
                 
             }];
+        }
+        else {
+             self.labelInfoProfile.text = @"Bạn chưa đăng nhập. Hãy đăng nhập hoặc đăng kí để trải nghiệm đầy đủ tính năng của Xổ Số Huyền Thoại nhé";
         }
        
     }];
