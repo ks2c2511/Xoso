@@ -83,9 +83,10 @@
                 LotoResult *loto = [LotoResult new];
                 loto.date = [NSString stringWithFormat:@"%li-%li-%li", (long)year, (long)month, (long)day];
                 datcuoc.loto = loto;
-                datcuoc.isBac = weakSelf.isBac;
-                datcuoc.isTrung = weakSelf.isTrung;
-                datcuoc.isNam = weakSelf.isNam;
+                datcuoc.isBac = YES;
+                datcuoc.isTrung = YES;
+                datcuoc.isNam = YES;
+
                 [weakSelf.navigationController pushViewController:datcuoc animated:YES];
             }
         }];
