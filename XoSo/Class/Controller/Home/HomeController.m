@@ -93,7 +93,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
                         return;
                     }
                     else {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadAndTruTien object:nil];
                         CauVipController *soicau = [CauVipController new];
                         [self.navigationController pushViewController:soicau animated:YES];
                     }

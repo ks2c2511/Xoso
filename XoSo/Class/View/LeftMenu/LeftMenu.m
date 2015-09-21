@@ -34,14 +34,7 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 
 -(void)settingTableMenu {
     
-    [User fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
-        if (objects.count != 0) {
-            _user = [objects firstObject];
-        }
-        else {
-            _user = nil;
-        }
-    }];
+   
     
     _arrData = [[NSArray alloc]
                 initWithContentsOfFile:[[NSBundle mainBundle]
@@ -130,6 +123,14 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 }
 
 -(BOOL)checkUser {
+    NSArray * arr = [User fetchAll];
+    if (arr.count != 0) {
+        _user = [arr firstObject];
+    }
+    else {
+        _user = nil;
+    }
+    
     if (self.user == nil) {
         [UIAlertView showWithTitle:@"Thông báo" message:@"Bác chưa đăng nhập. Hãy đăng nhập để sử dụng dịch vụ." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đăng nhập",@"Đăng kí"] tapBlock:^(UIAlertView *alert, NSInteger buttonIxdex) {
             if (buttonIxdex == 1) {

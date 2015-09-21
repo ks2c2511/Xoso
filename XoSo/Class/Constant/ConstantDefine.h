@@ -76,6 +76,7 @@
 #define notificationCapnhatuser @"notificationCapnhatuser"
 #define notificationCaiDat @"notificationCaiDat"
 #define notifiReloadLoginAPI @"notifiReloadLoginAPI"
+#define notifiReloadAndTruTien @"notifiReloadAndTruTien"
 
 //constance
 

@@ -14,4 +14,6 @@
 +(void)loginWithUserName:(NSString *)user_name Pass:(NSString *)pass DeviceId:(NSString *)deviceId Done:(void (^)(BOOL success))done;
 
 + (void)capnhatUserWithUSerName:(NSString *)userName Done:(void (^)(BOOL success))done;
+
++(void)truTienWithUserName:(NSString *)user_name Pass:(NSString *)pass DeviceId:(NSString *)deviceId Done:(void (^)(BOOL success))done;
 @end

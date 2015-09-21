@@ -148,15 +148,21 @@
 
 - (IBAction)SelectSecment:(CustomSegment *)sender {
     if (!self.isBac && sender.selectedSegmentIndex == 0) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Bắc" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Bắc" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
         return;
     }
     if (!self.isTrung && sender.selectedSegmentIndex == 1) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Trung" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Trung" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
         return;
     }
     if (!self.isNam && sender.selectedSegmentIndex == 2) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Nam" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Đã hết giờ chơi xổ số miền Nam" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
         return;
     }
 
