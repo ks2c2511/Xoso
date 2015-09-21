@@ -7,7 +7,6 @@
 //
 
 #import "LichSuCuocController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "LichSuChoiCell.h"
 #import "HistoryStore.h"
 #import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>

@@ -7,7 +7,6 @@
 //
 
 #import "KiemxuController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import "NapquaSMS.h"

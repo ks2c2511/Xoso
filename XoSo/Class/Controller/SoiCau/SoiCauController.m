@@ -11,7 +11,6 @@
 #import "Province.h"
 #import <NSManagedObject+GzDatabase.h>
 #import "SoiCauStore.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "CauVipStore.h"
 
 @interface SoiCauController ()

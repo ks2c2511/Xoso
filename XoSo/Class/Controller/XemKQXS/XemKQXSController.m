@@ -17,7 +17,6 @@
 #import "TableListItem.h"
 #import "Province.h"
 #import <NSManagedObject+GzDatabase.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <GzInternetConnection.h>
 #import <UIAlertView+Blocks.h>
 #import "NSDate+Category.h"

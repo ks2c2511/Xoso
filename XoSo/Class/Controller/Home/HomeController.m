@@ -16,7 +16,6 @@
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <UIImageView+WebCache.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "KiemxuController.h"
 #import "LichSuCuocController.h"
 #import "TuongThuatController.h"

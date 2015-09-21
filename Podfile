@@ -11,7 +11,6 @@ target 'XoSo' do
 	pod 'MRProgress/Overlay', '~> 0.8.1'
     pod 'MarqueeLabel', '~> 2.1.1'
     pod 'THCalendarDatePicker', '~> 1.1.1'
-    pod 'Google-Mobile-Ads-SDK', '~> 7.0'
     pod 'ActionSheetPicker-3.0', '~> 1.5.1'
     pod 'FMDB', '~> 2.5'
     pod 'UIAlertView+Blocks', '~> 0.9'
@@ -19,7 +18,7 @@ target 'XoSo' do
     pod 'UIColor+uiGradients'
     pod 'CCBottomRefreshControl'
     pod 'IDMPhotoBrowser'
-    pod 'GoogleAnalytics-iOS-SDK'
+    pod 'GoogleAnalytics', '~> 3.13.0'
 end
 
 

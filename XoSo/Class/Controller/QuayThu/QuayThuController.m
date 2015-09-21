@@ -7,7 +7,6 @@
 //
 
 #import "QuayThuController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define RANDOM_INT(__MIN__, __MAX__) ((__MIN__) + arc4random() % ((__MAX__+1) - (__MIN__)))
 

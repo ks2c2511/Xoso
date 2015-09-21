@@ -7,7 +7,6 @@
 //
 
 #import "ThongtinController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface ThongtinController ()
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;

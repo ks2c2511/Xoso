@@ -8,7 +8,6 @@
 //
 
 #import "HopThuController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "HopThuCell.h"
 #import "HopThuStore.h"
 #import <UIAlertView+Blocks.h>

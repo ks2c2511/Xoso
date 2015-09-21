@@ -9,7 +9,6 @@
 #import "ManageUserController.h"
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <UIAlertView+Blocks.h>
 #import "LoginOtherUserController.h"
 #import "ChangeInfoController.h"

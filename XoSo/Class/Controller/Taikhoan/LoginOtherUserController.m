@@ -7,7 +7,6 @@
 //
 
 #import "LoginOtherUserController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import <NSString+GzCategory.h>
 #import <UIAlertView+Blocks.h>
 #import "ManageUserStore.h"

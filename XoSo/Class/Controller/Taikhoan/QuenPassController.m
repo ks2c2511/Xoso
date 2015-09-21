@@ -7,7 +7,6 @@
 //
 
 #import "QuenPassController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "ManageUserStore.h"
 #import <UIAlertView+Blocks.h>
 #import <NSString+GzCategory.h>

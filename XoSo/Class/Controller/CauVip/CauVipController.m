@@ -7,7 +7,6 @@
 //
 
 #import "CauVipController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "CauVipStore.h"
 #import "TableListItem.h"
 #import <UIAlertView+Blocks.h>

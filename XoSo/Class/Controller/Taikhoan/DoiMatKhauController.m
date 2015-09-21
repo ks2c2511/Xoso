@@ -7,7 +7,6 @@
 //
 
 #import "DoiMatKhauController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "User.h"
 #import <NSManagedObject+GzDatabase.h>
 #import <NSString+GzCategory.h>

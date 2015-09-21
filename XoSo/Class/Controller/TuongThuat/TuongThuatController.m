@@ -14,7 +14,6 @@
 #import "TableSixCell.h"
 #import "TableMIenTrungCell.h"
 #import "TableMienNamCell.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "TuongthuatStore.h"
 #import "CalendarData.h"
 #import "NSDate+Category.h"
