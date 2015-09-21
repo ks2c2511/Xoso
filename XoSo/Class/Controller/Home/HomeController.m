@@ -183,18 +183,17 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             LotoOnlineController *lotoOnline = [LotoOnlineController new];
             [self.navigationController pushViewController:lotoOnline animated:YES];
         }
-       
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"kiem_xu"]) {
         if ([self checkUser]) {
-        KiemxuController *kiemXu = [KiemxuController new];
-        [self.navigationController pushViewController:kiemXu animated:YES];
+            KiemxuController *kiemXu = [KiemxuController new];
+            [self.navigationController pushViewController:kiemXu animated:YES];
         }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"lich_su_choi"]) {
         if ([self checkUser]) {
-        LichSuCuocController *history = [LichSuCuocController new];
-        [self.navigationController pushViewController:history animated:YES];
+            LichSuCuocController *history = [LichSuCuocController new];
+            [self.navigationController pushViewController:history animated:YES];
         }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"tuong_thuat"]) {
@@ -202,31 +201,30 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         [self.navigationController pushViewController:tuongthuat animated:YES];
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"thong_ke"]) {
-
-
         if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             ThongKeController *thongke = [ThongKeController new];
             [self.navigationController pushViewController:thongke animated:YES];
         }
-        
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
-         if ([self checkUser]) {
-             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-             SoiCauController *soicau = [SoiCauController new];
-             [self.navigationController pushViewController:soicau animated:YES];
-         }
-        
-    }
-    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
-
         if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-            CauVipController *soicau = [CauVipController new];
-            [self.navigationController pushViewController:soicau animated:YES];
+            if ([self checkTienTrongtaikhoan]) {
+                SoiCauController *soicau = [SoiCauController new];
+                [self.navigationController pushViewController:soicau animated:YES];
+            }
         }
-        
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
+        if ([self checkUser]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+            if ([self checkTienTrongtaikhoan]) {
+                CauVipController *soicau = [CauVipController new];
+                [self.navigationController pushViewController:soicau animated:YES];
+            }
+
+        }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"giai_mong"]) {
         GiaiMongController *giaimong = [GiaiMongController new];
@@ -241,18 +239,35 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             ChatLevelOneController *chat = [ChatLevelOneController new];
             [self.navigationController pushViewController:chat animated:YES];
         }
-       
     }
 }
 
--(BOOL)checkUser {
+- (BOOL)checkUser {
     if (self.user == nil) {
-        [UIAlertView showWithTitle:@"Thông báo" message:@"Bác chưa đăng nhập. Hãy đăng nhập để sử dụng dịch vụ." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đăng nhập",@"Đăng kí"] tapBlock:^(UIAlertView *alert, NSInteger buttonIxdex) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Bác chưa đăng nhập. Hãy đăng nhập để sử dụng dịch vụ." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đăng nhập", @"Đăng kí"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIxdex) {
             if (buttonIxdex == 1) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowLoginOtherUser object:nil];
             }
             else if (buttonIxdex == 2) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:notificationShowDangki object:nil];
+            }
+        }];
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
+- (BOOL)checkTienTrongtaikhoan {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+        return NO;
+    }
+    if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn kiếm xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+            if (buttonIndex == 1) {
+                KiemxuController *kiemXu = [KiemxuController new];
+                [self.navigationController pushViewController:kiemXu animated:YES];
             }
         }];
         return NO;
@@ -268,8 +283,18 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
                     initWithContentsOfFile:[[NSBundle mainBundle]
                                             pathForResource:@"HomeData"
                                             ofType:@"plist"]];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+            NSMutableArray *muArr = [NSMutableArray arrayWithArray:_arrData];
+            [muArr addObject:[self dicWithIconName:@"kiem_xu_" Key:@"kiem_xu" Title:@"Kiếm xu"]];
+            _arrData = muArr;
+            muArr = nil;
+        }
     }
     return _arrData;
+}
+
+- (NSDictionary *)dicWithIconName:(NSString *)iconName Key:(NSString *)key Title:(NSString *)title {
+    return @{ @"iconname": iconName, @"key":key, @"title":title };
 }
 
 - (void)didReceiveMemoryWarning {

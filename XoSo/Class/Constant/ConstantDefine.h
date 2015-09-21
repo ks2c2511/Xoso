@@ -87,14 +87,17 @@
 #define key_push_pushthongbao @"pushthongbao"
 #define key_push_pushcongtien @"pushcongtien"
 
+#define key_push_alert_mien_bac_quay_so @"key_push_alert_mien_bac_quay_so"
+#define key_push_alert_mien_trung_quay_so @"key_push_alert_mien_trung_quay_so"
+#define key_push_alert_mien_nam_quay_so @"key_push_alert_mien_nam_quay_so"
+
+#define key_turn_on_nap_the @"key_turn_on_nap_the"
+
 #define pushNotifiReceiveRemotePush @"pushNotifiReceiveRemotePush"
 
 #define push_API_key @"AIzaSyCw0keCM-K2JCEnkbmkZUbJmOczmBgYdNU"
 
-
-
-
-#define google_id_Ad @"ca-app-pub-8172894227923068/6488921439"
+#define google_id_Ad @"ca-app-pub-1324387466247949/9205490675"
 
 #define thong_ke_cap_so @"thongkecapso"
 #define thong_ke_chuave @"chuave"

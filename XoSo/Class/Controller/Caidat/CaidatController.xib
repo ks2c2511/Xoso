@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CaidatController">
             <connections>
                 <outlet property="buttonMIenTrung" destination="zMN-uJ-glr" id="aL5-TH-Z9N"/>
-                <outlet property="buttonMienBac" destination="DmY-tX-txU" id="fOp-nz-1lQ"/>
+                <outlet property="buttonMienBac" destination="DmY-tX-txU" id="D1Q-B8-b9l"/>
                 <outlet property="buttonMienNam" destination="1aw-ye-FCO" id="FoX-gQ-bFQ"/>
                 <outlet property="buttonRungChuong" destination="f0z-WE-E92" id="v49-6t-ygb"/>
-                <outlet property="buttonThongbao" destination="65f-Fj-L3s" id="QXH-x3-hoU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,76 +19,65 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông báo kết quả" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxs-Kv-kWR">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông báo kết quả khi quay xong:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxs-Kv-kWR">
                     <rect key="frame" x="21" y="16" width="278" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="AZA-G6-bk7"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aw-ye-FCO">
-                    <rect key="frame" x="34" y="168" width="257" height="30"/>
+                    <rect key="frame" x="20" y="133" width="271" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="i31-N4-e2r"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Miền Nam" image="ic_check_box_outline_blank.png">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="Nam:" destination="-1" eventType="touchUpInside" id="3W3-MA-Xui"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMN-uJ-glr">
-                    <rect key="frame" x="34" y="130" width="257" height="30"/>
+                    <rect key="frame" x="20" y="95" width="271" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="8PK-V9-kY5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Miền Trung" image="ic_check_box_outline_blank.png">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="Trung:" destination="-1" eventType="touchUpInside" id="IfF-pS-DD9"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmY-tX-txU">
-                    <rect key="frame" x="34" y="92" width="257" height="30"/>
+                    <rect key="frame" x="20" y="57" width="271" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="vyv-Mp-Zj9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Miền Bắc" image="ic_check_box_outline_blank.png">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65f-Fj-L3s" customClass="ButtonBorder">
-                    <rect key="frame" x="21" y="45" width="278" height="41"/>
-                    <color key="backgroundColor" white="0.8608167830266451" alpha="1" colorSpace="calibratedWhite"/>
-                    <rect key="contentStretch" x="0.69999999999999973" y="0.0" width="0.0" height="0.0"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="41" id="T0q-wn-0TV"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Thông báo khi quay xong">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="ThongBao:" destination="-1" eventType="touchUpInside" id="llj-Hz-bjU"/>
+                        <action selector="Bac:" destination="-1" eventType="touchUpInside" id="okQ-fY-V6M"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="JHd-hH-B3P">
-                    <rect key="frame" x="267" y="48" width="24" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="hGh-ej-iz0"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông báo kết quả" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moF-WA-KIw">
-                    <rect key="frame" x="27" y="228" width="278" height="21"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông báo kết quả" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moF-WA-KIw">
+                    <rect key="frame" x="27" y="193" width="278" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="pjl-De-aUu"/>
                     </constraints>
@@ -97,21 +85,21 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q3l-je-DJO">
-                    <rect key="frame" x="273" y="260" width="24" height="35"/>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_18pt.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q3l-je-DJO">
+                    <rect key="frame" x="273" y="225" width="24" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="kH1-Uo-VZP"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuE-IT-lkk" customClass="GADBannerView">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuE-IT-lkk" customClass="GADBannerView">
                     <rect key="frame" x="0.0" y="454" width="320" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="cGH-MC-SaI"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-WE-E92" customClass="ButtonBorder">
-                    <rect key="frame" x="27" y="257" width="278" height="41"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-WE-E92" customClass="ButtonBorder">
+                    <rect key="frame" x="27" y="222" width="278" height="41"/>
                     <color key="backgroundColor" white="0.8608167830266451" alpha="1" colorSpace="calibratedWhite"/>
                     <rect key="contentStretch" x="0.69999999999999973" y="0.0" width="0.0" height="0.0"/>
                     <constraints>
@@ -123,47 +111,38 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="RungChuong:" destination="-1" eventType="touchUpInside" id="Bdv-BK-0Oz"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="65f-Fj-L3s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="53H-IM-NHq"/>
                 <constraint firstItem="Q3l-je-DJO" firstAttribute="trailing" secondItem="f0z-WE-E92" secondAttribute="trailing" constant="-8" id="Duu-Os-Csr"/>
                 <constraint firstAttribute="trailing" secondItem="zMN-uJ-glr" secondAttribute="trailing" constant="29" id="E7y-Ul-jvN"/>
-                <constraint firstAttribute="trailing" secondItem="65f-Fj-L3s" secondAttribute="trailing" constant="21" id="EGd-6f-AKV"/>
                 <constraint firstItem="f0z-WE-E92" firstAttribute="top" secondItem="moF-WA-KIw" secondAttribute="bottom" constant="8" id="FAt-ps-eRa"/>
                 <constraint firstAttribute="trailing" secondItem="kuE-IT-lkk" secondAttribute="trailing" id="Glo-GZ-ck3"/>
                 <constraint firstAttribute="trailing" secondItem="Kxs-Kv-kWR" secondAttribute="trailing" constant="21" id="JNZ-g7-idV"/>
                 <constraint firstItem="1aw-ye-FCO" firstAttribute="top" secondItem="zMN-uJ-glr" secondAttribute="bottom" constant="8" id="LMc-6c-ziv"/>
                 <constraint firstItem="f0z-WE-E92" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="NUy-un-3Xq"/>
                 <constraint firstAttribute="trailing" secondItem="1aw-ye-FCO" secondAttribute="trailing" constant="29" id="O0l-C5-FDf"/>
-                <constraint firstItem="DmY-tX-txU" firstAttribute="top" secondItem="65f-Fj-L3s" secondAttribute="bottom" constant="6" id="PL0-Nb-PZg"/>
-                <constraint firstItem="65f-Fj-L3s" firstAttribute="top" secondItem="JHd-hH-B3P" secondAttribute="top" constant="-3" id="Prt-73-eOZ"/>
                 <constraint firstItem="moF-WA-KIw" firstAttribute="top" secondItem="1aw-ye-FCO" secondAttribute="bottom" constant="30" id="TIz-v2-gvW"/>
                 <constraint firstAttribute="bottom" secondItem="kuE-IT-lkk" secondAttribute="bottom" id="Vod-QC-C7z"/>
                 <constraint firstAttribute="trailing" secondItem="moF-WA-KIw" secondAttribute="trailing" constant="15" id="Xy3-uY-o4W"/>
                 <constraint firstItem="Kxs-Kv-kWR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="Z7p-b9-ijG"/>
                 <constraint firstItem="Q3l-je-DJO" firstAttribute="bottom" secondItem="f0z-WE-E92" secondAttribute="bottom" constant="-3" id="aSd-gT-DTa"/>
                 <constraint firstItem="moF-WA-KIw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="bcK-7D-moO"/>
-                <constraint firstItem="1aw-ye-FCO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="fV5-h0-Z5F"/>
-                <constraint firstItem="DmY-tX-txU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="hGv-5g-iVb"/>
-                <constraint firstItem="65f-Fj-L3s" firstAttribute="trailing" secondItem="JHd-hH-B3P" secondAttribute="trailing" constant="8" id="kCe-v0-Amf"/>
-                <constraint firstItem="zMN-uJ-glr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="mBW-Rb-qgX"/>
+                <constraint firstItem="1aw-ye-FCO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fV5-h0-Z5F"/>
+                <constraint firstItem="DmY-tX-txU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="hGv-5g-iVb"/>
+                <constraint firstItem="zMN-uJ-glr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="mBW-Rb-qgX"/>
                 <constraint firstItem="Q3l-je-DJO" firstAttribute="top" secondItem="f0z-WE-E92" secondAttribute="top" constant="3" id="oWQ-hl-u8m"/>
                 <constraint firstAttribute="trailing" secondItem="f0z-WE-E92" secondAttribute="trailing" constant="15" id="owK-Ki-fpD"/>
                 <constraint firstAttribute="trailing" secondItem="DmY-tX-txU" secondAttribute="trailing" constant="29" id="pcW-WG-S7Y"/>
                 <constraint firstItem="kuE-IT-lkk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="r0B-9w-qEx"/>
                 <constraint firstItem="zMN-uJ-glr" firstAttribute="top" secondItem="DmY-tX-txU" secondAttribute="bottom" constant="8" id="rS0-qo-Xhy"/>
-                <constraint firstItem="65f-Fj-L3s" firstAttribute="bottom" secondItem="JHd-hH-B3P" secondAttribute="bottom" constant="3" id="rVv-jL-v1E"/>
+                <constraint firstItem="DmY-tX-txU" firstAttribute="top" secondItem="Kxs-Kv-kWR" secondAttribute="bottom" constant="20" id="rZ9-Ev-63u"/>
                 <constraint firstItem="Kxs-Kv-kWR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="xBh-hh-Qdj"/>
-                <constraint firstItem="65f-Fj-L3s" firstAttribute="top" secondItem="Kxs-Kv-kWR" secondAttribute="bottom" constant="8" id="yCW-it-cZj"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="401" y="150"/>
+            <point key="canvasLocation" x="370" y="164"/>
         </view>
     </objects>
     <resources>
