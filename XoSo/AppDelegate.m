@@ -31,6 +31,7 @@
 #import "KiemxuController.h"
 #import "DangkiController.h"
 #import "CaidatController.h"
+#import <StartApp/StartApp.h>
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
@@ -56,7 +57,7 @@
 
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:key_turn_on_nap_the];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
+
 
     self.window.rootViewController = [SplashController new];
 
@@ -211,6 +212,10 @@
             }
         }
     }
+
+    STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
+    sdk.appID = @"208348443";
+    sdk.devID =@"103281770";
 
     return YES;
 }

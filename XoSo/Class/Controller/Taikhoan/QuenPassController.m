@@ -15,7 +15,6 @@
 @interface QuenPassController ()
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
 @property (weak, nonatomic) IBOutlet UITextField *textfieldEmail;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 - (IBAction)LayMatKhau:(id)sender;
 
 @end
@@ -25,9 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+
     
     self.navigationItem.title = @"Lấy lại mật khẩu";
     

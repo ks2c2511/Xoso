@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfPhone;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNam;
 @property (weak, nonatomic) IBOutlet UIButton *buttonNu;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 - (IBAction)DongY:(id)sender;
 - (IBAction)ChonGioiTinh:(UIButton *)sender;
 
@@ -35,9 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+
     
     self.navigationItem.title = @"Đổi thông tin";
     

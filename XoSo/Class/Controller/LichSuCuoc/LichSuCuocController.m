@@ -15,7 +15,6 @@
     NSInteger currentPage;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong,nonatomic) NSArray *arrData;
 @property (strong,nonatomic) NSDateFormatter *submitDateFormat;
 @property (strong,nonatomic) NSDateFormatter *dateFormat;
@@ -31,9 +30,6 @@
     
     currentPage= 1;
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
     
     [self.tableView registerClass:[LichSuChoiCell class] forCellReuseIdentifier:NSStringFromClass([LichSuChoiCell class])];
     

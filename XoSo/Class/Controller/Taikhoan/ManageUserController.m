@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelDienThoai;
 @property (weak, nonatomic) IBOutlet UILabel *labelGioiTinh;
 @property (weak, nonatomic) IBOutlet UILabel *labelSodu;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
 - (IBAction)Dangnhapuserkhac:(id)sender;
 - (IBAction)Thaydoithongtin:(id)sender;
@@ -35,9 +34,6 @@
     [super viewDidLoad];
     self.navigationItem.title =@"Tài khoản";
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
     
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
     

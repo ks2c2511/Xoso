@@ -17,7 +17,6 @@
 @interface CauVipController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonTInhMienTrung;
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonTinhMienNam;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) TableListItem *tableListItem;
 @property (strong,nonatomic) NSArray *arrMienTrung,*arrMienName;
 @property (assign, nonatomic) NSInteger matinhTrung,matinhNam;

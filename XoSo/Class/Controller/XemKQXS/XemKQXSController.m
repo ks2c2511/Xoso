@@ -132,9 +132,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
             header = [[LotoDauDuoiHeader alloc] initWithReuseIdentifier:identifi_LotoDauDuoiHeader];
         }
         
-        header.bannerView.adUnitID = google_id_Ad;
-        header.bannerView.rootViewController = self;
-        [header.bannerView loadRequest:[GADRequest request]];
+       
         return header;
     }
 }

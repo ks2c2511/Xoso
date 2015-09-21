@@ -15,7 +15,6 @@
 
 @interface HopThuController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong,nonatomic) NSArray *arrData;
 @end
 
@@ -25,9 +24,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Hộp thư";
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+    
     
     [self.tableView registerClass:[HopThuCell class] forCellReuseIdentifier:NSStringFromClass([HopThuCell class])];
     self.tableView.tableFooterView = [UIView new];

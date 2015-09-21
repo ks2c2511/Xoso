@@ -10,7 +10,6 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface ThongtinController ()
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
 - (IBAction)OpenFacebook:(id)sender;
 
@@ -22,9 +21,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Thông tin";
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+   
     
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
     

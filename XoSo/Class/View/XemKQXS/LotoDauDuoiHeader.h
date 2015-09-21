@@ -11,6 +11,5 @@
 
 
 @interface LotoDauDuoiHeader : UITableViewHeaderFooterView
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 
 @end

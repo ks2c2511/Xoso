@@ -32,7 +32,6 @@ typedef NS_ENUM (NSInteger, TableType) {
 @property (weak, nonatomic) IBOutlet UIButton *buttonMIennam;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) NSArray *arrData;
 @property (assign, nonatomic) TableType typeTableCell;
 @property (assign,nonatomic) NSInteger numberProvince;
@@ -52,9 +51,7 @@ typedef NS_ENUM (NSInteger, TableType) {
     self.navigationItem.title = @"Tường thuật trực tiếp";
     self.imageBackGround.hidden = YES;
 
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+  
 
     [self.tableView registerClass:[TableBacOneCell class] forCellReuseIdentifier:NSStringFromClass([TableBacOneCell class])];
     [self.tableView registerClass:[TableBacTwoCell class] forCellReuseIdentifier:NSStringFromClass([TableBacTwoCell class])];

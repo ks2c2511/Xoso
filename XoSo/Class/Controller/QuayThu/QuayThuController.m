@@ -14,7 +14,6 @@
 @interface QuayThuController ()
 - (IBAction)Quay:(id)sender;
 @property (assign,nonatomic) BOOL isQuay;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 
 @end
 
@@ -25,10 +24,7 @@
     self.navigationItem.title = @"Quay thử XSMB";
     self.imageBackGround.hidden = YES;
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-    // Do any additional setup after loading the view from its nib.
+       // Do any additional setup after loading the view from its nib.
 }
 
 -(void)randomNumber {

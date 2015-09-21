@@ -27,7 +27,6 @@
 @property (strong, nonatomic) TableListItem *tableMaMien;
 @property (assign, nonatomic) NSInteger matinh,mamien;
 @property (strong,nonatomic) NSArray *arrMien;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong,nonatomic) NSArray *arrMienTrung,*arrMienName;
 @property (assign, nonatomic) NSInteger matinhTrung,matinhNam;
 
@@ -69,10 +68,7 @@
     [self loadData];
     
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-    // Do any additional setup after loading the view from its nib.
+      // Do any additional setup after loading the view from its nib.
 }
 
 -(void)loadData {

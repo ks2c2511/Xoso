@@ -18,7 +18,6 @@
 
 @interface LoginOtherUserController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonLuuMatKhau;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UITextField *textfieldNameUser;
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
 @property (weak, nonatomic) IBOutlet UITextField *textfieldPass;
@@ -35,10 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+
     
     self.navigationItem.title = @"Đăng nhập";
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;

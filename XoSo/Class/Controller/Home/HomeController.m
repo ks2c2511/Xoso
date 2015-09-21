@@ -32,7 +32,6 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *arrData;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) Notifi *notifi;
 @property (strong, nonatomic) User *user;
 @end
@@ -61,10 +60,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         }
     }];
 
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-
+ 
 
     [[NSNotificationCenter defaultCenter] addObserverForName:pushNotifiReceiveRemotePush object:nil queue:nil usingBlock: ^(NSNotification *note) {
         NSDictionary *userInfo = note.userInfo;

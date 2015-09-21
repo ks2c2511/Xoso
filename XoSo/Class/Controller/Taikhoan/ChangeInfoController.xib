@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeInfoController">
             <connections>
-                <outlet property="bannerView" destination="UpJ-e0-Izf" id="g0p-jR-Xw5"/>
                 <outlet property="buttonNam" destination="DZj-EG-7ui" id="CBZ-6A-yQF"/>
                 <outlet property="buttonNu" destination="H8U-vO-zYN" id="bBu-cZ-JbX"/>
                 <outlet property="tfEmail" destination="o5D-Ef-WCi" id="M0f-9h-ffP"/>
@@ -176,7 +174,7 @@
                         <constraint firstItem="DZj-EG-7ui" firstAttribute="leading" secondItem="EO6-pO-fsM" secondAttribute="trailing" constant="8" id="yO7-dT-oVB"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-e0-Izf" customClass="GADBannerView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-e0-Izf" customClass="CustomBanner">
                     <rect key="frame" x="0.0" y="366" width="320" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

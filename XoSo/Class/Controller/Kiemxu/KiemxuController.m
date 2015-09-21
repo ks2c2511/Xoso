@@ -16,7 +16,6 @@
 @interface KiemxuController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelSoXu;
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong,nonatomic) NSString *userId;
 - (IBAction)CaiUngDung:(id)sender;
 - (IBAction)NapTheCao:(id)sender;
@@ -28,9 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Kiếm xu";
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+    
     
     self.viewBackGround.layer.borderColor = [UIColor colorWithRed:70.0/255.0 green:35.0/255.0 blue:4.0/255.0 alpha:1.0].CGColor;
     self.viewBackGround.layer.borderWidth = 6.0;

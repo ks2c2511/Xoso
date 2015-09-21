@@ -18,7 +18,6 @@
     NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UIView *viewBackGround;
-@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UITextField *tfPass;
 @property (weak, nonatomic) IBOutlet UITextField *tfRepeatPass;
 - (IBAction)DongY:(id)sender;
@@ -39,9 +38,7 @@
         }
     }];
     
-    self.bannerView.adUnitID = google_id_Ad;
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
+   
     
     self.navigationItem.title = @"Đổi thông tin";
     
