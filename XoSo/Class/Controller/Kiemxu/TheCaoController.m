@@ -32,6 +32,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Nạp xu qua tài khoản";
     self.imageBackGround.hidden = YES;
+    self.loaimang = @"vinaphone";
     
 }
 
@@ -92,12 +93,22 @@
 - (IBAction)Gui:(id)sender {
     
     if ([self isValid]) {
+        [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
         [NaptheStore getNapTheWithsUserId:self.userId Carttype:self.loaimang CartData:self.tfMathe.text Serial:self.tfSoserial.text Done:^(BOOL success, NSString *str) {
+            [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
             if (success) {
                 [UIAlertView showWithTitle:@"Thông báo" message:@"Nạp thẻ thành công." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
             }
             else {
-                [UIAlertView showWithTitle:@"Thông báo" message:@"Nạp thẻ thất bại, xin thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                if (str) {
+                    [UIAlertView showWithTitle:@"Thông báo" message:str cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                }
+                else {
+                    [UIAlertView showWithTitle:@"Thông báo" message:@"Nạp thẻ thất bại, xin thử lại." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
+                }
+                
             }
         }];
     }

@@ -102,7 +102,7 @@ static NSInteger const maxWidthpercentView = 190;
     NSDictionary *dic = self.arrData[indexPath.row];
     NSString *soluong = [dic objectForKey:[NSString stringWithFormat:@"tong%i",(int)indexPath.row]];
 
-        cell.labelNumber.text = [NSString stringWithFormat:@"%d",indexPath.row];
+        cell.labelNumber.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
         cell.labelPercent.text = [NSString stringWithFormat:@"%@ lần", soluong];
 
         cell.contraint_W_PercentView.constant = 10;

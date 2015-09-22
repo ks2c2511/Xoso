@@ -335,7 +335,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
                 
                 if (arrKetqua.count > 0) {
                    
@@ -422,7 +422,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
                 if (arrKetqua.count > 0) {
                     cell.labelNumber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
                 }
@@ -531,7 +531,7 @@ typedef NS_ENUM (NSInteger, TableType) {
                 }
             }
             else {
-                cell.labelTitle.text = [NSString stringWithFormat:@"%d",9 - indexPath.row];
+                cell.labelTitle.text = [NSString stringWithFormat:@"%ld",9 - indexPath.row];
                 if (arrKetqua.count > 0) {
                     cell.labelNUmber1.text = [[[arrKetqua valueForKeyPath:@"ket_qua"] valueForKey:@"description"] componentsJoinedByString:@"\n"];
                 }

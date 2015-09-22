@@ -94,7 +94,7 @@
 
 - (IBAction)Gui:(id)sender {
     
-    [self showSMS:@""];
+    [self showSMS:[NSString stringWithFormat:@"PK %@",self.userId]];
 }
 
 - (IBAction)Thoat:(id)sender {

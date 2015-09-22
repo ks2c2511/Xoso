@@ -2884,7 +2884,7 @@
 					"\"AdSupport\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9305969-df97-4ede-8dda-17df3e3ec67f";
+				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -2979,7 +2979,7 @@
 					"\"AdSupport\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c0be6d3d-a613-4523-aa8e-d6c5bc9e1868";
+				PROVISIONING_PROFILE = "13ad2bb9-37db-4de0-88df-2c4fc3f5417e";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

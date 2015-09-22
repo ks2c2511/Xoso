@@ -39,18 +39,30 @@
 }
 
 +(void)getNapTheWithsUserId:(NSString *)userId Carttype:(NSString *)cartType CartData:(NSString *)cardData Serial:(NSString *)serial Done:(void(^)(BOOL success,NSString *str))done {
-    [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_NAP_QUA_THE] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *dic = @{@"u_id":userId,
+                          @"cardtype":cartType,
+                          @"cardData":cardData,
+                          @"serial":serial,
+                          @"​app_id":@"1"};
+    [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_NAP_QUA_THE] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
             if ([(NSArray *)responseObject count] == 0) {
                 done (NO,nil);
                 return;
             }
             NSDictionary *dic = responseObject[0];
+            
+            for (NSString *key in dic.allKeys) {
+                if ([key isEqualToString:@"error_service"]) {
+                    done(NO,dic[key]);
+                    return;
+                }
+            }
             if (dic) {
                 done (YES,nil);
             }
             else {
-                done (YES,nil);
+                done (NO,nil);
             }
             
         }
