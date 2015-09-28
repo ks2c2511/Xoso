@@ -76,4 +76,33 @@
         }
     }];
 }
+
++(void)checkShowNaptheWithDone:(void (^)(BOOL))done {
+    [[GzNetworking sharedInstance] GET:[BASE_URL stringByAppendingString:GET_HIDEN_NAPTHE] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            if ([(NSArray *)responseObject count] == 0) {
+                done (YES);
+                return;
+            }
+            NSDictionary *dic = responseObject[0];
+            if ([dic[@"hide"] integerValue] == 0) {
+                done(NO);
+            }
+            else {
+                done (YES);
+            }
+            
+        }
+        else {
+            done(YES);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            done(YES);
+        }
+    }];
+
+}
 @end

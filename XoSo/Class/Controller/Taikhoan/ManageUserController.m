@@ -78,7 +78,7 @@
 
 - (IBAction)Dangnhapuserkhac:(id)sender {
     
-    [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn muốn đăng xuất ứng dụng." cancelButtonTitle:@"Có" otherButtonTitles:@[@"Không"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+    [UIAlertView showWithTitle:@"Thông báo" message:@"Bạn muốn đăng xuất tài khoản." cancelButtonTitle:@"Có" otherButtonTitles:@[@"Không"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if (buttonIndex == [alertView cancelButtonIndex]) {
             
             LoginOtherUserController *loginOther = [LoginOtherUserController new];

@@ -85,6 +85,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         if (arrKqsx.count != 0) {
             XemKQXSModel *model = arrKqsx[0];
             self.selectDate = model.RESULT_DATE;
+            [self.datePicker setMaximumDate:[self.dateFormat dateFromString:self.selectDate]];
             [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
             [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
         }
@@ -272,15 +273,20 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
                     self.selectDate = model.RESULT_DATE;
                     [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
                     [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
+                    
+                    
                 }
+        self.arrData = muArr;
         
-                self.arrData = muArr;
 
         if (self.arrData.count == 0) {
             [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         }
-                muArr = nil;
-                [self.tableView reloadData];
+        else {
+           [self.tableView reloadData];
+        }
+//                muArr = nil;
+//                [self.tableView reloadData];
     }];
 }
 

@@ -11,4 +11,6 @@
 @interface NaptheStore : NSObject
 +(void)getNoiDungWithDone:(void(^)(BOOL success,NSString *noidung,NSString *dauso,NSString *cuphap))done;
 +(void)getNapTheWithsUserId:(NSString *)userId Carttype:(NSString *)cartType CartData:(NSString *)cardData Serial:(NSString *)serial Done:(void(^)(BOOL success,NSString *str))done;
+
++(void)checkShowNaptheWithDone:(void(^)(BOOL show))done;
 @end

@@ -63,6 +63,8 @@
 #define GET_EMAIL_LIST @"danhsach_email.php"
 #define GET_NOI_DUNG_NAP_THE @"xoso_thongbao_napthe.php"
 #define GET_NAP_QUA_THE @"process/vnepay/card_charging.php"
+
+#define GET_HIDEN_NAPTHE @"hide_nap_the.php"
 //notification
 
 #define notification_show_left_menu @"notification_show_left_menu"

@@ -32,13 +32,13 @@
 #import "DangkiController.h"
 #import "CaidatController.h"
 #import <StartApp/StartApp.h>
+#import "NaptheStore.h"
 
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) UIScreenEdgePanGestureRecognizer *panScreenGesture;
-
-
+@property (strong, nonatomic) UISwipeGestureRecognizer *panLeftToCloseMenu;
 @property (nonatomic, strong) void (^registrationHandler)
 (NSString *registrationToken, NSError *error);
 @property (nonatomic, assign) BOOL connectedToGCM;
@@ -55,8 +55,7 @@
     [self CustomTheme];
     //    [self showMainIsOnApp];
 
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:key_turn_on_nap_the];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 
 
     self.window.rootViewController = [SplashController new];
@@ -216,6 +215,13 @@
     STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
     sdk.appID = @"208348443";
     sdk.devID =@"103281770";
+    [sdk disableReturnAd];
+    
+    
+    [NaptheStore checkShowNaptheWithDone:^(BOOL show) {
+        [[NSUserDefaults standardUserDefaults] setBool:show forKey:key_turn_on_nap_the];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }];
 
     return YES;
 }
@@ -257,6 +263,8 @@
 
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:home];
     [self.navigationController.view addGestureRecognizer:self.panScreenGesture];
+    self.panScreenGesture.cancelsTouchesInView = YES;
+    [self.navigationController.view addGestureRecognizer:self.panLeftToCloseMenu];
 
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:self.navigationController];
 
@@ -274,8 +282,7 @@
         //===========================================================
         //  Close
         //===========================================================
-        [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-        }];
+       [self CloseMenu];
     }
     else if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered) {
         //===========================================================
@@ -283,71 +290,72 @@
         //===========================================================
         [self.slidingViewController anchorTopViewToRightAnimated:YES onComplete: ^{
         }];
+        self.panLeftToCloseMenu.enabled = YES;
+        self.navigationController.visibleViewController.view.userInteractionEnabled = NO;
     }
+}
+
+-(void)CloseMenu {
+    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
+    }];
+    self.panLeftToCloseMenu.enabled = NO;
+    self.navigationController.visibleViewController.view.userInteractionEnabled = YES;
 }
 
 - (void)showManageUserScreen {
     ManageUserController *user = [ManageUserController new];
     self.navigationController.viewControllers = @[user];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+   
 }
 
 - (void)showLoginOtherUser {
     LoginOtherUserController *user = [LoginOtherUserController new];
     self.navigationController.viewControllers = @[user];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showHuongdan {
     HuongDanController *user = [HuongDanController new];
     self.navigationController.viewControllers = @[user];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showHomThu {
     HopThuController *email = [HopThuController new];
     self.navigationController.viewControllers = @[email];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showDangki {
     DangkiController *email = [DangkiController new];
     self.navigationController.viewControllers = @[email];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showCaidat {
     CaidatController *caidat = [CaidatController new];
     self.navigationController.viewControllers = @[caidat];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showInfo {
     ThongtinController *tt = [ThongtinController new];
     self.navigationController.viewControllers = @[tt];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 - (void)showHome {
     HomeController *home = [HomeController new];
     self.navigationController.viewControllers = @[home];
 
-    [self.slidingViewController resetTopViewAnimated:YES onComplete: ^{
-    }];
+    [self CloseMenu];
 }
 
 #pragma mark - custom Navigaton
@@ -405,6 +413,16 @@
         _panScreenGesture.edges = UIRectEdgeLeft;
     }
     return _panScreenGesture;
+}
+
+-(UISwipeGestureRecognizer *)panLeftToCloseMenu {
+    if (!_panLeftToCloseMenu) {
+        _panLeftToCloseMenu = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(ShowLeftMenu)];
+        _panLeftToCloseMenu.enabled = NO;
+        _panLeftToCloseMenu.direction = UISwipeGestureRecognizerDirectionLeft;
+    }
+    
+    return _panLeftToCloseMenu;
 }
 
 - (void)scheduleAlarmForHOur:(NSInteger)hour Minute:(NSInteger)phut message:(NSString *)msg key:(NSString *)key {
