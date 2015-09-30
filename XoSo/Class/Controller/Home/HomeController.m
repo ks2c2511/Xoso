@@ -88,7 +88,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
                         return;
                     }
                     else {
-                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadAndTruTien object:nil];
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadAndTruTien object:nil];
                         CauVipController *soicau = [CauVipController new];
                         [self.navigationController pushViewController:soicau animated:YES];
                     }
@@ -205,19 +205,19 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"soi_cau"]) {
         if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-            if ([self checkTienTrongtaikhoan]) {
+//            if ([self checkTienTrongtaikhoan]) {
                 SoiCauController *soicau = [SoiCauController new];
                 [self.navigationController pushViewController:soicau animated:YES];
-            }
+//            }
         }
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
         if ([self checkUser]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-            if ([self checkTienTrongtaikhoan]) {
+//            if ([self checkTienTrongtaikhoan]) {
                 CauVipController *soicau = [CauVipController new];
                 [self.navigationController pushViewController:soicau animated:YES];
-            }
+//            }
 
         }
     }
