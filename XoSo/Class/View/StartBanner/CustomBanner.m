@@ -23,6 +23,7 @@
 }
 
 - (void)awakeFromNib {
+    self.backgroundColor = [UIColor clearColor];
     if (bannerView == nil) {
         bannerView = [[STABannerView alloc] initWithSize:STA_AutoAdSize autoOrigin:STAAdOrigin_Top
                                                 withView:self withDelegate:nil];

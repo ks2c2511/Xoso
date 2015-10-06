@@ -31,7 +31,7 @@
 #define GET_THONG_BAO_TREN_HEADER @"thongbao.php"
 #define GET_QUANGCAO @"link_google.php"
 #define GET_CAP_NHAT @"http://aviostore.com/?tool=apk&name=xo_so_IOS"
-#define POST_REGISTER @"register_default_user.php"
+#define POST_REGISTER @"register.php"
 #define POST_LOGIN @"login.php"
 #define POST_CAPNHAT @"process/return_user_info.php"
 #define GET_LOTO_TYPE @"return_locaion_lototype_id.php"

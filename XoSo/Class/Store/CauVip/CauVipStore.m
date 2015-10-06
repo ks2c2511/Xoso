@@ -52,8 +52,8 @@
             NSString *prefix;
             dic = @{@"matinh": @(matinh),
                     @"type":@(1),
-                    @"userid":use.user_id,
-                    @"reg_id" : @"1"};
+                    @"userid":use.user_id
+                    };
             prefix = GET_LOTODACBIET;
             
             

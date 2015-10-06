@@ -2278,7 +2278,7 @@
 		6A79A9791B46F4920098AB4A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Khoa Le";
 				TargetAttributes = {
 					6A79A9801B46F4920098AB4A = {
@@ -2728,7 +2728,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ngoc Bui (88L5GYFYKQ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2774,6 +2776,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: My Poker Card Ltd";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2883,6 +2886,7 @@
 					"-weak_framework",
 					"\"AdSupport\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xoso.soicau;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2978,6 +2982,7 @@
 					"-weak_framework",
 					"\"AdSupport\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xoso.soicau;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "13ad2bb9-37db-4de0-88df-2c4fc3f5417e";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -3004,6 +3009,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ngoc Bui (8VBVTDNQDA)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3113,6 +3119,7 @@
 					"-weak_framework",
 					"\"AdSupport\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xoso.soicau;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7cd9084d-08ae-4067-8a84-078471ee8cfc";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -3130,7 +3137,7 @@
 				6AFCFD171B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 		6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */ = {
 			isa = XCConfigurationList;
@@ -3140,7 +3147,7 @@
 				6AFCFD181B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
