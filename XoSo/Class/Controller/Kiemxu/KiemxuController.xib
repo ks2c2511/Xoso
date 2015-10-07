@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KiemxuController">
@@ -61,13 +62,6 @@
                                 <action selector="NapTheCao:" destination="-1" eventType="touchUpInside" id="b3V-Ru-01J"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="83" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-9t-SeX">
-                            <rect key="frame" x="24" y="178" width="264" height="83"/>
-                            <string key="text">Mỗi ngày cài đặt thành công ứng dụng (tải về, cài đặt và sử dụng ứng dụng) trong chức năng cài đặt ứng dụng. Bạn sẽ được cộng 1000 xu vào tài khoản.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBL-8f-wcL" customClass="ButtonBorder">
                             <rect key="frame" x="75" y="96" width="163" height="30"/>
                             <color key="backgroundColor" red="0.85098039219999999" green="0.20000000000000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,17 +82,14 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="260" id="8sA-Fy-gUJ"/>
-                        <constraint firstItem="64x-9t-SeX" firstAttribute="top" secondItem="A6i-Zn-XDY" secondAttribute="bottom" constant="15" id="97C-BH-C7S"/>
                         <constraint firstAttribute="centerX" secondItem="mBL-8f-wcL" secondAttribute="centerX" id="DlR-HK-jC4"/>
                         <constraint firstItem="A6i-Zn-XDY" firstAttribute="leading" secondItem="mBL-8f-wcL" secondAttribute="leading" id="HJB-SH-wfg"/>
                         <constraint firstAttribute="centerX" secondItem="A6i-Zn-XDY" secondAttribute="centerX" id="JFk-QG-CRn"/>
-                        <constraint firstItem="64x-9t-SeX" firstAttribute="leading" secondItem="i5F-hj-eiL" secondAttribute="leading" constant="24" id="KKr-MR-liZ"/>
                         <constraint firstItem="WTL-qf-aZj" firstAttribute="top" secondItem="i5F-hj-eiL" secondAttribute="top" constant="16" id="Rbj-67-1q3"/>
-                        <constraint firstAttribute="trailing" secondItem="64x-9t-SeX" secondAttribute="trailing" constant="24" id="X64-M5-KWr"/>
                         <constraint firstItem="A6i-Zn-XDY" firstAttribute="trailing" secondItem="mBL-8f-wcL" secondAttribute="trailing" id="bIC-w4-gIB"/>
                         <constraint firstAttribute="trailing" secondItem="WTL-qf-aZj" secondAttribute="trailing" constant="16" id="hSh-Pz-EA5"/>
                         <constraint firstItem="WTL-qf-aZj" firstAttribute="leading" secondItem="i5F-hj-eiL" secondAttribute="leading" constant="16" id="iJh-GY-Ty9"/>
-                        <constraint firstAttribute="bottom" secondItem="64x-9t-SeX" secondAttribute="bottom" constant="13" id="ocn-9D-b9c"/>
+                        <constraint firstAttribute="bottom" secondItem="A6i-Zn-XDY" secondAttribute="bottom" constant="111" id="pEN-jX-pH4"/>
                         <constraint firstItem="A6i-Zn-XDY" firstAttribute="top" secondItem="mBL-8f-wcL" secondAttribute="bottom" constant="8" id="t0l-Lw-LlJ"/>
                         <constraint firstItem="mBL-8f-wcL" firstAttribute="top" secondItem="WTL-qf-aZj" secondAttribute="bottom" constant="8" id="vbX-9N-CFx"/>
                     </constraints>

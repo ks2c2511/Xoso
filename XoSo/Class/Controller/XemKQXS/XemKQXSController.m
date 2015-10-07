@@ -43,6 +43,8 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 @property (assign,nonatomic) NSInteger companyId;
 @property (assign,nonatomic) NSInteger khoangcach;
 @property (assign,nonatomic) NSInteger quayTruocOrSau;
+
+@property (strong,nonatomic) NSString *maxDate;
 @end
 
 @implementation XemKQXSController
@@ -50,6 +52,8 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Kết quả xổ số";
+    
+    self.maxDate = [NSDate date];
 
     [[GzInternetConnection ShareIntance] CheckInternetStatusWithsuccess:^(BOOL Status) {
         if (!Status) {
@@ -85,6 +89,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         if (arrKqsx.count != 0) {
             XemKQXSModel *model = arrKqsx[0];
             self.selectDate = model.RESULT_DATE;
+            self.maxDate = model.RESULT_DATE;
             [self.datePicker setMaximumDate:[self.dateFormat dateFromString:self.selectDate]];
             [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
             [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];
@@ -327,9 +332,11 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 - (IBAction)LeftSwipe:(UISwipeGestureRecognizer *)sender {
 
     self.quayTruocOrSau = 2;
-    NSDate *slDate = [[self.dateFormat dateFromString:self.selectDate] dateByAddingTimeInterval:24*60*60];
     
-    if ([[self.dateFormat dateFromString:self.selectDate] isLaterDate:[self.dateFormat dateFromString:[self.dateFormat stringFromDate:[NSDate date]]]]) {
+#if DEBUG
+    NSLog(@"---log---> %li",(long)self.khoangcach);
+#endif
+    if (self.khoangcach <= 0) {
 
         [UIAlertView showWithTitle:@"Thông báo" message:@"Không có kết quả cho ngày kế tiếp." cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:nil];
         return;
