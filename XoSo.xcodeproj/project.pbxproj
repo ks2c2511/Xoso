@@ -2984,7 +2984,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xoso.soicau;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13ad2bb9-37db-4de0-88df-2c4fc3f5417e";
+				PROVISIONING_PROFILE = "4be50127-2c26-4fea-b853-a984c953e665";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

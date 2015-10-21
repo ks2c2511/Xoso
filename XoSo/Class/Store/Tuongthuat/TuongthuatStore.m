@@ -88,7 +88,7 @@
         NSMutableArray *muArrKqsx = [NSMutableArray new];
         
         NSMutableArray *muArrProvince = [NSMutableArray new];
-        int maxmagiai = 9;
+//        int maxmagiai = 9;
         int minmagiai = 0;
         for (Lotery *mod in arr) {
             NSPredicate *preProvince = [NSPredicate predicateWithFormat:@"province_id == %@ AND province_group == %@",[NSString stringWithFormat:@"%@",mod.company_id], [NSString stringWithFormat:@"%i",2]];
@@ -286,7 +286,7 @@
         NSMutableArray *muArrKqsx = [NSMutableArray new];
         
         NSMutableArray *muArrProvince = [NSMutableArray new];
-        int maxmagiai = 10;
+//        int maxmagiai = 10;
         int minmagiai = 1;
         
         for (Lotery *mod in arr) {

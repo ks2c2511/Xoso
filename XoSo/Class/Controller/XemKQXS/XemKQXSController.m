@@ -44,7 +44,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
 @property (assign,nonatomic) NSInteger khoangcach;
 @property (assign,nonatomic) NSInteger quayTruocOrSau;
 
-@property (strong,nonatomic) NSString *maxDate;
+//@property (strong,nonatomic) NSString *maxDate;
 @end
 
 @implementation XemKQXSController
@@ -53,7 +53,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
     [super viewDidLoad];
     self.navigationItem.title = @"Kết quả xổ số";
     
-    self.maxDate = [NSDate date];
+//    self.maxDate = [NSDate date];
 
     [[GzInternetConnection ShareIntance] CheckInternetStatusWithsuccess:^(BOOL Status) {
         if (!Status) {
@@ -89,7 +89,7 @@ static NSString *const identifi_LotoDauDuoiHeader = @"identifi_LotoDauDuoiHeader
         if (arrKqsx.count != 0) {
             XemKQXSModel *model = arrKqsx[0];
             self.selectDate = model.RESULT_DATE;
-            self.maxDate = model.RESULT_DATE;
+//            self.maxDate = model.RESULT_DATE;
             [self.datePicker setMaximumDate:[self.dateFormat dateFromString:self.selectDate]];
             [muArr addObject:[self dicWithArray:arrKqsx ListType:ListTypeXoSo]];
             [muArr addObject:[self dicWithArray:arrLoto ListType:ListTypeLoTo]];

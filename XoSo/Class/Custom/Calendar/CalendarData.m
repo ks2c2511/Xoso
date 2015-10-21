@@ -184,15 +184,15 @@
 }
 
 + (BOOL)checkHasEventWithDay:(NSInteger)day Month:(NSInteger)month Year:(NSInteger)year {
-    NSCalendar *calendar = [[NSCalendar alloc]
-                            initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [calendar components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
-    components.day = day;
-    components.month = month;
-    components.year = year;
-    NSDate *otherDate = [calendar dateFromComponents:components];
+//    NSCalendar *calendar = [[NSCalendar alloc]
+//                            initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDateComponents *components = [calendar components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
+//    components.day = day;
+//    components.month = month;
+//    components.year = year;
+//    NSDate *otherDate = [calendar dateFromComponents:components];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@", otherDate];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@", otherDate];
 
 
     return NO;

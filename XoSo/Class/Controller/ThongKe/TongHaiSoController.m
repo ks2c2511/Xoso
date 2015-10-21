@@ -15,7 +15,7 @@
 //#import "ThongkeChuaVeModel.h"
 #import "ThongkeDauduoiHeader.h"
 
-static NSInteger const maxWidthpercentView = 190;
+//static NSInteger const maxWidthpercentView = 190;
 @interface TongHaiSoController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
