@@ -307,6 +307,7 @@
 - (void)showManageUserScreen {
     ManageUserController *user = [ManageUserController new];
     self.navigationController.viewControllers = @[user];
+     [self CloseMenu];
 
    
 }

@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -53,6 +53,6 @@
 	<key>XtremePushApplicationKey</key>
 	<string>JStAxXO74h70lidBGiEMO3zOo3XLDTka</string>
 	<key>XtremePushSandoxMode</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

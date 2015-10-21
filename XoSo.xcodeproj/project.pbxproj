@@ -63,7 +63,6 @@
 		6A79A9871B46F4920098AB4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9861B46F4920098AB4A /* main.m */; };
 		6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9891B46F4920098AB4A /* AppDelegate.m */; };
 		6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9911B46F4920098AB4A /* Images.xcassets */; };
-		6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9931B46F4920098AB4A /* LaunchScreen.xib */; };
 		6A79A9C01B46F9F70098AB4A /* UIImage+DrawColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B31B46F9F60098AB4A /* UIImage+DrawColor.m */; };
 		6A79A9C11B46F9F70098AB4A /* NSMutableAttributedString+htmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B51B46F9F60098AB4A /* NSMutableAttributedString+htmlContent.m */; };
 		6A79A9C21B46F9F70098AB4A /* NSObject+AssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A9B71B46F9F60098AB4A /* NSObject+AssociatedObject.m */; };
@@ -357,6 +356,7 @@
 		6AFF074E1B653788000432C4 /* TuongThuatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF074C1B653788000432C4 /* TuongThuatController.xib */; };
 		6AFF07531B65385C000432C4 /* ThongKeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF07511B65385C000432C4 /* ThongKeController.m */; };
 		6AFF07541B65385C000432C4 /* ThongKeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF07521B65385C000432C4 /* ThongKeController.xib */; };
+		6AFF91851BCAB34700263DD1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9931B46F4920098AB4A /* LaunchScreen.xib */; };
 		8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */; };
 /* End PBXBuildFile section */
 
@@ -2314,6 +2314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFF91851BCAB34700263DD1 /* LaunchScreen.xib in Resources */,
 				6AC779361B4C37C6006AD38A /* ic_menu_white_2x.png in Resources */,
 				6A12AC8E1B7BA8760020EFB5 /* spiderdam.png in Resources */,
 				6AFCAA9D1B896997006254B0 /* nap_the.png in Resources */,
@@ -2483,7 +2484,6 @@
 				6A7F0FCE1B6E6C52003909E4 /* TableSixCell.xib in Resources */,
 				6A7F0FB51B6E6511003909E4 /* TableBacOneCell.xib in Resources */,
 				6AFE6E4E1B4D7E6E009E750C /* ic_arrow_forward_white.png in Resources */,
-				6A79A9951B46F4920098AB4A /* LaunchScreen.xib in Resources */,
 				6AE2192E1B7257D300FC9525 /* bg_choncachdanh.png in Resources */,
 				6A79A9921B46F4920098AB4A /* Images.xcassets in Resources */,
 				6A12AC8A1B7BA5620020EFB5 /* CauVipController.xib in Resources */,
