@@ -1,7 +1,8 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
 
 target 'XoSo' do
+    pod 'AFNetworking', '~> 2.0'
 	pod 'ECSlidingViewController', '~> 2.0.3'
 	pod 'GzoneLibNew/GzNetworking', '~> 1.0.14'
     pod 'GzoneLibNew/GzInternetConnection', '~> 1.0.14'

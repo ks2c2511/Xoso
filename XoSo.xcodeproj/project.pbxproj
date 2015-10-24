@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6075BD8135A2764CAF3601CA /* libPods-XoSo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDD2EA4F1F4E2B91ED95BE6 /* libPods-XoSo.a */; };
 		6A001E0D1B86218300C92CDB /* Hopthu.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A001E0C1B86218300C92CDB /* Hopthu.m */; };
 		6A05D7FE1B837FD600B68BB6 /* HopThuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A05D7FC1B837FD600B68BB6 /* HopThuController.m */; };
 		6A05D7FF1B837FD600B68BB6 /* HopThuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A05D7FD1B837FD600B68BB6 /* HopThuController.xib */; };
@@ -357,10 +358,11 @@
 		6AFF07531B65385C000432C4 /* ThongKeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF07511B65385C000432C4 /* ThongKeController.m */; };
 		6AFF07541B65385C000432C4 /* ThongKeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF07521B65385C000432C4 /* ThongKeController.xib */; };
 		6AFF91851BCAB34700263DD1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A79A9931B46F4920098AB4A /* LaunchScreen.xib */; };
-		8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24CD618FEFC1D999B51114CB /* Pods-XoSo.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.appstore.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.appstore.xcconfig"; sourceTree = "<group>"; };
+		32458A54682F42AC75A66265 /* Pods-XoSo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.release.xcconfig"; sourceTree = "<group>"; };
 		6A001E0B1B86218300C92CDB /* Hopthu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hopthu.h; sourceTree = "<group>"; };
 		6A001E0C1B86218300C92CDB /* Hopthu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hopthu.m; sourceTree = "<group>"; };
 		6A05D7FB1B837FD600B68BB6 /* HopThuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopThuController.h; sourceTree = "<group>"; };
@@ -864,9 +866,8 @@
 		6AFF07501B65385C000432C4 /* ThongKeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongKeController.h; sourceTree = "<group>"; };
 		6AFF07511B65385C000432C4 /* ThongKeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongKeController.m; sourceTree = "<group>"; };
 		6AFF07521B65385C000432C4 /* ThongKeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongKeController.xib; sourceTree = "<group>"; };
-		7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.debug.xcconfig"; sourceTree = "<group>"; };
-		8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XoSo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.release.xcconfig"; sourceTree = "<group>"; };
+		6CDD2EA4F1F4E2B91ED95BE6 /* libPods-XoSo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XoSo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		735E0909B812657199AF640D /* Pods-XoSo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XoSo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XoSo/Pods-XoSo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,7 +891,7 @@
 				6A8D663B1B954E6A00C2C590 /* CFNetwork.framework in Frameworks */,
 				6A8D66391B954E6000C2C590 /* Security.framework in Frameworks */,
 				6A8D66381B9549EF00C2C590 /* libXPush.a in Frameworks */,
-				8A188F4CC956057CE2D0D09C /* libPods-XoSo.a in Frameworks */,
+				6075BD8135A2764CAF3601CA /* libPods-XoSo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,8 +1130,8 @@
 			children = (
 				6A79A9831B46F4920098AB4A /* XoSo */,
 				6A79A9821B46F4920098AB4A /* Products */,
-				AE8FB7F81070979017FA0445 /* Pods */,
 				C8C6127E4DF16C6174A60584 /* Frameworks */,
+				97CB97932321794299EB8A54 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2212,11 +2213,12 @@
 			path = ThongKe;
 			sourceTree = "<group>";
 		};
-		AE8FB7F81070979017FA0445 /* Pods */ = {
+		97CB97932321794299EB8A54 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */,
-				D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */,
+				735E0909B812657199AF640D /* Pods-XoSo.debug.xcconfig */,
+				32458A54682F42AC75A66265 /* Pods-XoSo.release.xcconfig */,
+				24CD618FEFC1D999B51114CB /* Pods-XoSo.appstore.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2245,7 +2247,7 @@
 				6AEE86411B8B71AE0035FC70 /* Foundation.framework */,
 				6AEE863E1B8B6D8F0035FC70 /* MessageUI.framework */,
 				6AEE863C1B8B6D800035FC70 /* Accelerate.framework */,
-				8A2F50447CD2B33E7AB97B05 /* libPods-XoSo.a */,
+				6CDD2EA4F1F4E2B91ED95BE6 /* libPods-XoSo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2257,11 +2259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */;
 			buildPhases = (
-				348FE88E5839301CC33C56D1 /* Check Pods Manifest.lock */,
+				3441FCC71BD080D2DF2B6A8D /* Check Pods Manifest.lock */,
 				6A79A97D1B46F4920098AB4A /* Sources */,
 				6A79A97E1B46F4920098AB4A /* Frameworks */,
 				6A79A97F1B46F4920098AB4A /* Resources */,
-				846F96FE34408A519548EEB2 /* Copy Pods Resources */,
+				6AF977FB932BB8D4ADD836C5 /* Embed Pods Frameworks */,
+				17DA8F11C3B720005FF92CB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2283,6 +2286,7 @@
 				TargetAttributes = {
 					6A79A9801B46F4920098AB4A = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 8VBVTDNQDA;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -2510,7 +2514,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		348FE88E5839301CC33C56D1 /* Check Pods Manifest.lock */ = {
+		17DA8F11C3B720005FF92CB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XoSo/Pods-XoSo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3441FCC71BD080D2DF2B6A8D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2525,19 +2544,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		846F96FE34408A519548EEB2 /* Copy Pods Resources */ = {
+		6AF977FB932BB8D4ADD836C5 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XoSo/Pods-XoSo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XoSo/Pods-XoSo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2725,7 +2744,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ngoc Bui (88L5GYFYKQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2749,7 +2768,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "c9305969-df97-4ede-8dda-17df3e3ec67f";
+				PROVISIONING_PROFILE = "d2e037fd-f88a-45c2-ab11-8f1e9a8ab7d6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2800,11 +2819,12 @@
 		};
 		6A79A9A51B46F4920098AB4A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7433D11F36373C72303F5CD6 /* Pods-XoSo.debug.xcconfig */;
+			baseConfigurationReference = 735E0909B812657199AF640D /* Pods-XoSo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Cooke (VZVEMTL8Z6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2821,26 +2841,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Pods-XoSo-AFNetworking\"",
-					"-l\"Pods-XoSo-ActionSheetPicker-3.0\"",
-					"-l\"Pods-XoSo-CCBottomRefreshControl\"",
-					"-l\"Pods-XoSo-DACircularProgress\"",
-					"-l\"Pods-XoSo-ECSlidingViewController\"",
-					"-l\"Pods-XoSo-FMDB\"",
-					"-l\"Pods-XoSo-GzoneLibNew\"",
-					"-l\"Pods-XoSo-IDMPhotoBrowser\"",
-					"-l\"Pods-XoSo-IQKeyboardManager\"",
-					"-l\"Pods-XoSo-KNSemiModalViewController\"",
-					"-l\"Pods-XoSo-MRProgress\"",
-					"-l\"Pods-XoSo-Mantle\"",
-					"-l\"Pods-XoSo-MarqueeLabel\"",
-					"-l\"Pods-XoSo-Masonry\"",
-					"-l\"Pods-XoSo-Reachability\"",
-					"-l\"Pods-XoSo-SDWebImage\"",
-					"-l\"Pods-XoSo-THCalendarDatePicker\"",
-					"-l\"Pods-XoSo-UIAlertView+Blocks\"",
-					"-l\"Pods-XoSo-UIColor+uiGradients\"",
-					"-l\"Pods-XoSo-pop\"",
 					"-l\"c++\"",
 					"-l\"sqlite3\"",
 					"-framework",
@@ -2865,8 +2865,6 @@
 					"\"EventKitUI\"",
 					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
 					"-framework",
 					"\"ImageIO\"",
 					"-framework",
@@ -2896,11 +2894,12 @@
 		};
 		6A79A9A61B46F4920098AB4A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D323D4B4B959FDEFBEAF0685 /* Pods-XoSo.release.xcconfig */;
+			baseConfigurationReference = 32458A54682F42AC75A66265 /* Pods-XoSo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: My Poker Card Ltd";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2917,26 +2916,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Pods-XoSo-AFNetworking\"",
-					"-l\"Pods-XoSo-ActionSheetPicker-3.0\"",
-					"-l\"Pods-XoSo-CCBottomRefreshControl\"",
-					"-l\"Pods-XoSo-DACircularProgress\"",
-					"-l\"Pods-XoSo-ECSlidingViewController\"",
-					"-l\"Pods-XoSo-FMDB\"",
-					"-l\"Pods-XoSo-GzoneLibNew\"",
-					"-l\"Pods-XoSo-IDMPhotoBrowser\"",
-					"-l\"Pods-XoSo-IQKeyboardManager\"",
-					"-l\"Pods-XoSo-KNSemiModalViewController\"",
-					"-l\"Pods-XoSo-MRProgress\"",
-					"-l\"Pods-XoSo-Mantle\"",
-					"-l\"Pods-XoSo-MarqueeLabel\"",
-					"-l\"Pods-XoSo-Masonry\"",
-					"-l\"Pods-XoSo-Reachability\"",
-					"-l\"Pods-XoSo-SDWebImage\"",
-					"-l\"Pods-XoSo-THCalendarDatePicker\"",
-					"-l\"Pods-XoSo-UIAlertView+Blocks\"",
-					"-l\"Pods-XoSo-UIColor+uiGradients\"",
-					"-l\"Pods-XoSo-pop\"",
 					"-l\"c++\"",
 					"-l\"sqlite3\"",
 					"-framework",
@@ -2961,8 +2940,6 @@
 					"\"EventKitUI\"",
 					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
 					"-framework",
 					"\"ImageIO\"",
 					"-framework",
@@ -3033,10 +3010,12 @@
 		};
 		6AFCFD181B90B3B2008E44CE /* Appstore */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24CD618FEFC1D999B51114CB /* Pods-XoSo.appstore.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ngoc Bui (8VBVTDNQDA)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3053,26 +3032,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Pods-XoSo-AFNetworking\"",
-					"-l\"Pods-XoSo-ActionSheetPicker-3.0\"",
-					"-l\"Pods-XoSo-CCBottomRefreshControl\"",
-					"-l\"Pods-XoSo-DACircularProgress\"",
-					"-l\"Pods-XoSo-ECSlidingViewController\"",
-					"-l\"Pods-XoSo-FMDB\"",
-					"-l\"Pods-XoSo-GzoneLibNew\"",
-					"-l\"Pods-XoSo-IDMPhotoBrowser\"",
-					"-l\"Pods-XoSo-IQKeyboardManager\"",
-					"-l\"Pods-XoSo-KNSemiModalViewController\"",
-					"-l\"Pods-XoSo-MRProgress\"",
-					"-l\"Pods-XoSo-Mantle\"",
-					"-l\"Pods-XoSo-MarqueeLabel\"",
-					"-l\"Pods-XoSo-Masonry\"",
-					"-l\"Pods-XoSo-Reachability\"",
-					"-l\"Pods-XoSo-SDWebImage\"",
-					"-l\"Pods-XoSo-THCalendarDatePicker\"",
-					"-l\"Pods-XoSo-UIAlertView+Blocks\"",
-					"-l\"Pods-XoSo-UIColor+uiGradients\"",
-					"-l\"Pods-XoSo-pop\"",
 					"-l\"c++\"",
 					"-l\"sqlite3\"",
 					"-framework",
@@ -3097,8 +3056,6 @@
 					"\"EventKitUI\"",
 					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
 					"-framework",
 					"\"ImageIO\"",
 					"-framework",
@@ -3136,7 +3093,7 @@
 				6AFCFD171B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 		6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */ = {
 			isa = XCConfigurationList;
@@ -3146,7 +3103,7 @@
 				6AFCFD181B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
