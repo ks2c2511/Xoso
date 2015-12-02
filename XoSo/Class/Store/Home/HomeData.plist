@@ -82,5 +82,13 @@
 		<key>key</key>
 		<string>phong_chat</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Hướng dẫn</string>
+		<key>iconname</key>
+		<string>huong_dan_icon.png</string>
+		<key>key</key>
+		<string>huong_dan</string>
+	</dict>
 </array>
 </plist>

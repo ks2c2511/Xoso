@@ -25,7 +25,7 @@
 #import "GiaiMongController.h"
 #import "QuayThuController.h"
 #import "ChatLevelOneController.h"
-
+#import "HuongDanController.h"
 
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
@@ -234,6 +234,10 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             ChatLevelOneController *chat = [ChatLevelOneController new];
             [self.navigationController pushViewController:chat animated:YES];
         }
+    }
+    else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"huong_dan"]) {
+            HuongDanController *chat = [HuongDanController new];
+            [self.navigationController pushViewController:chat animated:YES];
     }
 }
 

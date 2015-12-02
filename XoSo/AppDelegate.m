@@ -218,10 +218,13 @@
     [sdk disableReturnAd];
     
     
-//    [NaptheStore checkShowNaptheWithDone:^(BOOL show) {
-//        [[NSUserDefaults standardUserDefaults] setBool:show forKey:key_turn_on_nap_the];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }];
+    [NaptheStore checkShowNaptheWithDone:^(BOOL show) {
+        [[NSUserDefaults standardUserDefaults] setBool:show forKey:key_turn_on_nap_the];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }];
+    
+   
+
 
     return YES;
 }

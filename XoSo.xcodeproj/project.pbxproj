@@ -305,6 +305,18 @@
 		6AF3838A1B80D9CE00459938 /* ManageUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF383891B80D9CE00459938 /* ManageUserStore.m */; };
 		6AF3838E1B80DCDF00459938 /* QuenPassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF3838C1B80DCDF00459938 /* QuenPassController.m */; };
 		6AF3838F1B80DCDF00459938 /* QuenPassController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF3838D1B80DCDF00459938 /* QuenPassController.xib */; };
+		6AF5D8991BF23CD6007525D5 /* cau_loto_0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D88D1BF23CD6007525D5 /* cau_loto_0@3x.png */; };
+		6AF5D89A1BF23CD6007525D5 /* cau_loto_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D88E1BF23CD6007525D5 /* cau_loto_1@3x.png */; };
+		6AF5D89B1BF23CD6007525D5 /* huong_dan_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D88F1BF23CD6007525D5 /* huong_dan_icon@3x.png */; };
+		6AF5D89C1BF23CD6007525D5 /* kiem_xu_0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8901BF23CD6007525D5 /* kiem_xu_0@3x.png */; };
+		6AF5D89D1BF23CD6007525D5 /* kiem_xu_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8911BF23CD6007525D5 /* kiem_xu_1@3x.png */; };
+		6AF5D89E1BF23CD6007525D5 /* loto_online_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8921BF23CD6007525D5 /* loto_online_icon@3x.png */; };
+		6AF5D89F1BF23CD6007525D5 /* phong_chat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8931BF23CD6007525D5 /* phong_chat@3x.png */; };
+		6AF5D8A01BF23CD6007525D5 /* quay_thu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8941BF23CD6007525D5 /* quay_thu@3x.png */; };
+		6AF5D8A11BF23CD6007525D5 /* soi_cau@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8951BF23CD6007525D5 /* soi_cau@3x.png */; };
+		6AF5D8A21BF23CD6007525D5 /* thong_ke@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8961BF23CD6007525D5 /* thong_ke@3x.png */; };
+		6AF5D8A31BF23CD6007525D5 /* tuong_thuat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8971BF23CD6007525D5 /* tuong_thuat@3x.png */; };
+		6AF5D8A41BF23CD6007525D5 /* xem_kqxs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF5D8981BF23CD6007525D5 /* xem_kqxs@3x.png */; };
 		6AF9298B1B8A155E00EE7F7D /* TheCaoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF929891B8A155E00EE7F7D /* TheCaoController.m */; };
 		6AF9298C1B8A155E00EE7F7D /* TheCaoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF9298A1B8A155E00EE7F7D /* TheCaoController.xib */; };
 		6AF929901B8A192900EE7F7D /* NaptheStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF9298F1B8A192900EE7F7D /* NaptheStore.m */; };
@@ -799,6 +811,18 @@
 		6AF3838B1B80DCDF00459938 /* QuenPassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuenPassController.h; sourceTree = "<group>"; };
 		6AF3838C1B80DCDF00459938 /* QuenPassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuenPassController.m; sourceTree = "<group>"; };
 		6AF3838D1B80DCDF00459938 /* QuenPassController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuenPassController.xib; sourceTree = "<group>"; };
+		6AF5D88D1BF23CD6007525D5 /* cau_loto_0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cau_loto_0@3x.png"; sourceTree = "<group>"; };
+		6AF5D88E1BF23CD6007525D5 /* cau_loto_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cau_loto_1@3x.png"; sourceTree = "<group>"; };
+		6AF5D88F1BF23CD6007525D5 /* huong_dan_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huong_dan_icon@3x.png"; sourceTree = "<group>"; };
+		6AF5D8901BF23CD6007525D5 /* kiem_xu_0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiem_xu_0@3x.png"; sourceTree = "<group>"; };
+		6AF5D8911BF23CD6007525D5 /* kiem_xu_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kiem_xu_1@3x.png"; sourceTree = "<group>"; };
+		6AF5D8921BF23CD6007525D5 /* loto_online_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loto_online_icon@3x.png"; sourceTree = "<group>"; };
+		6AF5D8931BF23CD6007525D5 /* phong_chat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phong_chat@3x.png"; sourceTree = "<group>"; };
+		6AF5D8941BF23CD6007525D5 /* quay_thu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quay_thu@3x.png"; sourceTree = "<group>"; };
+		6AF5D8951BF23CD6007525D5 /* soi_cau@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "soi_cau@3x.png"; sourceTree = "<group>"; };
+		6AF5D8961BF23CD6007525D5 /* thong_ke@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thong_ke@3x.png"; sourceTree = "<group>"; };
+		6AF5D8971BF23CD6007525D5 /* tuong_thuat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuong_thuat@3x.png"; sourceTree = "<group>"; };
+		6AF5D8981BF23CD6007525D5 /* xem_kqxs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xem_kqxs@3x.png"; sourceTree = "<group>"; };
 		6AF929881B8A155E00EE7F7D /* TheCaoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheCaoController.h; sourceTree = "<group>"; };
 		6AF929891B8A155E00EE7F7D /* TheCaoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheCaoController.m; sourceTree = "<group>"; };
 		6AF9298A1B8A155E00EE7F7D /* TheCaoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TheCaoController.xib; sourceTree = "<group>"; };
@@ -1507,6 +1531,18 @@
 		6AC778991B4C2290006AD38A /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				6AF5D88D1BF23CD6007525D5 /* cau_loto_0@3x.png */,
+				6AF5D88E1BF23CD6007525D5 /* cau_loto_1@3x.png */,
+				6AF5D88F1BF23CD6007525D5 /* huong_dan_icon@3x.png */,
+				6AF5D8901BF23CD6007525D5 /* kiem_xu_0@3x.png */,
+				6AF5D8911BF23CD6007525D5 /* kiem_xu_1@3x.png */,
+				6AF5D8921BF23CD6007525D5 /* loto_online_icon@3x.png */,
+				6AF5D8931BF23CD6007525D5 /* phong_chat@3x.png */,
+				6AF5D8941BF23CD6007525D5 /* quay_thu@3x.png */,
+				6AF5D8951BF23CD6007525D5 /* soi_cau@3x.png */,
+				6AF5D8961BF23CD6007525D5 /* thong_ke@3x.png */,
+				6AF5D8971BF23CD6007525D5 /* tuong_thuat@3x.png */,
+				6AF5D8981BF23CD6007525D5 /* xem_kqxs@3x.png */,
 				6AEDD5261B502EA60036683C /* ic_arrow_drop_down_36pt_2x.png */,
 				6AEDD5271B502EA60036683C /* ic_arrow_drop_down_36pt.png */,
 				6AC779231B4C30E1006AD38A /* cau_loto_0.png */,
@@ -2327,6 +2363,7 @@
 				6AFCAAAD1B896FA4006254B0 /* taikhoan2.JPG in Resources */,
 				6AEDD5051B5015720036683C /* mydb.db in Resources */,
 				6AFCAA9A1B896997006254B0 /* dream1.JPG in Resources */,
+				6AF5D89C1BF23CD6007525D5 /* kiem_xu_0@3x.png in Resources */,
 				6AF9298C1B8A155E00EE7F7D /* TheCaoController.xib in Resources */,
 				6A7F0FBF1B6E6535003909E4 /* TableBacThreeCell.xib in Resources */,
 				6AC778D81B4C2290006AD38A /* thong_ke@2x.png in Resources */,
@@ -2335,10 +2372,13 @@
 				6A5BA9051B7FA1E0008D5811 /* ChatLevelTwoController.xib in Resources */,
 				6AFCAA9B1B896997006254B0 /* dream2.JPG in Resources */,
 				6AC778C71B4C2290006AD38A /* huong_dan_icon.png in Resources */,
+				6AF5D8A31BF23CD6007525D5 /* tuong_thuat@3x.png in Resources */,
 				6AC779011B4C22D8006AD38A /* hom_thu_xanh@2x.png in Resources */,
 				6AF929921B8A1DF100EE7F7D /* LoaiThe.plist in Resources */,
 				6A5BA9071B7FA32F008D5811 /* bg_like.png in Resources */,
+				6AF5D8A11BF23CD6007525D5 /* soi_cau@3x.png in Resources */,
 				6AC778FF1B4C22D8006AD38A /* hom_thu@2x.png in Resources */,
+				6AF5D89A1BF23CD6007525D5 /* cau_loto_1@3x.png in Resources */,
 				6AFF07541B65385C000432C4 /* ThongKeController.xib in Resources */,
 				6AEDD5281B502EA60036683C /* ic_arrow_drop_down_36pt_2x.png in Resources */,
 				6AEB98F01B79048C0052F694 /* ThongkeTopUserCell.xib in Resources */,
@@ -2368,6 +2408,7 @@
 				6AB053A01B7747CA0089D4BA /* ThongkechukiCell.xib in Resources */,
 				6AF383851B80CBAC00459938 /* ic_check_box.png in Resources */,
 				6AC779051B4C22D8006AD38A /* thong_tin_icon@2x.png in Resources */,
+				6AF5D89B1BF23CD6007525D5 /* huong_dan_icon@3x.png in Resources */,
 				6AFE6E4A1B4D7D61009E750C /* NameXosoCityHeader.xib in Resources */,
 				6AEBA4811B475414001B4A3E /* LeftMenuData.plist in Resources */,
 				6A1EBEEA1B7F8B46005CAAB1 /* bg_add_comment.png in Resources */,
@@ -2380,6 +2421,7 @@
 				6AC778D71B4C2290006AD38A /* thong_ke.png in Resources */,
 				6AB640D51B74ACA9005427BF /* TongHaiSoController.xib in Resources */,
 				6AC778D91B4C2290006AD38A /* tien_ich.png in Resources */,
+				6AF5D8A01BF23CD6007525D5 /* quay_thu@3x.png in Resources */,
 				6AE219391B72607400FC9525 /* ic_arrow_drop_down_18pt.png in Resources */,
 				6AEB66DA1B7CE10200A3D3A5 /* GiaiMongController.xib in Resources */,
 				6AC779001B4C22D8006AD38A /* hom_thu_xanh.png in Resources */,
@@ -2397,6 +2439,7 @@
 				6AFCAAA11B896997006254B0 /* tk2.PNG in Resources */,
 				6A1EBEE81B7F8A6A005CAAB1 /* ChatLevelOneController.xib in Resources */,
 				6AEDD5291B502EA60036683C /* ic_arrow_drop_down_36pt.png in Resources */,
+				6AF5D8A21BF23CD6007525D5 /* thong_ke@3x.png in Resources */,
 				6AE6E6B31B8238BC0057DBD3 /* ic_home.png in Resources */,
 				6AEDD51B1B502B080036683C /* ic_radio_button_unchecked_white.png in Resources */,
 				6AFCAA951B896997006254B0 /* nhap_tien_choi_loto.png in Resources */,
@@ -2416,7 +2459,9 @@
 				6AFCAAB31B8973A8006254B0 /* NapquaSMS.xib in Resources */,
 				6A79A9D61B46FBA20098AB4A /* HomeController.xib in Resources */,
 				6AFCAAA01B896997006254B0 /* thongke1.PNG in Resources */,
+				6AF5D8A41BF23CD6007525D5 /* xem_kqxs@3x.png in Resources */,
 				6AEB98F51B7905B90052F694 /* ThongKeTopUserFooter.xib in Resources */,
+				6AF5D89D1BF23CD6007525D5 /* kiem_xu_1@3x.png in Resources */,
 				6A9935C41BAFF03300DAFF67 /* StartApp.bundle in Resources */,
 				6AFF07481B652CC1000432C4 /* LichSuChoiCell.xib in Resources */,
 				6AC779371B4C37C6006AD38A /* ic_menu_white.png in Resources */,
@@ -2424,6 +2469,7 @@
 				6AC779281B4C30E1006AD38A /* cau_loto_0@2x.png in Resources */,
 				6A76AFE51B745B9A00D98654 /* ThongkeChuaVeHeader.xib in Resources */,
 				6AF383861B80CBAC00459938 /* ic_check_box@2x.png in Resources */,
+				6AF5D8991BF23CD6007525D5 /* cau_loto_0@3x.png in Resources */,
 				6AFCAAAE1B896FA4006254B0 /* taikoan3.JPG in Resources */,
 				6AE973FB1B5FE3A500654EBA /* KiemxuController.xib in Resources */,
 				6AEF47631B803766002676DF /* ManageUserController.xib in Resources */,
@@ -2457,6 +2503,7 @@
 				6AB053A51B774AFB0089D4BA /* ThongkechukiHeader.xib in Resources */,
 				6AB053921B76FA2B0089D4BA /* ThongkeLichSuChoiCell.xib in Resources */,
 				6AFCAA931B896997006254B0 /* chon_ngay_choi_loto.png in Resources */,
+				6AF5D89F1BF23CD6007525D5 /* phong_chat@3x.png in Resources */,
 				6AFCAA9E1B896997006254B0 /* nhan_tin.png in Resources */,
 				6A05D7FF1B837FD600B68BB6 /* HopThuController.xib in Resources */,
 				6A7F0FBA1B6E6527003909E4 /* TableBacTwoCell.xib in Resources */,
@@ -2468,6 +2515,7 @@
 				6AE2192C1B72574600FC9525 /* ThongkeSoController.xib in Resources */,
 				6AFCAA921B896997006254B0 /* chon_loai_loto.png in Resources */,
 				6AD2F9481B84C4A3008A76B3 /* HopThuCell.xib in Resources */,
+				6AF5D89E1BF23CD6007525D5 /* loto_online_icon@3x.png in Resources */,
 				6AC779071B4C22D8006AD38A /* user_icon@2x.png in Resources */,
 				6AC778CE1B4C2290006AD38A /* lich_su_choi@2x.png in Resources */,
 				6AFE6E571B4D8017009E750C /* LotoDauDuoiHeader.xib in Resources */,
@@ -3093,7 +3141,7 @@
 				6AFCFD171B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Appstore;
 		};
 		6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */ = {
 			isa = XCConfigurationList;
@@ -3103,7 +3151,7 @@
 				6AFCFD181B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Appstore;
 		};
 /* End XCConfigurationList section */
 
