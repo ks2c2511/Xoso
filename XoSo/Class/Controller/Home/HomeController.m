@@ -213,7 +213,7 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     }
     else if ([self.arrData[indexPath.row][@"key"] isEqualToString:@"cau_vip"]) {
         if ([self checkUser]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+           
 //            if ([self checkTienTrongtaikhoan]) {
                 CauVipController *soicau = [CauVipController new];
                 [self.navigationController pushViewController:soicau animated:YES];

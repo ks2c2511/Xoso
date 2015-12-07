@@ -121,9 +121,10 @@
         }];
         return;
     }
+    
     [CauVipStore soiCauVipWithMaTinh:self.matinhTrung Done:^(BOOL success, NSString *content) {
         
-        
+         [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
         
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {
@@ -149,6 +150,8 @@
         return;
     }
     [CauVipStore soiCauVipWithMaTinh:self.matinhNam Done:^(BOOL success, NSString *content) {
+        
+         [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {
                 
@@ -173,6 +176,8 @@
         return;
     }
     [CauVipStore soiCauVipWithMaTinh:1 Done:^(BOOL success, NSString *content) {
+        
+         [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
         [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex == [alertView cancelButtonIndex]) {
                 
