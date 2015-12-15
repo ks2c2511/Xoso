@@ -34,8 +34,10 @@ static NSString *const identifi_TableListCell = @"identifi_TableListCell";
     self.delegate = self;
     self.dataSource = self;
     self.alpha = 0;
+    self.showsVerticalScrollIndicator = NO;
+    self.tableFooterView = [UIView new];
     
-    self.backgroundColor = [UIColor colorWithWhite:0 alpha:.8];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - UITableViewDataSource
@@ -54,8 +56,8 @@ static NSString *const identifi_TableListCell = @"identifi_TableListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TableListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifi_TableListCell forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    cell.contentView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     
     [self configureCell:cell forRowAtIndexPath:indexPath];
     cell.tag = indexPath.row;
@@ -101,6 +103,10 @@ static NSString *const identifi_TableListCell = @"identifi_TableListCell";
     [self reloadData];
 }
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y < 0) {
+        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, 0)];
+    }
+}
 
 @end

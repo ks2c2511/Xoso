@@ -196,7 +196,7 @@
         CGRect frame = self.buttonChonTInhMienTrung.frame;
         frame.origin.y = CGRectGetMaxY(self.buttonChonTInhMienTrung.frame);
         frame.size.width = CGRectGetWidth(self.buttonChonTInhMienTrung.frame);
-        frame.size.height = 200;
+        frame.size.height = [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.buttonChonTInhMienTrung.frame) - HeightNavigationBar;
         frame;
     });
     [self.tableListItem showOrHiden];
@@ -209,7 +209,7 @@
         CGRect frame = self.buttonChonTinhMienNam.frame;
         frame.origin.y = CGRectGetMaxY(self.buttonChonTinhMienNam.frame);
         frame.size.width = CGRectGetWidth(self.buttonChonTinhMienNam.frame);
-        frame.size.height = 200;
+        frame.size.height = [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(self.buttonChonTinhMienNam.frame) - HeightNavigationBar;
         frame;
     });
     [self.tableListItem showOrHiden];

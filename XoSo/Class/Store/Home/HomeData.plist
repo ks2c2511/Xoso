@@ -44,7 +44,7 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Soi cầu</string>
+		<string>Tham khảo</string>
 		<key>iconname</key>
 		<string>soi_cau.png</string>
 		<key>key</key>
@@ -52,7 +52,7 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Cầu vip</string>
+		<string>Soi cầu vip</string>
 		<key>iconname</key>
 		<string>cau_loto_</string>
 		<key>key</key>

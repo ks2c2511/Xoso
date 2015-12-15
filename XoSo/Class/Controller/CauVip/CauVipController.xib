@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNW-QZ-rKt">
-                    <rect key="frame" x="13" y="189" width="183" height="39"/>
+                    <rect key="frame" x="13" y="169" width="183" height="39"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="Lwg-Xu-IR1"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="Tvc-Pp-CWJ"/>
@@ -35,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmO-l4-Ro3" customClass="ButtonBorder">
-                    <rect key="frame" x="199" y="189" width="113" height="39"/>
+                    <rect key="frame" x="199" y="169" width="113" height="39"/>
                     <color key="backgroundColor" red="0.72941176470588232" green="0.16862745098039217" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="113" id="sBE-O1-mAd"/>
@@ -50,7 +51,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAD-wc-p8X">
-                    <rect key="frame" x="13" y="271" width="183" height="39"/>
+                    <rect key="frame" x="13" y="251" width="183" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <inset key="contentEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" backgroundImage="spiderdam.png">
@@ -69,7 +70,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soi cầu vip miền Trung" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaE-59-JEd">
-                    <rect key="frame" x="13" y="160" width="183" height="21"/>
+                    <rect key="frame" x="13" y="140" width="183" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="vk8-JG-v2r"/>
                         <constraint firstAttribute="width" constant="183" id="yx7-Fb-bpc"/>
@@ -79,7 +80,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soi cầu vip miền Nam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-T7-eNM">
-                    <rect key="frame" x="13" y="242" width="183" height="21"/>
+                    <rect key="frame" x="13" y="222" width="183" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="8qU-jM-ZTc"/>
                         <constraint firstAttribute="width" constant="183" id="opW-WD-nzP"/>
@@ -89,7 +90,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-N1-0hi" customClass="ButtonBorder">
-                    <rect key="frame" x="199" y="271" width="113" height="39"/>
+                    <rect key="frame" x="199" y="251" width="113" height="39"/>
                     <color key="backgroundColor" red="0.72941176470000002" green="0.16862745100000001" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Soi cầu ngay">
@@ -133,7 +134,7 @@
                 <constraint firstItem="7A8-T7-eNM" firstAttribute="top" secondItem="sNW-QZ-rKt" secondAttribute="bottom" constant="14" id="Y8N-iC-8QC"/>
                 <constraint firstItem="zmO-l4-Ro3" firstAttribute="top" secondItem="sNW-QZ-rKt" secondAttribute="top" id="Zsy-ub-XUU"/>
                 <constraint firstItem="zmO-l4-Ro3" firstAttribute="bottom" secondItem="sNW-QZ-rKt" secondAttribute="bottom" id="dEQ-ac-MiA"/>
-                <constraint firstAttribute="centerY" secondItem="sNW-QZ-rKt" secondAttribute="centerY" id="izr-Se-GOI"/>
+                <constraint firstAttribute="centerY" secondItem="sNW-QZ-rKt" secondAttribute="centerY" constant="20" id="izr-Se-GOI"/>
                 <constraint firstItem="RAD-wc-p8X" firstAttribute="top" secondItem="7A8-T7-eNM" secondAttribute="bottom" constant="8" id="lPa-3t-KJB"/>
                 <constraint firstItem="zmO-l4-Ro3" firstAttribute="leading" secondItem="sNW-QZ-rKt" secondAttribute="trailing" constant="3" id="ncx-ca-JcR"/>
                 <constraint firstItem="7A8-T7-eNM" firstAttribute="leading" secondItem="RAD-wc-p8X" secondAttribute="leading" id="oYx-Sb-XhW"/>

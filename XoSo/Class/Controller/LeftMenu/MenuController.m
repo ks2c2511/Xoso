@@ -59,7 +59,7 @@
     
     
     [self.tableView setShare:^{
-        [self shareText:@"Xổ số huyền thoại" andImage:[UIImage imageNamed:@"ic_launcher.png"]  andUrl:[NSURL URLWithString:@"https://www.google.com/?gws_rd=ssl"]];
+        [self shareText:@"Xổ số huyền thoại" andImage:[UIImage imageNamed:@"ic_launcher.png"]  andUrl:[NSURL URLWithString:@"https://itunes.apple.com/vn/app/xo-so-huyen-thoai/id1033782552?mt=8"]];
     }];
 
 

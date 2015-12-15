@@ -26,6 +26,7 @@
 #import "QuayThuController.h"
 #import "ChatLevelOneController.h"
 #import "HuongDanController.h"
+#import <RKNotificationHub.h>
 
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
@@ -39,6 +40,9 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   
+    
 
     [self.collectionView registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:identifi_HomeCollectionCell];
 
@@ -98,11 +102,17 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
             }
         }
     }];
+    
+    self.navigationItem.leftBarButtonItem = self.menuButtonItem;
+    RKNotificationHub* hub = [[RKNotificationHub alloc]initWithBarButtonItem:self.menuButtonItem]; // sets the count to 0
+    [hub scaleCircleSizeBy:0.8];
+    [hub increment];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationItem.leftBarButtonItem = self.menuButtonItem;
+    
     self.navigationItem.titleView = self.labelNavigationTitleRun;
+   
 }
 
 #pragma mark - collectionView Delegate

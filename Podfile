@@ -20,6 +20,7 @@ target 'XoSo' do
     pod 'CCBottomRefreshControl'
     pod 'IDMPhotoBrowser'
     pod 'GoogleAnalytics', '~> 3.13.0'
+    pod 'RKNotificationHub'
 end
 
 
