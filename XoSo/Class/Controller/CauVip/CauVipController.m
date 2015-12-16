@@ -12,7 +12,7 @@
 #import <UIAlertView+Blocks.h>
 #import "NSDate+Category.h"
 #import "TuongThuatController.h"
-
+#import "KiemxuController.h"
 @interface CauVipController ()
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonTInhMienTrung;
 @property (weak, nonatomic) IBOutlet UIButton *buttonChonTinhMienNam;
@@ -125,17 +125,29 @@
     [CauVipStore soiCauVipWithMaTinh:self.matinhTrung Done:^(BOOL success, NSString *content) {
         
          [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+        if (success) {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == [alertView cancelButtonIndex]) {
+                    
+                    NSLog(@"Cancelled");
+                } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
+                    
+                    NSLog(@"Have a cold beer");
+                }
+            }];
+
+        }
+        else {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+
+        }
         
-        [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            if (buttonIndex == [alertView cancelButtonIndex]) {
-                
-                NSLog(@"Cancelled");
-            } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
-                
-                NSLog(@"Have a cold beer");
-            }
-        }];
-    }];
+            }];
 }
 
 - (IBAction)SoiCauMienNam:(id)sender {
@@ -152,15 +164,28 @@
     [CauVipStore soiCauVipWithMaTinh:self.matinhNam Done:^(BOOL success, NSString *content) {
         
          [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-        [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            if (buttonIndex == [alertView cancelButtonIndex]) {
-                
-                NSLog(@"Cancelled");
-            } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
-                
-                NSLog(@"Have a cold beer");
-            }
-        }];
+        
+        if (success) {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == [alertView cancelButtonIndex]) {
+                    
+                    NSLog(@"Cancelled");
+                } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
+                    
+                    NSLog(@"Have a cold beer");
+                }
+            }];
+            
+        }
+        else {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+            
+        };
     }];
 }
 
@@ -175,18 +200,31 @@
         }];
         return;
     }
+    
     [CauVipStore soiCauVipWithMaTinh:1 Done:^(BOOL success, NSString *content) {
         
          [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-        [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            if (buttonIndex == [alertView cancelButtonIndex]) {
-                
-                NSLog(@"Cancelled");
-            } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
-                
-                NSLog(@"Have a cold beer");
-            }
-        }];
+        if (success) {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == [alertView cancelButtonIndex]) {
+                    
+                    NSLog(@"Cancelled");
+                } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"OK"]) {
+                    
+                    NSLog(@"Have a cold beer");
+                }
+            }];
+            
+        }
+        else {
+            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    KiemxuController *kiemXu = [KiemxuController new];
+                    [self.navigationController pushViewController:kiemXu animated:YES];
+                }
+            }];
+            
+        };
     }];
 }
 

@@ -95,6 +95,10 @@
                 [self.tableView reloadData];
             }];
         }
+        
+        [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem ==",@(NO)] success:^(BOOL succeeded, NSArray *objects) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiChangeEmailCount object:@(objects.count)];
+        }];
     }];
 }
 

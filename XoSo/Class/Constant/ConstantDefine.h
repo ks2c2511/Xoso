@@ -79,7 +79,7 @@
 #define notificationCaiDat @"notificationCaiDat"
 #define notifiReloadLoginAPI @"notifiReloadLoginAPI"
 #define notifiReloadAndTruTien @"notifiReloadAndTruTien"
-
+#define notifiChangeEmailCount @"notifiChangeEmailCount"
 //constance
 
 //key push

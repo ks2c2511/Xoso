@@ -11,5 +11,6 @@
 @interface LeftMenuCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageLogo;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *labelCount;
 
 @end

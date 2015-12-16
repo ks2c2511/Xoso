@@ -62,7 +62,13 @@
                     
                     NSArray *arr = responseObject;
                     if (arr.count != 0) {
-                        done(YES,[arr[0] objectForKey:@"content"]);
+                        if ([[arr[0] objectForKey:@"Status"] isEqualToString:@"2"]) {
+                            done(NO,[arr[0] objectForKey:@"content"]);
+                        }
+                        else {
+                            done(YES,[arr[0] objectForKey:@"content"]);
+                        }
+                        
                     }
                     else {
                         done (NO,nil);

@@ -27,13 +27,14 @@
 #import "ChatLevelOneController.h"
 #import "HuongDanController.h"
 #import <RKNotificationHub.h>
-
+#import "HopThuStore.h"
 static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 @interface HomeController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *arrData;
 @property (strong, nonatomic) Notifi *notifi;
 @property (strong, nonatomic) User *user;
+@property (strong,nonatomic) RKNotificationHub* hub;
 @end
 
 @implementation HomeController
@@ -104,9 +105,43 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     }];
     
     self.navigationItem.leftBarButtonItem = self.menuButtonItem;
-    RKNotificationHub* hub = [[RKNotificationHub alloc]initWithBarButtonItem:self.menuButtonItem]; // sets the count to 0
-    [hub scaleCircleSizeBy:0.8];
-    [hub increment];
+    
+    
+    if (self.user != nil) {
+        [HopThuStore GetEmailWithType:1 Done:^(BOOL success, NSArray *arr) {
+           
+                
+                [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem == 1"] success:^(BOOL succeeded, NSArray *objects) {
+                    if (objects.count > 0) {
+                       
+                        [self.hub incrementBy:objects.count];
+                    }
+                    else {
+                        [self.hub hideCount];
+                    }
+                }];
+        }];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:notifiChangeEmailCount object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        
+        if ([note.object isKindOfClass:[NSNumber class]]) {
+            NSNumber *number = note.object;
+            
+            if ([number integerValue] == 0) {
+                [self.hub hideCount];
+            }
+            else {
+                [self.hub incrementBy:[number integerValue]];
+            }
+        }
+        else {
+            [self.hub hideCount];
+        }
+       
+    }];
+  
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -153,7 +188,6 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
     else {
         [cell.imageLogo setImage:[UIImage imageNamed:self.arrData[indexPath.row][@"iconname"]]];
     }
-
 
     return cell;
 }
@@ -308,6 +342,15 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(RKNotificationHub *)hub {
+    if (!_hub) {
+        _hub = [[RKNotificationHub alloc]initWithBarButtonItem:self.menuButtonItem]; // sets the count to 0
+        [_hub scaleCircleSizeBy:0.8];
+    }
+    
+    return _hub;
 }
 
 @end

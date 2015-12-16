@@ -17,6 +17,7 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 @interface LeftMenu () <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) NSArray *arrData;
 @property (strong, nonatomic) User *user;
+@property (assign,nonatomic) NSInteger countEmail;
 @end
 
 @implementation LeftMenu
@@ -30,6 +31,19 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
 }
 -(void)awakeFromNib {
     [self settingTableMenu];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:notifiChangeEmailCount object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        
+        if ([note.object isKindOfClass:[NSNumber class]]) {
+            NSNumber *number = note.object;
+            
+            self.countEmail = [number integerValue];
+        }
+        else {
+            self.countEmail = 0;
+        }
+        
+    }];
 }
 
 -(void)settingTableMenu {
@@ -79,6 +93,17 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
     
     cell.labelTitle.text = self.arrData[indexPath.row][@"title"];
     [cell.imageLogo setImage:[UIImage imageNamed:self.arrData[indexPath.row][@"icon"]]];
+    
+     NSString *key = self.arrData[indexPath.row][@"key"];
+    
+    if ([key isEqualToString:@"menu_hop_thu"] && self.countEmail != 0) {
+        cell.labelCount.text = [NSString stringWithFormat:@"%d",self.countEmail];
+        cell.labelCount.hidden = NO;
+    }
+    else {
+        cell.labelCount.text = @"";
+        cell.labelCount.hidden = YES;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
