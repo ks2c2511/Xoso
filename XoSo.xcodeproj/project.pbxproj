@@ -55,6 +55,7 @@
 		6A5BA9141B7FA6E2008D5811 /* ChatLevelTwoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5BA9131B7FA6E2008D5811 /* ChatLevelTwoModel.m */; };
 		6A7078E61B49888300565E08 /* XemKQXSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7078E41B49888300565E08 /* XemKQXSController.m */; };
 		6A7078E71B49888300565E08 /* XemKQXSController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7078E51B49888300565E08 /* XemKQXSController.xib */; };
+		6A7420841C284A9800071431 /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7420831C284A9800071431 /* Formatter.m */; };
 		6A76AFDF1B7457FE00D98654 /* ThongkeChuaVeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A76AFDD1B7457FE00D98654 /* ThongkeChuaVeCell.m */; };
 		6A76AFE01B7457FE00D98654 /* ThongkeChuaVeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A76AFDE1B7457FE00D98654 /* ThongkeChuaVeCell.xib */; };
 		6A76AFE41B745B9A00D98654 /* ThongkeChuaVeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A76AFE21B745B9A00D98654 /* ThongkeChuaVeHeader.m */; };
@@ -444,6 +445,8 @@
 		6A7078E31B49888300565E08 /* XemKQXSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XemKQXSController.h; sourceTree = "<group>"; };
 		6A7078E41B49888300565E08 /* XemKQXSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XemKQXSController.m; sourceTree = "<group>"; };
 		6A7078E51B49888300565E08 /* XemKQXSController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XemKQXSController.xib; sourceTree = "<group>"; };
+		6A7420821C284A9800071431 /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
+		6A7420831C284A9800071431 /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
 		6A76AFDC1B7457FE00D98654 /* ThongkeChuaVeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThongkeChuaVeCell.h; sourceTree = "<group>"; };
 		6A76AFDD1B7457FE00D98654 /* ThongkeChuaVeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThongkeChuaVeCell.m; sourceTree = "<group>"; };
 		6A76AFDE1B7457FE00D98654 /* ThongkeChuaVeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThongkeChuaVeCell.xib; sourceTree = "<group>"; };
@@ -1121,6 +1124,23 @@
 			path = PopupSelectDate;
 			sourceTree = "<group>";
 		};
+		6A7420801C284A5E00071431 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6A7420811C284A7200071431 /* Formatter */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6A7420811C284A7200071431 /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				6A7420821C284A9800071431 /* Formatter.h */,
+				6A7420831C284A9800071431 /* Formatter.m */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
 		6A76AFE61B74610200D98654 /* Thongke */ = {
 			isa = PBXGroup;
 			children = (
@@ -1196,6 +1216,7 @@
 		6A79A9AA1B46F9A60098AB4A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				6A7420801C284A5E00071431 /* Utilities */,
 				6A79A9D71B46FCA20098AB4A /* Constant */,
 				6A79A9AB1B46F9A60098AB4A /* Category */,
 				6A79A9AD1B46F9A60098AB4A /* Custom */,
@@ -2693,6 +2714,7 @@
 				6A7078E61B49888300565E08 /* XemKQXSController.m in Sources */,
 				6A5BA8F61B7F8F82008D5811 /* ChatStore.m in Sources */,
 				6AFF074D1B653788000432C4 /* TuongThuatController.m in Sources */,
+				6A7420841C284A9800071431 /* Formatter.m in Sources */,
 				6AE7B2901B6689CF00D250AB /* LotoOnlineStore.m in Sources */,
 				6A79A98A1B46F4920098AB4A /* AppDelegate.m in Sources */,
 				6A9790D91B5E8A050004DD0E /* ChonCuocController.m in Sources */,
@@ -2857,7 +2879,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "2e838f7b-8635-4f01-928b-36e7323d1dfd";
+				PROVISIONING_PROFILE = "4d9bc09c-84d4-4eb9-9c60-f4c924a7b2da";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3009,7 +3031,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xoso.soicau;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2e838f7b-8635-4f01-928b-36e7323d1dfd";
+				PROVISIONING_PROFILE = "4d9bc09c-84d4-4eb9-9c60-f4c924a7b2da";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
@@ -3141,7 +3163,7 @@
 				6AFCFD171B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 		6A79A9A41B46F4920098AB4A /* Build configuration list for PBXNativeTarget "XoSo" */ = {
 			isa = XCConfigurationList;
@@ -3151,7 +3173,7 @@
 				6AFCFD181B90B3B2008E44CE /* Appstore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Appstore;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

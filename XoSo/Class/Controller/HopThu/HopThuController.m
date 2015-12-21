@@ -11,10 +11,12 @@
 #import "HopThuCell.h"
 #import "HopThuStore.h"
 #import <UIAlertView+Blocks.h>
+#import "Formatter.h"
 
 @interface HopThuController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSArray *arrData;
+
 @end
 
 @implementation HopThuController
@@ -23,7 +25,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Hộp thư";
     self.navigationItem.leftBarButtonItem = self.homeButtonItem;
-    
     
     [self.tableView registerClass:[HopThuCell class] forCellReuseIdentifier:NSStringFromClass([HopThuCell class])];
     self.tableView.tableFooterView = [UIView new];
@@ -34,6 +35,7 @@
             [self.tableView reloadData];
         }
     }];
+    
     
 }
 
@@ -72,7 +74,7 @@
     }
     
     cell.labelTitle.text = model.subject;
-    cell.abelTime.text = model.date;
+    cell.abelTime.text = [[Formatter ddMMyyyyDateFormatter]stringFromDate:[[Formatter yyyyMMddDateFormatter] dateFromString:model.date] ];
     
 }
 
@@ -81,7 +83,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
      Hopthu *model = self.arrData[indexPath.row];
     
-    [UIAlertView showWithTitle:[NSString stringWithFormat:@"%@ (%@)",model.subject,model.date] message:model.content cancelButtonTitle:@"OK" otherButtonTitles:@[@"Xoá"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
+    [UIAlertView showWithTitle:[NSString stringWithFormat:@"%@ (%@)",model.subject,[[Formatter ddMMyyyyDateFormatter]stringFromDate:[[Formatter yyyyMMddDateFormatter] dateFromString:model.date] ]] message:model.content cancelButtonTitle:@"OK" otherButtonTitles:@[@"Xoá"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
         if (buttonIndex == 1) {
             [model DeleteThis];
             self.arrData = [Hopthu fetchAll];
@@ -96,7 +98,7 @@
             }];
         }
         
-        [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem ==",@(NO)] success:^(BOOL succeeded, NSArray *objects) {
+        [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem == %@",@(NO)] success:^(BOOL succeeded, NSArray *objects) {
             [[NSNotificationCenter defaultCenter] postNotificationName:notifiChangeEmailCount object:@(objects.count)];
         }];
     }];
@@ -108,8 +110,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    
 }
 
 
