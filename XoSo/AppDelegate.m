@@ -297,37 +297,40 @@
 
     for (NSString *key in[userInfo allKeys]) {
         if ([key isEqualToString:@"message"]) {
-//            if (!self.navigationController) {
-//                [self showMainIsOnApp];
-//            }
-//            [self showHome];
+            if (!self.navigationController) {
+                [self showMainIsOnApp];
+            }
+            [self showHome];
             
             for (NSString *key in[userInfo allKeys]) {
                 if ([key isEqualToString:@"message"]) {
                     if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
                         TuongThuatController *tuongthuat = [TuongThuatController new];
-                        [self.navigationController pushViewController:tuongthuat animated:YES];
+                        [self.navigationController pushViewController:tuongthuat animated:NO];
+//                        return;
                     }
                     else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
                         [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+//                        return;
                     }
                     else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
                         KiemxuController *kiemxu = [KiemxuController new];
-                        [self.navigationController pushViewController:kiemxu animated:YES];
+                        [self.navigationController pushViewController:kiemxu animated:NO];
+//                        return;
                     }
                     else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
                         if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
                             [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn nạp xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
                                 if (buttonIndex == 1) {
                                     KiemxuController *kiemXu = [KiemxuController new];
-                                    [self.navigationController pushViewController:kiemXu animated:YES];
+                                    [self.navigationController pushViewController:kiemXu animated:NO];
                                 }
                             }];
-                            return;
+//                            return;
                         }
                         else {
                             CauVipController *soicau = [CauVipController new];
-                            [self.navigationController pushViewController:soicau animated:YES];
+                            [self.navigationController pushViewController:soicau animated:NO];
                         }
                     }
                     else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
