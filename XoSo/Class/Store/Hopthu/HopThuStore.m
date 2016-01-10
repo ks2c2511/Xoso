@@ -43,8 +43,10 @@
                                     hopthu.subject = model.subject;
                                     hopthu.content = model.content;
                                     hopthu.trung_lo = model.trung_lo;
+                                    hopthu.daxem = @(NO);
                                     hopthu.date = model.date;
                                 }
+                                
                             }];
                             
                             

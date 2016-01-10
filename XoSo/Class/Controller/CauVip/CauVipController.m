@@ -138,13 +138,20 @@
 
         }
         else {
-            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Tài khoản của quý khách không đủ để thực hiện chức năng này." cancelButtonTitle:@"Đóng" otherButtonTitles:nil tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    
+                }];
+            }
+            else {
+                [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        KiemxuController *kiemXu = [KiemxuController new];
+                        [self.navigationController pushViewController:kiemXu animated:YES];
+                    }
+                }];
+                
+            }
         }
         
             }];
@@ -178,13 +185,20 @@
             
         }
         else {
-            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-            
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Tài khoản của quý khách không đủ để thực hiện chức năng này." cancelButtonTitle:@"Đóng" otherButtonTitles:nil tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    
+                }];
+            }
+            else {
+                [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        KiemxuController *kiemXu = [KiemxuController new];
+                        [self.navigationController pushViewController:kiemXu animated:YES];
+                    }
+                }];
+
+            }
         };
     }];
 }
@@ -217,13 +231,20 @@
             
         }
         else {
-            [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    KiemxuController *kiemXu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemXu animated:YES];
-                }
-            }];
-            
+            if (![[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+                [UIAlertView showWithTitle:@"Thông báo" message:@"Tài khoản của quý khách không đủ để thực hiện chức năng này." cancelButtonTitle:@"Đóng" otherButtonTitles:nil tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    
+                }];
+            }
+            else {
+                [UIAlertView showWithTitle:@"Thông báo" message:content cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        KiemxuController *kiemXu = [KiemxuController new];
+                        [self.navigationController pushViewController:kiemXu animated:YES];
+                    }
+                }];
+                
+            }
         };
     }];
 }

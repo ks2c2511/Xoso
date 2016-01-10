@@ -42,8 +42,6 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
-    
 
     [self.collectionView registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:identifi_HomeCollectionCell];
 
@@ -64,62 +62,19 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         }
     }];
 
- 
-
-    [[NSNotificationCenter defaultCenter] addObserverForName:pushNotifiReceiveRemotePush object:nil queue:nil usingBlock: ^(NSNotification *note) {
-        NSDictionary *userInfo = note.userInfo;
-
-        for (NSString *key in[userInfo allKeys]) {
-            if ([key isEqualToString:@"message"]) {
-                if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
-                    TuongThuatController *tuongthuat = [TuongThuatController new];
-                    [self.navigationController pushViewController:tuongthuat animated:YES];
-                }
-                else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
-                }
-                else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
-                    KiemxuController *kiemxu = [KiemxuController new];
-                    [self.navigationController pushViewController:kiemxu animated:YES];
-                }
-                else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
-                    if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
-                        [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn nạp xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
-                            if (buttonIndex == 1) {
-                                KiemxuController *kiemXu = [KiemxuController new];
-                                [self.navigationController pushViewController:kiemXu animated:YES];
-                            }
-                        }];
-                        return;
-                    }
-                    else {
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadAndTruTien object:nil];
-                        CauVipController *soicau = [CauVipController new];
-                        [self.navigationController pushViewController:soicau animated:YES];
-                    }
-                }
-                else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
-                }
-            }
-        }
-    }];
     
     self.navigationItem.leftBarButtonItem = self.menuButtonItem;
     
     
     if (self.user != nil) {
+        
+
         [HopThuStore GetEmailWithType:1 Done:^(BOOL success, NSArray *arr) {
            
-                
-                [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem == 1"] success:^(BOOL succeeded, NSArray *objects) {
-                    if (objects.count > 0) {
-                       
-                        [self.hub incrementBy:objects.count];
-                    }
-                    else {
-                        [self.hub hideCount];
-                    }
-                }];
+            [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem == %@",@(NO)] success:^(BOOL succeeded, NSArray *objects) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:notifiChangeEmailCount object:@(objects.count)];
+            }];
+
         }];
     }
     
@@ -140,7 +95,6 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
         }
        
     }];
-  
   
 }
 
@@ -304,6 +258,9 @@ static NSString *identifi_HomeCollectionCell = @"identifi_HomeCollectionCell";
 
 - (BOOL)checkTienTrongtaikhoan {
     if (![[NSUserDefaults standardUserDefaults] boolForKey:key_turn_on_nap_the]) {
+        [UIAlertView showWithTitle:@"Thông báo" message:@"Chức năng đang phát triển." cancelButtonTitle:@"Đóng" otherButtonTitles:nil tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+           
+        }];
         return NO;
     }
     if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {

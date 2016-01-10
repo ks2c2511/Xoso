@@ -33,7 +33,9 @@
 #import "CaidatController.h"
 #import <StartApp/StartApp.h>
 #import "NaptheStore.h"
-
+#import "User.h"
+#import "Notifi.h"
+#import "CauVipController.h"
 @interface AppDelegate () <ECSlidingViewControllerDelegate>
 @property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
@@ -44,6 +46,9 @@
 @property (nonatomic, assign) BOOL connectedToGCM;
 @property (nonatomic, strong) NSString *registrationToken;
 @property (nonatomic, assign) BOOL subscribedToTopic;
+
+@property (strong,nonatomic) User *user;
+@property (strong,nonatomic) Notifi *notifi;
 @end
 
 @implementation AppDelegate
@@ -211,6 +216,59 @@
             }
         }
     }
+    
+    [Notifi fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
+        if (succeeded) {
+            Notifi *noti = [objects firstObject];
+            _notifi = noti;
+        }
+    }];
+    
+    [User fetchAllWithBlock: ^(BOOL succeeded, NSArray *objects) {
+        if (objects.count != 0) {
+            _user = [objects firstObject];
+        }
+        else {
+            _user = nil;
+        }
+    }];
+    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:pushNotifiReceiveRemotePush object:nil queue:nil usingBlock: ^(NSNotification *note) {
+//        NSDictionary *userInfo = note.userInfo;
+//        
+//        for (NSString *key in[userInfo allKeys]) {
+//            if ([key isEqualToString:@"message"]) {
+//                if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
+//                    TuongThuatController *tuongthuat = [TuongThuatController new];
+//                    [self.navigationController pushViewController:tuongthuat animated:YES];
+//                }
+//                else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+//                }
+//                else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
+//                    KiemxuController *kiemxu = [KiemxuController new];
+//                    [self.navigationController pushViewController:kiemxu animated:YES];
+//                }
+//                else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
+//                    if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+//                        [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn nạp xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+//                            if (buttonIndex == 1) {
+//                                KiemxuController *kiemXu = [KiemxuController new];
+//                                [self.navigationController pushViewController:kiemXu animated:YES];
+//                            }
+//                        }];
+//                        return;
+//                    }
+//                    else {
+//                        CauVipController *soicau = [CauVipController new];
+//                        [self.navigationController pushViewController:soicau animated:YES];
+//                    }
+//                }
+//                else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
+//                }
+//            }
+//        }
+//    }];
 
     STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
     sdk.appID = @"208348443";
@@ -239,14 +297,45 @@
 
     for (NSString *key in[userInfo allKeys]) {
         if ([key isEqualToString:@"message"]) {
-            if (!self.navigationController) {
-                [self showMainIsOnApp];
+//            if (!self.navigationController) {
+//                [self showMainIsOnApp];
+//            }
+//            [self showHome];
+            
+            for (NSString *key in[userInfo allKeys]) {
+                if ([key isEqualToString:@"message"]) {
+                    if ([userInfo[key] isEqualToString:key_push_push_kqxs]) {
+                        TuongThuatController *tuongthuat = [TuongThuatController new];
+                        [self.navigationController pushViewController:tuongthuat animated:YES];
+                    }
+                    else if ([userInfo[key] isEqualToString:key_push_pushcongtien]) {
+                        [[NSNotificationCenter defaultCenter] postNotificationName:notifiReloadLoginAPI object:nil];
+                    }
+                    else if ([userInfo[key] isEqualToString:key_push_pushkhuyenmai]) {
+                        KiemxuController *kiemxu = [KiemxuController new];
+                        [self.navigationController pushViewController:kiemxu animated:YES];
+                    }
+                    else if ([userInfo[key] isEqualToString:key_push_pushsoilo]) {
+                        if ([self.user.point integerValue] < [self.notifi.reducemonney integerValue]) {
+                            [UIAlertView showWithTitle:@"Thông báo" message:@"Số tiền trong tài khoản không đủ. Bạn có muốn nạp xu ngay." cancelButtonTitle:@"Huỷ" otherButtonTitles:@[@"Đồng ý"] tapBlock: ^(UIAlertView *alert, NSInteger buttonIndex) {
+                                if (buttonIndex == 1) {
+                                    KiemxuController *kiemXu = [KiemxuController new];
+                                    [self.navigationController pushViewController:kiemXu animated:YES];
+                                }
+                            }];
+                            return;
+                        }
+                        else {
+                            CauVipController *soicau = [CauVipController new];
+                            [self.navigationController pushViewController:soicau animated:YES];
+                        }
+                    }
+                    else if ([userInfo[key] isEqualToString:key_push_pushthongbao]) {
+                    }
+                }
             }
-            [self showHome];
 
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:pushNotifiReceiveRemotePush object:nil userInfo:userInfo];
-            });
+//                [[NSNotificationCenter defaultCenter] postNotificationName:pushNotifiReceiveRemotePush object:nil userInfo:userInfo];
         }
     }
 }

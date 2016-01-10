@@ -43,6 +43,8 @@ static NSString *const identifi_LeftMenuCell = @"identifi_LeftMenuCell";
             self.countEmail = 0;
         }
         
+        [self reloadData];
+        
     }];
 }
 

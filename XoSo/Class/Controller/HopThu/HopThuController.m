@@ -34,7 +34,12 @@
             _arrData = arr;
             [self.tableView reloadData];
         }
+        
+        [Hopthu fetchEntityObjectsWithPredicate:[NSPredicate predicateWithFormat:@"daxem == %@",@(NO)] success:^(BOOL succeeded, NSArray *objects) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:notifiChangeEmailCount object:@(objects.count)];
+        }];
     }];
+    
     
     
 }
@@ -64,7 +69,7 @@
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Hopthu *model = self.arrData[indexPath.row];
-    if (!model.daxem) {
+    if (![model.daxem boolValue]) {
         [cell.imageLogo setImage:[UIImage imageNamed:@"email_icon1.png"]];
         cell.labelTitle.textColor = [UIColor colorWithRed:20.0/255.0 green:112.0/255.0 blue:206.0/255.0 alpha:1.0];
     }

@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3</string>
+	<string>1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -31,6 +31,10 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Turn on location?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,6 +55,6 @@
 	<key>XtremePushApplicationKey</key>
 	<string>JStAxXO74h70lidBGiEMO3zOo3XLDTka</string>
 	<key>XtremePushSandoxMode</key>
-	<false/>
+	<true/>
 </dict>
 </plist>
